@@ -1,446 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
-<script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
-<style>
-  /* optional: override default widget CSS if you want embedded display */
-  #webchat .bpWebchat {
-    position: relative !important;
-    width: 100% !important;
-    height: 100% !important;
-    max-width: 100% !important;
-    max-height: 100% !important;
-    border-radius: 12px;
-    overflow: hidden;
-  }
-  /* hide floating bubble if using embedded layout */
-  #webchat .bpFab {
-    display: none !important;
-  }
-</style>
-
-<style>
-  #webchat .bpWebchat {
-    position: relative !important;
-    width: 100% !important;
-    height: 100% !important;
-    max-width: 100% !important;
-    max-height: 100% !important;
-    border-radius: 12px;
-    overflow: hidden;
-  }
-
-  #webchat .bpFab {
-    display: none !important;
-  }
-</style>
-
   <meta charset="UTF-8" />
-  <title>SyncToScale | Workflow Automation for Modern Teams</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta
-    name="description"
-    content="SyncToScale connects your tools like Salesforce, HubSpot, Slack, Jira, and Google Workspace so you can automate workflows and scale without extra busywork."
-  />
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
+  <title>SyncToScale</title>
+
+  <!-- Botpress Webchat -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
+  <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
+
+  <!-- Embedded Chat Styling -->
+  <style>
+    #webchat .bpWebchat {
+      position: relative !important;
+      width: 100% !important;
+      height: 100% !important;
+      max-width: 100% !important;
+      max-height: 100% !important;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    #webchat .bpFab {
+      display: none !important;
+    }
+
+    body {
+      font-family: Inter, Arial, sans-serif;
+      margin: 0;
+      background: #f8fafc;
+      color: #1e293b;
+    }
+
+    header {
+      background: #1e293b;
+      padding: 20px 0;
+    }
+
+    header .container {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #fff;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+
+    .nav a {
+      color: #cbd5e1;
+      margin-left: 20px;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      padding: 80px 20px;
+      text-align: center;
+      background: linear-gradient(to right, #1e40af, #3b82f6);
+      color: #fff;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    .section {
+      padding: 60px 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.05);
+      padding: 30px;
+      margin-bottom: 30px;
+    }
+
+    footer {
+      background: #1e293b;
+      color: #cbd5e1;
+      padding: 40px 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+  </style>
+
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <div class="logo">
-        <span class="logo-mark">S</span>
-        <span class="logo-text">SyncToScale</span>
-      </div>
-<div id="webchat" style="width:100%; height:700px;"></div>
 
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="logo">SyncToScale</div>
       <nav class="nav">
-        <button class="nav-toggle" aria-label="Toggle navigation">
-          <span></span>
-          <span></span>
-        </button>
-        <ul class="nav-links">
-          <li><a href="#features">Features</a></li>
-          <li><a href="#integrations">Integrations</a></li>
-          <li><a href="#how-it-works">How it works</a></li>
-          <li><a href="#pricing">Pricing</a></li>
-          <li><a href="#docs">API Docs</a></li>
-          <li><a href="#support">Support</a></li>
-          <li><a href="about.html">About</a></li>
-        </ul>
+        <a href="#features">Features</a>
+        <a href="#support">Support</a>
+        <a href="about.html">About</a>
       </nav>
-
-      <a href="#pricing" class="btn btn-outline btn-nav">Get Started</a>
     </div>
   </header>
 
-  <main>
-    <!-- Hero -->
-    <section id="hero" class="hero">
-      <div class="container hero-inner">
-        <div class="hero-copy">
-          <h1>Sync your systems. Scale your success.</h1>
-          <p>
-            SyncToScale connects your tools and automates workflows so your team
-            can focus on meaningful work instead of manual updates and copy-paste.
-          </p>
-          <div class="hero-actions">
-            <a href="#pricing" class="btn btn-primary">Get started free</a>
-            <a href="#how-it-works" class="btn btn-ghost">See how it works</a>
-          </div>
-          <p class="hero-subtext">
-            No code. No complex setup. Just clean, reliable automation.
-          </p>
-        </div>
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Sync Your Systems. Scale Your Success.</h1>
+    <p>A unified workflow engine connecting your business tools effortlessly.</p>
+  </section>
 
-        <div class="hero-visual">
-          <div class="hero-card">
-            <div class="hero-card-header">
-              <span class="badge badge-live">Live workflow</span>
-              <span class="hero-card-title">New Lead → Welcome Sequence</span>
-            </div>
-            <div class="hero-flow">
-              <div class="flow-node">
-                <span class="flow-label">Salesforce</span>
-                <span class="flow-desc">New Lead created</span>
-              </div>
-              <div class="flow-connector">→</div>
-              <div class="flow-node">
-                <span class="flow-label">HubSpot</span>
-                <span class="flow-desc">Create contact</span>
-              </div>
-              <div class="flow-connector">→</div>
-              <div class="flow-node">
-                <span class="flow-label">Slack</span>
-                <span class="flow-desc">Notify #new-leads</span>
-              </div>
-            </div>
-            <div class="hero-metrics">
-              <div class="metric">
-                <span class="metric-label">Runs today</span>
-                <span class="metric-value">128</span>
-              </div>
-              <div class="metric">
-                <span class="metric-label">Success rate</span>
-                <span class="metric-value">99.3%</span>
-              </div>
-              <div class="metric">
-                <span class="metric-label">Avg. latency</span>
-                <span class="metric-value">1.2s</span>
-              </div>
-            </div>
-          </div>
-          <div class="hero-pill hero-pill-bottom">
-            <span class="dot"></span>
-            <span>SyncToScale keeps every tool in sync, automatically.</span>
-          </div>
-        </div>
+  <!-- Features Section -->
+  <section id="features" class="section">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Platform Features</h2>
+        <p>Powerful automation built for modern operations.</p>
       </div>
-    </section>
 
-    <!-- Features -->
-    <section id="features" class="section">
-      <div class="container">
-        <div class="section-heading">
-          <h2>Built for teams that are done with busywork.</h2>
-          <p>
-            Drag-and-drop workflows, friendly error handling, and real-time sync
-            across the tools your team already lives in.
-          </p>
-        </div>
-
-        <div class="grid grid-3">
-          <article class="card feature-card">
-            <h3>Visual workflow builder</h3>
-            <p>
-              Automate tasks using a clean canvas of triggers and actions. No code,
-              no YAML, just links between the tools you already use.
-            </p>
-            <ul>
-              <li>Trigger on events like “New ticket” or “Closed won deal”.</li>
-              <li>Branch flows based on rules and conditions.</li>
-              <li>Re-use templates across accounts or teams.</li>
-            </ul>
-          </article>
-
-          <article class="card feature-card">
-            <h3>Real-time sync & observability</h3>
-            <p>
-              Keep data aligned across Salesforce, HubSpot, Jira, Slack, and more
-              with built-in logging and retries.
-            </p>
-            <ul>
-              <li>Run histories and latency views.</li>
-              <li>Automatic retries on transient failures.</li>
-              <li>Slack and email alerts for critical errors.</li>
-            </ul>
-          </article>
-
-          <article class="card feature-card">
-            <h3>API-friendly by design</h3>
-            <p>
-              Use the SyncToScale REST API and webhooks to extend automations or
-              plug the platform into your own stack.
-            </p>
-            <ul>
-              <li>Secure OAuth connections.</li>
-              <li>Webhooks for key events and status updates.</li>
-              <li>Simple JSON request / response patterns.</li>
-            </ul>
-          </article>
-        </div>
+      <div class="card">
+        <h3>Workflow Builder</h3>
+        <p>Create automated workflows across CRM, HRIS, project tools, and communications platforms.</p>
       </div>
-    </section>
 
-    <!-- Integrations -->
-    <section id="integrations" class="section section-soft">
-      <div class="container">
-        <div class="section-heading">
-          <h2>Works with the tools you already trust.</h2>
-          <p>
-            SyncToScale connects CRMs, support desks, project trackers, docs, and
-            communication tools into one reliable workflow layer.
-          </p>
-        </div>
-
-        <div class="integrations-grid">
-          <div class="integration-pill">Salesforce</div>
-          <div class="integration-pill">HubSpot</div>
-          <div class="integration-pill">Slack</div>
-          <div class="integration-pill">Jira</div>
-          <div class="integration-pill">Zendesk</div>
-          <div class="integration-pill">Notion</div>
-          <div class="integration-pill">Google Workspace</div>
-          <div class="integration-pill">QuickBooks</div>
-        </div>
-
-        <p class="integrations-footnote">
-          Need something custom? Use our API to connect any HTTP-based service.
-        </p>
+      <div class="card">
+        <h3>Integration Hub</h3>
+        <p>Connect Salesforce, HubSpot, Slack, Jira, Google Workspace, BambooHR, and more.</p>
       </div>
-    </section>
 
-    <!-- How it works -->
-    <section id="how-it-works" class="section">
-      <div class="container">
-        <div class="section-heading">
-          <h2>How SyncToScale fits into your day-to-day.</h2>
-        </div>
-
-        <div class="grid grid-3 steps-grid">
-          <div class="card step-card">
-            <span class="step-number">1</span>
-            <h3>Connect your apps</h3>
-            <p>
-              Securely authenticate Salesforce, HubSpot, Slack, Jira, and other
-              tools in a few clicks using OAuth-based connections.
-            </p>
-          </div>
-
-          <div class="card step-card">
-            <span class="step-number">2</span>
-            <h3>Design your workflows</h3>
-            <p>
-              Use triggers, filters, and actions to automate handoffs, sync fields,
-              and send notifications exactly when they’re needed.
-            </p>
-          </div>
-
-          <div class="card step-card">
-            <span class="step-number">3</span>
-            <h3>Monitor & scale</h3>
-            <p>
-              Track success rates, error trends, and run volume. Adjust workflows
-              over time and export logs for reporting or analysis.
-            </p>
-          </div>
-        </div>
+      <div class="card">
+        <h3>Intelligent Sync</h3>
+        <p>Real-time bi-directional syncing with error prevention and field mapping intelligence.</p>
       </div>
-    </section>
 
-    <!-- Pricing -->
-    <section id="pricing" class="section section-soft">
-      <div class="container">
-        <div class="section-heading">
-          <h2>Pricing that scales with your team.</h2>
-          <p>Start free, upgrade when your workflows do.</p>
-        </div>
+    </div>
+  </section>
 
-        <div class="grid grid-3 pricing-grid">
-          <div class="card pricing-card">
-            <h3>Starter</h3>
-            <p class="price">$0<span>/month</span></p>
-            <p class="price-tagline">For testing and small teams.</p>
-            <ul>
-              <li>Up to 5 workflows</li>
-              <li>2 integrations</li>
-              <li>1,000 runs / month</li>
-              <li>Email support</li>
-            </ul>
-            <a href="#support" class="btn btn-ghost full-width">Start free</a>
-          </div>
-
-          <div class="card pricing-card pricing-card-featured">
-            <div class="badge badge-pill">Most popular</div>
-            <h3>Growth</h3>
-            <p class="price">$49<span>/month</span></p>
-            <p class="price-tagline">For scaling teams and CS/TAM orgs.</p>
-            <ul>
-              <li>Unlimited workflows</li>
-              <li>All standard integrations</li>
-              <li>Priority error alerts</li>
-              <li>Shared templates & folders</li>
-            </ul>
-            <a href="#support" class="btn btn-primary full-width">Talk to us</a>
-          </div>
-
-          <div class="card pricing-card">
-            <h3>Enterprise</h3>
-            <p class="price">Let’s talk</p>
-            <p class="price-tagline">For complex stacks and high volume.</p>
-            <ul>
-              <li>Dedicated Technical Account Manager</li>
-              <li>SSO & SCIM provisioning</li>
-              <li>Custom integrations</li>
-              <li>24/7 support & SLA options</li>
-            </ul>
-            <a href="#support" class="btn btn-outline full-width">Contact sales</a>
-          </div>
-        </div>
+  <!-- Support Section -->
+  <section id="support" class="section">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Support</h2>
+        <p>Meet SyncBot Nova — your AI-powered support assistant.</p>
       </div>
-    </section>
 
-    <!-- API Docs -->
-    <section id="docs" class="section">
-      <div class="container">
-        <div class="section-heading">
-          <h2>Developer-friendly API & webhooks.</h2>
-          <p>
-            Extend SyncToScale, build custom automations, or plug the platform into
-            your own internal tools with a simple REST API.
-          </p>
-        </div>
+      <div class="card support-card">
+        <h3>Chat with SyncBot Nova</h3>
+        <p>Ask about workflows, integrations, troubleshooting, or the purpose of this project.</p>
 
-        <div class="docs-layout">
-          <div class="card docs-card">
-            <h3>Core endpoints</h3>
-            <pre><code>GET   /workflows
-POST  /workflows
-GET   /integrations
-POST  /connections
-GET   /events
-GET   /errors
-POST  /webhooks/validate</code></pre>
-          </div>
+        <div id="webchat" style="
+          width:100%;
+          height:650px;
+          margin-top:20px;
+          border-radius:12px;
+          overflow:hidden;
+        "></div>
 
-          <div class="card docs-card">
-            <h3>Sample request</h3>
-            <pre><code>POST /connections
-Content-Type: application/json
-
-{
-  "type": "salesforce",
-  "auth": {
-    "client_id": "xxxx",
-    "client_secret": "xxxx",
-    "refresh_token": "xxxx"
-  }
-}</code></pre>
-            <p class="docs-note">
-              In a real implementation, you’d store secrets securely and rotate
-              them regularly. For this portfolio project, you can keep this API
-              purely illustrative.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Support / AI Bot placeholder -->
-    <section id="support" class="section section-soft">
-      <div class="container">
-        <div class="section-heading">
-          <h2>Support that actually understands your workflows.</h2>
-          <p>
-            Whether you’re a CS lead, TAM, or admin, SyncToScale gives you clear
-            logs, actionable error messages, and human-first support.
-          </p>
-        </div>
-
-        <div class="support-layout">
-          <div class="card support-card">
-            <h3>Help center</h3>
-            <ul>
-              <li>Getting started with your first workflow</li>
-              <li>Troubleshooting common sync errors</li>
-              <li>Best practices for CS and TAM teams</li>
-              <li>API & webhook quick-start guides</li>
-            </ul>
-            <p class="support-contact">
-              Questions? Email
-              <a href="mailto:support@synctoscale.com">support@synctoscale.com</a>
-            </p>
-          </div>
-          <div class="card support-card">
-  <h3>Meet SyncBot Nova</h3>
-  <p>Your friendly AI assistant for all things SyncToScale.</p>
-  <iframe
-  src="https://www.chatbase.co/chatbot-embed/Rx5nuR91nqhSmwYsEs0e_"
-  width="100%"
-  height="700"
-  style="border: none; border-radius: 12px;"
-  title="SyncBot Nova">
-</iframe>
-</div>
-            </p>
-            <!-- Example placeholder for future bot embed -->
-            <!--
-            <div class="bot-embed">
-              &lt;iframe src="YOUR_BOT_URL" title="SyncToScale Support Bot"&gt;&lt;/iframe&gt;
-            </div>
-            -->
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-main">
-        <div class="logo">
-          <span class="logo-mark">S</span>
-          <span class="logo-text">SyncToScale</span>
-        </div>
-        <p class="footer-copy">
-          Workflow automation for modern teams who want fewer tabs, fewer manual
-          updates, and more time for real conversations.
-        </p>
-      </div>
-      <div class="footer-links">
-        <a href="#hero">Home</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#docs">API</a>
-        <a href="#support">Support</a>
-      </div>
-      <div class="footer-meta">
-        <span>© 2025 SyncToScale.</span>
-        <span>Fictional product for portfolio use.</span>
-        <div class="card" style="margin-top:2rem;">
-  <h3>About This Project</h3>
-  <p>Curious why this entire SaaS platform and AI support bot were built?</p>
-  <a href="about.html" class="btn btn-primary">Read the Project Overview</a>
-</div>
       </div>
     </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>SyncToScale — Portfolio Project by Christy</p>
   </footer>
 
-  <script src="script.js"></script>
 </body>
+
 </html>
