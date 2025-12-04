@@ -1,71 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SyncToScale</title>
 
-  <!-- Botpress -->
+  <!-- Botpress Webchat -->
   <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
   <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
 
+  <!-- Styles -->
   <style>
     body {
       margin: 0;
       font-family: Inter, Arial, sans-serif;
       background: #f8fafc;
+      color: #1e293b;
     }
 
-    /* NAVBAR */
+    /* Sticky Navbar */
     header {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: #0f172a;
-      padding: 16px 0;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
     }
 
     header .container {
-      width: 90%;
-      max-width: 1200px;
+      max-width: 1100px;
       margin: auto;
+      padding: 16px 20px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      color: white;
+      justify-content: space-between;
     }
 
     .logo {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       font-weight: 700;
-      letter-spacing: -0.5px;
+      color: #0b3d3d;
     }
 
-    nav a {
-      color: #cbd5e1;
-      margin-left: 22px;
+    .nav a {
+      color: #0b3d3d;
+      margin-left: 20px;
       text-decoration: none;
       font-size: 0.95rem;
-      transition: 0.2s;
+      font-weight: 500;
     }
 
-    nav a:hover {
-      color: white;
+    .nav a:hover {
+      color: #14b8a6;
     }
 
-    /* HERO BANNER (NEW, FIXED) */
-    .hero {
-      width: 100%;
-      height: 380px;
-      background-image: url('synctoscale-banner.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      border-bottom: 1px solid rgba(0,0,0,0.08);
-    }
+    /* HERO Banner with NO text */
+  /* HERO Banner with Glow + Shorter Height */
+/* HERO with banner + glowing behind it */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 260px; /* shorter hero */
+  overflow: hidden;
+}
 
-    /* SECTIONS */
+/* banner image goes ON TOP of glow */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('./synctoscale-banner.png') center/cover no-repeat;
+  z-index: 2; /* banner ABOVE glow */
+}
+
+/* GLOW 1 */
+.hero::after {
+  content: "";
+  position: absolute;
+  top: -80px;
+  left: -120px;
+  width: 420px;
+  height: 420px;
+  background: rgba(0, 255, 200, 0.25);
+  filter: blur(140px);
+  border-radius: 50%;
+  z-index: 1; /* glow BELOW banner */
+}
+
+/* SECOND GLOW LAYER */
+.hero .glow {
+  position: absolute;
+  bottom: -120px;
+  right: -150px;
+  width: 480px;
+  height: 480px;
+  background: rgba(20, 180, 160, 0.22);
+  filter: blur(160px);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+    /* General layout */
     .section {
       padding: 60px 20px;
     }
@@ -83,13 +120,13 @@
     .card {
       background: #fff;
       border-radius: 12px;
+      box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.05);
       padding: 30px;
       margin-bottom: 30px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
     }
 
     footer {
-      background: #0f172a;
+      background: #0b3d3d;
       color: #cbd5e1;
       padding: 40px 20px;
       text-align: center;
@@ -100,10 +137,11 @@
 
 <body>
 
+  <!-- Sticky Header -->
   <header>
     <div class="container">
       <div class="logo">SyncToScale</div>
-      <nav>
+      <nav class="nav">
         <a href="#features">Features</a>
         <a href="#support">Support</a>
         <a href="about.html">About</a>
@@ -111,12 +149,13 @@
     </div>
   </header>
 
-  <!-- FIXED HERO -->
-  <section class="hero"></section>
-
+  <!-- HERO with Banner ONLY (no text) -->
+<section class="hero">
+  <div class="glow"></div>
+</section>
+  <!-- Features Section -->
   <section id="features" class="section">
     <div class="container">
-
       <div class="section-heading">
         <h2>Platform Features</h2>
         <p>Powerful automation built for modern operations.</p>
@@ -124,22 +163,22 @@
 
       <div class="card">
         <h3>Workflow Builder</h3>
-        <p>Create automated workflows across your CRM, HRIS, project tools, and communications platforms.</p>
+        <p>Create automated workflows across CRM, HRIS, project tools, and communications platforms.</p>
       </div>
 
       <div class="card">
         <h3>Integration Hub</h3>
-        <p>Connect Salesforce, HubSpot, Slack, Jira, Google Workspace, and more.</p>
+        <p>Connect Salesforce, HubSpot, Slack, Jira, Google Workspace, BambooHR, and more.</p>
       </div>
 
       <div class="card">
         <h3>Intelligent Sync</h3>
-        <p>Realtime updates with field-mapping intelligence and error prevention.</p>
+        <p>Real-time bi-directional syncing with error prevention and field mapping intelligence.</p>
       </div>
-
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
     <p>SyncToScale — Portfolio Project by Christy</p>
   </footer>
