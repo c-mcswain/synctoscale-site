@@ -10,7 +10,6 @@
   <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
   <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
 
-  <!-- Styles -->
   <style>
     body {
       margin: 0;
@@ -19,7 +18,7 @@
       color: #1e293b;
     }
 
-    /* Sticky Navbar */
+    /* ---------------- NAVBAR ---------------- */
     header {
       position: sticky;
       top: 0;
@@ -56,54 +55,32 @@
       color: #14b8a6;
     }
 
-    /* HERO — with new banner */
+
+    /* ---------------- HERO (CONTAIN MODE) ---------------- */
     .hero {
-      position: relative;
       width: 100%;
-      height: 180px; /* Slightly taller for readability */
-      background: #e8fefe; /* fallback soft teal */
+      height: 180px; /* Try 160, 180, 200 */
+      background: #f8fafc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       overflow: hidden;
+      padding: 0;
+      margin: 0;
+      position: relative;
     }
 
-    /* Glow Layer */
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: -140px;
-      left: -160px;
-      width: 450px;
-      height: 450px;
-      background: rgba(0, 255, 200, 0.22);
-      filter: blur(120px);
-      border-radius: 50%;
-      z-index: 1;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      bottom: -160px;
-      right: -200px;
-      width: 500px;
-      height: 500px;
-      background: rgba(20, 180, 160, 0.18);
-      filter: blur(140px);
-      border-radius: 50%;
-      z-index: 1;
-    }
-
-    /* Actual banner image */
     .hero-img {
-      position: absolute;
-      inset: 0;
-      background: url('https://synctoscale.me/synctoscale-banner.png') center/cover no-repeat;
-      z-index: 2;
+      width: 100%;
+      height: 100%;
+      background: url('https://synctoscale.me/synctoscale-banner.png')
+        center/contain no-repeat;
     }
 
-    /* CONTENT SECTIONS */
+
+    /* ---------------- CONTENT ---------------- */
     .section {
       padding: 60px 20px;
-      background: #f8fafc;
     }
 
     .container {
@@ -119,12 +96,13 @@
     .card {
       background: #fff;
       border-radius: 12px;
-      box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.05);
       padding: 30px;
       margin-bottom: 30px;
+      box-shadow: 0px 4px 18px rgba(0,0,0,0.05);
     }
 
-    /* Footer */
+
+    /* ---------------- FOOTER ---------------- */
     footer {
       background: #0b3d3d;
       color: #cbd5e1;
@@ -138,7 +116,7 @@
 
 <body>
 
-  <!-- HEADER -->
+  <!-- NAVBAR -->
   <header>
     <div class="container">
       <div class="logo">SyncToScale</div>
@@ -150,7 +128,7 @@
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO (CONTAIN BANNER) -->
   <section class="hero">
     <div class="hero-img"></div>
   </section>
@@ -158,6 +136,7 @@
   <!-- FEATURES -->
   <section id="features" class="section">
     <div class="container">
+
       <div class="section-heading">
         <h2>Platform Features</h2>
         <p>Powerful automation built for modern operations.</p>
@@ -177,6 +156,7 @@
         <h3>Intelligent Sync</h3>
         <p>Real-time bi-directional syncing with error prevention and field mapping intelligence.</p>
       </div>
+
     </div>
   </section>
 
