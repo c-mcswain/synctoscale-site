@@ -57,11 +57,41 @@
     }
 
     /* HERO Banner with NO text */
-    .hero {
-      width: 100%;
-      height: 350px; /* Adjust if you want taller or shorter */
-      background: url('./synctoscale-banner.png') center/cover no-repeat;
-    }
+  /* HERO Banner with Glow + Shorter Height */
+.hero {
+  width: 100%;
+  height: 260px; /* SHORTER HERO */
+  background: url('./synctoscale-banner.png') center/cover no-repeat;
+  position: relative;
+  overflow: hidden;
+}
+
+/* glowing teal background behind the banner */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  left: -120px;
+  width: 420px;
+  height: 420px;
+  background: rgba(0, 255, 200, 0.25); /* teal glow */
+  filter: blur(120px);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: -120px;
+  right: -150px;
+  width: 480px;
+  height: 480px;
+  background: rgba(20, 180, 160, 0.22); /* secondary glow */
+  filter: blur(140px);
+  border-radius: 50%;
+  z-index: 0;
+}
 
     /* General layout */
     .section {
