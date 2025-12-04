@@ -58,39 +58,48 @@
 
     /* HERO Banner with NO text */
   /* HERO Banner with Glow + Shorter Height */
+/* HERO with banner + glowing behind it */
 .hero {
-  width: 100%;
-  height: 260px; /* SHORTER HERO */
-  background: url('./synctoscale-banner.png') center/cover no-repeat;
   position: relative;
+  width: 100%;
+  height: 260px; /* shorter hero */
   overflow: hidden;
 }
 
-/* glowing teal background behind the banner */
+/* banner image goes ON TOP of glow */
 .hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('./synctoscale-banner.png') center/cover no-repeat;
+  z-index: 2; /* banner ABOVE glow */
+}
+
+/* GLOW 1 */
+.hero::after {
   content: "";
   position: absolute;
   top: -80px;
   left: -120px;
   width: 420px;
   height: 420px;
-  background: rgba(0, 255, 200, 0.25); /* teal glow */
-  filter: blur(120px);
+  background: rgba(0, 255, 200, 0.25);
+  filter: blur(140px);
   border-radius: 50%;
-  z-index: 0;
+  z-index: 1; /* glow BELOW banner */
 }
 
-.hero::after {
-  content: "";
+/* SECOND GLOW LAYER */
+.hero .glow {
   position: absolute;
   bottom: -120px;
   right: -150px;
   width: 480px;
   height: 480px;
-  background: rgba(20, 180, 160, 0.22); /* secondary glow */
-  filter: blur(140px);
+  background: rgba(20, 180, 160, 0.22);
+  filter: blur(160px);
   border-radius: 50%;
-  z-index: 0;
+  z-index: 1;
 }
 
     /* General layout */
@@ -141,8 +150,9 @@
   </header>
 
   <!-- HERO with Banner ONLY (no text) -->
-  <section class="hero"></section>
-
+<section class="hero">
+  <div class="glow"></div>
+</section>
   <!-- Features Section -->
   <section id="features" class="section">
     <div class="container">
