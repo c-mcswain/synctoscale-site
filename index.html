@@ -10,7 +10,6 @@
   <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
   <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
 
-  <!-- Styles -->
   <style>
     body {
       margin: 0;
@@ -19,7 +18,7 @@
       color: #1e293b;
     }
 
-    /* Sticky Navbar */
+    /* NAVBAR */
     header {
       position: sticky;
       top: 0;
@@ -56,14 +55,14 @@
       color: #14b8a6;
     }
 
-    /* HERO WITH NO TEXT */
+    /* HERO — Banner Only */
     .hero {
       width: 100%;
       height: 360px;
       background: url('https://c-mcswain.github.io/synctoscale-site/synctoscale-banner.png') center/cover no-repeat;
     }
 
-    /* Layout Sections */
+    /* SECTIONS */
     .section {
       padding: 60px 20px;
     }
@@ -78,15 +77,87 @@
       margin-bottom: 40px;
     }
 
-    .card {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0px 4px 18px rgba(0,0,0,0.05);
-      padding: 30px;
-      margin-bottom: 30px;
+    /* -------------------- A — INTEGRATIONS GRID -------------------- */
+    .integrations-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+      gap: 24px;
+      justify-items: center;
+      align-items: center;
+      margin-top: 32px;
     }
 
-    /* Footer */
+    .integrations-grid img {
+      width: 48px;
+      height: 48px;
+      opacity: 0.85;
+      transition: opacity .2s, transform .2s;
+    }
+
+    .integrations-grid img:hover {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+
+    /* -------------------- B — HOW IT WORKS -------------------- */
+    .alt-bg {
+      background: #eefdfb;
+    }
+
+    .hiw-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    .hiw-card {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      width: 300px;
+      box-shadow: 0px 4px 16px rgba(0,0,0,0.06);
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .hiw-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0px 6px 20px rgba(0,0,0,0.1);
+    }
+
+    /* -------------------- C — VALUE SECTION -------------------- */
+    .value-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .value-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .value-img img {
+      width: 100%;
+      max-width: 420px;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+
+    .value-list {
+      margin-top: 20px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .value-list li {
+      margin: 10px 0;
+      font-size: 1.05rem;
+    }
+
+    /* FOOTER */
     footer {
       background: #0b3d3d;
       color: #cbd5e1;
@@ -99,118 +170,91 @@
 
 <body>
 
-  <!-- Sticky Header -->
+  <!-- NAVBAR -->
   <header>
     <div class="container">
       <div class="logo">SyncToScale</div>
       <nav class="nav">
-        <a href="#features">Features</a>
-        <a href="#support">Support</a>
+        <a href="#integrations">Integrations</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#value">Why SyncToScale</a>
         <a href="about.html">About</a>
       </nav>
     </div>
   </header>
 
-  <!-- HERO (Image Only, No Text) -->
+  <!-- HERO -->
   <section class="hero"></section>
 
-  <!-- Features Section -->
-  <section id="features" class="section">
+  <!-- A — INTEGRATIONS GRID -->
+  <section id="integrations" class="section">
     <div class="container">
       <div class="section-heading">
-        <h2>Platform Features</h2>
-        <p>Powerful automation built for modern operations.</p>
+        <h2>Works Seamlessly With Your Tools</h2>
+        <p>SyncToScale connects your business systems so data flows exactly where you need it.</p>
       </div>
 
-      <div class="card">
-        <h3>Workflow Builder</h3>
-        <p>Create automated workflows across CRM, HRIS, project tools, and communications platforms.</p>
-      </div>
-
-      <div class="card">
-        <h3>Integration Hub</h3>
-        <p>Connect Salesforce, HubSpot, Slack, Jira, Google Workspace, BambooHR, and more.</p>
-      </div>
-
-      <div class="card">
-        <h3>Intelligent Sync</h3>
-        <p>Real-time bi-directional syncing with error prevention and field mapping intelligence.</p>
+      <div class="integrations-grid">
+        <img src="https://cdn.simpleicons.org/salesforce/00A1E0" alt="Salesforce" />
+        <img src="https://cdn.simpleicons.org/hubspot/FF7A59" alt="HubSpot" />
+        <img src="https://cdn.simpleicons.org/slack/4A154B" alt="Slack" />
+        <img src="https://cdn.simpleicons.org/jira/0052CC" alt="Jira" />
+        <img src="https://cdn.simpleicons.org/googleworkspace/4285F4" alt="Google Workspace" />
+        <img src="https://cdn.simpleicons.org/asana/273347" alt="Asana" />
+        <img src="https://cdn.simpleicons.org/notion/000000" alt="Notion" />
       </div>
     </div>
   </section>
-<!-- INTEGRATIONS GRID -->
-<section id="integrations" class="section">
-  <div class="container">
-    <div class="section-heading">
-      <h2>Works Seamlessly With Your Tools</h2>
-      <p>SyncToScale connects your business systems so data flows exactly where you need it.</p>
-    </div>
 
-    <div class="integrations-grid">
-      <div><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/salesforce.svg" alt="Salesforce"></div>
-      <div><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/hubspot.svg" alt="HubSpot"></div>
-      <div><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/slack.svg" alt="Slack"></div>
-      <div><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/jira.svg" alt="Jira"></div>
-      <div><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/googleworkspace.svg" alt="Google Workspace"></div>
-      <div><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/asana.svg" alt="Asana"></div>
-      <div><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/notion.svg" alt="Notion"></div>
-    </div>
-  </div>
-</section>
-
-
-
-<!-- HOW IT WORKS -->
-<section id="how-it-works" class="section alt-bg">
-  <div class="container">
-    <div class="section-heading">
-      <h2>How SyncToScale Works</h2>
-      <p>Automate. Streamline. Scale — all without writing a single line of code.</p>
-    </div>
-
-    <div class="hiw-grid">
-      <div class="hiw-card">
-        <h3>1. Connect Your Tools</h3>
-        <p>Integrate your CRM, HRIS, project manager, or communication platforms in seconds.</p>
+  <!-- B — HOW IT WORKS -->
+  <section id="how-it-works" class="section alt-bg">
+    <div class="container">
+      <div class="section-heading">
+        <h2>How SyncToScale Works</h2>
+        <p>Automate. Streamline. Scale — no engineering required.</p>
       </div>
 
-      <div class="hiw-card">
-        <h3>2. Build Smart Workflows</h3>
-        <p>Create automations that sync data, trigger actions, and eliminate manual tasks.</p>
+      <div class="hiw-grid">
+        <div class="hiw-card">
+          <h3>1. Connect Your Tools</h3>
+          <p>Integrate your CRM, HRIS, project apps, and communication platforms in seconds.</p>
+        </div>
+
+        <div class="hiw-card">
+          <h3>2. Build Smart Workflows</h3>
+          <p>Create flows that sync data, trigger actions, and eliminate repetitive tasks.</p>
+        </div>
+
+        <div class="hiw-card">
+          <h3>3. Scale Effortlessly</h3>
+          <p>Enjoy real-time syncing and error-free automation as your business grows.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- C — VALUE SECTION -->
+  <section id="value" class="section">
+    <div class="container value-flex">
+      <div class="value-text">
+        <h2>Why Teams Choose SyncToScale</h2>
+        <p>Businesses waste hours maintaining systems that should already talk to each other. SyncToScale eliminates gaps, giving your team reliable automation and real-time visibility.</p>
+
+        <ul class="value-list">
+          <li>✔ Real-time syncing across your entire workflow</li>
+          <li>✔ Zero-code automation engine</li>
+          <li>✔ Prevents duplicates and data inconsistencies</li>
+          <li>✔ Built for SaaS, HR, operations, and revenue teams</li>
+        </ul>
       </div>
 
-      <div class="hiw-card">
-        <h3>3. Scale With Confidence</h3>
-        <p>Enjoy accurate, bi-directional syncing and error-free processes as your business grows.</p>
+      <div class="value-img">
+        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=900&q=60" alt="Dashboard mockup">
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-
-
-<!-- VALUE SECTION -->
-<section id="value" class="section">
-  <div class="container value-flex">
-    <div class="value-text">
-      <h2>Why Teams Choose SyncToScale</h2>
-      <p>Businesses waste hours manually updating systems that should already talk to each other. SyncToScale eliminates the gaps — giving teams real-time visibility, reliable automation, and effortless scaling.</p>
-
-      <ul class="value-list">
-        <li>✔ Real-time syncing across your entire workflow</li>
-        <li>✔ Zero-code automation engine</li>
-        <li>✔ Prevents duplicates, errors, and broken processes</li>
-        <li>✔ Built for SaaS, HR, operations, and customer-facing teams</li>
-      </ul>
-    </div>
-
-    <div class="value-img">
-      <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=900&q=60" alt="Dashboard mockup">
-    </div>
-  </div>
-</section>
-
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer>
     <p>SyncToScale — Portfolio Project by Christy</p>
   </footer>
