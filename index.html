@@ -25,7 +25,7 @@
       z-index: 1000;
       background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(10px);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
     }
 
     header .container {
@@ -77,11 +77,11 @@
       margin-bottom: 40px;
     }
 
-    /* -------------------- A — INTEGRATIONS GRID -------------------- */
+    /* A — FIXED INTEGRATIONS GRID */
     .integrations-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-      gap: 24px;
+      gap: 28px;
       justify-items: center;
       align-items: center;
       margin-top: 32px;
@@ -90,6 +90,7 @@
     .integrations-grid img {
       width: 48px;
       height: 48px;
+      object-fit: contain;
       opacity: 0.85;
       transition: opacity .2s, transform .2s;
     }
@@ -99,7 +100,7 @@
       transform: scale(1.1);
     }
 
-    /* -------------------- B — HOW IT WORKS -------------------- */
+    /* HOW IT WORKS */
     .alt-bg {
       background: #eefdfb;
     }
@@ -126,7 +127,7 @@
       box-shadow: 0px 6px 20px rgba(0,0,0,0.1);
     }
 
-    /* -------------------- C — VALUE SECTION -------------------- */
+    /* VALUE SECTION */
     .value-flex {
       display: flex;
       flex-wrap: wrap;
@@ -195,14 +196,15 @@
       </div>
 
       <div class="integrations-grid">
-        <img src="https://cdn.simpleicons.org/salesforce/00A1E0" alt="Salesforce" />
-        <img src="https://cdn.simpleicons.org/hubspot/FF7A59" alt="HubSpot" />
-        <img src="https://cdn.simpleicons.org/slack/4A154B" alt="Slack" />
-        <img src="https://cdn.simpleicons.org/jira/0052CC" alt="Jira" />
-        <img src="https://cdn.simpleicons.org/googleworkspace/4285F4" alt="Google Workspace" />
-        <img src="https://cdn.simpleicons.org/asana/273347" alt="Asana" />
-        <img src="https://cdn.simpleicons.org/notion/000000" alt="Notion" />
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/salesforce/salesforce-original.svg" alt="Salesforce" />
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hubspot/hubspot-original.svg" alt="HubSpot" />
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slack/slack-original.svg" alt="Slack" />
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" alt="Jira" />
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Google Workspace" />
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/asana/asana-original.svg" alt="Asana" />
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/notion/notion-original.svg" alt="Notion" />
       </div>
+
     </div>
   </section>
 
