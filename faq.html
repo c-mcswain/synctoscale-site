@@ -14,12 +14,8 @@
     ---------------------------------------- */
     .faq-hero {
       text-align: center;
-      padding: 40px 20px; /* slimmer hero */
-      background: linear-gradient(
-        180deg,
-        #f0f9ff 0%,
-        #ffffff 90%
-      );
+      padding: 40px 20px;
+      background: linear-gradient(180deg, #f0f9ff 0%, #ffffff 90%);
       border-bottom: 1px solid #e2e8f0;
     }
 
@@ -41,21 +37,21 @@
     .recruiter-cta {
       background: #f0f9ff;
       border: 1px solid #bae6fd;
-      padding: 26px;
+      padding: 24px;
       border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-      margin-bottom: 10px !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      margin: 0 auto;
       text-align: center;
     }
 
     .recruiter-cta h3 {
-      margin: 0 0 8px 0;
+      margin: 0 0 6px 0;
       font-size: 22px;
       font-weight: 700;
     }
 
     .recruiter-cta p {
-      margin: 0 0 15px 0;
+      margin: 0 0 12px 0;
       font-size: 16px;
       color: #475569;
     }
@@ -76,13 +72,26 @@
     }
 
     /* ----------------------------------------
-       FAQ GRID
+       FIX CTA → FAQ SPACING (NEARLY TOUCHING)
     ---------------------------------------- */
+    .cta-section {
+      padding: 8px 0 !important;
+      margin-bottom: 0 !important;
+    }
+
     .faq-section {
-      padding-top: 20px !important; /* drastically reduced spacing */
+      padding-top: 4px !important;
       margin-top: 0 !important;
     }
 
+    .faq-section h2 {
+      margin-top: 6px !important;
+      margin-bottom: 18px;
+    }
+
+    /* ----------------------------------------
+       FAQ GRID
+    ---------------------------------------- */
     .faq-grid {
       display: grid;
       gap: 24px;
@@ -94,13 +103,13 @@
       padding: 24px;
       border-radius: 16px;
       border: 1px solid #e2e8f0;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: 0.2s ease;
     }
 
     .faq-card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.07);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
     }
 
     .faq-question {
@@ -139,141 +148,141 @@
 
 <body>
 
-<!-- NAVBAR -->
-<header>
-  <div class="container">
-    <a href="index.html" class="logo">SyncToScale</a>
+  <!-- NAVBAR -->
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo">SyncToScale</a>
 
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="features.html">Features</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="about.html">About</a>
-      <a href="faq.html">FAQ</a>
-      <a href="resources.html">Resources</a>
-    </nav>
-  </div>
-</header>
-
-<!-- SLIM PASTEL HERO -->
-<section class="faq-hero">
-  <h1>Frequently Asked Questions</h1>
-  <p>Soft, simple answers about a not-so-simple automation project.</p>
-</section>
-
-<!-- RECRUITER CTA (with tightened spacing) -->
-<section class="section cta-section">
-  <div class="container">
-    <div class="recruiter-cta">
-      <h3>Hey recruiters & hiring managers 👋</h3>
-      <p>This project showcases workflow design, automation reasoning, and TAM/CSM technical thinking.</p>
-      <a class="cta-btn" href="about.html">See the story behind SyncToScale →</a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="resources.html">Resources</a>
+      </nav>
     </div>
-  </div>
-</section>
+  </header>
 
-<!-- FAQ CONTENT (with tightened spacing) -->
-<section class="section alt faq-section">
-  <div class="container">
+  <!-- SLIM PASTEL HERO -->
+  <section class="faq-hero">
+    <h1>Frequently Asked Questions</h1>
+    <p>Soft, simple answers about a not-so-simple automation project.</p>
+  </section>
 
-    <h2 style="margin-bottom: 20px;">General Questions</h2>
+  <!-- RECRUITER CTA -->
+  <section class="section cta-section">
+    <div class="container">
+      <div class="recruiter-cta">
+        <h3>Hey recruiters & hiring managers 👋</h3>
+        <p>This project showcases workflow design, automation reasoning, and TAM/CSM technical thinking.</p>
+        <a class="cta-btn" href="about.html">See the story behind SyncToScale →</a>
+      </div>
+    </div>
+  </section>
 
-    <div class="faq-grid">
+  <!-- FAQ CONTENT -->
+  <section class="section alt faq-section">
+    <div class="container">
 
-      <div class="faq-card">
-        <button class="faq-question">
-          What is SyncToScale?
-          <span class="chevron">⌄</span>
-        </button>
-        <div class="faq-answer">
-          A conceptual automation platform built to demonstrate workflow logic, multi-system reasoning,
-          troubleshooting patterns, and platform behavior — not a live production tool.
+      <h2>General Questions</h2>
+
+      <div class="faq-grid">
+
+        <div class="faq-card">
+          <button class="faq-question">
+            What is SyncToScale?
+            <span class="chevron">⌄</span>
+          </button>
+          <div class="faq-answer">
+            A conceptual automation platform built to demonstrate workflow logic, multi-system reasoning,
+            troubleshooting patterns, and platform behavior — not a live production tool.
+          </div>
         </div>
+
+        <div class="faq-card">
+          <button class="faq-question">
+            Who is this project for?
+            <span class="chevron">⌄</span>
+          </button>
+          <div class="faq-answer">
+            TAMs, CSMs, RevOps, People Ops, and SaaS professionals who manage cross-tool workflows.
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <button class="faq-question">
+            Do I need technical experience?
+            <span class="chevron">⌄</span>
+          </button>
+          <div class="faq-answer">
+            Nope — everything is written in human-readable language that avoids engineering jargon.
+          </div>
+        </div>
+
       </div>
 
-      <div class="faq-card">
-        <button class="faq-question">
-          Who is this project for?
-          <span class="chevron">⌄</span>
-        </button>
-        <div class="faq-answer">
-          TAMs, CSMs, RevOps, People Ops, and SaaS professionals who manage cross-tool workflows.
-        </div>
-      </div>
+      <!-- CATEGORY -->
+      <h2 style="margin: 32px 0 18px;">Workflows & Integrations</h2>
 
-      <div class="faq-card">
-        <button class="faq-question">
-          Do I need technical experience?
-          <span class="chevron">⌄</span>
-        </button>
-        <div class="faq-answer">
-          Nope — everything is written in human-readable language that avoids engineering jargon.
+      <div class="faq-grid">
+
+        <div class="faq-card">
+          <button class="faq-question">
+            How do the workflows work?
+            <span class="chevron">⌄</span>
+          </button>
+          <div class="faq-answer">
+            Workflows use a simple structure: Trigger → Conditions → Actions.  
+            This mirrors real-world SaaS automation logic.
+          </div>
         </div>
+
+        <div class="faq-card">
+          <button class="faq-question">
+            Are the integrations real?
+            <span class="chevron">⌄</span>
+          </button>
+          <div class="faq-answer">
+            No — they're conceptual demonstrations of how systems *would* behave, not live API calls.
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <button class="faq-question">
+            Can workflows chain across tools?
+            <span class="chevron">⌄</span>
+          </button>
+          <div class="faq-answer">
+            Yes — examples include Salesforce → Slack, Google Forms → Jira, and other multi-app sequences.
+          </div>
+        </div>
+
       </div>
 
     </div>
+  </section>
 
-    <!-- CATEGORY -->
-    <h2 style="margin: 40px 0 20px;">Workflows & Integrations</h2>
+  <!-- FAQ SCRIPT -->
+  <script>
+    document.querySelectorAll(".faq-card").forEach(card => {
+      const btn = card.querySelector(".faq-question");
 
-    <div class="faq-grid">
+      btn.addEventListener("click", () => {
+        const open = card.classList.contains("open");
 
-      <div class="faq-card">
-        <button class="faq-question">
-          How do the workflows work?
-          <span class="chevron">⌄</span>
-        </button>
-        <div class="faq-answer">
-          Workflows use a simple structure: Trigger → Conditions → Actions.  
-          This mirrors real-world SaaS automation logic.
-        </div>
-      </div>
+        document.querySelectorAll(".faq-card").forEach(c => {
+          c.classList.remove("open");
+          c.querySelector(".faq-answer").style.display = "none";
+        });
 
-      <div class="faq-card">
-        <button class="faq-question">
-          Are the integrations real?
-          <span class="chevron">⌄</span>
-        </button>
-        <div class="faq-answer">
-          No — they're conceptual demonstrations of how systems *would* behave, not live API calls.
-        </div>
-      </div>
-
-      <div class="faq-card">
-        <button class="faq-question">
-          Can workflows chain across tools?
-          <span class="chevron">⌄</span>
-        </button>
-        <div class="faq-answer">
-          Yes — examples include Salesforce → Slack, Google Forms → Jira, and other multi-app sequences.
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- FAQ SCRIPT -->
-<script>
-  document.querySelectorAll(".faq-card").forEach(card => {
-    const btn = card.querySelector(".faq-question");
-
-    btn.addEventListener("click", () => {
-      const open = card.classList.contains("open");
-
-      document.querySelectorAll(".faq-card").forEach(c => {
-        c.classList.remove("open");
-        c.querySelector(".faq-answer").style.display = "none";
+        if (!open) {
+          card.classList.add("open");
+          card.querySelector(".faq-answer").style.display = "block";
+        }
       });
-
-      if (!open) {
-        card.classList.add("open");
-        card.querySelector(".faq-answer").style.display = "block";
-      }
     });
-  });
-</script>
+  </script>
 
 </body>
 </html>
