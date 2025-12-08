@@ -5,42 +5,53 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FAQ | SyncToScale</title>
+
   <link rel="stylesheet" href="styles.css" />
-  
+
   <style>
-    /* CUTE FAQ OVERRIDES */
+    /* ----------------------------------------
+       SLIM, CUTE, PASTEL HERO
+    ---------------------------------------- */
     .faq-hero {
       text-align: center;
-      padding: 80px 20px;
-      background: #ffffff;
+      padding: 40px 20px; /* slimmer hero */
+      background: linear-gradient(
+        180deg,
+        #f0f9ff 0%,
+        #ffffff 90%
+      );
       border-bottom: 1px solid #e2e8f0;
     }
 
     .faq-hero h1 {
-      font-size: 40px;
-      margin-bottom: 10px;
+      font-size: 34px;
+      margin-bottom: 6px;
       font-weight: 700;
     }
 
     .faq-hero p {
-      font-size: 18px;
+      font-size: 16px;
       color: #64748b;
+      margin: 0;
     }
 
-    /* Recruiter CTA */
+    /* ----------------------------------------
+       RECRUITER CTA (CUTER VERSION)
+    ---------------------------------------- */
     .recruiter-cta {
       background: #f0f9ff;
       border: 1px solid #bae6fd;
-      padding: 28px;
+      padding: 26px;
       border-radius: 16px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-      margin-bottom: 50px;
+      margin-bottom: 35px; /* reduced spacing */
       text-align: center;
     }
 
     .recruiter-cta h3 {
-      margin: 0 0 10px 0;
+      margin: 0 0 8px 0;
       font-size: 22px;
+      font-weight: 700;
     }
 
     .recruiter-cta p {
@@ -59,11 +70,18 @@
       text-decoration: none;
       transition: 0.2s;
     }
+
     .cta-btn:hover {
       background: #0284c7;
     }
 
-    /* FAQ Cards */
+    /* ----------------------------------------
+       FAQ GRID
+    ---------------------------------------- */
+    .faq-section {
+      padding-top: 30px !important; /* reduced spacing */
+    }
+
     .faq-grid {
       display: grid;
       gap: 24px;
@@ -114,6 +132,7 @@
       color: #475569;
       line-height: 1.6;
     }
+
   </style>
 
 </head>
@@ -136,7 +155,7 @@
   </div>
 </header>
 
-<!-- CUTE HERO -->
+<!-- SLIM PASTEL HERO -->
 <section class="faq-hero">
   <h1>Frequently Asked Questions</h1>
   <p>Soft, simple answers about a not-so-simple automation project.</p>
@@ -146,15 +165,15 @@
 <section class="section">
   <div class="container">
     <div class="recruiter-cta">
-      <h3>Hey recruiters and hiring managers 👋</h3>
-      <p>This project was created to demonstrate systems thinking, workflow design, and TAM/CSM expertise.</p>
-      <a class="cta-btn" href="about.html">Read the story behind SyncToScale →</a>
+      <h3>Hey recruiters & hiring managers 👋</h3>
+      <p>This project demonstrates workflow thinking, automation logic, and TAM/CSM problem-solving.</p>
+      <a class="cta-btn" href="about.html">See the story behind SyncToScale →</a>
     </div>
   </div>
 </section>
 
-<!-- FAQ GRID -->
-<section class="section alt">
+<!-- FAQ CONTENT -->
+<section class="section alt faq-section">
   <div class="container">
 
     <h2 style="margin-bottom: 20px;">General Questions</h2>
@@ -167,8 +186,8 @@
           <span class="chevron">⌄</span>
         </button>
         <div class="faq-answer">
-          A conceptual automation platform designed to model workflow behavior, troubleshooting,
-          and cross-system reasoning — not a real production tool.
+          A conceptual automation platform designed to showcase workflow logic, troubleshooting structure,
+          multi-app reasoning, and system-level thinking.
         </div>
       </div>
 
@@ -178,17 +197,17 @@
           <span class="chevron">⌄</span>
         </button>
         <div class="faq-answer">
-          TAMs, CSMs, RevOps, People Ops, and anyone who works across multiple SaaS systems.
+          TAMs, CSMs, RevOps, People Ops, and anyone who manages workflows across multiple SaaS tools.
         </div>
       </div>
 
       <div class="faq-card">
         <button class="faq-question">
-          Do I need technical skills to understand it?
+          Do I need technical experience?
           <span class="chevron">⌄</span>
         </button>
         <div class="faq-answer">
-          Nope! It's intentionally written in human-readable language.
+          Nope — everything is human-readable and written to be approachable, even without coding skills.
         </div>
       </div>
 
@@ -201,31 +220,32 @@
 
       <div class="faq-card">
         <button class="faq-question">
-          How do workflows work here?
+          How do the workflows work?
           <span class="chevron">⌄</span>
         </button>
         <div class="faq-answer">
-          Trigger → Conditions → Actions. A simple framework that mirrors real SaaS automation.
+          They follow a simple pattern: Trigger → Conditions → Actions.  
+          Just like a real automation platform would.
         </div>
       </div>
 
       <div class="faq-card">
         <button class="faq-question">
-          Are these integrations real?
+          Are the integrations real?
           <span class="chevron">⌄</span>
         </button>
         <div class="faq-answer">
-          Not live connections — they demonstrate logic, patterns, and troubleshooting styles.
+          No — they’re conceptual models written to describe realistic system behavior without actual API connections.
         </div>
       </div>
 
       <div class="faq-card">
         <button class="faq-question">
-          Can workflows chain across apps?
+          Can workflows chain across tools?
           <span class="chevron">⌄</span>
         </button>
         <div class="faq-answer">
-          Yes — the demos show Salesforce → Slack, Google → Jira, and more.
+          Yes — the examples show Salesforce → Slack, Google → Jira, and other multi-system patterns.
         </div>
       </div>
 
@@ -234,6 +254,7 @@
   </div>
 </section>
 
+<!-- FAQ SCRIPT -->
 <script>
   document.querySelectorAll(".faq-card").forEach(card => {
     const btn = card.querySelector(".faq-question");
