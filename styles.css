@@ -389,3 +389,20 @@ pre {
   margin-top: 12px;
   display: none;
 }
+/* FAQ spacing fix */
+.faq-hero {
+  padding-bottom: 60px !important;
+}
+
+.faq-section {
+  padding-top: 30px !important;  /* reduces top whitespace */
+}
+
+.faq-section h2 {
+  margin-top: 0 !important;
+}
+
+/* Remove extra margin between CTA and grid */
+.recruiter-cta {
+  margin-bottom: 30px !important;
+}
