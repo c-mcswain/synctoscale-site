@@ -5,117 +5,108 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Resources | SyncToScale</title>
-
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
-  <header class="site-header">
-    <div class="container header-inner">
+<!-- NAVBAR -->
+<header>
+  <div class="container">
+    <a href="index.html" class="logo">SyncToScale</a>
 
-      <a href="index.html" class="logo">SyncToScale</a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="about.html">About</a>
 
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="features.html">Features</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="about.html">About</a>
-        <a href="faq.html">FAQ</a>
-        <a href="security.html">Security</a>
-        <a href="resources.html" class="active">Resources</a>
-      </nav>
+      <div class="dropdown">
+        <button class="dropbtn">Resources</button>
+        <div class="dropdown-content">
+          <a href="resources.html">Overview</a>
+          <a href="docs.html">Developer Docs</a>
+          <a href="api.html">API Reference</a>
+          <a href="templates.html">Templates</a>
+          <a href="security.html">Security</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
 
+<!-- HERO -->
+<section class="page-hero">
+  <h1>Resources</h1>
+  <p>Documentation, API references, templates, and security information.</p>
+</section>
+
+<!-- RESOURCES CONTENT -->
+<section class="resource-wrapper">
+
+  <!-- ACCORDION BLOCK -->
+  <div class="accordion-item">
+    <button class="accordion-btn">Developer Documentation</button>
+    <div class="accordion-content">
+      <p>Start integrating SyncToScale into your workflows.</p>
+      <ul>
+        <li><a href="docs.html">Platform Overview</a></li>
+        <li><a href="docs.html#getting-started">Getting Started Guide</a></li>
+        <li><a href="docs.html#webhooks">Webhook Events</a></li>
+        <li><a href="docs.html#auth">Authorization & Tokens</a></li>
+      </ul>
     </div>
-  </header>
+  </div>
 
-  <!-- PAGE HEADER -->
-  <section class="resources-header container">
-    <h1>Resources</h1>
-    <p class="resources-intro">
-      Explore workflow templates, developer documentation, integrations, use cases, and tools to help you build
-      automations faster with SyncToScale.
-    </p>
-  </section>
+  <div class="accordion-item">
+    <button class="accordion-btn">API Reference</button>
+    <div class="accordion-content">
+      <p>REST API endpoints, authentication details, and schema documentation.</p>
+      <ul>
+        <li><a href="api.html">API Overview</a></li>
+        <li><a href="api.html#authentication">Authentication</a></li>
+        <li><a href="api.html#endpoints">Endpoints</a></li>
+        <li><a href="api.html#rate-limits">Rate Limiting</a></li>
+      </ul>
+    </div>
+  </div>
 
-  <!-- RESOURCES GRID -->
-  <section class="resources-grid container">
+  <div class="accordion-item">
+    <button class="accordion-btn">Templates & Tools</button>
+    <div class="accordion-content">
+      <p>Download ready-made workflows.</p>
+      <ul>
+        <li><a href="templates.html">Automation Templates</a></li>
+        <li><a href="templates.html#examples">Example Integrations</a></li>
+        <li><a href="templates.html#workflow-library">Workflow Library</a></li>
+      </ul>
+    </div>
+  </div>
 
-    <!-- Templates -->
-    <a href="templates.html" class="resource-card">
-      <h3>Workflow Templates</h3>
-      <p>
-        Explore prebuilt automation templates for HR, IT, Sales, RevOps, and Support teams.
-      </p>
-      <span class="resource-link">Browse Templates →</span>
-    </a>
+  <div class="accordion-item">
+    <button class="accordion-btn">Security & Compliance</button>
+    <div class="accordion-content">
+      <p>Learn how SyncToScale protects your data.</p>
+      <ul>
+        <li><a href="security.html">Security Overview</a></li>
+        <li><a href="security.html#compliance">Compliance</a></li>
+        <li><a href="security.html#data-protection">Data Protection</a></li>
+      </ul>
+    </div>
+  </div>
 
-    <!-- Developer Docs -->
-    <a href="docs.html" class="resource-card">
-      <h3>Developer Documentation</h3>
-      <p>
-        API reference, object models, authentication, webhook events, and workflow execution details.
-      </p>
-      <span class="resource-link">View Docs →</span>
-    </a>
+</section>
 
-    <!-- Integrations Directory -->
-    <a href="integrations.html" class="resource-card">
-      <h3>Integrations Directory</h3>
-      <p>
-        Connect Slack, Salesforce, HubSpot, Jira, Notion, Google Workspace, and more.
-      </p>
-      <span class="resource-link">View Integrations →</span>
-    </a>
+<script>
+  const accBtns = document.querySelectorAll(".accordion-btn");
+  accBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      btn.classList.toggle("open");
+      const content = btn.nextElementSibling;
+      content.style.display = content.style.display === "block" ? "none" : "block";
+    });
+  });
+</script>
 
-    <!-- Use Case Library -->
-    <a href="usecases.html" class="resource-card">
-      <h3>Use Case Library</h3>
-      <p>
-        Explore how teams automate onboarding, ticket escalation, lead routing, and operational workflows.
-      </p>
-      <span class="resource-link">Explore Use Cases →</span>
-    </a>
-
-    <!-- Security & Compliance -->
-    <a href="security.html" class="resource-card">
-      <h3>Security & Compliance</h3>
-      <p>
-        Learn how SyncToScale models authentication, data handling, encryption, and enterprise-grade controls.
-      </p>
-      <span class="resource-link">Security Overview →</span>
-    </a>
-
-    <!-- Changelog -->
-    <a href="#" class="resource-card">
-      <h3>Changelog</h3>
-      <p>
-        Track the latest updates, improvements, bug fixes, and feature releases across the platform.
-      </p>
-      <span class="resource-link">Coming Soon →</span>
-    </a>
-
-    <!-- Status Page -->
-    <a href="#" class="resource-card">
-      <h3>System Status</h3>
-      <p>
-        View uptime, API health, workflow execution performance, and scheduled maintenance windows.
-      </p>
-      <span class="resource-link">Coming Soon →</span>
-    </a>
-
-    <!-- Support Center -->
-    <a href="#" class="resource-card">
-      <h3>Support Center</h3>
-      <p>
-        Articles, troubleshooting guides, and getting-started resources for building workflows.
-      </p>
-      <span class="resource-link">Coming Soon →</span>
-    </a>
-
-  </section>
-
-  <script src="scripts.js" defer></script>
 </body>
 </html>
