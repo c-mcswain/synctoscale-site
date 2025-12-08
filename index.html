@@ -23,15 +23,15 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(255, 255, 255, 0.85);
+      background: rgba(255, 255, 255, 0.9);
       backdrop-filter: blur(10px);
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
     }
 
     header .container {
       max-width: 1100px;
       margin: auto;
-      padding: 16px 20px;
+      padding: 18px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -45,17 +45,21 @@
 
     .nav a {
       color: #0b3d3d;
-      margin-left: 20px;
+      margin-left: 26px;
       text-decoration: none;
-      font-size: 0.95rem;
+      font-size: 1rem;
       font-weight: 500;
+      padding-bottom: 4px;
+      transition: color .2s ease, border-bottom .2s ease;
+      border-bottom: 2px solid transparent;
     }
 
     .nav a:hover {
       color: #14b8a6;
+      border-bottom: 2px solid #14b8a6;
     }
 
-    /* HERO — Banner Only */
+    /* HERO */
     .hero {
       width: 100%;
       height: 360px;
@@ -77,7 +81,7 @@
       margin-bottom: 40px;
     }
 
-    /* A — FIXED INTEGRATIONS GRID */
+    /* INTEGRATIONS GRID */
     .integrations-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
@@ -100,11 +104,12 @@
       transform: scale(1.1);
     }
 
-    /* HOW IT WORKS */
+    /* ALT BACKGROUND SECTION */
     .alt-bg {
       background: #eefdfb;
     }
 
+    /* HOW IT WORKS */
     .hiw-grid {
       display: flex;
       flex-wrap: wrap;
@@ -118,13 +123,13 @@
       padding: 25px;
       border-radius: 12px;
       width: 300px;
-      box-shadow: 0px 4px 16px rgba(0,0,0,0.06);
+      box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.06);
       transition: transform .2s, box-shadow .2s;
     }
 
     .hiw-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0px 6px 20px rgba(0,0,0,0.1);
+      box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
     }
 
     /* VALUE SECTION */
@@ -144,7 +149,7 @@
       width: 100%;
       max-width: 420px;
       border-radius: 16px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
     }
 
     .value-list {
@@ -176,9 +181,9 @@
     <div class="container">
       <div class="logo">SyncToScale</div>
       <nav class="nav">
+        <a href="features.html">Features</a>
         <a href="#integrations">Integrations</a>
         <a href="#how-it-works">How It Works</a>
-        <a href="#value">Why SyncToScale</a>
         <a href="about.html">About</a>
       </nav>
     </div>
@@ -187,7 +192,7 @@
   <!-- HERO -->
   <section class="hero"></section>
 
-  <!-- A — INTEGRATIONS GRID -->
+  <!-- INTEGRATIONS -->
   <section id="integrations" class="section">
     <div class="container">
       <div class="section-heading">
@@ -196,27 +201,18 @@
       </div>
 
       <div class="integrations-grid">
-
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/salesforce/salesforce-original.svg" alt="Salesforce" />
-
-        <!-- ✅ FIXED HUBSPOT (PNG) -->
         <img src="assets/synctoscale-icons/hubspot.png" alt="HubSpot" />
-
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slack/slack-original.svg" alt="Slack" />
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" alt="Jira" />
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Google Workspace" />
-
-        <!-- ✅ FIXED ASANA (PNG) -->
         <img src="assets/synctoscale-icons/asana.png" alt="Asana" />
-
         <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/notion.svg" alt="Notion" />
-
       </div>
-
     </div>
   </section>
 
-  <!-- B — HOW IT WORKS -->
+  <!-- HOW IT WORKS -->
   <section id="how-it-works" class="section alt-bg">
     <div class="container">
       <div class="section-heading">
@@ -243,7 +239,7 @@
     </div>
   </section>
 
-  <!-- C — VALUE SECTION -->
+  <!-- VALUE SECTION -->
   <section id="value" class="section">
     <div class="container value-flex">
       <div class="value-text">
