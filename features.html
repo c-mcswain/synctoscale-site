@@ -33,10 +33,12 @@
       justify-content: space-between;
     }
 
+    /* CLICKABLE LOGO */
     .logo {
       font-size: 1.6rem;
       font-weight: 700;
       color: #0b3d3d;
+      text-decoration: none;
     }
 
     .nav a {
@@ -55,7 +57,7 @@
       border-bottom: 2px solid #14b8a6;
     }
 
-    /* HERO */
+    /* HERO SECTION */
     .hero {
       padding: 90px 20px 70px;
       text-align: center;
@@ -76,7 +78,7 @@
       color: #475569;
     }
 
-    /* FEATURES GRID */
+    /* FEATURE GRID */
     .section {
       padding: 60px 20px;
     }
@@ -145,7 +147,7 @@
       margin-bottom: 40px;
     }
 
-    /* CTA SECTION */
+    /* CTA */
     .cta-section {
       padding: 80px 20px;
       text-align: center;
@@ -196,9 +198,11 @@
   <!-- NAVBAR -->
   <header>
     <div class="container">
-      <div class="logo">SyncToScale</div>
+      <a href="/index.html" class="logo">SyncToScale</a>
+
       <nav class="nav">
         <a href="/features.html">Features</a>
+        <a href="/pricing.html">Pricing</a>
         <a href="/index.html#integrations">Integrations</a>
         <a href="/index.html#how-it-works">How It Works</a>
         <a href="/about.html">About</a>
@@ -210,4 +214,68 @@
   <section class="hero">
     <h1>Powerful Features Designed to Scale With You</h1>
     <p>Automate workflows, sync systems, and eliminate manual work — all without writing a single line of code.</p>
-  <
+  </section>
+
+  <!-- FEATURES GRID -->
+  <section class="section">
+    <div class="container">
+      <div class="features-grid">
+
+        <div class="feature-card">
+          <h3>Unified Data Sync</h3>
+          <p>Connect your tech stack and ensure consistent, accurate data across every tool your team relies on.</p>
+        </div>
+
+        <div class="feature-card">
+          <h3>Zero-Code Workflow Builder</h3>
+          <p>Build, automate, and streamline processes without engineering resources or complex setup.</p>
+        </div>
+
+        <div class="feature-card">
+          <h3>AI-Powered Insights</h3>
+          <p>Surface bottlenecks, prevent errors, and optimize automations using AI-guided recommendations.</p>
+        </div>
+
+        <div class="feature-card">
+          <h3>Multi-App Triggers</h3>
+          <p>Kick off workflows based on key events: new hires, closed deals, updated tickets, and more.</p>
+        </div>
+
+        <div class="feature-card">
+          <h3>Error Handling & Alerts</h3>
+          <p>Get notified instantly if a workflow fails, with retry logic and diagnostics built in.</p>
+        </div>
+
+        <div class="feature-card">
+          <h3>Scalable Architecture</h3>
+          <p>Whether you’re a startup or enterprise, SyncToScale adapts to your automation needs as they grow.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- VISUAL -->
+  <section class="visual-section">
+    <h2>See SyncToScale In Action</h2>
+    <p>A clean, intuitive automation experience designed for real business workflows.</p>
+    <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1200&q=60"
+      alt="Workflow preview">
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Explore the SyncToScale Project</h2>
+    <p>This project demonstrates how AI-powered automation can streamline workflows and centralize business systems.</p>
+    <a href="/index.html" class="cta-button">Back to Home</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>SyncToScale — Portfolio Project by Christy</p>
+  </footer>
+
+</body>
+
+</html>
+
