@@ -507,3 +507,104 @@ pre {
   padding: 4px 0;
   color: #475569;
 }
+/* ----------------------------------------
+   RESOURCES PAGE — TEAL BASE + NOVA ACCENTS
+---------------------------------------- */
+
+.resources-hero {
+  padding: 60px 20px;
+  text-align: center;
+  background: linear-gradient(180deg, #f7f5ff 0%, #eef2ff 100%);
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.resources-hero h1 {
+  font-size: 2.2rem;
+  margin-bottom: 6px;
+  color: #1e293b;
+}
+
+.resources-hero p {
+  font-size: 1rem;
+  color: #475569;
+}
+
+/* RIGHT CTA */
+.resources-cta {
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px 0 0;
+}
+
+.resources-cta-btn {
+  background: #7c5dfa;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.resources-cta-btn:hover {
+  background: #6a48e3;
+}
+
+/* CARD GRID */
+.resources-grid-section {
+  padding: 40px 0;
+}
+
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.resource-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  padding: 24px;
+  border-radius: 14px;
+  text-decoration: none;
+  color: #1e293b;
+  transition: 0.25s ease;
+}
+
+.resource-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 14px rgba(124, 93, 250, 0.18);
+  border-color: #cbb8ff;
+}
+
+.resource-card h3 {
+  color: #7c5dfa;
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+}
+
+.resource-card p {
+  color: #475569;
+  font-size: 0.95rem;
+}
+
+/* DETAILS SECTIONS */
+.resources-sections {
+  padding: 40px 0 80px;
+}
+
+.resource-section {
+  margin-bottom: 40px;
+}
+
+.resource-section h2 {
+  color: #6a48e3;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.resource-section ul li {
+  padding: 4px 0;
+  color: #475569;
+  font-size: 0.95rem;
+}
