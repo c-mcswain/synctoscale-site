@@ -435,3 +435,64 @@ header .container.header-inner {
   color: #14b8a6;
   font-size: 0.95rem;
 }
+/* ============================
+   USE CASE LIBRARY
+============================ */
+
+.usecases-header {
+  padding-top: 60px;
+  text-align: center;
+}
+
+.usecases-header h1 {
+  font-size: 2.4rem;
+  color: #0b3d3d;
+}
+
+.usecases-intro {
+  max-width: 700px;
+  margin: 12px auto 40px;
+  color: #475569;
+}
+
+.usecase-section {
+  margin-bottom: 60px;
+}
+
+.usecase-section h2 {
+  font-size: 1.6rem;
+  color: #0b3d3d;
+  margin-bottom: 18px;
+  border-left: 5px solid #14b8a6;
+  padding-left: 12px;
+}
+
+.usecase-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+}
+
+.usecase-card {
+  background: white;
+  padding: 24px;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  border: 1px solid #e2e8f0;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.usecase-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+}
+
+.usecase-card h3 {
+  margin-bottom: 10px;
+  color: #0b3d3d;
+}
+
+.usecase-card p {
+  color: #475569;
+  line-height: 1.5;
+}
