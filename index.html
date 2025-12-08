@@ -288,52 +288,5 @@
   </footer>
 
 
-  <!-- ⭐ NOVA CHAT BUTTON SCRIPT ⭐ -->
-  <script>
-    window.botpressWebChat.init({
-      botId: "nova",
-      hostUrl: "https://cdn.botpress.cloud/webchat/v3",
-      botName: "Nova",
-      hideWidget: false,
-
-      stylesheet: `
-        .bpw-floating-button {
-          width: 68px !important;
-          height: 68px !important;
-          border-radius: 50% !important;
-          background: radial-gradient(circle at 30% 30%, #41d1ff, #21e19f) !important;
-          box-shadow: 
-            0 0 18px rgba(33, 225, 159, 0.5),
-            0 0 28px rgba(65, 209, 255, 0.45) !important;
-          border: none !important;
-          display: flex !important;
-          justify-content: center !important;
-          align-items: center !important;
-        }
-
-        .bpw-floating-button svg {
-          display: none !important;
-        }
-
-        .bpw-floating-button::before {
-          content: "";
-          width: 36px;
-          height: 36px;
-          background-image: url('https://c-mcswain.github.io/synctoscale-site/assets/nova-icon.png');
-          background-size: contain;
-          background-repeat: no-repeat;
-          display: block;
-        }
-
-        .bpw-floating-button:hover + .nova-label {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      `
-    });
-  </script>
-
-  <div class="nova-label">Chat with Nova</div>
-
 </body>
 </html>
