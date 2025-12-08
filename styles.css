@@ -608,3 +608,63 @@ pre {
   color: #475569;
   font-size: 0.95rem;
 }
+/* ======================================================
+   NOVA CHAT — FREE PLAN SAFE OVERRIDES
+   Mini widget + frosted outer shell (Toggle mode)
+====================================================== */
+
+/* --- MINI SIZE (only affects container outside iframe) --- */
+#bp-web-widget,
+#bp-chat-container,
+.bpw-widget-container {
+  width: 260px !important;
+  height: 360px !important;
+  max-width: 260px !important;
+  max-height: 360px !important;
+  border-radius: 22px !important;
+  overflow: hidden !important;
+  right: 20px !important;
+  bottom: 20px !important;
+}
+
+/* Force internal frame to scale to new size */
+#bp-web-widget iframe,
+.bpw-widget-container iframe {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 22px !important;
+}
+
+/* --- FROSTED TRANSPARENT OUTER SHELL (works on free) --- */
+#bp-web-widget,
+#bp-web-widget .bpw-widget-wrapper,
+#bp-chat-container {
+  background: rgba(15, 15, 15, 0.25) !important; /* 25% opaque */
+  backdrop-filter: blur(14px) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(140%) !important;
+  border-radius: 22px !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25) !important;
+}
+
+/* --- Make edges soft and smooth --- */
+#bp-web-widget .bpw-widget-wrapper {
+  padding: 0 !important;
+  border-radius: 22px !important;
+}
+
+/* --- Bubble button stays circular + stylish --- */
+.bpw-floating-button {
+  width: 68px !important;
+  height: 68px !important;
+  border-radius: 50% !important;
+  box-shadow:
+    0 0 18px rgba(33, 225, 159, 0.4),
+    0 0 26px rgba(65, 209, 255, 0.35) !important;
+}
+
+/* Remove any default solid backgrounds so frosted shows clean */
+#bp-web-widget .bpw-layout,
+#bp-web-widget .bpw-header,
+#bp-web-widget .bpw-footer {
+  background: transparent !important;
+}
