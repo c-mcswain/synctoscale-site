@@ -1,4 +1,6 @@
-/* GLOBAL */
+/* ============================
+   GLOBAL
+============================ */
 body {
   margin: 0;
   font-family: Inter, Arial, sans-serif;
@@ -12,7 +14,10 @@ body {
   padding: 0 20px;
 }
 
-/* NAVBAR */
+
+/* ============================
+   NAVBAR
+============================ */
 header {
   position: sticky;
   top: 0;
@@ -22,7 +27,7 @@ header {
   box-shadow: 0 2px 6px rgba(0,0,0,0.06);
 }
 
-header .container {
+header .container.header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -47,12 +52,16 @@ header .container {
   border-bottom: 2px solid transparent;
 }
 
-.nav a:hover {
+.nav a:hover,
+.nav a.active {
   color: #14b8a6;
   border-bottom: 2px solid #14b8a6;
 }
 
-/* SECTION & HEADINGS */
+
+/* ============================
+   GENERAL SECTIONS
+============================ */
 .section {
   padding: 60px 20px;
 }
@@ -73,56 +82,10 @@ header .container {
   margin: auto;
 }
 
-/* FAQ CATEGORY HEADERS */
-.faq-category {
-  font-size: 1.4rem;
-  margin-top: 40px;
-  color: #0b3d3d;
-  border-left: 5px solid #14b8a6;
-  padding-left: 12px;
-}
 
-/* FAQ ACCORDION */
-.faq {
-  max-width: 800px;
-  margin: 20px auto 40px;
-}
-
-.faq-item {
-  border-bottom: 1px solid #e2e8f0;
-  padding: 14px 0;
-}
-
-.faq-question {
-  width: 100%;
-  background: none;
-  text-align: left;
-  border: none;
-  font-size: 1.15rem;
-  font-weight: 600;
-  padding: 12px 0;
-  cursor: pointer;
-  color: #0b3d3d;
-  display: flex;
-  justify-content: space-between;
-}
-
-.faq-answer {
-  display: none;
-  padding: 0 0 14px 0;
-  color: #475569;
-  line-height: 1.55;
-}
-
-.faq-item.active .faq-answer {
-  display: block;
-}
-
-.faq-item.active .faq-question {
-  color: #14b8a6;
-}
-
-/* CARDS (Used in About Page) */
+/* ============================
+   ABOUT PAGE CARDS
+============================ */
 .card {
   background: white;
   padding: 26px;
@@ -137,25 +100,16 @@ header .container {
   color: #0b3d3d;
 }
 
-.card p, 
+.card p,
 .card ul {
   color: #475569;
   line-height: 1.55;
 }
 
-/* FOOTER */
-.site-footer {
-  background: #0b3d3d;
-  color: #cbd5e1;
-  text-align: center;
-  padding: 40px 20px;
-  margin-top: 50px;
-}
 
-.footer-copy {
-  margin: 0;
-}
-/* FAQ Page Styling */
+/* ============================
+   FAQ PAGE STRUCTURE
+============================ */
 .faq-page {
   padding: 60px 20px;
   max-width: 850px;
@@ -165,6 +119,7 @@ header .container {
 .faq-page h1 {
   font-size: 2.4rem;
   margin-bottom: 10px;
+  color: #0b3d3d;
 }
 
 .faq-intro {
@@ -172,25 +127,10 @@ header .container {
   color: #475569;
 }
 
-/* FAQ Items */
-.faq-item {
-  margin-bottom: 25px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #e2e8f0;
-}
 
-.faq-item h3 {
-  font-size: 1.2rem;
-  margin-bottom: 6px;
-  color: #1e293b;
-}
-
-.faq-item p {
-  color: #475569;
-  line-height: 1.6;
-}
-
-/* Callout Box */
+/* ============================
+   CALLOUT BOX
+============================ */
 .callout-box {
   background: #e0f2fe;
   border-left: 5px solid #0284c7;
@@ -213,21 +153,36 @@ header .container {
 .callout-box a:hover {
   opacity: 0.8;
 }
-/* CARD-STYLE ACCORDION FAQ */
+
+
+/* ============================
+   FAQ CATEGORY HEADINGS
+============================ */
+.faq-category {
+  font-size: 1.4rem;
+  margin: 40px 0 20px;
+  color: #0b3d3d;
+  border-left: 5px solid #14b8a6;
+  padding-left: 12px;
+}
+
+
+/* ============================
+   CARD-STYLE ACCORDION FAQ
+============================ */
 .faq-card {
   background: white;
   border-radius: 12px;
-  padding: 0;
   margin-bottom: 20px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
   border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
   overflow: hidden;
-  transition: box-shadow .2s ease;
+  transition: border-color .2s ease, box-shadow .2s ease;
 }
 
 .faq-card.active {
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.10);
   border-color: #14b8a6;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.10);
 }
 
 .faq-question {
@@ -235,10 +190,12 @@ header .container {
   background: none;
   border: none;
   padding: 18px 22px;
+  text-align: left;
   font-size: 1.1rem;
   font-weight: 600;
   color: #0b3d3d;
   cursor: pointer;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -249,7 +206,8 @@ header .container {
 }
 
 .chevron {
-  transition: transform .2s ease;
+  transition: transform .3s ease;
+  font-size: 1.2rem;
 }
 
 .faq-card.active .chevron {
@@ -258,24 +216,31 @@ header .container {
 
 .faq-answer {
   max-height: 0;
-  padding: 0 22px;
   overflow: hidden;
+  padding: 0 22px;
+  font-size: 1rem;
   color: #475569;
   line-height: 1.55;
-  background: white;
-  transition: max-height .25s ease, padding .25s ease;
+  transition: max-height .35s ease, padding .35s ease;
 }
 
 .faq-card.active .faq-answer {
-  padding: 0 22px 18px 22px;
-  max-height: 300px; /* enough for long answers */
+  padding: 12px 22px 20px;
+  max-height: 500px;
 }
 
-/* FAQ Category Headers */
-.faq-category {
-  font-size: 1.4rem;
-  margin: 40px 0 20px;
-  color: #0b3d3d;
-  border-left: 5px solid #14b8a6;
-  padding-left: 12px;
+
+/* ============================
+   FOOTER
+============================ */
+.site-footer {
+  background: #0b3d3d;
+  color: #cbd5e1;
+  text-align: center;
+  padding: 40px 20px;
+  margin-top: 50px;
+}
+
+.footer-copy {
+  margin: 0;
 }
