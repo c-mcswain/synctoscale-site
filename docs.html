@@ -4,233 +4,113 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Developer Docs | SyncToScale</title>
-
+  <title>Developer Documentation | SyncToScale</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
-  <header class="site-header">
-    <div class="container header-inner">
+<header>
+  <div class="container">
+    <a href="index.html" class="logo">SyncToScale</a>
 
-      <a href="index.html" class="logo">SyncToScale</a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="about.html">About</a>
 
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="features.html">Features</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="about.html">About</a>
-        <a href="docs.html">Docs</a>
-        <a href="faq.html">FAQ</a>
-        <a href="docs.html" class="active">Docs</a>
-      </nav>
+      <div class="dropdown">
+        <button class="dropbtn">Resources</button>
+        <div class="dropdown-content">
+          <a href="resources.html">Overview</a>
+          <a href="docs.html">Developer Docs</a>
+          <a href="api.html">API Reference</a>
+          <a href="templates.html">Templates</a>
+          <a href="security.html">Security</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
 
-    </div>
-  </header>
+<section class="page-hero">
+  <h1>Developer Documentation</h1>
+  <p>Everything you need to integrate SyncToScale into your stack.</p>
+</section>
 
-  <section class="faq-page container">
+<div class="doc-container">
 
-    <h1>Developer Documentation</h1>
-    <p class="faq-intro">
-      A lightweight API designed for workflow automation, event handling, and two-way data syncing.
-      This reference describes endpoints, objects, and concepts used throughout SyncToScale.
+  <!-- PLATFORM OVERVIEW -->
+  <section id="overview">
+    <h2>Platform Overview</h2>
+    <p>
+      SyncToScale is an automation orchestration layer that connects SaaS tools like Salesforce, HubSpot, Slack, Jira, and Google Workspace.
+      Developers can trigger workflows, listen to webhook events, and sync objects across platforms in real time.
     </p>
-
-    <!-- CATEGORY -->
-    <h2 class="faq-category">Authentication</h2>
-
-    <div class="faq-card">
-      <button class="faq-question">
-        API Keys
-        <span class="chevron">⌄</span>
-      </button>
-
-      <div class="faq-answer">
-        <p>
-          SyncToScale uses static API keys to authenticate requests.  
-          Keys can be generated under: <strong>Settings → Developer</strong>.
-        </p>
-
-        <pre><code>
-Authorization: Bearer YOUR_API_KEY
-        </code></pre>
-
-        <p><strong>Example:</strong></p>
-        <pre><code>
-curl -X GET "https://api.synctoscale.me/v1/workflows" \
-  -H "Authorization: Bearer sk_test_12345"
-        </code></pre>
-      </div>
-    </div>
-
-    <!-- CATEGORY -->
-    <h2 class="faq-category">Objects</h2>
-
-    <div class="faq-card">
-      <button class="faq-question">
-        Workflow Object
-        <span class="chevron">⌄</span>
-      </button>
-
-      <div class="faq-answer">
-<pre><code>{
-  "id": "wf_7d92ab",
-  "name": "Employee Onboarding Flow",
-  "status": "active",
-  "trigger": {
-    "type": "hris.new_employee",
-    "source": "bamboohr"
-  },
-  "actions": [
-    { "type": "slack.send_message", "channel": "onboarding" },
-    { "type": "jira.create_ticket", "project": "IT" }
-  ],
-  "created_at": "2025-01-03T12:51:02Z"
-}
-</code></pre>
-      </div>
-    </div>
-
-    <div class="faq-card">
-      <button class="faq-question">
-        Event Object
-        <span class="chevron">⌄</span>
-      </button>
-
-      <div class="faq-answer">
-<pre><code>{
-  "id": "evt_5ac81a",
-  "type": "workflow.triggered",
-  "workflow_id": "wf_7d92ab",
-  "payload": {
-    "employee_id": "emp_4411",
-    "name": "Jordan Rivera",
-    "start_date": "2025-02-01"
-  },
-  "timestamp": "2025-02-09T16:20:10Z"
-}
-</code></pre>
-      </div>
-    </div>
-
-    <!-- CATEGORY -->
-    <h2 class="faq-category">API Endpoints</h2>
-
-<div class="faq-card">
-  <button class="faq-question">List Workflows <span class="chevron">⌄</span></button>
-  <div class="faq-answer">
-<pre><code>
-GET /v1/workflows
-</code></pre>
-
-<p><strong>Response:</strong></p>
-
-<pre><code>{
-  "data": [
-    { "id": "wf_1", "name": "CRM Sync", "status": "active" },
-    { "id": "wf_2", "name": "New Hire Flow", "status": "inactive" }
-  ]
-}
-</code></pre>
-  </div>
-</div>
-
-<div class="faq-card">
-  <button class="faq-question">Get Workflow <span class="chevron">⌄</span></button>
-  <div class="faq-answer">
-<pre><code>
-GET /v1/workflows/{workflow_id}
-</code></pre>
-  </div>
-</div>
-
-<div class="faq-card">
-  <button class="faq-question">Execute Workflow <span class="chevron">⌄</span></button>
-  <div class="faq-answer">
-<pre><code>
-POST /v1/workflows/{workflow_id}/run
-</code></pre>
-
-<pre><code>
-{
-  "status": "queued",
-  "run_id": "run_44c98a"
-}
-</code></pre>
-  </div>
-</div>
-
-<div class="faq-card">
-  <button class="faq-question">List Runs <span class="chevron">⌄</span></button>
-  <div class="faq-answer">
-<pre><code>
-GET /v1/workflow-runs?workflow_id=wf_1
-</code></pre>
-  </div>
-</div>
-
-    <!-- CATEGORY -->
-    <h2 class="faq-category">Webhooks</h2>
-
-<div class="faq-card">
-  <button class="faq-question">Webhook Events <span class="chevron">⌄</span></button>
-  <div class="faq-answer">
-    <p>SyncToScale can send events to your webhook URL for real-time notifications.</p>
-
-<pre><code>
-POST https://yourapp.com/webhooks/synctoscale
-</code></pre>
-
-<p><strong>Example Payload:</strong></p>
-<pre><code>{
-  "event": "workflow.completed",
-  "run_id": "run_44c98a",
-  "workflow_id": "wf_7d92ab",
-  "success": true,
-  "duration_ms": 8134
-}
-</code></pre>
-  </div>
-</div>
-
-    <!-- CATEGORY -->
-    <h2 class="faq-category">Errors</h2>
-
-<div class="faq-card">
-  <button class="faq-question">Error Codes <span class="chevron">⌄</span></button>
-  <div class="faq-answer">
-
-<pre><code>
-400  Bad Request — Invalid payload
-401  Unauthorized — Invalid or missing API key
-403  Forbidden — Your key has insufficient scopes
-404  Not Found — Workflow or object does not exist
-429  Rate Limit Exceeded
-500  Server Error — Retry with backoff
-</code></pre>
-
-  </div>
-</div>
-
-    <!-- CATEGORY -->
-    <h2 class="faq-category">Rate Limits</h2>
-
-<div class="faq-card">
-  <button class="faq-question">Usage Limits <span class="chevron">⌄</span></button>
-  <div class="faq-answer">
-<pre><code>
-1000 requests / day (Free Tier)
-10 requests / second (All Tiers)
-Burst capacity: 30 requests
-Retry-After header included when limiting
-</code></pre>
-  </div>
-</div>
-
   </section>
 
-  <script src="scripts.js" defer></script>
+  <!-- GETTING STARTED -->
+  <section id="getting-started">
+    <h2>Getting Started</h2>
+    <ol>
+      <li>Create a SyncToScale developer account.</li>
+      <li>Generate your API key under <strong>Developer → Tokens</strong>.</li>
+      <li>Install the SyncToScale client in your environment.</li>
+      <li>Authenticate your connected apps (Salesforce, Slack, etc.).</li>
+      <li>Start triggering automation workflows.</li>
+    </ol>
+
+    <pre><code>
+// Example: Node.js client initialization
+import SyncClient from "@synctoscale/client";
+
+const client = new SyncClient({
+  apiKey: process.env.SYNC_API_KEY
+});
+
+client.trigger("lead.created", {
+  source: "salesforce",
+  payload: {...}
+});
+    </code></pre>
+  </section>
+
+  <!-- WEBHOOKS -->
+  <section id="webhooks">
+    <h2>Webhook Events</h2>
+    <p>SyncToScale emits webhook events when connected platforms update their data.</p>
+
+    <ul>
+      <li>lead.created</li>
+      <li>contact.updated</li>
+      <li>deal.stage_changed</li>
+      <li>user.permission_updated</li>
+    </ul>
+
+    <p>Each webhook contains:</p>
+    <ul>
+      <li><strong>event</strong> – event name</li>
+      <li><strong>timestamp</strong> – ISO-8601 timestamp</li>
+      <li><strong>source</strong> – platform (Salesforce, Slack, Google Workspace)</li>
+      <li><strong>payload</strong> – record data</li>
+    </ul>
+  </section>
+
+  <!-- AUTH -->
+  <section id="auth">
+    <h2>Authorization</h2>
+    <p>All API requests must include your bearer token:</p>
+
+    <pre><code>
+curl -X GET https://api.synctoscale.me/v1/users \
+  -H "Authorization: Bearer &lt;API_KEY&gt;"
+    </code></pre>
+
+    <p>API keys can be rotated at any time without impacting existing webhooks.</p>
+  </section>
+
+</div>
+
 </body>
 </html>
