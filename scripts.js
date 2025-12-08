@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   cards.forEach(card => {
     const question = card.querySelector(".faq-question");
+
     question.addEventListener("click", () => {
       card.classList.toggle("active");
     });
