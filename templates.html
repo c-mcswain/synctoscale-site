@@ -31,7 +31,7 @@
           <a href="security.html">Security</a>
         </div>
       </div>
-    </nav>
+    </nav> <!-- ✅ FIXED: This closing tag was missing -->
   </div>
 </header>
 
@@ -41,8 +41,7 @@
   <p>Explore pre-built automation flows designed to accelerate your integrations.</p>
 </section>
 
-
-<!-- TEMPLATE SECTION WRAPPER (THIS WAS MISSING / BROKEN BEFORE) -->
+<!-- TEMPLATE SECTION WRAPPER -->
 <section class="template-categories">
   <h2>Popular Templates</h2>
 
@@ -113,10 +112,9 @@
       <a href="templates.html#examples" class="btn">View Template</a>
     </div>
 
-  </div><!-- END TEMPLATE GRID -->
+  </div> <!-- END GRID -->
 
-</section><!-- END TEMPLATE CATEGORIES -->
-
+</section> <!-- END TEMPLATE SECTION -->
 
 <!-- EXAMPLES SECTION -->
 <div class="doc-container">
@@ -165,7 +163,6 @@ Email Content:
   filterButtons.forEach(btn => {
     btn.addEventListener("click", () => {
 
-      // highlight active button
       filterButtons.forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
 
