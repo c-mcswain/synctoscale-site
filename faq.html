@@ -1,161 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FAQ • SyncToScale</title>
-
-  <style>
-    body {
-      margin: 0;
-      font-family: Inter, Arial, sans-serif;
-      background: #f8fafc;
-      color: #1e293b;
-    }
-
-    /* NAVBAR */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-    }
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 16px;
-    }
-    nav a {
-      text-decoration: none;
-      color: #1e293b;
-      margin-left: 20px;
-      font-weight: 500;
-    }
-    nav a:hover {
-      color: #0ea5e9;
-    }
-    .logo {
-      font-size: 20px;
-      font-weight: 700;
-      color: #0ea5e9;
-      cursor: pointer;
-    }
-
-    /* FAQ SECTION */
-    .container {
-      max-width: 900px;
-      margin: 60px auto;
-      padding: 0 20px;
-    }
-
-    h1 {
-      font-size: 40px;
-      margin-bottom: 10px;
-      text-align: center;
-    }
-
-    p.subtitle {
-      text-align: center;
-      margin-bottom: 40px;
-      color: #64748b;
-      font-size: 18px;
-    }
-
-    .faq-item {
-      background: white;
-      border-radius: 10px;
-      margin-bottom: 15px;
-      padding: 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-      border-left: 4px solid #0ea5e9;
-    }
-
-    .faq-item h3 {
-      margin: 0 0 10px;
-      font-size: 20px;
-      color: #0ea5e9;
-    }
-
-    .faq-item p {
-      margin: 0;
-      color: #475569;
-      line-height: 1.6;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <title>FAQ — SyncToScale</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
+
   <!-- NAVBAR -->
   <header>
-    <nav>
+    <div class="container">
       <a href="index.html" class="logo">SyncToScale</a>
-      <div>
+
+      <nav class="nav">
         <a href="index.html">Home</a>
         <a href="features.html">Features</a>
         <a href="pricing.html">Pricing</a>
-        <a href="about.html">About</a>
         <a href="faq.html">FAQ</a>
-      </div>
-    </nav>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
   </header>
 
   <!-- FAQ SECTION -->
-  <div class="container">
-    <h1>Frequently Asked Questions</h1>
-    <p class="subtitle">Quick answers to the most common questions about SyncToScale.</p>
+  <main class="section">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Frequently Asked Questions</h2>
+        <p>Find answers about the platform, workflows, integrations, and SyncBot Nova.</p>
+      </div>
 
-    <div class="faq-item">
-      <h3>What is SyncToScale?</h3>
-      <p>
-        SyncToScale is an automation platform concept designed to show how businesses can streamline
-        workflows by connecting tools like Salesforce, HubSpot, Slack, Jira, and Google Workspace.
-      </p>
+      <!-- PLATFORM BASICS -->
+      <h3 class="faq-category">Platform Basics</h3>
+      <div class="faq">
+
+        <div class="faq-item">
+          <button class="faq-question">What is SyncToScale?</button>
+          <div class="faq-answer">
+            <p>SyncToScale is a fictional no-code automation platform built as a portfolio project to demonstrate Technical Account Management, Customer Success, Implementation, and SaaS workflow knowledge.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">Do I need any coding skills?</button>
+          <div class="faq-answer">
+            <p>No coding experience is needed. SyncToScale simulates a zero-code workflow builder designed for business users, TAMs, CSMs, and operations teams.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">Is SyncToScale a real SaaS product?</button>
+          <div class="faq-answer">
+            <p>No. SyncToScale is a professional showcase project created by Christy M. to model how real enterprise automation platforms behave.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- WORKFLOWS & AUTOMATION -->
+      <h3 class="faq-category">Workflows & Automation</h3>
+      <div class="faq">
+
+        <div class="faq-item">
+          <button class="faq-question">How do workflows work?</button>
+          <div class="faq-answer">
+            <p>Workflows follow structured logic: <strong>Trigger → Conditions → Actions</strong>.  
+            Example: When a new hire is added, create onboarding tasks, notify IT, and send a Slack message.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">Does the system support error handling?</button>
+          <div class="faq-answer">
+            <p>Yes. SyncToScale simulates real-world error messaging, retry logic, and root-cause analysis—mirroring platforms like Workato, Zapier, and Tray.io.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">Can workflows run across multiple apps?</button>
+          <div class="faq-answer">
+            <p>Absolutely. Many examples showcase cross-app logic such as syncing HR → IT → Collaboration tools in a single flow.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- INTEGRATIONS -->
+      <h3 class="faq-category">Integrations</h3>
+      <div class="faq">
+
+        <div class="faq-item">
+          <button class="faq-question">Which apps can SyncToScale connect to?</button>
+          <div class="faq-answer">
+            <p>Demo integrations include: Salesforce, HubSpot, Slack, Jira, Google Workspace, Notion, Asana, and other common SaaS tools.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">How does data syncing work?</button>
+          <div class="faq-answer">
+            <p>Syncing is modeled after industry standards: mapping fields, transforming data, preventing duplicates, and pushing updates across connected systems.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">Are integrations real?</button>
+          <div class="faq-answer">
+            <p>No — they are conceptual to show realistic workflow logic, API design, and troubleshooting patterns used in SaaS environments.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SYNCBOT NOVA (AI ASSISTANT) -->
+      <h3 class="faq-category">SyncBot Nova (AI Assistant)</h3>
+      <div class="faq">
+
+        <div class="faq-item">
+          <button class="faq-question">What can SyncBot Nova do?</button>
+          <div class="faq-answer">
+            <p>Nova answers questions about the platform, explains automations, helps debug simulated errors, and even provides recruiter-facing explanations about the project.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">How was Nova trained?</button>
+          <div class="faq-answer">
+            <p>Nova uses a custom curated knowledge base in Chatbase containing platform documentation, API logic, example errors, feature descriptions, and meta information.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">Is Nova connected to the workflows?</button>
+          <div class="faq-answer">
+            <p>Not programmatically — Nova simulates support logic to mimic what a highly trained AI-powered TAM/CSM assistant could provide in a real product.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- PROJECT DETAILS -->
+      <h3 class="faq-category">Project Details</h3>
+      <div class="faq">
+
+        <div class="faq-item">
+          <button class="faq-question">Who created SyncToScale?</button>
+          <div class="faq-answer">
+            <p>SyncToScale was created by Christy M. to showcase Technical Account Management, Implementation, and AI-powered customer support capabilities.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">Why was this platform built?</button>
+          <div class="faq-answer">
+            <p>To demonstrate systems thinking, cross-platform logic, troubleshooting workflow issues, writing documentation, and building user education frameworks.</p>
+          </div>
+        </div>
+
+      </div>
+
     </div>
+  </main>
 
-    <div class="faq-item">
-      <h3>Is this a real product?</h3>
-      <p>
-        SyncToScale is a demo portfolio project built to showcase technical account management,
-        product thinking, and web implementation skills. It is not a live SaaS application—yet.
-      </p>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-copy">SyncToScale — Portfolio project by Christy</p>
     </div>
+  </footer>
 
-    <div class="faq-item">
-      <h3>Does the site collect or store data?</h3>
-      <p>
-        No. The site is static and does not collect, store, or process any personal information.
-      </p>
-    </div>
-
-    <div class="faq-item">
-      <h3>Can I see example workflows or use cases?</h3>
-      <p>
-        Yes! A dedicated Use Cases page is being developed to illustrate customer journeys for
-        Operations, People Ops, Revenue, and IT teams.
-      </p>
-    </div>
-
-    <div class="faq-item">
-      <h3>Who built SyncToScale?</h3>
-      <p>
-        SyncToScale was designed and built by a Technical Account Manager specializing in HR tech,
-        integrations, automation, and AI-powered process optimization.
-      </p>
-    </div>
-
-    <div class="faq-item">
-      <h3>Can I collaborate or request custom automation ideas?</h3>
-      <p>
-        Absolutely—use the upcoming Contact page to submit questions or project ideas.
-      </p>
-    </div>
-
-  </div>
+  <!-- FAQ SCRIPT -->
+  <script>
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        q.parentElement.classList.toggle('active');
+      });
+    });
+  </script>
 
 </body>
 </html>
+
