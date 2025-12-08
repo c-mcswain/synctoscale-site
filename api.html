@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Reference | SyncToScale</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <a href="index.html" class="logo">SyncToScale</a>
+
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="about.html">About</a>
+
+      <div class="dropdown">
+        <button class="dropbtn">Resources</button>
+        <div class="dropdown-content">
+          <a href="resources.html">Overview</a>
+          <a href="docs.html">Developer Docs</a>
+          <a href="api.html">API Reference</a>
+          <a href="templates.html">Templates</a>
+          <a href="security.html">Security</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <h1>API Reference</h1>
+  <p>REST API endpoints to power your integrations.</p>
+</section>
+
+<div class="doc-container">
+
+  <section id="authentication">
+    <h2>Authentication</h2>
+    <p>SyncToScale uses Bearer token authentication for all API requests.</p>
+
+    <pre><code>
+Authorization: Bearer &lt;YOUR_API_KEY&gt;
+    </code></pre>
+  </section>
+
+  <section id="endpoints">
+    <h2>Endpoints</h2>
+
+    <h3>List Users</h3>
+    <pre><code>
+GET /v1/users
+    </code></pre>
+
+    <h3>Create Workflow</h3>
+    <pre><code>
+POST /v1/workflows
+{
+  "name": "Sync Salesforce Leads",
+  "trigger": "lead.created",
+  "actions": [...]
+}
+    </code></pre>
+
+    <h3>Execute Workflow</h3>
+    <pre><code>
+POST /v1/workflows/{id}/run
+{
+  "payload": {...}
+}
+    </code></pre>
+  </section>
+
+  <section id="rate-limits">
+    <h2>Rate Limits</h2>
+    <p>Default rate limits:</p>
+    <ul>
+      <li>10,000 requests / hour</li>
+      <li>Burst capacity: 200 requests / second</li>
+      <li>Webhook retries: exponential backoff</li>
+    </ul>
+  </section>
+
+</div>
+
+</body>
+</html>
