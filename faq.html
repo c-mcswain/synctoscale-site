@@ -9,12 +9,13 @@
 </head>
 
 <body>
-  <!-- NAVBAR -->
+
+  <!-- NAVBAR (MATCHES OTHER PAGES) -->
   <header class="site-header">
     <div class="container header-inner">
+
       <a href="index.html" class="logo">
-        <span class="logo-mark">S</span>
-        <span class="logo-text">SyncToScale</span>
+        SyncToScale
       </a>
 
       <nav class="nav">
@@ -24,6 +25,7 @@
         <a href="about.html">About</a>
         <a href="faq.html" class="active">FAQ</a>
       </nav>
+
     </div>
   </header>
 
@@ -54,7 +56,8 @@
         <span class="chevron">⌄</span>
       </button>
       <div class="faq-answer">
-        SyncToScale is a conceptual automation platform designed to showcase workflow logic, integration patterns, and AI-assisted troubleshooting. It models how modern SaaS automation platforms work.  
+        SyncToScale is a conceptual automation platform designed to showcase workflow logic, integration patterns, and AI-assisted troubleshooting.
+        It models how modern SaaS automation platforms work.  
         Learn more on the <a href="about.html">About</a> page.
       </div>
     </div>
@@ -65,7 +68,7 @@
         <span class="chevron">⌄</span>
       </button>
       <div class="faq-answer">
-        Ideal for RevOps, People Ops, TAMs, CSMs, and teams who rely on connected SaaS systems to automate processes and reduce manual workflows.
+        Ideal for RevOps, People Ops, TAMs, CSMs, and teams who rely on connected SaaS systems.
       </div>
     </div>
 
@@ -99,7 +102,7 @@
         <span class="chevron">⌄</span>
       </button>
       <div class="faq-answer">
-        Yes — the platform models retry logic, mapping failures, API rate limits, and troubleshooting sequences.
+        Yes — retry logic, mapping failures, API limits, and troubleshooting sequences are included.
       </div>
     </div>
 
@@ -132,7 +135,7 @@
         <span class="chevron">⌄</span>
       </button>
       <div class="faq-answer">
-        Modeled with real integration practices: field mapping, transformations, deduplication, and sync rules.
+        Modeled with real integration patterns: field mapping, transformations, deduplication, and sync rules.
       </div>
     </div>
 
@@ -142,12 +145,12 @@
         <span class="chevron">⌄</span>
       </button>
       <div class="faq-answer">
-        No — integrations are conceptual simulations for demonstration and workflow reasoning.
+        No — these are conceptual simulations for demonstration.
       </div>
     </div>
 
     <!-- CATEGORY -->
-    <h2 class="faq-category">SyncBot Nova (AI Assistant)</h2>
+    <h2 class="faq-category">SyncBot Nova</h2>
 
     <div class="faq-card">
       <button class="faq-question">
@@ -155,7 +158,7 @@
         <span class="chevron">⌄</span>
       </button>
       <div class="faq-answer">
-        Nova simulates technical troubleshooting, explains system behavior, and models AI-augmented TAM/CSM support.
+        Nova simulates technical troubleshooting, explains system behavior, and models AI-augmented TAM/CSM support workflows.
       </div>
     </div>
 
@@ -165,7 +168,7 @@
         <span class="chevron">⌄</span>
       </button>
       <div class="faq-answer">
-        Nova uses curated internal logic: mock APIs, workflows, errors, and debugging sequences.
+        Nova uses curated logic: APIs, workflows, sample errors, and debugging frameworks.
       </div>
     </div>
 
@@ -175,23 +178,24 @@
         <span class="chevron">⌄</span>
       </button>
       <div class="faq-answer">
-        No — Nova simulates reasoning logic, not live execution.
+        No — Nova simulates reasoning logic and platform behavior, not real execution.
       </div>
     </div>
 
   </section>
 
-  <!-- JS FOR ACCORDION -->
+  <!-- WORKING ACCORDION JS -->
   <script>
-    const items = document.querySelectorAll(".faq-card");
+  document.addEventListener("DOMContentLoaded", () => {
+    const cards = document.querySelectorAll(".faq-card");
 
-    items.forEach(card => {
+    cards.forEach(card => {
       const question = card.querySelector(".faq-question");
-
       question.addEventListener("click", () => {
         card.classList.toggle("active");
       });
     });
+  });
   </script>
 
 </body>
