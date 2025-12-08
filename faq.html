@@ -72,19 +72,19 @@
     }
 
     /* ----------------------------------------
-       FIX CTA → FAQ SPACING (NEARLY TOUCHING)
+       REMOVE GLOBAL SPACING (THIS IS THE FIX)
     ---------------------------------------- */
-    .cta-section {
-      padding: 8px 0 !important;
-      margin-bottom: 0 !important;
-    }
 
+    /* Zero out padding applied by your .section class */
+    .cta-section,
     .faq-section {
-      padding-top: 4px !important;
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
       margin-top: 0 !important;
     }
 
-    .faq-section h2 {
+    /* Tighten space above General Questions */
+    .faq-section h2:first-of-type {
       margin-top: 6px !important;
       margin-bottom: 18px;
     }
@@ -164,13 +164,13 @@
     </div>
   </header>
 
-  <!-- SLIM PASTEL HERO -->
+  <!-- HERO -->
   <section class="faq-hero">
     <h1>Frequently Asked Questions</h1>
     <p>Soft, simple answers about a not-so-simple automation project.</p>
   </section>
 
-  <!-- RECRUITER CTA -->
+  <!-- CTA -->
   <section class="section cta-section">
     <div class="container">
       <div class="recruiter-cta">
@@ -181,10 +181,11 @@
     </div>
   </section>
 
-  <!-- FAQ CONTENT -->
+  <!-- FAQ -->
   <section class="section alt faq-section">
     <div class="container">
 
+      <!-- NEARLY TOUCHING NOW -->
       <h2>General Questions</h2>
 
       <div class="faq-grid">
@@ -222,7 +223,6 @@
 
       </div>
 
-      <!-- CATEGORY -->
       <h2 style="margin: 32px 0 18px;">Workflows & Integrations</h2>
 
       <div class="faq-grid">
