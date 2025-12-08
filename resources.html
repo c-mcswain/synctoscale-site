@@ -1,102 +1,122 @@
-/* ----------------------------------------
-   RESOURCES PAGE — NOVA BOT COLOR STYLE
----------------------------------------- */
+<!DOCTYPE html>
+<html lang="en">
 
-.resources-hero {
-  padding: 50px 20px;
-  text-align: center;
-  background: linear-gradient(180deg, #f5f3ff 0%, #eef2ff 100%);
-  border-bottom: 1px solid #e2e8f0;
-}
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resources | SyncToScale</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
 
-.resources-hero h1 {
-  font-size: 36px;
-  color: #1e293b;
-  margin-bottom: 8px;
-}
+<body>
 
-.resources-hero p {
-  font-size: 16px;
-  color: #475569;
-}
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <span class="logo-mark">S</span>
+        <span class="logo-text">SyncToScale</span>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a class="active" href="resources.html">Resources</a>
+      </nav>
+    </div>
+  </header>
 
-/* SMALL RIGHT CTA */
-.cta-small {
-  display: flex;
-  justify-content: flex-end;
-  margin: 20px 0 0;
-}
+  <!-- HERO -->
+  <section class="resources-hero">
+    <div class="container">
+      <h1>Resources</h1>
+      <p>Your hub for documentation, templates, developer tools, and platform knowledge.</p>
+    </div>
+  </section>
 
-.cta-small-btn {
-  background: #6f4ff6;
-  color: #ffffff;
-  padding: 10px 18px;
-  border-radius: 8px;
-  font-size: 14px;
-  text-decoration: none;
-  transition: 0.2s ease;
-}
+  <!-- SMALL RIGHT-ALIGNED CTA -->
+  <div class="container">
+    <div class="cta-small">
+      <a href="about.html" class="cta-small-btn">About This Project</a>
+    </div>
+  </div>
 
-.cta-small-btn:hover {
-  background: #4f46e5;
-}
+  <!-- CARD GRID -->
+  <section class="resources-grid-section">
+    <div class="container resources-grid">
 
-/* GRID */
-.resources-grid-section {
-  padding: 40px 0;
-}
+      <a href="#" class="resource-card">
+        <h3>Documentation</h3>
+        <p>Setup guides, onboarding workflows, and platform fundamentals.</p>
+      </a>
 
-.resources-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
-}
+      <a href="#" class="resource-card">
+        <h3>Templates</h3>
+        <p>Downloadable assets for workflows, automations, and client playbooks.</p>
+      </a>
 
-.resource-card {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  padding: 24px;
-  border-radius: 14px;
-  text-decoration: none;
-  color: #1e293b;
-  transition: 0.2s ease;
-  background: #f8f7ff;
-}
+      <a href="#" class="resource-card">
+        <h3>API Reference</h3>
+        <p>Endpoints, authentication, webhooks, and developer integration examples.</p>
+      </a>
 
-.resource-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 10px rgba(111, 79, 246, 0.15);
-  border-color: #a78bfa;
-}
+      <a href="#" class="resource-card">
+        <h3>Security</h3>
+        <p>Data protection standards, compliance, encryption, and safeguard details.</p>
+      </a>
 
-.resource-card h3 {
-  margin-bottom: 8px;
-  font-size: 20px;
-  color: #6f4ff6;
-}
+    </div>
+  </section>
 
-.resource-card p {
-  font-size: 14px;
-  color: #475569;
-}
+  <!-- DETAILED SECTIONS -->
+  <section class="resources-sections">
+    <div class="container">
 
-/* DETAILS SECTIONS */
-.resources-sections {
-  padding: 30px 0 60px;
-}
+      <div class="resource-section">
+        <h2>Documentation</h2>
+        <ul>
+          <li>Getting Started with SyncToScale</li>
+          <li>Workspace Setup & User Roles</li>
+          <li>Automation Overview</li>
+          <li>Implementation Best Practices</li>
+        </ul>
+      </div>
 
-.resource-section {
-  margin-bottom: 40px;
-}
+      <div class="resource-section">
+        <h2>Templates</h2>
+        <ul>
+          <li>Customer Onboarding Checklist</li>
+          <li>Implementation Timeline Template</li>
+          <li>Automation Mapping Blueprint</li>
+          <li>Issue Triage & RCA Template</li>
+        </ul>
+      </div>
 
-.resource-section h2 {
-  font-size: 22px;
-  color: #4f46e5;
-  margin-bottom: 10px;
-}
+      <div class="resource-section">
+        <h2>API Reference</h2>
+        <ul>
+          <li>API Keys & Authentication</li>
+          <li>Events & Webhooks</li>
+          <li>SyncToScale Core Endpoints</li>
+          <li>Error Codes & Troubleshooting</li>
+        </ul>
+      </div>
 
-.resource-section ul li {
-  font-size: 15px;
-  padding: 4px 0;
-  color: #475569;
-}
+      <div class="resource-section">
+        <h2>Security</h2>
+        <ul>
+          <li>Data Encryption Standards</li>
+          <li>Compliance & Audit Overview</li>
+          <li>Access Logging & Monitoring</li>
+          <li>Incident Response Workflow</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+</body>
+
+</html>
