@@ -60,7 +60,7 @@ header .container.header-inner {
 
 
 /* ============================
-   GENERAL SECTIONS
+   SECTION LAYOUT
 ============================ */
 .section {
   padding: 60px 20px;
@@ -168,8 +168,10 @@ header .container.header-inner {
 
 
 /* ============================
-   CARD-STYLE ACCORDION FAQ
+   CARD-STYLE FAQ ACCORDION
 ============================ */
+
+/* Entire card container */
 .faq-card {
   background: white;
   border-radius: 12px;
@@ -180,11 +182,13 @@ header .container.header-inner {
   transition: border-color .2s ease, box-shadow .2s ease;
 }
 
+/* When opened */
 .faq-card.active {
   border-color: #14b8a6;
   box-shadow: 0 6px 18px rgba(0,0,0,0.10);
 }
 
+/* Question button */
 .faq-question {
   width: 100%;
   background: none;
@@ -201,10 +205,12 @@ header .container.header-inner {
   align-items: center;
 }
 
+/* Active question */
 .faq-card.active .faq-question {
   color: #14b8a6;
 }
 
+/* Chevron rotation */
 .chevron {
   transition: transform .3s ease;
   font-size: 1.2rem;
@@ -214,6 +220,7 @@ header .container.header-inner {
   transform: rotate(180deg);
 }
 
+/* Dropdown answer – hidden by default */
 .faq-answer {
   max-height: 0;
   overflow: hidden;
@@ -224,9 +231,10 @@ header .container.header-inner {
   transition: max-height .35s ease, padding .35s ease;
 }
 
+/* Dropdown answer – visible when active */
 .faq-card.active .faq-answer {
   padding: 12px 22px 20px;
-  max-height: 500px;
+  max-height: 600px; /* allows long answers */
 }
 
 
