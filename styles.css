@@ -353,3 +353,56 @@ pre {
   border-radius: 6px;
   padding: 14px;
 }
+/* RESOURCES PAGE STYLES */
+.resource-wrapper {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.accordion-item {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  margin-bottom: 14px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+
+.accordion-btn {
+  width: 100%;
+  text-align: left;
+  background: white;
+  border: none;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e293b;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.accordion-btn.open {
+  background: #f1f5f9;
+}
+
+.accordion-content {
+  display: none;
+  padding: 16px 20px;
+  border-top: 1px solid #e2e8f0;
+  font-size: 14px;
+  color: #475569;
+}
+
+.accordion-content ul {
+  padding-left: 20px;
+  margin: 10px 0;
+}
+
+.accordion-content a {
+  color: #0ea5e9;
+  text-decoration: none;
+}
+
+.accordion-content a:hover {
+  text-decoration: underline;
+}
