@@ -5,12 +5,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FAQ | SyncToScale</title>
+
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- LOAD ACCORDION JS -->
+  <script src="scripts.js" defer></script>
 </head>
 
 <body>
 
-  <!-- NAVBAR (MATCHES OTHER PAGES) -->
+  <!-- NAVBAR -->
   <header class="site-header">
     <div class="container header-inner">
 
@@ -32,7 +36,6 @@
   <!-- PAGE CONTENT -->
   <section class="faq-page container">
 
-    <!-- CALLOUT BOX -->
     <div class="callout-box">
       <h3>Curious about the purpose of this project?</h3>
       <p>
@@ -43,9 +46,7 @@
     </div>
 
     <h1>Frequently Asked Questions</h1>
-    <p class="faq-intro">
-      Explore platform behavior, workflows, integrations, and SyncBot Nova.
-    </p>
+    <p class="faq-intro">Explore platform behavior, workflows, integrations, and SyncBot Nova.</p>
 
     <!-- CATEGORY -->
     <h2 class="faq-category">Platform & Use Cases</h2>
@@ -56,9 +57,8 @@
         <span class="chevron">⌄</span>
       </button>
       <div class="faq-answer">
-        SyncToScale is a conceptual automation platform designed to showcase workflow logic, integration patterns, and AI-assisted troubleshooting.
-        It models how modern SaaS automation platforms work.  
-        Learn more on the <a href="about.html">About</a> page.
+        SyncToScale is a conceptual automation platform built to showcase workflow logic, integrations,
+        error modeling, and AI-assisted support. Learn more on the About page.
       </div>
     </div>
 
@@ -68,7 +68,7 @@
         <span class="chevron">⌄</span>
       </button>
       <div class="faq-answer">
-        Ideal for RevOps, People Ops, TAMs, CSMs, and teams who rely on connected SaaS systems.
+        Built for RevOps, People Ops, TAMs, CSMs, and SaaS teams who rely on multi-app workflows.
       </div>
     </div>
 
@@ -78,7 +78,7 @@
         <span class="chevron">⌄</span>
       </button>
       <div class="faq-answer">
-        Not at all — SyncToScale uses a clear, readable workflow style suitable for both technical and non-technical users.
+        No — SyncToScale uses human-readable workflow steps suitable for all skill levels.
       </div>
     </div>
 
@@ -91,28 +91,28 @@
         <span class="chevron">⌄</span>
       </button>
       <div class="faq-answer">
-        Workflows follow: <strong>Trigger → Conditions → Actions</strong>.  
-        Example: Creating a hire profile can automatically open tasks, notify Slack, and generate tickets.
+        Workflows follow: Trigger → Conditions → Actions. Example: onboarding flows that create tasks,
+        tickets, and Slack messages automatically.
       </div>
     </div>
 
     <div class="faq-card">
       <button class="faq-question">
-        Can workflows handle errors or exceptions?
+        Can workflows handle errors?
         <span class="chevron">⌄</span>
       </button>
       <div class="faq-answer">
-        Yes — retry logic, mapping failures, API limits, and troubleshooting sequences are included.
+        Yes — modeled behavior includes retry logic, rate limits, mapping failures, and more.
       </div>
     </div>
 
     <div class="faq-card">
       <button class="faq-question">
-        Can workflows span multiple applications?
+        Do workflows span multiple apps?
         <span class="chevron">⌄</span>
       </button>
       <div class="faq-answer">
-        Yes. Example flows include Salesforce → Slack, HRIS → Jira, Google Workspace → Notion, and more.
+        Yes — examples include Salesforce → Slack, HRIS → Jira, Google Workspace → Notion.
       </div>
     </div>
 
@@ -121,31 +121,31 @@
 
     <div class="faq-card">
       <button class="faq-question">
-        Which apps are supported?
+        What apps are supported?
         <span class="chevron">⌄</span>
       </button>
       <div class="faq-answer">
-        Supported demos include Salesforce, HubSpot, Slack, Jira, Google Workspace, Notion, and more.
+        Demos include Salesforce, HubSpot, Slack, Jira, Google Workspace, Notion, and more.
       </div>
     </div>
 
     <div class="faq-card">
       <button class="faq-question">
-        How does data syncing work?
+        How does data sync work?
         <span class="chevron">⌄</span>
       </button>
       <div class="faq-answer">
-        Modeled with real integration patterns: field mapping, transformations, deduplication, and sync rules.
+        Using field mapping, transformations, deduplication, and structured sync rules.
       </div>
     </div>
 
     <div class="faq-card">
       <button class="faq-question">
-        Are integrations live?
+        Are these integrations real?
         <span class="chevron">⌄</span>
       </button>
       <div class="faq-answer">
-        No — these are conceptual simulations for demonstration.
+        No — they are conceptual to showcase workflow reasoning, not live API connections.
       </div>
     </div>
 
@@ -158,46 +158,31 @@
         <span class="chevron">⌄</span>
       </button>
       <div class="faq-answer">
-        Nova simulates technical troubleshooting, explains system behavior, and models AI-augmented TAM/CSM support workflows.
+        Nova simulates troubleshooting, explains system behavior, and models AI-powered support.
       </div>
     </div>
 
     <div class="faq-card">
       <button class="faq-question">
-        How was Nova built?
+        How is Nova built?
         <span class="chevron">⌄</span>
       </button>
       <div class="faq-answer">
-        Nova uses curated logic: APIs, workflows, sample errors, and debugging frameworks.
+        Nova uses curated platform logic: mock APIs, workflows, error handling, and analysis patterns.
       </div>
     </div>
 
     <div class="faq-card">
       <button class="faq-question">
-        Is Nova connected to automations?
+        Is Nova connected to workflows?
         <span class="chevron">⌄</span>
       </button>
       <div class="faq-answer">
-        No — Nova simulates reasoning logic and platform behavior, not real execution.
+        No — Nova simulates platform reasoning, not real execution.
       </div>
     </div>
 
   </section>
 
-  <!-- WORKING ACCORDION JS -->
-  <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const cards = document.querySelectorAll(".faq-card");
-
-    cards.forEach(card => {
-      const question = card.querySelector(".faq-question");
-      question.addEventListener("click", () => {
-        card.classList.toggle("active");
-      });
-    });
-  });
-  </script>
-
 </body>
 </html>
-<script src="scripts.js" defer></script>
