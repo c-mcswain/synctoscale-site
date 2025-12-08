@@ -41,10 +41,12 @@
   <p>Explore pre-built automation flows designed to accelerate your integrations.</p>
 </section>
 
-<!-- FILTER BAR -->
+
+<!-- TEMPLATE SECTION WRAPPER (THIS WAS MISSING / BROKEN BEFORE) -->
 <section class="template-categories">
   <h2>Popular Templates</h2>
 
+  <!-- FILTER BAR -->
   <div class="template-filter">
     <button class="filter-btn active" data-category="all">All</button>
     <button class="filter-btn" data-category="sales">Sales</button>
@@ -111,8 +113,10 @@
       <a href="templates.html#examples" class="btn">View Template</a>
     </div>
 
-  </div>
-</section>
+  </div><!-- END TEMPLATE GRID -->
+
+</section><!-- END TEMPLATE CATEGORIES -->
+
 
 <!-- EXAMPLES SECTION -->
 <div class="doc-container">
@@ -161,7 +165,7 @@ Email Content:
   filterButtons.forEach(btn => {
     btn.addEventListener("click", () => {
 
-      // Active state
+      // highlight active button
       filterButtons.forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
 
