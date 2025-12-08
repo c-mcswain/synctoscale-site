@@ -41,61 +41,71 @@
   <p>Explore pre-built automation flows designed to accelerate your integrations.</p>
 </section>
 
-<!-- TEMPLATE CARDS -->
+<!-- FILTER BAR -->
 <section class="template-categories">
   <h2>Popular Templates</h2>
 
+  <div class="template-filter">
+    <button class="filter-btn active" data-category="all">All</button>
+    <button class="filter-btn" data-category="sales">Sales</button>
+    <button class="filter-btn" data-category="support">Support</button>
+    <button class="filter-btn" data-category="engineering">Engineering</button>
+    <button class="filter-btn" data-category="hr">HR</button>
+    <button class="filter-btn" data-category="ops">Ops</button>
+  </div>
+
+  <!-- TEMPLATE GRID -->
   <div class="template-grid">
 
-    <div class="template-card">
+    <div class="template-card" data-category="sales">
       <h3>Salesforce → Slack Lead Alert</h3>
       <p>Instantly notify your sales team when a new lead is created in Salesforce.</p>
       <a href="templates.html#examples" class="btn">View Template</a>
     </div>
 
-    <div class="template-card">
+    <div class="template-card" data-category="sales">
       <h3>HubSpot Deal Stage → Email Notification</h3>
       <p>Send automated updates when deals move between critical stages.</p>
       <a href="templates.html#examples" class="btn">View Template</a>
     </div>
 
-    <div class="template-card">
+    <div class="template-card" data-category="engineering">
       <h3>Jira Issue → Google Sheet Sync</h3>
       <p>Log new Jira tickets into a live Google Sheet for reporting and operations.</p>
       <a href="templates.html#examples" class="btn">View Template</a>
     </div>
 
-    <div class="template-card">
+    <div class="template-card" data-category="engineering">
       <h3>Slack → Notion Knowledge Capture</h3>
       <p>Push starred Slack messages into Notion pages for documentation.</p>
       <a href="templates.html#examples" class="btn">View Template</a>
     </div>
 
-    <div class="template-card">
+    <div class="template-card" data-category="engineering">
       <h3>Google Form → Jira Ticket Creation</h3>
       <p>Create Jira issues automatically from form submissions.</p>
       <a href="templates.html#examples" class="btn">View Template</a>
     </div>
 
-    <div class="template-card">
+    <div class="template-card" data-category="hr">
       <h3>Onboarding Checklist Automation</h3>
       <p>Trigger IT, HR, and manager tasks when a new employee is added.</p>
       <a href="templates.html#examples" class="btn">View Template</a>
     </div>
 
-    <div class="template-card">
+    <div class="template-card" data-category="ops">
       <h3>Revenue Ops — Lead Scoring Sync</h3>
       <p>Calculate lead scores across multiple tools and sync them to your CRM.</p>
       <a href="templates.html#examples" class="btn">View Template</a>
     </div>
 
-    <div class="template-card">
+    <div class="template-card" data-category="support">
       <h3>Customer Support — Ticket Escalations</h3>
       <p>Automatically escalate Zendesk or Intercom tickets based on sentiment.</p>
       <a href="templates.html#examples" class="btn">View Template</a>
     </div>
 
-    <div class="template-card">
+    <div class="template-card" data-category="ops">
       <h3>Daily Metrics Digest</h3>
       <p>Send Slack or email digests summarizing key KPIs across systems.</p>
       <a href="templates.html#examples" class="btn">View Template</a>
@@ -104,7 +114,7 @@
   </div>
 </section>
 
-<!-- EXAMPLES SECTION WRAPPED IN DOC-CONTAINER -->
+<!-- EXAMPLES SECTION -->
 <div class="doc-container">
 <section id="examples" class="template-info">
   <h2>Template Examples</h2>
@@ -142,6 +152,33 @@ Email Content:
   <p>More templates coming soon.</p>
 </section>
 </div>
+
+<!-- FILTER SCRIPT -->
+<script>
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  const cards = document.querySelectorAll(".template-card");
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+
+      // Active state
+      filterButtons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const category = btn.dataset.category;
+
+      cards.forEach(card => {
+        const cardCat = card.dataset.category;
+
+        if (category === "all" || cardCat === category) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
+  });
+</script>
 
 </body>
 </html>
