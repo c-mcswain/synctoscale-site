@@ -26,3 +26,31 @@
   background-repeat: no-repeat;
   display: block;
 }
+/* Your custom Nova chat launcher */
+.nova-launcher {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  cursor: pointer;
+  background: radial-gradient(circle at 30% 30%, #41d1ff, #21e19f);
+  box-shadow:
+    0 0 18px rgba(33, 225, 159, 0.5),
+    0 0 28px rgba(65, 209, 255, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999999;
+}
+
+/* Nova icon inside */
+.nova-launcher::before {
+  content: "";
+  width: 36px;
+  height: 36px;
+  background-image: url('https://c-mcswain.github.io/synctoscale-site/assets/nova-icon.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
