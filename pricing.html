@@ -37,6 +37,7 @@
       font-size: 1.6rem;
       font-weight: 700;
       color: #0b3d3d;
+      text-decoration: none;
     }
 
     .nav a {
@@ -98,7 +99,6 @@
       transition: transform .2s ease, box-shadow .2s ease;
     }
 
-    /* HIGHLIGHTED MIDDLE TIER */
     .plan.featured {
       border: 3px solid #14b8a6;
       transform: scale(1.04);
@@ -120,37 +120,24 @@
       margin-bottom: 12px;
     }
 
-    .plan h3 {
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-      color: #0b3d3d;
-    }
-
     .price {
       font-size: 2rem;
       font-weight: 700;
-      margin: 16px 0;
       color: #0b3d3d;
-    }
-
-    .price span {
-      font-size: 1rem;
-      font-weight: 500;
-      color: #475569;
+      margin: 16px 0;
     }
 
     .features {
-      text-align: left;
-      margin: 20px 0;
-      padding: 0;
       list-style: none;
+      padding: 0;
+      margin: 20px 0;
+      text-align: left;
     }
 
     .features li {
-      margin: 8px 0;
       padding-left: 20px;
+      margin: 8px 0;
       position: relative;
-      font-size: 0.95rem;
       color: #475569;
     }
 
@@ -159,7 +146,6 @@
       color: #14b8a6;
       position: absolute;
       left: 0;
-      font-size: 0.9rem;
     }
 
     .cta-button {
@@ -167,9 +153,9 @@
       padding: 14px 34px;
       background: #0b3d3d;
       color: white;
+      border-radius: 8px;
       text-decoration: none;
       font-weight: 600;
-      border-radius: 8px;
       transition: background .2s;
     }
 
@@ -182,8 +168,8 @@
       background: #0b3d3d;
       color: #cbd5e1;
       padding: 40px 20px;
-      text-align: center;
       margin-top: 80px;
+      text-align: center;
     }
   </style>
 </head>
@@ -193,7 +179,8 @@
   <!-- NAVBAR -->
   <header>
     <div class="container">
-      <div class="logo">SyncToScale</div>
+      <a href="/index.html" class="logo">SyncToScale</a>
+
       <nav class="nav">
         <a href="/features.html">Features</a>
         <a href="/pricing.html">Pricing</a>
@@ -214,42 +201,39 @@
   <section class="section">
     <div class="pricing-grid">
 
-      <!-- STARTER -->
       <div class="plan">
         <h3>Starter</h3>
-        <p class="price">$0 <span>/ month</span></p>
+        <p class="price">$0 / month</p>
         <ul class="features">
-          <li>Basic automation tools</li>
+          <li>Basic automations</li>
           <li>Connect up to 3 apps</li>
-          <li>100 workflow runs per month</li>
+          <li>100 workflow runs/month</li>
           <li>Email support</li>
         </ul>
         <a href="#" class="cta-button">Get Started</a>
       </div>
 
-      <!-- PRO — FEATURED -->
       <div class="plan featured">
         <span class="badge">Most Popular</span>
         <h3>Pro</h3>
-        <p class="price">$29 <span>/ month</span></p>
+        <p class="price">$29 / month</p>
         <ul class="features">
           <li>Unlimited workflows</li>
-          <li>Connect unlimited apps</li>
+          <li>Unlimited app connections</li>
           <li>AI-powered insights</li>
-          <li>Priority support</li>
           <li>Error handling & retry logic</li>
+          <li>Priority support</li>
         </ul>
         <a href="#" class="cta-button">Start Free Trial</a>
       </div>
 
-      <!-- ENTERPRISE -->
       <div class="plan">
         <h3>Enterprise</h3>
         <p class="price">Custom</p>
         <ul class="features">
-          <li>Dedicated automations engineer</li>
-          <li>Private cloud or on-prem options</li>
-          <li>Advanced security & compliance</li>
+          <li>Dedicated automation engineer</li>
+          <li>Private cloud options</li>
+          <li>Security & compliance suite</li>
           <li>Team onboarding & training</li>
           <li>SLA-backed support</li>
         </ul>
