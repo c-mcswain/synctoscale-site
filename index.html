@@ -7,7 +7,7 @@
   <title>SyncToScale</title>
 
   <!-- Botpress Webchat -->
-  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
+  <script src="https://cdn.botpress.cloud/webchat/v3.4/inject.js"></script>
   <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
 
   <style>
@@ -105,7 +105,7 @@
       transform: scale(1.1);
     }
 
-    /* ALT BACKGROUND SECTION */
+    /* ALT BACKGROUND */
     .alt-bg {
       background: #eefdfb;
     }
@@ -171,6 +171,24 @@
       padding: 40px 20px;
       text-align: center;
       margin-top: 60px;
+    }
+
+    /* ⭐ NOVA CHAT LABEL */
+    .nova-label {
+      position: fixed;
+      bottom: 38px;
+      right: 90px;
+      background: rgba(0, 0, 0, 0.78);
+      color: white;
+      padding: 8px 14px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 500;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity .25s ease, transform .25s ease;
+      pointer-events: none;
+      z-index: 999999;
     }
   </style>
 </head>
@@ -270,69 +288,52 @@
   </footer>
 
 
+  <!-- ⭐ NOVA CHAT BUTTON SCRIPT ⭐ -->
+  <script>
+    window.botpressWebChat.init({
+      botId: "nova",
+      hostUrl: "https://cdn.botpress.cloud/webchat/v3",
+      botName: "Nova",
+      hideWidget: false,
 
-<!-- ⭐ NOVA CHAT BUTTON SCRIPT ⭐ -->
-<script>
-  window.botpressWebChat.init({
-    botId: "nova",
-    hostUrl: "https://cdn.botpress.cloud/webchat/v3",
-    botName: "Nova",
-    hideWidget: false,
+      stylesheet: `
+        .bpw-floating-button {
+          width: 68px !important;
+          height: 68px !important;
+          border-radius: 50% !important;
+          background: radial-gradient(circle at 30% 30%, #41d1ff, #21e19f) !important;
+          box-shadow: 
+            0 0 18px rgba(33, 225, 159, 0.5),
+            0 0 28px rgba(65, 209, 255, 0.45) !important;
+          border: none !important;
+          display: flex !important;
+          justify-content: center !important;
+          align-items: center !important;
+        }
 
-    stylesheet: `
-      .bpw-floating-button {
-        width: 68px !important;
-        height: 68px !important;
-        border-radius: 50% !important;
-        background: radial-gradient(circle at 30% 30%, #41d1ff, #21e19f) !important;
-        box-shadow: 
-          0 0 18px rgba(33, 225, 159, 0.5),
-          0 0 28px rgba(65, 209, 255, 0.45) !important;
-        border: none !important;
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-      }
+        .bpw-floating-button svg {
+          display: none !important;
+        }
 
-      .bpw-floating-button svg {
-        display: none !important;
-      }
+        .bpw-floating-button::before {
+          content: "";
+          width: 36px;
+          height: 36px;
+          background-image: url('https://c-mcswain.github.io/synctoscale-site/assets/nova-icon.png');
+          background-size: contain;
+          background-repeat: no-repeat;
+          display: block;
+        }
 
-      .bpw-floating-button::before {
-        content: "";
-        width: 36px;
-        height: 36px;
-        background-image: url('https://c-mcswain.github.io/synctoscale-site/assets/nova-icon.png');
-        background-size: contain;
-        background-repeat: no-repeat;
-        display: block;
-      }
+        .bpw-floating-button:hover + .nova-label {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      `
+    });
+  </script>
 
-      .nova-label {
-        position: fixed;
-        bottom: 38px;
-        right: 90px;
-        background: rgba(0,0,0,0.78);
-        color: white;
-        padding: 8px 14px;
-        border-radius: 12px;
-        font-size: 14px;
-        font-weight: 500;
-        opacity: 0;
-        transform: translateY(6px);
-        transition: opacity .25s ease, transform .25s ease;
-        pointer-events: none;
-      }
-
-      .bpw-floating-button:hover + .nova-label {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    `
-  });
-</script>
-
-<div class="nova-label">Chat with Nova</div>
+  <div class="nova-label">Chat with Nova</div>
 
 </body>
 </html>
