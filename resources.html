@@ -1,112 +1,102 @@
-<!DOCTYPE html>
-<html lang="en">
+/* ----------------------------------------
+   RESOURCES PAGE — NOVA BOT COLOR STYLE
+---------------------------------------- */
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Resources | SyncToScale</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
+.resources-hero {
+  padding: 50px 20px;
+  text-align: center;
+  background: linear-gradient(180deg, #f5f3ff 0%, #eef2ff 100%);
+  border-bottom: 1px solid #e2e8f0;
+}
 
-<body>
+.resources-hero h1 {
+  font-size: 36px;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
 
-<!-- NAVBAR -->
-<header>
-  <div class="container">
-    <a href="index.html" class="logo">SyncToScale</a>
+.resources-hero p {
+  font-size: 16px;
+  color: #475569;
+}
 
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="features.html">Features</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="about.html">About</a>
+/* SMALL RIGHT CTA */
+.cta-small {
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px 0 0;
+}
 
-      <div class="dropdown">
-        <button class="dropbtn">Resources</button>
-        <div class="dropdown-content">
-          <a href="resources.html">Overview</a>
-          <a href="docs.html">Developer Docs</a>
-          <a href="api.html">API Reference</a>
-          <a href="templates.html">Templates</a>
-          <a href="security.html">Security</a>
-        </div>
-      </div>
-    </nav>
-  </div>
-</header>
+.cta-small-btn {
+  background: #6f4ff6;
+  color: #ffffff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
 
-<!-- HERO -->
-<section class="page-hero">
-  <h1>Resources</h1>
-  <p>Documentation, API references, templates, and security information.</p>
-</section>
+.cta-small-btn:hover {
+  background: #4f46e5;
+}
 
-<!-- RESOURCES CONTENT -->
-<section class="resource-wrapper">
+/* GRID */
+.resources-grid-section {
+  padding: 40px 0;
+}
 
-  <!-- ACCORDION BLOCK -->
-  <div class="accordion-item">
-    <button class="accordion-btn">Developer Documentation</button>
-    <div class="accordion-content">
-      <p>Start integrating SyncToScale into your workflows.</p>
-      <ul>
-        <li><a href="docs.html">Platform Overview</a></li>
-        <li><a href="docs.html#getting-started">Getting Started Guide</a></li>
-        <li><a href="docs.html#webhooks">Webhook Events</a></li>
-        <li><a href="docs.html#auth">Authorization & Tokens</a></li>
-      </ul>
-    </div>
-  </div>
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
 
-  <div class="accordion-item">
-    <button class="accordion-btn">API Reference</button>
-    <div class="accordion-content">
-      <p>REST API endpoints, authentication details, and schema documentation.</p>
-      <ul>
-        <li><a href="api.html">API Overview</a></li>
-        <li><a href="api.html#authentication">Authentication</a></li>
-        <li><a href="api.html#endpoints">Endpoints</a></li>
-        <li><a href="api.html#rate-limits">Rate Limiting</a></li>
-      </ul>
-    </div>
-  </div>
+.resource-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  padding: 24px;
+  border-radius: 14px;
+  text-decoration: none;
+  color: #1e293b;
+  transition: 0.2s ease;
+  background: #f8f7ff;
+}
 
-  <div class="accordion-item">
-    <button class="accordion-btn">Templates & Tools</button>
-    <div class="accordion-content">
-      <p>Download ready-made workflows.</p>
-      <ul>
-        <li><a href="templates.html">Automation Templates</a></li>
-        <li><a href="templates.html#examples">Example Integrations</a></li>
-        <li><a href="templates.html#workflow-library">Workflow Library</a></li>
-      </ul>
-    </div>
-  </div>
+.resource-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(111, 79, 246, 0.15);
+  border-color: #a78bfa;
+}
 
-  <div class="accordion-item">
-    <button class="accordion-btn">Security & Compliance</button>
-    <div class="accordion-content">
-      <p>Learn how SyncToScale protects your data.</p>
-      <ul>
-        <li><a href="security.html">Security Overview</a></li>
-        <li><a href="security.html#compliance">Compliance</a></li>
-        <li><a href="security.html#data-protection">Data Protection</a></li>
-      </ul>
-    </div>
-  </div>
+.resource-card h3 {
+  margin-bottom: 8px;
+  font-size: 20px;
+  color: #6f4ff6;
+}
 
-</section>
+.resource-card p {
+  font-size: 14px;
+  color: #475569;
+}
 
-<script>
-  const accBtns = document.querySelectorAll(".accordion-btn");
-  accBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-      btn.classList.toggle("open");
-      const content = btn.nextElementSibling;
-      content.style.display = content.style.display === "block" ? "none" : "block";
-    });
-  });
-</script>
+/* DETAILS SECTIONS */
+.resources-sections {
+  padding: 30px 0 60px;
+}
 
-</body>
-</html>
+.resource-section {
+  margin-bottom: 40px;
+}
+
+.resource-section h2 {
+  font-size: 22px;
+  color: #4f46e5;
+  margin-bottom: 10px;
+}
+
+.resource-section ul li {
+  font-size: 15px;
+  padding: 4px 0;
+  color: #475569;
+}
