@@ -257,3 +257,65 @@ header .container.header-inner {
 .footer-copy {
   margin: 0;
 }
+/* ============================
+   TEMPLATE GALLERY
+============================ */
+
+.templates-header {
+  padding-top: 60px;
+  text-align: center;
+}
+
+.templates-header h1 {
+  font-size: 2.4rem;
+  color: #0b3d3d;
+}
+
+.templates-intro {
+  max-width: 700px;
+  margin: 12px auto 40px;
+  color: #475569;
+}
+
+.template-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  padding-bottom: 60px;
+}
+
+.template-card {
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  padding: 26px;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.template-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+}
+
+.template-card h3 {
+  color: #0b3d3d;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.template-card p {
+  color: #475569;
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+
+.template-btn {
+  font-weight: 600;
+  color: #14b8a6;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.template-btn:hover {
+  text-decoration: underline;
+}
