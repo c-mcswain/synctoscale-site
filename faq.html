@@ -7,50 +7,54 @@
   <title>FAQ | SyncToScale</title>
 
   <link rel="stylesheet" href="styles.css" />
-
-  <!-- LOAD ACCORDION JS -->
-  <script src="scripts.js" defer></script>
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
-  <header class="site-header">
-    <div class="container header-inner">
+<!-- NAVBAR -->
+<header>
+  <div class="container">
+    <a href="index.html" class="logo">SyncToScale</a>
 
-      <a href="index.html" class="logo">
-        SyncToScale
-      </a>
-<nav class="nav">
-  <a href="index.html">Home</a>
-  <a href="features.html">Features</a>
-  <a href="pricing.html">Pricing</a>
-  <a href="about.html">About</a>
-  <a href="faq.html">FAQ</a>
-  <a href="resources.html">Resources</a>
-</nav>
-    </div>
-  </header>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="about.html">About</a>
+      <a href="faq.html">FAQ</a>
+      <a href="resources.html">Resources</a>
+    </nav>
+  </div>
+</header>
 
-  <!-- PAGE CONTENT -->
-  <section class="faq-page container">
+<!-- HERO -->
+<section class="page-hero">
+  <h1>Frequently Asked Questions</h1>
+  <p>Your guide to how SyncToScale’s conceptual platform behaves and why it works the way it does.</p>
+</section>
 
-    <div class="callout-box">
+<!-- CALLOUT -->
+<section class="section">
+  <div class="container">
+    <div class="card">
       <h3>Curious about the purpose of this project?</h3>
       <p>
         This page focuses on platform behavior.  
-        For the story behind SyncToScale, visit the
+        For the story behind SyncToScale, visit the 
         <a href="about.html">About This Project →</a>
       </p>
     </div>
+  </div>
+</section>
 
-    <h1>Frequently Asked Questions</h1>
-    <p class="faq-intro">Explore platform behavior, workflows, integrations, and SyncBot Nova.</p>
+<!-- FAQ SECTION -->
+<section class="section alt">
+  <div class="container">
 
     <!-- CATEGORY -->
-    <h2 class="faq-category">Platform & Use Cases</h2>
+    <h2>Platform & Use Cases</h2>
 
-    <div class="faq-card">
+    <div class="card faq-item">
       <button class="faq-question">
         What is SyncToScale?
         <span class="chevron">⌄</span>
@@ -61,7 +65,7 @@
       </div>
     </div>
 
-    <div class="faq-card">
+    <div class="card faq-item">
       <button class="faq-question">
         Who is SyncToScale designed for?
         <span class="chevron">⌄</span>
@@ -71,7 +75,7 @@
       </div>
     </div>
 
-    <div class="faq-card">
+    <div class="card faq-item">
       <button class="faq-question">
         Do I need coding skills?
         <span class="chevron">⌄</span>
@@ -82,9 +86,9 @@
     </div>
 
     <!-- CATEGORY -->
-    <h2 class="faq-category">Workflows & Automation</h2>
+    <h2>Workflows & Automation</h2>
 
-    <div class="faq-card">
+    <div class="card faq-item">
       <button class="faq-question">
         How do automations work?
         <span class="chevron">⌄</span>
@@ -95,7 +99,7 @@
       </div>
     </div>
 
-    <div class="faq-card">
+    <div class="card faq-item">
       <button class="faq-question">
         Can workflows handle errors?
         <span class="chevron">⌄</span>
@@ -105,7 +109,7 @@
       </div>
     </div>
 
-    <div class="faq-card">
+    <div class="card faq-item">
       <button class="faq-question">
         Do workflows span multiple apps?
         <span class="chevron">⌄</span>
@@ -116,9 +120,9 @@
     </div>
 
     <!-- CATEGORY -->
-    <h2 class="faq-category">Integrations & Data</h2>
+    <h2>Integrations & Data</h2>
 
-    <div class="faq-card">
+    <div class="card faq-item">
       <button class="faq-question">
         What apps are supported?
         <span class="chevron">⌄</span>
@@ -128,7 +132,7 @@
       </div>
     </div>
 
-    <div class="faq-card">
+    <div class="card faq-item">
       <button class="faq-question">
         How does data sync work?
         <span class="chevron">⌄</span>
@@ -138,7 +142,7 @@
       </div>
     </div>
 
-    <div class="faq-card">
+    <div class="card faq-item">
       <button class="faq-question">
         Are these integrations real?
         <span class="chevron">⌄</span>
@@ -149,9 +153,9 @@
     </div>
 
     <!-- CATEGORY -->
-    <h2 class="faq-category">SyncBot Nova</h2>
+    <h2>SyncBot Nova</h2>
 
-    <div class="faq-card">
+    <div class="card faq-item">
       <button class="faq-question">
         What can SyncBot Nova do?
         <span class="chevron">⌄</span>
@@ -161,7 +165,7 @@
       </div>
     </div>
 
-    <div class="faq-card">
+    <div class="card faq-item">
       <button class="faq-question">
         How is Nova built?
         <span class="chevron">⌄</span>
@@ -171,7 +175,7 @@
       </div>
     </div>
 
-    <div class="faq-card">
+    <div class="card faq-item">
       <button class="faq-question">
         Is Nova connected to workflows?
         <span class="chevron">⌄</span>
@@ -181,7 +185,19 @@
       </div>
     </div>
 
-  </section>
+  </div>
+</section>
+
+<!-- FAQ SCRIPT -->
+<script>
+  document.querySelectorAll(".faq-question").forEach(btn => {
+    btn.addEventListener("click", () => {
+      btn.classList.toggle("open");
+      const answer = btn.nextElementSibling;
+      answer.style.display = answer.style.display === "block" ? "none" : "block";
+    });
+  });
+</script>
 
 </body>
 </html>
