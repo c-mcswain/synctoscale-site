@@ -29,133 +29,183 @@
 <!-- HERO -->
 <section class="page-hero">
   <h1>Frequently Asked Questions</h1>
-  <p>Clear answers about workflows, integrations, behavior, and SyncBot Nova.</p>
+  <p>Your guide to platform behavior, workflows, integrations, and SyncBot Nova.</p>
 </section>
 
-<!-- CALLOUT CARD -->
+<!-- CALLOUT -->
 <section class="section">
   <div class="container">
     <div class="card" style="margin-bottom: 40px;">
       <h3>Curious about the purpose of this project?</h3>
       <p>
-        This page focuses on platform behavior.  
-        For the story behind SyncToScale, visit the 
+        The FAQ covers platform behavior.  
+        To learn *why* SyncToScale exists, see the 
         <a href="about.html">About This Project →</a>
       </p>
     </div>
   </div>
 </section>
 
-<!-- FAQ CONTENT -->
+<!-- FAQ GRID (FEATURES STYLE) -->
 <section class="section alt">
   <div class="container">
+    
+    <!-- CATEGORY HEADER -->
+    <h2 style="margin-bottom: 25px;">Platform & Use Cases</h2>
 
-    <!-- CATEGORY -->
-    <h2 style="margin-bottom: 20px;">Platform & Use Cases</h2>
+    <div class="template-grid">
 
-    <div class="card faq-item">
-      <button class="faq-question">What is SyncToScale?<span class="chevron">⌄</span></button>
-      <div class="faq-answer">
-        SyncToScale is a conceptual automation platform built to showcase workflow logic, integrations,
-        error modeling, and AI-assisted support.
+      <!-- FAQ CARD -->
+      <div class="card faq-card">
+        <button class="faq-header">
+          <span>What is SyncToScale?</span>
+          <span class="chevron">⌄</span>
+        </button>
+        <div class="faq-body">
+          SyncToScale is a conceptual automation platform showcasing workflow logic, integrations,
+          error modeling, and AI-driven support behavior.
+        </div>
       </div>
-    </div>
 
-    <div class="card faq-item">
-      <button class="faq-question">Who is SyncToScale designed for?<span class="chevron">⌄</span></button>
-      <div class="faq-answer">
-        Built for RevOps, People Ops, TAMs, CSMs, and SaaS teams who rely on multi-app workflows.
+      <div class="card faq-card">
+        <button class="faq-header">
+          <span>Who is SyncToScale designed for?</span>
+          <span class="chevron">⌄</span>
+        </button>
+        <div class="faq-body">
+          Ideal for RevOps, People Ops, TAMs, CSMs, and SaaS teams managing multi-app workflows.
+        </div>
       </div>
-    </div>
 
-    <div class="card faq-item">
-      <button class="faq-question">Do I need coding skills?<span class="chevron">⌄</span></button>
-      <div class="faq-answer">
-        No — workflows use human-readable steps suitable for all experience levels.
+      <div class="card faq-card">
+        <button class="faq-header">
+          <span>Do I need coding skills?</span>
+          <span class="chevron">⌄</span>
+        </button>
+        <div class="faq-body">
+          No — workflows use human-readable steps suitable for all experience levels.
+        </div>
       </div>
-    </div>
 
-    <!-- CATEGORY -->
-    <h2 style="margin:40px 0 20px;">Workflows & Automation</h2>
-
-    <div class="card faq-item">
-      <button class="faq-question">How do automations work?<span class="chevron">⌄</span></button>
-      <div class="faq-answer">
-        Workflows follow: Trigger → Conditions → Actions.
-      </div>
-    </div>
-
-    <div class="card faq-item">
-      <button class="faq-question">Can workflows handle errors?<span class="chevron">⌄</span></button>
-      <div class="faq-answer">
-        Yes — modeled behavior includes retries, rate limits, mapping failures, and more.
-      </div>
-    </div>
-
-    <div class="card faq-item">
-      <button class="faq-question">Do workflows span multiple apps?<span class="chevron">⌄</span></button>
-      <div class="faq-answer">
-        Yes — Salesforce → Slack, HRIS → Jira, Google Workspace → Notion.
-      </div>
     </div>
 
     <!-- CATEGORY -->
-    <h2 style="margin:40px 0 20px;">Integrations & Data</h2>
+    <h2 style="margin:50px 0 25px;">Workflows & Automation</h2>
 
-    <div class="card faq-item">
-      <button class="faq-question">What apps are supported?<span class="chevron">⌄</span></button>
-      <div class="faq-answer">
-        Demos include Salesforce, HubSpot, Slack, Jira, Google Workspace, Notion, and more.
+    <div class="template-grid">
+
+      <div class="card faq-card">
+        <button class="faq-header">
+          <span>How do automations work?</span>
+          <span class="chevron">⌄</span>
+        </button>
+        <div class="faq-body">
+          Workflows follow: Trigger → Conditions → Actions. Example: onboarding tasks and tickets created automatically.
+        </div>
       </div>
+
+      <div class="card faq-card">
+        <button class="faq-header">
+          <span>Can workflows handle errors?</span>
+          <span class="chevron">⌄</span>
+        </button>
+        <div class="faq-body">
+          Yes — modeled behavior includes retries, rate limits, mapping failures, and fallback logic.
+        </div>
+      </div>
+
+      <div class="card faq-card">
+        <button class="faq-header">
+          <span>Do workflows span multiple apps?</span>
+          <span class="chevron">⌄</span>
+        </button>
+        <div class="faq-body">
+          Yes — Salesforce → Slack, HRIS → Jira, Google Workspace → Notion, and more.
+        </div>
+      </div>
+
     </div>
 
-    <div class="card faq-item">
-      <button class="faq-question">How does data sync work?<span class="chevron">⌄</span></button>
-      <div class="faq-answer">
-        Using field mapping, transformations, deduplication, and structured sync rules.
-      </div>
-    </div>
+    <!-- CATEGORY -->
+    <h2 style="margin:50px 0 25px;">Integrations & Data</h2>
 
-    <div class="card faq-item">
-      <button class="faq-question">Are these integrations real?<span class="chevron">⌄</span></button>
-      <div class="faq-answer">
-        No — they are conceptual examples, not active API connections.
+    <div class="template-grid">
+      <div class="card faq-card">
+        <button class="faq-header">
+          <span>What apps are supported?</span>
+          <span class="chevron">⌄</span>
+        </button>
+        <div class="faq-body">
+          Demos include Salesforce, HubSpot, Slack, Jira, Google Workspace, Notion, and more.
+        </div>
+      </div>
+
+      <div class="card faq-card">
+        <button class="faq-header">
+          <span>How does data sync work?</span>
+          <span class="chevron">⌄</span>
+        </button>
+        <div class="faq-body">
+          Syncs use field mapping, transformations, deduplication, and rule-based processing.
+        </div>
+      </div>
+
+      <div class="card faq-card">
+        <button class="faq-header">
+          <span>Are these integrations real?</span>
+          <span class="chevron">⌄</span>
+        </button>
+        <div class="faq-body">
+          No — these are conceptual examples that model system behavior without live API calls.
+        </div>
       </div>
     </div>
 
     <!-- CATEGORY -->
-    <h2 style="margin:40px 0 20px;">SyncBot Nova</h2>
+    <h2 style="margin:50px 0 25px;">SyncBot Nova</h2>
 
-    <div class="card faq-item">
-      <button class="faq-question">What can SyncBot Nova do?<span class="chevron">⌄</span></button>
-      <div class="faq-answer">
-        Nova simulates troubleshooting, explains system behavior, and models AI-powered support.
-      </div>
-    </div>
+    <div class="template-grid">
 
-    <div class="card faq-item">
-      <button class="faq-question">How is Nova built?<span class="chevron">⌄</span></button>
-      <div class="faq-answer">
-        Nova uses curated platform logic: mock APIs, workflows, error handling, and analysis patterns.
+      <div class="card faq-card">
+        <button class="faq-header">
+          <span>What can SyncBot Nova do?</span>
+          <span class="chevron">⌄</span>
+        </button>
+        <div class="faq-body">
+          Nova simulates troubleshooting, explains workflow logic, and models platform behavior.
+        </div>
       </div>
-    </div>
 
-    <div class="card faq-item">
-      <button class="faq-question">Is Nova connected to workflows?<span class="chevron">⌄</span></button>
-      <div class="faq-answer">
-        No — Nova simulates platform reasoning, not real execution.
+      <div class="card faq-card">
+        <button class="faq-header">
+          <span>How is Nova built?</span>
+          <span class="chevron">⌄</span>
+        </button>
+        <div class="faq-body">
+          Nova uses curated platform logic: mock APIs, workflow patterns, error behavior, and analysis structures.
+        </div>
       </div>
+
+      <div class="card faq-card">
+        <button class="faq-header">
+          <span>Is Nova connected to workflows?</span>
+          <span class="chevron">⌄</span>
+        </button>
+        <div class="faq-body">
+          No — Nova simulates reasoning around workflows, not real execution.
+        </div>
+      </div>
+
     </div>
 
   </div>
 </section>
 
-<!-- FAQ SCRIPT -->
 <script>
-  document.querySelectorAll(".faq-question").forEach(btn => {
+  document.querySelectorAll(".faq-header").forEach(btn => {
     btn.addEventListener("click", () => {
-      const answer = btn.nextElementSibling;
-      answer.style.display = answer.style.display === "block" ? "none" : "block";
+      const body = btn.nextElementSibling;
+      body.style.display = body.style.display === "block" ? "none" : "block";
       btn.classList.toggle("open");
     });
   });
@@ -163,3 +213,4 @@
 
 </body>
 </html>
+
