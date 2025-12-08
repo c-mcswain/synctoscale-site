@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing — SyncToScale</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Inter, Arial, sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+    }
+
+    /* NAVBAR */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    }
+
+    header .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #0b3d3d;
+    }
+
+    .nav a {
+      color: #0b3d3d;
+      margin-left: 26px;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      padding-bottom: 4px;
+      transition: color .2s ease, border-bottom .2s ease;
+      border-bottom: 2px solid transparent;
+    }
+
+    .nav a:hover {
+      color: #14b8a6;
+      border-bottom: 2px solid #14b8a6;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 90px 20px 60px;
+      text-align: center;
+      background: #ffffff;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #0b3d3d;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      max-width: 650px;
+      margin: auto;
+      color: #475569;
+    }
+
+    /* PRICING GRID */
+    .section {
+      padding: 80px 20px;
+    }
+
+    .pricing-grid {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .plan {
+      background: #fff;
+      padding: 32px;
+      border-radius: 16px;
+      box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.06);
+      text-align: center;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    /* HIGHLIGHTED MIDDLE TIER */
+    .plan.featured {
+      border: 3px solid #14b8a6;
+      transform: scale(1.04);
+    }
+
+    .plan:hover {
+      transform: translateY(-4px);
+      box-shadow: 0px 6px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .badge {
+      background: #14b8a6;
+      color: white;
+      padding: 6px 14px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .plan h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #0b3d3d;
+    }
+
+    .price {
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 16px 0;
+      color: #0b3d3d;
+    }
+
+    .price span {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #475569;
+    }
+
+    .features {
+      text-align: left;
+      margin: 20px 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .features li {
+      margin: 8px 0;
+      padding-left: 20px;
+      position: relative;
+      font-size: 0.95rem;
+      color: #475569;
+    }
+
+    .features li::before {
+      content: "✔";
+      color: #14b8a6;
+      position: absolute;
+      left: 0;
+      font-size: 0.9rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 14px 34px;
+      background: #0b3d3d;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: background .2s;
+    }
+
+    .cta-button:hover {
+      background: #14b8a6;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #0b3d3d;
+      color: #cbd5e1;
+      padding: 40px 20px;
+      text-align: center;
+      margin-top: 80px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <div class="container">
+      <div class="logo">SyncToScale</div>
+      <nav class="nav">
+        <a href="/features.html">Features</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/index.html#integrations">Integrations</a>
+        <a href="/index.html#how-it-works">How It Works</a>
+        <a href="/about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Simple, Flexible Pricing</h1>
+    <p>Choose the plan that scales with your workflow — whether you're a solo operator or an enterprise team.</p>
+  </section>
+
+  <!-- PRICING GRID -->
+  <section class="section">
+    <div class="pricing-grid">
+
+      <!-- STARTER -->
+      <div class="plan">
+        <h3>Starter</h3>
+        <p class="price">$0 <span>/ month</span></p>
+        <ul class="features">
+          <li>Basic automation tools</li>
+          <li>Connect up to 3 apps</li>
+          <li>100 workflow runs per month</li>
+          <li>Email support</li>
+        </ul>
+        <a href="#" class="cta-button">Get Started</a>
+      </div>
+
+      <!-- PRO — FEATURED -->
+      <div class="plan featured">
+        <span class="badge">Most Popular</span>
+        <h3>Pro</h3>
+        <p class="price">$29 <span>/ month</span></p>
+        <ul class="features">
+          <li>Unlimited workflows</li>
+          <li>Connect unlimited apps</li>
+          <li>AI-powered insights</li>
+          <li>Priority support</li>
+          <li>Error handling & retry logic</li>
+        </ul>
+        <a href="#" class="cta-button">Start Free Trial</a>
+      </div>
+
+      <!-- ENTERPRISE -->
+      <div class="plan">
+        <h3>Enterprise</h3>
+        <p class="price">Custom</p>
+        <ul class="features">
+          <li>Dedicated automations engineer</li>
+          <li>Private cloud or on-prem options</li>
+          <li>Advanced security & compliance</li>
+          <li>Team onboarding & training</li>
+          <li>SLA-backed support</li>
+        </ul>
+        <a href="#" class="cta-button">Contact Sales</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>SyncToScale — Portfolio Project by Christy</p>
+  </footer>
+
+</body>
+
+</html>
