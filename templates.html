@@ -31,129 +31,139 @@
           <a href="security.html">Security</a>
         </div>
       </div>
-    </nav> <!-- ✅ FIXED: This closing tag was missing -->
+    </nav> <!-- ✅ FIXED: closing tag was missing -->
   </div>
 </header>
 
 <!-- HERO -->
 <section class="page-hero">
   <h1>Templates Library</h1>
-  <p>Explore pre-built automation flows designed to accelerate your integrations.</p>
+  <p>Explore pre-built automation flows to accelerate your integrations.</p>
 </section>
 
-<!-- TEMPLATE SECTION WRAPPER -->
-<section class="template-categories">
-  <h2>Popular Templates</h2>
+<!-- MAIN SECTION -->
+<section class="section alt">
+  <div class="container">
 
-  <!-- FILTER BAR -->
-  <div class="template-filter">
-    <button class="filter-btn active" data-category="all">All</button>
-    <button class="filter-btn" data-category="sales">Sales</button>
-    <button class="filter-btn" data-category="support">Support</button>
-    <button class="filter-btn" data-category="engineering">Engineering</button>
-    <button class="filter-btn" data-category="hr">HR</button>
-    <button class="filter-btn" data-category="ops">Ops</button>
+    <h2>Popular Templates</h2>
+    <p>Select a category or browse all available templates.</p>
+
+    <!-- FILTER BAR -->
+    <div class="template-filter">
+      <button class="filter-btn active" data-category="all">All</button>
+      <button class="filter-btn" data-category="sales">Sales</button>
+      <button class="filter-btn" data-category="support">Support</button>
+      <button class="filter-btn" data-category="engineering">Engineering</button>
+      <button class="filter-btn" data-category="hr">HR</button>
+      <button class="filter-btn" data-category="ops">Ops</button>
+    </div>
+
+    <!-- TEMPLATE GRID -->
+    <div class="template-grid">
+
+      <div class="template-card" data-category="sales">
+        <h3>Salesforce → Slack Lead Alert</h3>
+        <p>Notify your sales team instantly when a new lead is created.</p>
+        <a href="#examples" class="btn">View Template</a>
+      </div>
+
+      <div class="template-card" data-category="sales">
+        <h3>HubSpot Deal Stage Email</h3>
+        <p>Trigger emails when deals advance to new stages.</p>
+        <a href="#examples" class="btn">View Template</a>
+      </div>
+
+      <div class="template-card" data-category="engineering">
+        <h3>Jira → Google Sheet Sync</h3>
+        <p>Push ticket metadata into spreadsheets for analytics.</p>
+        <a href="#examples" class="btn">View Template</a>
+      </div>
+
+      <div class="template-card" data-category="engineering">
+        <h3>Slack → Notion Knowledge Capture</h3>
+        <p>Convert starred Slack messages into Notion pages.</p>
+        <a href="#examples" class="btn">View Template</a>
+      </div>
+
+      <div class="template-card" data-category="engineering">
+        <h3>Google Form → Jira Ticket</h3>
+        <p>Create Jira issues automatically from form responses.</p>
+        <a href="#examples" class="btn">View Template</a>
+      </div>
+
+      <div class="template-card" data-category="hr">
+        <h3>Employee Onboarding</h3>
+        <p>Trigger IT, HR, and manager tasks from one event.</p>
+        <a href="#examples" class="btn">View Template</a>
+      </div>
+
+      <div class="template-card" data-category="ops">
+        <h3>Lead Scoring Sync</h3>
+        <p>Consolidate scoring calculations across systems.</p>
+        <a href="#examples" class="btn">View Template</a>
+      </div>
+
+      <div class="template-card" data-category="support">
+        <h3>Auto-Escalate Support Tickets</h3>
+        <p>Escalate based on sentiment or missed SLAs.</p>
+        <a href="#examples" class="btn">View Template</a>
+      </div>
+
+      <div class="template-card" data-category="ops">
+        <h3>Daily Metrics Digest</h3>
+        <p>Send Slack or email summaries of KPIs daily.</p>
+        <a href="#examples" class="btn">View Template</a>
+      </div>
+
+    </div> <!-- /template-grid -->
+
   </div>
-
-  <!-- TEMPLATE GRID -->
-  <div class="template-grid">
-
-    <div class="template-card" data-category="sales">
-      <h3>Salesforce → Slack Lead Alert</h3>
-      <p>Instantly notify your sales team when a new lead is created in Salesforce.</p>
-      <a href="templates.html#examples" class="btn">View Template</a>
-    </div>
-
-    <div class="template-card" data-category="sales">
-      <h3>HubSpot Deal Stage → Email Notification</h3>
-      <p>Send automated updates when deals move between critical stages.</p>
-      <a href="templates.html#examples" class="btn">View Template</a>
-    </div>
-
-    <div class="template-card" data-category="engineering">
-      <h3>Jira Issue → Google Sheet Sync</h3>
-      <p>Log new Jira tickets into a live Google Sheet for reporting and operations.</p>
-      <a href="templates.html#examples" class="btn">View Template</a>
-    </div>
-
-    <div class="template-card" data-category="engineering">
-      <h3>Slack → Notion Knowledge Capture</h3>
-      <p>Push starred Slack messages into Notion pages for documentation.</p>
-      <a href="templates.html#examples" class="btn">View Template</a>
-    </div>
-
-    <div class="template-card" data-category="engineering">
-      <h3>Google Form → Jira Ticket Creation</h3>
-      <p>Create Jira issues automatically from form submissions.</p>
-      <a href="templates.html#examples" class="btn">View Template</a>
-    </div>
-
-    <div class="template-card" data-category="hr">
-      <h3>Onboarding Checklist Automation</h3>
-      <p>Trigger IT, HR, and manager tasks when a new employee is added.</p>
-      <a href="templates.html#examples" class="btn">View Template</a>
-    </div>
-
-    <div class="template-card" data-category="ops">
-      <h3>Revenue Ops — Lead Scoring Sync</h3>
-      <p>Calculate lead scores across multiple tools and sync them to your CRM.</p>
-      <a href="templates.html#examples" class="btn">View Template</a>
-    </div>
-
-    <div class="template-card" data-category="support">
-      <h3>Customer Support — Ticket Escalations</h3>
-      <p>Automatically escalate Zendesk or Intercom tickets based on sentiment.</p>
-      <a href="templates.html#examples" class="btn">View Template</a>
-    </div>
-
-    <div class="template-card" data-category="ops">
-      <h3>Daily Metrics Digest</h3>
-      <p>Send Slack or email digests summarizing key KPIs across systems.</p>
-      <a href="templates.html#examples" class="btn">View Template</a>
-    </div>
-
-  </div> <!-- END GRID -->
-
-</section> <!-- END TEMPLATE SECTION -->
+</section>
 
 <!-- EXAMPLES SECTION -->
-<div class="doc-container">
-<section id="examples" class="template-info">
-  <h2>Template Examples</h2>
+<section class="section">
+  <div class="container doc-container" id="examples">
 
-  <h3>Salesforce → Slack Lead Alert</h3>
-  <pre><code>
+    <h2>Template Examples</h2>
+
+    <div class="card">
+      <h3>Salesforce → Slack Lead Alert</h3>
+      <pre><code>
 Trigger: lead.created (Salesforce)
 Action: send_message (Slack)
 
-Message:
-"New lead created: {{payload.name}} from {{payload.company}}"
-  </code></pre>
+Message Template:
+"New lead: {{payload.name}} from {{payload.company}}"
+      </code></pre>
+    </div>
 
-  <h3>Jira Issue → Google Sheet Sync</h3>
-  <pre><code>
+    <div class="card">
+      <h3>Jira → Google Sheet Sync</h3>
+      <pre><code>
 Trigger: issue.created (Jira)
 Action: append_row (Google Sheets)
 
-Columns Synced:
+Columns:
 - Issue ID
 - Summary
 - Priority
 - Assignee
-  </code></pre>
+      </code></pre>
+    </div>
 
-  <h3>HubSpot Deal Stage Change</h3>
-  <pre><code>
+    <div class="card">
+      <h3>HubSpot Deal Stage Email</h3>
+      <pre><code>
 Trigger: deal.stage_changed (HubSpot)
 Action: send_email (Gmail)
 
-Email Content:
-"Your deal {{payload.name}} moved to {{payload.stage}}"
-  </code></pre>
+Template:
+"Deal {{payload.name}} moved to {{payload.stage}}"
+      </code></pre>
+    </div>
 
-  <p>More templates coming soon.</p>
+  </div>
 </section>
-</div>
 
 <!-- FILTER SCRIPT -->
 <script>
