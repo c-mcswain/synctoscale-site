@@ -1,4 +1,33 @@
-/* Floating Round Nova Button */
+/* ----------------------------------------------------------
+   SYNC TOSCALE — BOTPRESS MINI WRAPPER (OUTER CONTAINER ONLY)
+   This shrinks the iframe container on YOUR website.
+----------------------------------------------------------- */
+
+#bp-widget,
+.bpw-widget-container,
+.bpw-layout {
+  width: 240px !important;
+  height: 320px !important;
+  max-width: 240px !important;
+  max-height: 320px !important;
+  bottom: 24px !important;
+  right: 24px !important;
+  overflow: hidden !important;
+  position: fixed !important;
+  z-index: 999999 !important;
+}
+
+/* Limit the iframe itself (wrapper-level) */
+#bp-widget iframe,
+.bpw-widget-container iframe {
+  width: 240px !important;
+  height: 320px !important;
+  max-width: 240px !important;
+  max-height: 320px !important;
+  overflow: hidden !important;
+}
+
+/* Keep your custom floating Nova launcher */
 .bpw-floating-button {
   width: 68px !important;
   height: 68px !important;
@@ -25,32 +54,4 @@
   background-size: contain;
   background-repeat: no-repeat;
   display: block;
-}
-/* Your custom Nova chat launcher */
-.nova-launcher {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  width: 68px;
-  height: 68px;
-  border-radius: 50%;
-  cursor: pointer;
-  background: radial-gradient(circle at 30% 30%, #41d1ff, #21e19f);
-  box-shadow:
-    0 0 18px rgba(33, 225, 159, 0.5),
-    0 0 28px rgba(65, 209, 255, 0.45);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999999;
-}
-
-/* Nova icon inside */
-.nova-launcher::before {
-  content: "";
-  width: 36px;
-  height: 36px;
-  background-image: url('https://c-mcswain.github.io/synctoscale-site/assets/nova-icon.png');
-  background-size: contain;
-  background-repeat: no-repeat;
 }
