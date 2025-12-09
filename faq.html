@@ -94,7 +94,9 @@
       opacity: 0.9;
     }
 
-    .faq-hero-cta span {
+    .faq-hero-cta a {
+      color: white;
+      text-decoration: none;
       padding: 4px 9px;
       border-radius: 999px;
       background: rgba(15, 23, 42, 0.25);
@@ -105,6 +107,9 @@
       font-size: 1.1rem;
       font-weight: 600;
       color: #0b3d3d;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
     .faq-group {
@@ -189,11 +194,14 @@
       gap: 8px;
     }
 
-    .pdf-cta span {
+    .pdf-cta a {
       font-size: 0.86rem;
       padding: 6px 10px;
       border-radius: 999px;
       background: rgba(15, 23, 42, 0.55);
+      color: #e2f3ff;
+      text-decoration: none;
+      white-space: nowrap;
     }
 
     footer {
@@ -254,9 +262,9 @@
   <!-- HERO -->
   <section class="faq-hero">
     <h1>FAQ about SyncToScale</h1>
-    <p>Answers to the kinds of questions customers — and recruiters — might ask about an AI workflow platform like this.</p>
+    <p>Answers to the kinds of questions customers and evaluators might ask about an AI-powered workflow platform.</p>
     <div class="faq-hero-cta">
-      <span>Recruiter? See “About This Project” for a narrative overview.</span>
+      <a href="about.html">Visit the About page for a full overview →</a>
     </div>
   </section>
 
@@ -264,119 +272,151 @@
   <main class="section">
     <div class="container">
 
+      <!-- CTA -->
       <div class="pdf-cta">
-        <p>Want a quick snapshot instead?</p>
-        <span>Download PDF overview (conceptual CTA)</span>
+        <p>Looking for a broader description of the project?</p>
+        <a href="about.html">Learn more →</a>
       </div>
 
-      <h2 class="section-heading">General questions</h2>
+      <!-- GENERAL QUESTIONS -->
+      <h2 class="section-heading">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#0f766e" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="10" stroke="#0f766e" stroke-width="2" fill="none"/>
+          <path d="M12 7a2.5 2.5 0 00-1 4.8v.2h2v-.2A2.5 2.5 0 0012 7zM12 17h.01" stroke="#0f766e" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        General Questions
+      </h2>
 
       <div class="faq-group">
+
         <div class="faq-item">
           <button class="faq-question">
             <span>Is SyncToScale a real, production-ready platform?</span>
             <span class="faq-icon">›</span>
           </button>
           <div class="faq-answer">
-            <p>No — SyncToScale is a concept project. The goal is to present a believable AI automation platform with realistic copy, feature design, and structure, without a full production backend.</p>
+            <p>SyncToScale is a conceptual, portfolio-focused representation of what an AI workflow platform could look like. It mirrors realistic SaaS structure, UX, and messaging without a live production backend.</p>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question">
-            <span>Who is this project built for?</span>
+            <span>Who is this project intended for?</span>
             <span class="faq-icon">›</span>
           </button>
           <div class="faq-answer">
-            <p>It’s aimed at:</p>
+            <p>The project is designed for:</p>
             <ul>
-              <li>Recruiters and hiring managers in SaaS / AI / workflow automation.</li>
-              <li>Teams curious how a TAM / CS / implementation-minded person thinks about product and process.</li>
-              <li>Anyone who wants to see a “fake but plausible” AI platform end to end.</li>
+              <li>Recruiters and hiring teams evaluating workflow thinking and product sense.</li>
+              <li>Teams exploring how AI may support TAM, CS, implementation, and support processes.</li>
+              <li>Anyone interested in a realistic—but simulated—AI automation platform environment.</li>
             </ul>
           </div>
         </div>
+
       </div>
 
-      <h2 class="section-heading">Platform & features</h2>
+      <!-- PLATFORM & FEATURES -->
+      <h2 class="section-heading">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#0f766e" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="7" height="7" rx="1.5" stroke="#0f766e" stroke-width="2" fill="none"/>
+          <rect x="14" y="3" width="7" height="7" rx="1.5" stroke="#0f766e" stroke-width="2" fill="none"/>
+          <rect x="3" y="14" width="7" height="7" rx="1.5" stroke="#0f766e" stroke-width="2" fill="none"/>
+          <rect x="14" y="14" width="7" height="7" rx="1.5" stroke="#0f766e" stroke-width="2" fill="none"/>
+        </svg>
+        Platform & Features
+      </h2>
 
       <div class="faq-group">
+
         <div class="faq-item">
           <button class="faq-question">
-            <span>What kinds of workflows is SyncToScale designed around?</span>
+            <span>What types of workflows is SyncToScale modeled around?</span>
             <span class="faq-icon">›</span>
           </button>
           <div class="faq-answer">
-            <p>The platform is modeled around:</p>
+            <p>The platform concept reflects workflows commonly found in modern SaaS operations, including:</p>
             <ul>
               <li>Customer onboarding and implementation projects.</li>
-              <li>Account health monitoring and renewal playbooks.</li>
-              <li>Support escalations and cross-functional handoffs.</li>
-              <li>Internal operations tasks that touch multiple systems.</li>
+              <li>Account health and renewal workflows.</li>
+              <li>Support escalations and handoffs between teams.</li>
+              <li>Internal request routing and multi-tool automation.</li>
             </ul>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question">
-            <span>How does Nova (the AI assistant) fit into the product?</span>
+            <span>How is the Nova assistant intended to fit into the platform?</span>
             <span class="faq-icon">›</span>
           </button>
           <div class="faq-answer">
-            <p>Nova is positioned as a sidekick — not a replacement for humans. Conceptually, Nova would:</p>
+            <p>Nova is designed as an assistive component rather than a fully autonomous system. Key conceptual functions include:</p>
             <ul>
-              <li>Summarize long customer histories into actionable notes.</li>
-              <li>Suggest routing, tags, and next steps for incoming requests.</li>
-              <li>Help draft communications, while humans approve and send.</li>
+              <li>Summarizing historical context from multiple tools.</li>
+              <li>Suggesting routing logic or next steps.</li>
+              <li>Drafting communications for human approval.</li>
             </ul>
-            <p>All of this is framed around human-in-the-loop guardrails, not “fire-and-forget” automation.</p>
+            <p>The design emphasizes clarity, explainability, and human-in-the-loop workflows.</p>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question">
-            <span>Does SyncToScale really integrate with tools like Salesforce, HubSpot, Slack, and Jira?</span>
+            <span>Do the listed integrations (Salesforce, Slack, HubSpot) actually function?</span>
             <span class="faq-icon">›</span>
           </button>
           <div class="faq-answer">
-            <p>In this portfolio version, the integrations are conceptual only. The UI and copy are built as if real connectors exist, to demonstrate how I’d name, position, and explain them to customers.</p>
+            <p>In this version, integrations are representational. They demonstrate how a real platform might communicate connector capabilities, value, and workflow structure without implementing live API endpoints.</p>
           </div>
         </div>
+
       </div>
 
-      <h2 class="section-heading">For recruiters & hiring managers</h2>
+      <!-- RECRUITERS & EVALUATORS -->
+      <h2 class="section-heading">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#0f766e" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z" stroke="#0f766e" stroke-width="2" fill="none"/>
+          <path d="M4 20c0-3.2 3.6-5 8-5s8 1.8 8 5" stroke="#0f766e" stroke-width="2" fill="none"/>
+        </svg>
+        For Recruiters & Evaluators
+      </h2>
 
       <div class="faq-group">
+
         <div class="faq-item">
           <button class="faq-question">
-            <span>What does this project say about how Christy works?</span>
+            <span>What does this project demonstrate about workflow and product understanding?</span>
             <span class="faq-icon">›</span>
           </button>
           <div class="faq-answer">
-            <p>It reflects my tendency to:</p>
+            <p>The platform concept highlights strengths relevant to customer-facing technical roles:</p>
             <ul>
-              <li>Think in systems and cross-functional workflows.</li>
-              <li>Translate technical ideas into clear, customer-friendly language.</li>
-              <li>Design for TAM / CS / implementation teams who live in multiple tools all day.</li>
+              <li>System-level thinking across multi-team workflows.</li>
+              <li>Ability to translate technical and operational detail into user-friendly documentation.</li>
+              <li>Familiarity with tools commonly used by CS, TAM, implementation, and support teams.</li>
+              <li>Structured communication aligned with modern SaaS UX principles.</li>
             </ul>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question">
-            <span>How does this connect to real experience with AI?</span>
+            <span>How does this relate to real AI usage in operational roles?</span>
             <span class="faq-icon">›</span>
           </button>
           <div class="faq-answer">
-            <p>In previous roles, I’ve used AI tools to:</p>
+            <p>The FAQ and feature structure are influenced by real AI-assisted workflows observed in SaaS environments, such as:</p>
             <ul>
-              <li>Summarize calls and highlight follow-ups.</li>
-              <li>Draft customer comms while preserving voice and nuance.</li>
-              <li>Spot patterns in tickets or account risk signals.</li>
+              <li>Summarizing meetings and generating action items.</li>
+              <li>Drafting internal or customer-facing communication.</li>
+              <li>Surfacing trends in support/ticket volume or account signals.</li>
+              <li>Assisting with routing and workflow consistency.</li>
             </ul>
-            <p>SyncToScale is a way to package that mindset in a single, cohesive story.</p>
+            <p>SyncToScale packages these ideas into a cohesive conceptual UX.</p>
           </div>
         </div>
+
       </div>
     </div>
   </main>
@@ -388,7 +428,7 @@
 
   <!-- NOVA CHAT BUTTON -->
   <script>
-    // Simple accordion logic
+    // Accordion logic
     document.addEventListener('DOMContentLoaded', function () {
       document.querySelectorAll('.faq-item').forEach(function (item) {
         const btn = item.querySelector('.faq-question');
@@ -397,7 +437,6 @@
         btn.addEventListener('click', function () {
           const isOpen = item.classList.contains('open');
 
-          // close others
           document.querySelectorAll('.faq-item.open').forEach(function (openItem) {
             openItem.classList.remove('open');
             const openAnswer = openItem.querySelector('.faq-answer');
