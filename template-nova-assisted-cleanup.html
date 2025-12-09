@@ -1,1 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Template: Nova-Assisted Cleanup | SyncToScale</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Nova / Botpress -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
+  <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
+</head>
+
+<body>
+
+  <!-- SITE HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">S</span>
+        <span class="logo-text">SyncToScale</span>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="docs.html">Docs</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+    <div class="container template-layout">
+
+      <!-- BREADCRUMB -->
+      <nav class="doc-breadcrumb">
+        <a href="templates.html">Templates</a>
+        <span>›</span>
+        <span>Nova-Assisted Cleanup</span>
+      </nav>
+
+      <!-- PAGE HEADER -->
+      <header class="page-header">
+        <div class="page-header-top">
+          <h1>Nova-Assisted Cleanup</h1>
+          <span class="badge badge-nova">Template</span>
+        </div>
+
+        <p class="page-subtitle">
+          Use Nova to scan your data for duplicates, inconsistent values, and obvious errors across HRIS, CRM,
+          and support tools — then generate safe, reviewable cleanup proposals you can apply with one click.
+        </p>
+
+        <div class="page-meta-row">
+          <span class="pill pill-soft">Category: Developer & Custom</span>
+          <span class="pill pill-soft">Difficulty: Intermediate</span>
+          <span class="pill pill-soft">Trigger: Manual or scheduled health check</span>
+          <span class="pill pill-soft">Systems: HRIS · CRM · Support · Identity · Warehouse</span>
+        </div>
+      </header>
+
+      <!-- MAIN GRID -->
+      <section class="template-main-grid">
+
+        <!-- LEFT COLUMN -->
+        <article class="template-main">
+
+          <!-- OVERVIEW -->
+          <section id="overview" class="doc-section">
+            <h2>Overview</h2>
+            <p>
+              The <strong>Nova-Assisted Cleanup</strong> template is your “data hygiene co-pilot.” It periodically
+              reviews records across systems for common issues — like duplicate contacts, conflicting job titles,
+              invalid emails, or missing IDs — and then builds a cleanup plan. Nova groups related records, suggests
+              the correct source of truth, and generates concrete “fix” operations that can be reviewed and applied
+              safely.
+            </p>
+
+            <div class="info-grid">
+              <div class="info-card">
+                <h3>When to use this template</h3>
+                <ul>
+                  <li>Your CRM has many duplicates or half-complete records.</li>
+                  <li>HRIS and identity platforms disagree on job titles or departments.</li>
+                  <li>Support and CS tools use slightly different account naming schemes.</li>
+                  <li>You want an ongoing, low-friction way to keep data clean.</li>
+                </ul>
+              </div>
+
+              <div class="info-card">
+                <h3>What this template automates</h3>
+                <ul>
+                  <li>Sampling and scanning records for hygiene issues.</li>
+                  <li>Grouping potential duplicates or conflicting sets.</li>
+                  <li>Proposing specific field updates, merges, or normalizations.</li>
+                  <li>Creating review tasks or “cleanup boards” for admins.</li>
+                  <li>Applying approved cleanup operations via API in bulk.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- HOW IT WORKS -->
+          <section id="how-it-works" class="doc-section">
+            <h2>How it works</h2>
+            <ol class="step-list">
+              <li>SyncToScale pulls a sample or full set of records from one or more systems.</li>
+              <li>Nova evaluates patterns and identifies probable issues.</li>
+              <li>Records are grouped into “cleanup candidates” (e.g., duplicates, mismatches, gaps).</li>
+              <li>Nova produces proposed updates, merges, or standardizations.</li>
+              <li>Admins review proposals in your chosen system or cleanup board.</li>
+              <li>Approved proposals are executed via bulk update API calls.</li>
+            </ol>
+          </section>
+
+          <!-- WORKFLOW STEPS -->
+          <section id="workflow-steps" class="doc-section">
+            <h2>Workflow steps</h2>
+
+            <ol class="step-list step-list-detailed">
+
+              <li>
+                <h3>Step 1 — Trigger: Manual run or scheduled</h3>
+                <p>
+                  You can run Nova-Assisted Cleanup:
+                </p>
+                <ul>
+                  <li>On-demand (button click in SyncToScale), or</li>
+                  <li>On a recurring schedule (e.g., weekly data hygiene job).</li>
+                </ul>
+              </li>
+
+              <li>
+                <h3>Step 2 — Fetch candidate records</h3>
+                <p>
+                  SyncToScale queries:
+                </p>
+                <ul>
+                  <li>HRIS employees</li>
+                  <li>CRM leads/contacts/accounts</li>
+                  <li>Support users or organizations</li>
+                  <li>Any other connected dataset you include</li>
+                </ul>
+                <p>
+                  Filters can be used to limit scope (e.g., updated in last 90 days, or only specific segments).
+                </p>
+              </li>
+
+              <li>
+                <h3>Step 3 — Nova analysis</h3>
+                <p>Nova runs multiple passes to identify:</p>
+                <div class="nova-callout">
+                  <ul>
+                    <li>Likely duplicate records (similar names, emails, domains).</li>
+                    <li>Conflicting values for the same entity (e.g., two titles for one person).</li>
+                    <li>Missing or invalid critical fields (IDs, emails, dates).</li>
+                    <li>Non-standard variants of fields (e.g., “People Ops” vs “People Operations”).</li>
+                  </ul>
+                </div>
+              </li>
+
+              <li>
+                <h3>Step 4 — Generate cleanup proposals</h3>
+                <p>
+                  For each candidate, Nova suggests operations such as:
+                </p>
+                <ul>
+                  <li>Merge record B into A, keep specific fields from each.</li>
+                  <li>Normalize a field to a canonical value (department names, countries, statuses).</li>
+                  <li>Fill missing values using other systems as reference (e.g., HRIS → CRM).</li>
+                  <li>Flag suspicious values for manual review only.</li>
+                </ul>
+              </li>
+
+              <li>
+                <h3>Step 5 — Create review tasks</h3>
+                <p>
+                  Cleanup proposals are written to:
+                </p>
+                <ul>
+                  <li>A “Data Cleanup” project/board in your task tool, or</li>
+                  <li>A special review dashboard inside your CS/RevOps platform.</li>
+                </ul>
+              </li>
+
+              <li>
+                <h3>Step 6 — Apply approved fixes</h3>
+                <p>
+                  Once approved by admins, SyncToScale executes the cleanup operations via API calls in safe batches.
+                </p>
+              </li>
+
+            </ol>
+          </section>
+
+          <!-- MAPPINGS -->
+          <section id="data-mapping" class="doc-section">
+            <h2>Field mappings</h2>
+
+            <h3>Cross-system cleanup example: Person records</h3>
+            <div class="table-wrapper">
+              <table class="mapping-table">
+                <thead>
+                  <tr>
+                    <th>Source System / Field</th>
+                    <th>Transform</th>
+                    <th>Canonical Field</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>HRIS <code>legalFirstName</code> + <code>lastName</code></td>
+                    <td>Combine & title case</td>
+                    <td><code>fullName</code></td>
+                  </tr>
+                  <tr>
+                    <td>HRIS <code>workEmail</code>, CRM <code>Email</code>, Support <code>user.email</code></td>
+                    <td>Lowercase + deduplicate</td>
+                    <td><code>primaryEmail</code></td>
+                  </tr>
+                  <tr>
+                    <td>HRIS <code>department</code>, CRM <code>Department__c</code></td>
+                    <td>Normalize via standard list</td>
+                    <td><code>departmentCanonical</code></td>
+                  </tr>
+                  <tr>
+                    <td>HRIS <code>jobTitle</code>, CRM <code>Title</code></td>
+                    <td>Pick “most recent” or “highest confidence”</td>
+                    <td><code>titleCanonical</code></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3>Cleanup proposals format</h3>
+            <div class="table-wrapper">
+              <table class="mapping-table">
+                <thead>
+                  <tr>
+                    <th>Proposal Field</th>
+                    <th>Description</th>
+                    <th>Example</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>proposalId</code></td>
+                    <td>Unique ID per cleanup suggestion</td>
+                    <td>"fix_01J2NOVA001"</td>
+                  </tr>
+                  <tr>
+                    <td><code>type</code></td>
+                    <td>Operation type (MERGE, UPDATE, NORMALIZE, FLAG_ONLY)</td>
+                    <td>"MERGE"</td>
+                  </tr>
+                  <tr>
+                    <td><code>targets</code></td>
+                    <td>Records that would be affected</td>
+                    <td>["0035g00000CN456", "0035g00000CN457"]</td>
+                  </tr>
+                  <tr>
+                    <td><code>changes</code></td>
+                    <td>Field-level operations being proposed</td>
+                    <td>{"Title": "Director of People Operations"}</td>
+                  </tr>
+                  <tr>
+                    <td><code>novaRationale</code></td>
+                    <td>Why Nova suggests this change</td>
+                    <td>"Title normalized based on majority + HRIS source of truth."</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- SAMPLE JSON -->
+          <section id="sample-payloads" class="doc-section">
+            <h2>Sample JSON payloads</h2>
+
+            <h3>Sample Nova cleanup candidate</h3>
+            <pre class="code-block"><code>{
+  "candidateGroupId": "group_01J2CLEAN001",
+  "records": [
+    {
+      "system": "crm",
+      "id": "0035g00000CN456",
+      "name": "Alex Rivera",
+      "email": "alex.rivera@example.com",
+      "title": "HRBP"
+    },
+    {
+      "system": "hris",
+      "id": "EMP-4411",
+      "name": "Alexandra Rivera",
+      "email": "alex.rivera@example.com",
+      "title": "HR Business Partner"
+    }
+  ],
+  "issues": [
+    "Name variant detected",
+    "Title abbreviation vs full form"
+  ]
+}</code></pre>
+
+            <h3>Sample Nova cleanup proposal</h3>
+            <pre class="code-block"><code>{
+  "proposalId": "fix_01J2NOVA001",
+  "candidateGroupId": "group_01J2CLEAN001",
+  "type": "NORMALIZE_AND_LINK",
+  "targets": [
+    {
+      "system": "crm",
+      "id": "0035g00000CN456"
+    },
+    {
+      "system": "hris",
+      "id": "EMP-4411"
+    }
+  ],
+  "changes": {
+    "canonicalName": "Alexandra (Alex) Rivera",
+    "title": "HR Business Partner"
+  },
+  "novaRationale": "HRIS appears to be the system of record for title. Name normalized based on HRIS with CRM nickname preserved."
+}</code></pre>
+
+            <h3>Cleanup board task (for review)</h3>
+            <pre class="code-block"><code>{
+  "taskTitle": "Review Nova cleanup: Alex Rivera",
+  "taskDescription": "Nova suggests normalizing title to 'HR Business Partner' and linking CRM + HRIS profiles.",
+  "proposalId": "fix_01J2NOVA001",
+  "assignee": "data.ops@demo-company.com",
+  "dueDate": "2025-05-15"
+}</code></pre>
+
+            <h3>Execution payload once approved</h3>
+            <pre class="code-block"><code>{
+  "proposalId": "fix_01J2NOVA001",
+  "approvedBy": "data.ops@demo-company.com",
+  "timestamp": "2025-05-10T12:34:56Z",
+  "operations": [
+    {
+      "system": "crm",
+      "action": "update",
+      "id": "0035g00000CN456",
+      "fields": {
+        "Title": "HR Business Partner",
+        "Full_Name__c": "Alexandra (Alex) Rivera"
+      }
+    }
+  ]
+}</code></pre>
+          </section>
+
+          <!-- ERROR HANDLING -->
+          <section id="error-handling" class="doc-section">
+            <h2>Error handling</h2>
+            <ul>
+              <li>Proposals are never applied automatically in “Preview” mode.</li>
+              <li>All applied changes are wrapped in transactions where supported.</li>
+              <li>Failed operations are rolled back or re-queued when possible.</li>
+              <li>Nova logs confidence levels; low-confidence proposals can require manual approval.</li>
+            </ul>
+
+            <h3>Example safety guard</h3>
+            <pre class="code-block"><code>{
+  "runId": "run_01J2NOVACLEAN",
+  "status": "halted",
+  "reason": "Low-confidence proposals exceed threshold.",
+  "novaMessage": "Too many uncertain merges detected. Recommend manual review before proceeding."
+}</code></pre>
+          </section>
+
+          <!-- NOVA INSIGHTS -->
+          <section id="nova-insights" class="doc-section">
+            <h2>Nova insights for this template</h2>
+            <ul>
+              <li>Shows which systems generate the most dirty data.</li>
+              <li>Highlights common sources of duplicates and mismatches.</li>
+              <li>Suggests standardized lists for departments, titles, and statuses.</li>
+              <li>Tracks cleanup impact over time (e.g., duplicate rate down 30%).</li>
+            </ul>
+          </section>
+
+          <!-- SETUP -->
+          <section id="setup" class="doc-section">
+            <h2>Set up this template</h2>
+            <ol class="step-list">
+              <li>Select <strong>Nova-Assisted Cleanup</strong> from the Templates Library.</li>
+              <li>Connect the systems you want Nova to analyze (HRIS, CRM, Support, Identity, etc.).</li>
+              <li>Choose whether to run in <strong>Preview-only</strong> or <strong>Preview + Apply</strong> mode.</li>
+              <li>Configure which entity types to scan (people, accounts, departments, etc.).</li>
+              <li>Set approval rules (who can approve which changes).</li>
+              <li>Run your first cleanup and review Nova’s proposals.</li>
+            </ol>
+          </section>
+
+        </article>
+
+        <!-- RIGHT COLUMN -->
+        <aside class="template-sidebar">
+
+          <div class="card">
+            <h3>Template summary</h3>
+            <ul class="key-facts-list">
+              <li><strong>Trigger:</strong> Manual or scheduled health check</li>
+              <li><strong>Runtime:</strong> Batch + Nova analysis</li>
+              <li><strong>Owner:</strong> RevOps · People Ops · Data Ops</li>
+              <li><strong>Systems:</strong> Any connected data sources</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Best practice defaults</h3>
+            <ul>
+              <li>Start in Preview-only mode for 1–2 cycles.</li>
+              <li>Require human approval for MERGE operations.</li>
+              <li>Limit scope initially to a single data domain (e.g., CRM contacts).</li>
+            </ul>
+          </div>
+
+          <div class="card nova-callout">
+            <h3>Nova will help you…</h3>
+            <ul>
+              <li>Turn messy, multi-system data into a cleaner single view.</li>
+              <li>Spot structural problems in how data is created or synced.</li>
+              <li>Reduce manual cleanup work and repeated one-off scripts.</li>
+            </ul>
+          </div>
+
+        </aside>
+
+      </section>
+    </div>
+  </main>
+
+</body>
+</html>
 
