@@ -4,192 +4,271 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Templates Library | SyncToScale</title>
+  <title>Workflow Templates | SyncToScale</title>
+
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Nova Botpress Webchat -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
+  <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<header>
-  <div class="container">
-    <a href="index.html" class="logo">SyncToScale</a>
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <div class="container header-inner">
 
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="features.html">Features</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="about.html">About</a>
-
-      <div class="dropdown">
-        <button class="dropbtn">Resources</button>
-        <div class="dropdown-content">
-          <a href="resources.html">Overview</a>
-          <a href="docs.html">Developer Docs</a>
-          <a href="api.html">API Reference</a>
-          <a href="templates.html">Templates</a>
-          <a href="security.html">Security</a>
-        </div>
+      <div class="logo">
+        <a href="index.html" class="logo-link">SyncToScale</a>
       </div>
-    </nav> <!-- ✅ FIXED: closing tag was missing -->
-  </div>
-</header>
 
-<!-- HERO -->
-<section class="page-hero">
-  <h1>Templates Library</h1>
-  <p>Explore pre-built automation flows to accelerate your integrations.</p>
-</section>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="faq.html">FAQ</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
 
-<!-- MAIN SECTION -->
-<section class="section alt">
-  <div class="container">
-
-    <h2>Popular Templates</h2>
-    <p>Select a category or browse all available templates.</p>
-
-    <!-- FILTER BAR -->
-    <div class="template-filter">
-      <button class="filter-btn active" data-category="all">All</button>
-      <button class="filter-btn" data-category="sales">Sales</button>
-      <button class="filter-btn" data-category="support">Support</button>
-      <button class="filter-btn" data-category="engineering">Engineering</button>
-      <button class="filter-btn" data-category="hr">HR</button>
-      <button class="filter-btn" data-category="ops">Ops</button>
     </div>
+  </header>
 
-    <!-- TEMPLATE GRID -->
+  <!-- HERO -->
+  <section class="page-hero">
+    <h1>Workflow Templates</h1>
+    <p>
+      Jump-start your automations with prebuilt templates for onboarding, support,
+      CRM sync, IT provisioning, and people operations—powered by SyncToScale and Nova.
+    </p>
+  </section>
+
+  <!-- PAGE CONTENT -->
+  <section class="container section">
+
+    <h2>Employee Onboarding</h2>
     <div class="template-grid">
 
-      <div class="template-card" data-category="sales">
-        <h3>Salesforce → Slack Lead Alert</h3>
-        <p>Notify your sales team instantly when a new lead is created.</p>
-        <a href="#examples" class="btn">View Template</a>
+      <div class="template-card">
+        <h3>New Hire → IT Provisioning</h3>
+        <p>
+          When a new employee is created in your HRIS, automatically create accounts in
+          Google Workspace, Slack, and your ticketing tool, then notify IT.
+        </p>
+        <ul>
+          <li>Trigger: <strong>employee.created</strong> (HRIS)</li>
+          <li>Systems: BambooHR / Gusto → Google Workspace / Slack / Jira</li>
+          <li>Highlights: Field mapping, conditional role assignment, Nova validation</li>
+        </ul>
       </div>
 
-      <div class="template-card" data-category="sales">
-        <h3>HubSpot Deal Stage Email</h3>
-        <p>Trigger emails when deals advance to new stages.</p>
-        <a href="#examples" class="btn">View Template</a>
+      <div class="template-card">
+        <h3>New Hire → Manager Welcome Packet</h3>
+        <p>
+          Generate a summary for the hiring manager with role, comp band, start date,
+          and links to key systems.
+        </p>
+        <ul>
+          <li>Trigger: <strong>employee.created</strong></li>
+          <li>Systems: HRIS → Slack / Email</li>
+          <li>Highlights: Data normalization, Nova-generated summary text</li>
+        </ul>
       </div>
 
-      <div class="template-card" data-category="engineering">
-        <h3>Jira → Google Sheet Sync</h3>
-        <p>Push ticket metadata into spreadsheets for analytics.</p>
-        <a href="#examples" class="btn">View Template</a>
+      <div class="template-card">
+        <h3>Pre-Start Checklist</h3>
+        <p>
+          Run a nightly check for upcoming start dates and ensure devices, access,
+          and orientation tasks are ready.
+        </p>
+        <ul>
+          <li>Trigger: <strong>scheduled (daily)</strong></li>
+          <li>Systems: HRIS → Jira / Asana</li>
+          <li>Highlights: Scheduled triggers, exception reporting</li>
+        </ul>
       </div>
 
-      <div class="template-card" data-category="engineering">
-        <h3>Slack → Notion Knowledge Capture</h3>
-        <p>Convert starred Slack messages into Notion pages.</p>
-        <a href="#examples" class="btn">View Template</a>
-      </div>
-
-      <div class="template-card" data-category="engineering">
-        <h3>Google Form → Jira Ticket</h3>
-        <p>Create Jira issues automatically from form responses.</p>
-        <a href="#examples" class="btn">View Template</a>
-      </div>
-
-      <div class="template-card" data-category="hr">
-        <h3>Employee Onboarding</h3>
-        <p>Trigger IT, HR, and manager tasks from one event.</p>
-        <a href="#examples" class="btn">View Template</a>
-      </div>
-
-      <div class="template-card" data-category="ops">
-        <h3>Lead Scoring Sync</h3>
-        <p>Consolidate scoring calculations across systems.</p>
-        <a href="#examples" class="btn">View Template</a>
-      </div>
-
-      <div class="template-card" data-category="support">
-        <h3>Auto-Escalate Support Tickets</h3>
-        <p>Escalate based on sentiment or missed SLAs.</p>
-        <a href="#examples" class="btn">View Template</a>
-      </div>
-
-      <div class="template-card" data-category="ops">
-        <h3>Daily Metrics Digest</h3>
-        <p>Send Slack or email summaries of KPIs daily.</p>
-        <a href="#examples" class="btn">View Template</a>
-      </div>
-
-    </div> <!-- /template-grid -->
-
-  </div>
-</section>
-
-<!-- EXAMPLES SECTION -->
-<section class="section">
-  <div class="container doc-container" id="examples">
-
-    <h2>Template Examples</h2>
-
-    <div class="card">
-      <h3>Salesforce → Slack Lead Alert</h3>
-      <pre><code>
-Trigger: lead.created (Salesforce)
-Action: send_message (Slack)
-
-Message Template:
-"New lead: {{payload.name}} from {{payload.company}}"
-      </code></pre>
     </div>
 
-    <div class="card">
-      <h3>Jira → Google Sheet Sync</h3>
-      <pre><code>
-Trigger: issue.created (Jira)
-Action: append_row (Google Sheets)
+    <hr />
 
-Columns:
-- Issue ID
-- Summary
-- Priority
-- Assignee
-      </code></pre>
+    <h2>Support & Customer Success</h2>
+    <div class="template-grid">
+
+      <div class="template-card">
+        <h3>VIP Ticket Routing</h3>
+        <p>
+          Route tickets from high-value accounts to a dedicated queue with Slack alerts
+          for the owning CSM or TAM.
+        </p>
+        <ul>
+          <li>Trigger: <strong>ticket.created</strong> (Zendesk/Freshdesk)</li>
+          <li>Systems: Support → CRM → Slack</li>
+          <li>Highlights: Account lookup, priority tagging, Nova-driven escalation</li>
+        </ul>
+      </div>
+
+      <div class="template-card">
+        <h3>Churn Risk Signals</h3>
+        <p>
+          Flag accounts with spikes in support volume and send a weekly digest
+          to the success team.
+        </p>
+        <ul>
+          <li>Trigger: <strong>scheduled (weekly)</strong></li>
+          <li>Systems: Support → CRM → Email/Slack</li>
+          <li>Highlights: Nova anomaly detection, grouped insights</li>
+        </ul>
+      </div>
+
+      <div class="template-card">
+        <h3>Post-Implementation Check-In</h3>
+        <p>
+          After a go-live milestone, automatically create a check-in task and send
+          a satisfaction survey.
+        </p>
+        <ul>
+          <li>Trigger: <strong>project.status = “live”</strong></li>
+          <li>Systems: PM tool → CRM / Email</li>
+          <li>Highlights: Multi-system updates, timeline-based triggers</li>
+        </ul>
+      </div>
+
     </div>
 
-    <div class="card">
-      <h3>HubSpot Deal Stage Email</h3>
-      <pre><code>
-Trigger: deal.stage_changed (HubSpot)
-Action: send_email (Gmail)
+    <hr />
 
-Template:
-"Deal {{payload.name}} moved to {{payload.stage}}"
-      </code></pre>
+    <h2>CRM & RevOps</h2>
+    <div class="template-grid">
+
+      <div class="template-card">
+        <h3>Lead → Contact → Account Sync</h3>
+        <p>
+          Normalize lead data from marketing tools into CRM contacts and accounts,
+          preventing duplicates.
+        </p>
+        <ul>
+          <li>Trigger: <strong>lead.created</strong> (HubSpot/Forms)</li>
+          <li>Systems: Forms / HubSpot → Salesforce</li>
+          <li>Highlights: Upserts, deduplication, Nova mapping suggestions</li>
+        </ul>
+      </div>
+
+      <div class="template-card">
+        <h3>Contract Signed → Internal Handoff</h3>
+        <p>
+          When a deal is marked Closed Won, create implementation tasks and notify
+          the onboarding team.
+        </p>
+        <ul>
+          <li>Trigger: <strong>deal.closed_won</strong></li>
+          <li>Systems: CRM → PM tool / Slack</li>
+          <li>Highlights: Role-based routing, templated tasks</li>
+        </ul>
+      </div>
+
+      <div class="template-card">
+        <h3>Stale Opportunities Digest</h3>
+        <p>
+          Generate a list of stalled opportunities and send a weekly summary to sales leadership.
+        </p>
+        <ul>
+          <li>Trigger: <strong>scheduled (weekly)</strong></li>
+          <li>Systems: CRM → Email</li>
+          <li>Highlights: Date filters, Nova-prioritized list</li>
+        </ul>
+      </div>
+
     </div>
 
-  </div>
-</section>
+    <hr />
 
-<!-- FILTER SCRIPT -->
-<script>
-  const filterButtons = document.querySelectorAll(".filter-btn");
-  const cards = document.querySelectorAll(".template-card");
+    <h2>People Ops & Compliance</h2>
+    <div class="template-grid">
 
-  filterButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
+      <div class="template-card">
+        <h3>Title or Comp Change Alerts</h3>
+        <p>
+          Alert finance, IT, and the manager when an employee’s title or comp band changes.
+        </p>
+        <ul>
+          <li>Trigger: <strong>employee.updated</strong> (HRIS)</li>
+          <li>Systems: HRIS → Slack / Email</li>
+          <li>Highlights: Field-level change detection, audit trail</li>
+        </ul>
+      </div>
 
-      filterButtons.forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
+      <div class="template-card">
+        <h3>Terminations Offboarding</h3>
+        <p>
+          Automatically disable user access, archive accounts, and notify relevant teams.
+        </p>
+        <ul>
+          <li>Trigger: <strong>employee.terminated</strong></li>
+          <li>Systems: HRIS → IT / Identity Provider / Slack</li>
+          <li>Highlights: Sequenced actions, safety checks</li>
+        </ul>
+      </div>
 
-      const category = btn.dataset.category;
+      <div class="template-card">
+        <h3>Policy Acknowledgement Tracking</h3>
+        <p>
+          Track completion of required trainings or policy acknowledgements across tools.
+        </p>
+        <ul>
+          <li>Trigger: <strong>scheduled (daily)</strong></li>
+          <li>Systems: LMS → HRIS / Email</li>
+          <li>Highlights: Reconciliation reporting, exception lists</li>
+        </ul>
+      </div>
 
-      cards.forEach(card => {
-        const cardCat = card.dataset.category;
+    </div>
 
-        if (category === "all" || cardCat === category) {
-          card.style.display = "block";
-        } else {
-          card.style.display = "none";
-        }
-      });
-    });
-  });
-</script>
+    <hr />
+
+    <h2>Developer & Custom Templates</h2>
+    <div class="template-grid">
+
+      <div class="template-card">
+        <h3>Custom Webhook → Workflow</h3>
+        <p>
+          Trigger a workflow from your internal app via signed webhook events.
+        </p>
+        <ul>
+          <li>Trigger: <strong>webhook.inbound</strong></li>
+          <li>Systems: Internal App → SyncToScale</li>
+          <li>Highlights: Signature validation, schema normalization</li>
+        </ul>
+      </div>
+
+      <div class="template-card">
+        <h3>API-Driven Bulk Sync</h3>
+        <p>
+          Periodically sync large datasets across databases or services using paginated APIs.
+        </p>
+        <ul>
+          <li>Trigger: <strong>scheduled</strong></li>
+          <li>Systems: Database / API → Destination System</li>
+          <li>Highlights: Pagination, rate limits, retry behavior</li>
+        </ul>
+      </div>
+
+      <div class="template-card">
+        <h3>Nova-Assisted Cleanup</h3>
+        <p>
+          Identify inconsistent records and suggest cleanup actions using Nova insights.
+        </p>
+        <ul>
+          <li>Trigger: <strong>scheduled (weekly)</strong></li>
+          <li>Systems: CRM / HRIS / Support</li>
+          <li>Highlights: Anomaly detection, fix suggestions</li>
+        </ul>
+      </div>
+
+    </div>
+
+  </section>
 
 </body>
 </html>
