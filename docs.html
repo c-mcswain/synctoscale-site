@@ -1,116 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
+/* ------------------------------------------------------
+   DOCS HOMEPAGE — AUTOMATION STYLE
+------------------------------------------------------ */
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Developer Documentation | SyncToScale</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
+.docs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
 
-<body>
+.doc-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  padding: 24px;
+  text-decoration: none;
+  color: var(--text-dark);
+  transition: 0.2s ease;
+  box-shadow: var(--shadow-sm);
+}
 
-<header>
-  <div class="container">
-    <a href="index.html" class="logo">SyncToScale</a>
+.doc-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary);
+}
 
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="features.html">Features</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="about.html">About</a>
-
-      <div class="dropdown">
-        <button class="dropbtn">Resources</button>
-        <div class="dropdown-content">
-          <a href="resources.html">Overview</a>
-          <a href="docs.html">Developer Docs</a>
-          <a href="api.html">API Reference</a>
-          <a href="templates.html">Templates</a>
-          <a href="security.html">Security</a>
-        </div>
-      </div>
-    </nav>
-  </div>
-</header>
-
-<section class="page-hero">
-  <h1>Developer Documentation</h1>
-  <p>Everything you need to integrate SyncToScale into your stack.</p>
-</section>
-
-<div class="doc-container">
-
-  <!-- PLATFORM OVERVIEW -->
-  <section id="overview">
-    <h2>Platform Overview</h2>
-    <p>
-      SyncToScale is an automation orchestration layer that connects SaaS tools like Salesforce, HubSpot, Slack, Jira, and Google Workspace.
-      Developers can trigger workflows, listen to webhook events, and sync objects across platforms in real time.
-    </p>
-  </section>
-
-  <!-- GETTING STARTED -->
-  <section id="getting-started">
-    <h2>Getting Started</h2>
-    <ol>
-      <li>Create a SyncToScale developer account.</li>
-      <li>Generate your API key under <strong>Developer → Tokens</strong>.</li>
-      <li>Install the SyncToScale client in your environment.</li>
-      <li>Authenticate your connected apps (Salesforce, Slack, etc.).</li>
-      <li>Start triggering automation workflows.</li>
-    </ol>
-
-    <pre><code>
-// Example: Node.js client initialization
-import SyncClient from "@synctoscale/client";
-
-const client = new SyncClient({
-  apiKey: process.env.SYNC_API_KEY
-});
-
-client.trigger("lead.created", {
-  source: "salesforce",
-  payload: {...}
-});
-    </code></pre>
-  </section>
-
-  <!-- WEBHOOKS -->
-  <section id="webhooks">
-    <h2>Webhook Events</h2>
-    <p>SyncToScale emits webhook events when connected platforms update their data.</p>
-
-    <ul>
-      <li>lead.created</li>
-      <li>contact.updated</li>
-      <li>deal.stage_changed</li>
-      <li>user.permission_updated</li>
-    </ul>
-
-    <p>Each webhook contains:</p>
-    <ul>
-      <li><strong>event</strong> – event name</li>
-      <li><strong>timestamp</strong> – ISO-8601 timestamp</li>
-      <li><strong>source</strong> – platform (Salesforce, Slack, Google Workspace)</li>
-      <li><strong>payload</strong> – record data</li>
-    </ul>
-  </section>
-
-  <!-- AUTH -->
-  <section id="auth">
-    <h2>Authorization</h2>
-    <p>All API requests must include your bearer token:</p>
-
-    <pre><code>
-curl -X GET https://api.synctoscale.me/v1/users \
-  -H "Authorization: Bearer &lt;API_KEY&gt;"
-    </code></pre>
-
-    <p>API keys can be rotated at any time without impacting existing webhooks.</p>
-  </section>
-
-</div>
-
-</body>
-</html>
+.doc-card h3 {
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 600;
+}
