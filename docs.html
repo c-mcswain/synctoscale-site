@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Developer Docs | SyncToScale</title>
 
-  <!-- Use the unified site stylesheet -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 
@@ -30,64 +29,63 @@
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO SECTION -->
   <section class="page-hero">
     <h1>Developer Documentation</h1>
     <p>
-      Learn how SyncToScale connects your systems using triggers, actions, field mappings,
-      API calls, error handling, and Nova-powered automation intelligence.
+      Explore how SyncToScale orchestrates workflows using triggers, actions,
+      transformations, API calls, and intelligent Nova-powered automation.
     </p>
-
     <a href="api.html" class="cta-btn">View API Reference</a>
   </section>
 
-  <!-- DOC CATEGORY GRID -->
+  <!-- DOC GRID -->
   <section class="container section">
     <div class="docs-grid">
 
       <a class="doc-card" href="#">
         <h3>⚡ Quickstart</h3>
-        <p>Create your first connection, run a test sync, and see how workflows execute end-to-end.</p>
+        <p>Set up your first connection and run a workflow end-to-end.</p>
       </a>
 
       <a class="doc-card" href="#">
         <h3>🔐 Authentication</h3>
-        <p>OAuth, API keys, token refresh, and validating connection scopes across systems.</p>
+        <p>OAuth, API keys, token handling, and connection validation.</p>
       </a>
 
       <a class="doc-card" href="#">
         <h3>🔗 Connections</h3>
-        <p>How SyncToScale manages app connections, health checks, and credential rotation.</p>
+        <p>How SyncToScale manages app connections and health checks.</p>
       </a>
 
       <a class="doc-card" href="#">
         <h3>🚀 Triggers</h3>
-        <p>Event-based, polling, and scheduled triggers that start workflows in real time.</p>
+        <p>Event-based, polling, and scheduled triggers that start workflows.</p>
       </a>
 
       <a class="doc-card" href="#">
         <h3>⚙️ Actions</h3>
-        <p>Create, update, search, and transform records with consistent schemas across tools.</p>
+        <p>Create, update, and search records across apps using normalized schemas.</p>
       </a>
 
       <a class="doc-card" href="#">
         <h3>🗂 Field Mapping</h3>
-        <p>Map fields between systems, apply transformations, and handle missing or invalid data.</p>
+        <p>Map fields, apply transformations, and resolve data type mismatches.</p>
       </a>
 
       <a class="doc-card" href="#">
         <h3>🛑 Error Handling</h3>
-        <p>Retry logic, conflict resolution, malformed payload handling, and safeguard patterns.</p>
+        <p>Retry logic, conflict resolution, malformed payload handling.</p>
       </a>
 
       <a class="doc-card" href="#">
         <h3>📊 Logs & Monitoring</h3>
-        <p>Inspect workflow runs, payloads, failures, and step-by-step execution traces.</p>
+        <p>Debug workflows with step-by-step execution visibility.</p>
       </a>
 
       <a class="doc-card" href="#">
         <h3>✨ Nova AI API</h3>
-        <p>Use Nova for smart field matching, anomaly detection, and auto-resolving sync issues.</p>
+        <p>Use Nova for automatic field matching, anomaly detection, and smart remediation.</p>
       </a>
 
     </div>
@@ -97,11 +95,11 @@
   <section class="container section">
     <h2>Platform Architecture</h2>
     <p>
-      SyncToScale uses an event-driven execution engine with connection pooling,
-      resilient retry behavior, Nova-assisted error classification, and real-time sync monitoring.
+      SyncToScale uses an event-driven pipeline with connection pooling, retry
+      behavior, Nova-assisted error classification, and structured logs.
     </p>
 
-    <pre>
+<pre>
 POST /workflows/run
 {
   "trigger": "employee.created",
@@ -111,11 +109,11 @@ POST /workflows/run
     "email": "test@example.com"
   }
 }
-    </pre>
+</pre>
 
     <p>
-      The engine validates the trigger source, expands mapped actions, runs field transforms,
-      and attempts each step with built-in exponential backoff and structured logging.
+      The engine validates the trigger, expands mapped actions, executes transforms,
+      and processes each step with built-in exponential backoff.
     </p>
   </section>
 
