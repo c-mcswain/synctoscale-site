@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Triggers | SyncToScale Docs</title>
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Botpress Webchat -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
+  <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
+
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <a href="index.html" class="logo-link">SyncToScale</a>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="faq.html">FAQ</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <h1>Triggers</h1>
+    <p>
+      Triggers determine when a workflow starts.  
+      SyncToScale supports event-based, polling, and scheduled triggers, ensuring workflows
+      activate exactly when new data enters your system.
+    </p>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="doc-container">
+
+    <h2>Overview</h2>
+    <p>
+      A trigger is the entry point of a workflow. When the trigger fires, SyncToScale collects the
+      incoming payload, validates the structure, and passes it into the first mapping/action step.
+    </p>
+
+    <hr />
+
+    <h2>Event-Based Triggers (Recommended)</h2>
+    <p>
+      Event-based triggers activate immediately when the connected system generates an event
+      — such as a new employee record, updated deal, or form submission.
+    </p>
+
+<pre>
+POST /triggers/event
+{
+  "provider": "bamboohr",
+  "event_type": "employee.created",
+  "payload": {
+    "id": "98765",
+    "first_name": "Jordan",
+    "email": "jordan@example.com"
+  }
+}
+</pre>
+
+    <p>
+      These triggers are the most reliable and are recommended for real-time automations.
+    </p>
+
+    <hr />
+
+    <h2>Polling Triggers</h2>
+    <p>
+      Some systems do not support outgoing event notifications.  
+      SyncToScale can poll an endpoint at a configurable interval (default: every 5 minutes),
+      detecting new or changed records.
+    </p>
+
+<pre>
+GET /polling
+{
+  "provider": "legacy_hris",
+  "last_checked": "2025-01-20T12:00:00Z"
+}
+</pre>
+
+    <p>
+      Polling logic includes:
+    </p>
+
+    <ul>
+      <li>Delta detection (created/updated since last run)</li>
+      <li>Deduplication safeguards</li>
+      <li>Backoff handling when provider is throttled</li>
+      <li>Recovery from missed runs due to outages</li>
+    </ul>
+
+    <hr />
+
+    <h2>Scheduled Triggers</h2>
+    <p>
+      These allow workflows to run on a fixed cadence (hourly, daily, weekly).  
+      Useful for reconciliations, audits, batch exports, usage reports, and overnight syncs.
+    </p>
+
+<pre>
+POST /triggers/schedule
+{
+  "cron": "0 * * * *",
+  "timezone": "UTC"
+}
+</pre>
+
+    <p>SyncToScale uses safe cron validation and prevents overlapping runs.</p>
+
+    <hr />
+
+    <h2>Webhook Triggers</h2>
+    <p>
+      Custom applications can send data directly into a workflow using secure, signed webhooks.
+    </p>
+
+<pre>
+POST /webhooks/inbound
+Headers:
+  X-Signature: sha256=fc1db1...
+
+Body:
+{
+  "type": "employee.updated",
+  "data": {
+    "id": "12345",
+    "email": "new@example.com"
+  }
+}
+</pre>
+
+    <p>
+      SyncToScale verifies signatures, timestamps, and replay protection before accepting a webhook.
+    </p>
+
+    <hr />
+
+    <h2>Troubleshooting Triggers</h2>
+    <ul>
+      <li><strong>Duplicate Events</strong> — Occurs when upstream systems retry event delivery.</li>
+      <li><strong>Missing Events</strong> — Provider outage or webhook misconfiguration.</li>
+      <li><strong>Invalid Payloads</strong> — Schema mismatch; transformation required.</li>
+      <li><strong>Timezone Drift</strong> — Scheduled triggers running at incorrect hours.</li>
+      <li><strong>Polling Overload</strong> — Provider rate limits exceeded; backoff enabled.</li>
+    </ul>
+
+    <p>
+      Nova can analyze these patterns to provide automatic recommendations.
+    </p>
+
+    <hr />
+
+    <h2>Example Trigger Workflow Execution</h2>
+
+<pre>
+{
+  "trigger": "employee.created",
+  "source": "bamboohr",
+  "workflow": "new-hire-provisioning",
+  "received_at": "2025-01-20T14:12:00Z",
+  "status": "queued"
+}
+</pre>
+
+  </section>
+
+</body>
+</html>
