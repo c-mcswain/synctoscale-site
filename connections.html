@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Connections | SyncToScale Docs</title>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <a href="index.html" class="logo-link">SyncToScale</a>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="faq.html">FAQ</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <h1>Connections</h1>
+    <p>
+      Connections link SyncToScale to your external applications.  
+      Each connection is securely stored, validated, monitored, and refreshed 
+      to ensure workflows run smoothly across systems.
+    </p>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="doc-container">
+
+    <h2>Overview</h2>
+    <p>
+      Connections are the foundation of every workflow.  
+      Whether you're using OAuth 2.0, API keys, or service accounts,
+      SyncToScale ensures each connection remains valid and ready for execution.
+    </p>
+
+    <hr>
+
+    <h2>Creating a Connection</h2>
+    <p>
+      A new connection begins by selecting an app (e.g., Slack, HubSpot, BambooHR)  
+      and initiating an OAuth or API key authentication flow.  
+      SyncToScale automatically encrypts and stores all credentials.
+    </p>
+
+<pre>
+POST /connections
+{
+  "provider": "slack",
+  "auth_type": "oauth",
+  "scopes": ["users:read", "chat:write"]
+}
+</pre>
+
+    <p>
+      After successful authentication, the connection receives a unique ID used in workflows.
+    </p>
+
+    <hr>
+
+    <h2>Connection States</h2>
+    <p>Each connection has a clear state for easy troubleshooting:</p>
+
+    <ul>
+      <li><strong>Healthy</strong> — Valid token, correct scopes, no issues detected.</li>
+      <li><strong>Warning</strong> — Near rate limits, missing optional scopes, or minor issues.</li>
+      <li><strong>Needs Attention</strong> — Token expired or refresh failed; user action required.</li>
+      <li><strong>Error</strong> — Invalid credentials, revoked access, or severe upstream outage.</li>
+    </ul>
+
+<pre>
+GET /connections/{id}
+{
+  "id": "conn_abc123",
+  "provider": "slack",
+  "status": "healthy",
+  "last_validated": "2025-01-10T15:22:00Z"
+}
+</pre>
+
+    <hr>
+
+    <h2>Health Checks</h2>
+    <p>
+      SyncToScale performs ongoing health checks to prevent workflow failures.  
+      These checks include:
+    </p>
+
+    <ul>
+      <li>Token validity</li>
+      <li>Provider API availability</li>
+      <li>Permission scope verification</li>
+      <li>Endpoint response structure</li>
+      <li>Rate-limit and throttling detection</li>
+    </ul>
+
+<pre>
+GET /connections/{id}/health
+{
+  "status": "warning",
+  "details": ["Rate limit threshold reached"],
+  "last_checked": "2025-01-19T08:32:11Z"
+}
+</pre>
+
+    <hr>
+
+    <h2>Token Refresh Logic</h2>
+    <p>
+      Connections authenticated via OAuth refresh automatically when nearing expiration.
+      If a refresh attempt fails due to revoked access or insufficient scopes,
+      SyncToScale sets the connection to <strong>Needs Attention</strong>.
+    </p>
+
+<pre>
+POST /connections/{id}/refresh
+{
+  "refresh_token": "1//0gH3...",
+  "provider": "google"
+}
+</pre>
+
+    <p>
+      A successful refresh updates the access token and timestamp.
+    </p>
+
+    <hr>
+
+    <h2>Reconnecting</h2>
+    <p>
+      If a connection enters an error state, users can easily reconnect by re-authenticating.
+      Previous mappings and workflows remain intact.
+    </p>
+
+<pre>
+POST /connections/{id}/reconnect
+{
+  "redirect_url": "https://synctoscale.me/oauth/callback"
+}
+</pre>
+
+    <p>
+      Once reconnected, workflows resume from the next available run.
+    </p>
+
+    <hr>
+
+    <h2>Connection-Level Troubleshooting</h2>
+    <p>
+      Common issues encountered during implementation and support:
+    </p>
+
+    <ul>
+      <li><strong>Insufficient Scopes</strong>  
+          — Workflow action requires scopes the admin did not grant.</li>
+
+      <li><strong>Revoked Access</strong>  
+          — User removed app access from the provider dashboard.</li>
+
+      <li><strong>Incorrect API Key</strong>  
+          — Key expired or was rotated without updating SyncToScale.</li>
+
+      <li><strong>Provider Outages</strong>  
+          — Slack, HubSpot, etc. return 500/503 errors impacting health checks.</li>
+
+      <li><strong>Rate Limit Lockout</strong>  
+          — Too many requests cause temporary suspension.</li>
+
+      <li><strong>Region Restrictions</strong>  
+          — Provider API only available in certain regions or tenants.</li>
+    </ul>
+
+    <p>
+      SyncToScale surface these issues in monitoring logs and alerts,
+      helping teams respond quickly during onboarding or production syncs.
+    </p>
+
+  </section>
+
+</body>
+</html>
