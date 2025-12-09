@@ -6,151 +6,238 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FAQ | SyncToScale</title>
 
-  <link rel="stylesheet" href="styles.css" />
+  <!-- Botpress Webchat -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.4/inject.js"></script>
+  <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
 
   <style>
-    /* ----------------------------------------
-       SLIM, PASTEL HERO
-    ---------------------------------------- */
+    body {
+      margin: 0;
+      font-family: Inter, Arial, sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    }
+
+    header .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #0b3d3d;
+      text-decoration: none;
+    }
+
+    .nav a {
+      color: #0b3d3d;
+      margin-left: 26px;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      padding-bottom: 4px;
+      transition: color .2s ease, border-bottom .2s ease;
+      border-bottom: 2px solid transparent;
+    }
+
+    .nav a:hover {
+      color: #14b8a6;
+      border-bottom: 2px solid #14b8a6;
+    }
+
+    .section {
+      padding: 52px 20px 60px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+    }
+
     .faq-hero {
+      padding: 42px 20px 32px;
+      background: linear-gradient(135deg, #41d1ff, #21e19f);
+      color: white;
       text-align: center;
-      padding: 40px 20px;
-      background: linear-gradient(180deg, #f0f9ff 0%, #ffffff 90%);
-      border-bottom: 1px solid #e2e8f0;
     }
 
     .faq-hero h1 {
-      font-size: 34px;
-      margin-bottom: 6px;
-      font-weight: 700;
+      margin-bottom: 8px;
+      font-size: 2rem;
     }
 
     .faq-hero p {
-      font-size: 16px;
-      color: #64748b;
       margin: 0;
+      max-width: 520px;
+      margin-inline: auto;
+      opacity: 0.95;
+      font-size: 0.98rem;
     }
 
-    /* ----------------------------------------
-       RECRUITER CTA
-    ---------------------------------------- */
-    .recruiter-cta {
-      background: #f0f9ff;
-      border: 1px solid #bae6fd;
-      padding: 24px;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-      margin: 0 auto;
-      text-align: center;
+    .faq-hero-cta {
+      margin-top: 14px;
+      font-size: 0.9rem;
+      opacity: 0.9;
     }
 
-    .recruiter-cta h3 {
-      margin: 0 0 6px 0;
-      font-size: 22px;
-      font-weight: 700;
+    .faq-hero-cta span {
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.25);
     }
 
-    .recruiter-cta p {
-      margin: 0 0 12px 0;
-      font-size: 16px;
-      color: #475569;
-    }
-
-    .cta-btn {
-      display: inline-block;
-      background: #0ea5e9;
-      padding: 10px 18px;
-      border-radius: 10px;
-      color: white;
+    .section-heading {
+      margin-bottom: 16px;
+      font-size: 1.1rem;
       font-weight: 600;
-      text-decoration: none;
-      transition: 0.2s;
+      color: #0b3d3d;
     }
 
-    .cta-btn:hover {
-      background: #0284c7;
+    .faq-group {
+      margin-top: 16px;
     }
 
-    /* ----------------------------------------
-       REMOVE GLOBAL SPACING (THIS IS THE FIX)
-    ---------------------------------------- */
-
-    /* Zero out padding applied by your .section class */
-    .cta-section,
-    .faq-section {
-      padding-top: 0 !important;
-      padding-bottom: 0 !important;
-      margin-top: 0 !important;
-    }
-
-    /* Tighten space above General Questions */
-    .faq-section h2:first-of-type {
-      margin-top: 6px !important;
-      margin-bottom: 18px;
-    }
-
-    /* ----------------------------------------
-       FAQ GRID
-    ---------------------------------------- */
-    .faq-grid {
-      display: grid;
-      gap: 24px;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    }
-
-    .faq-card {
-      background: white;
-      padding: 24px;
-      border-radius: 16px;
+    .faq-item {
+      border-radius: 14px;
+      background: #ffffff;
       border: 1px solid #e2e8f0;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-      transition: 0.2s ease;
-    }
-
-    .faq-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
+      margin-bottom: 10px;
+      overflow: hidden;
     }
 
     .faq-question {
-      font-size: 20px;
-      font-weight: 600;
-      margin: 0;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border: none;
-      background: none;
       width: 100%;
-      padding: 0;
+      text-align: left;
+      border: none;
+      background: transparent;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      font-size: 0.98rem;
+      color: #0f172a;
     }
 
-    .chevron {
-      font-size: 22px;
-      transition: 0.2s;
+    .faq-question span {
+      flex: 1;
+      text-align: left;
+      padding-right: 12px;
     }
 
-    .faq-card.open .chevron {
-      transform: rotate(180deg);
+    .faq-icon {
+      font-size: 1.1rem;
+      transition: transform 0.2s ease;
+      color: #0f766e;
+    }
+
+    .faq-item.open .faq-icon {
+      transform: rotate(90deg);
     }
 
     .faq-answer {
-      display: none;
-      margin-top: 12px;
-      font-size: 16px;
-      color: #475569;
-      line-height: 1.6;
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 16px;
+      font-size: 0.93rem;
+      color: #4b5563;
+      transition: max-height 0.22s ease, padding-bottom 0.22s ease;
+    }
+
+    .faq-item.open .faq-answer {
+      padding-bottom: 12px;
+    }
+
+    .faq-answer p {
+      margin: 6px 0 0;
+    }
+
+    .faq-answer ul {
+      margin: 6px 0 0;
+      padding-left: 18px;
+    }
+
+    .faq-answer li {
+      margin-bottom: 4px;
+    }
+
+    .pdf-cta {
+      margin-top: 14px;
+      border-radius: 14px;
+      padding: 12px 14px;
+      background: #0b3d3d;
+      color: #e2f3ff;
+      font-size: 0.92rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .pdf-cta span {
+      font-size: 0.86rem;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.55);
+    }
+
+    footer {
+      background: #0b3d3d;
+      color: #cbd5e1;
+      padding: 40px 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .nova-label {
+      position: fixed;
+      bottom: 38px;
+      right: 90px;
+      background: rgba(0, 0, 0, 0.78);
+      color: white;
+      padding: 8px 14px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 500;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity .25s ease, transform .25s ease;
+      pointer-events: none;
+      z-index: 999999;
+    }
+
+    @media (max-width: 640px) {
+      .section {
+        padding: 44px 16px 52px;
+      }
+
+      .faq-hero h1 {
+        font-size: 1.7rem;
+      }
     }
   </style>
-
 </head>
 
 <body>
 
   <!-- NAVBAR -->
-  <header>
-    <div class="container">
+  <header class="site-header">
+    <div class="container header-inner">
       <a href="index.html" class="logo">SyncToScale</a>
 
       <nav class="nav">
@@ -166,123 +253,211 @@
 
   <!-- HERO -->
   <section class="faq-hero">
-    <h1>Frequently Asked Questions</h1>
-    <p>Soft, simple answers about a not-so-simple automation project.</p>
-  </section>
-
-  <!-- CTA -->
-  <section class="section cta-section">
-    <div class="container">
-      <div class="recruiter-cta">
-        <h3>Hey recruiters & hiring managers 👋</h3>
-        <p>This project showcases workflow design, automation reasoning, and TAM/CSM technical thinking.</p>
-        <a class="cta-btn" href="about.html">See the story behind SyncToScale →</a>
-      </div>
+    <h1>FAQ about SyncToScale</h1>
+    <p>Answers to the kinds of questions customers — and recruiters — might ask about an AI workflow platform like this.</p>
+    <div class="faq-hero-cta">
+      <span>Recruiter? See “About This Project” for a narrative overview.</span>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section class="section alt faq-section">
+  <!-- FAQ CONTENT -->
+  <main class="section">
     <div class="container">
 
-      <!-- NEARLY TOUCHING NOW -->
-      <h2>General Questions</h2>
-
-      <div class="faq-grid">
-
-        <div class="faq-card">
-          <button class="faq-question">
-            What is SyncToScale?
-            <span class="chevron">⌄</span>
-          </button>
-          <div class="faq-answer">
-            A conceptual automation platform built to demonstrate workflow logic, multi-system reasoning,
-            troubleshooting patterns, and platform behavior — not a live production tool.
-          </div>
-        </div>
-
-        <div class="faq-card">
-          <button class="faq-question">
-            Who is this project for?
-            <span class="chevron">⌄</span>
-          </button>
-          <div class="faq-answer">
-            TAMs, CSMs, RevOps, People Ops, and SaaS professionals who manage cross-tool workflows.
-          </div>
-        </div>
-
-        <div class="faq-card">
-          <button class="faq-question">
-            Do I need technical experience?
-            <span class="chevron">⌄</span>
-          </button>
-          <div class="faq-answer">
-            Nope — everything is written in human-readable language that avoids engineering jargon.
-          </div>
-        </div>
-
+      <div class="pdf-cta">
+        <p>Want a quick snapshot instead?</p>
+        <span>Download PDF overview (conceptual CTA)</span>
       </div>
 
-      <h2 style="margin: 32px 0 18px;">Workflows & Integrations</h2>
+      <h2 class="section-heading">General questions</h2>
 
-      <div class="faq-grid">
-
-        <div class="faq-card">
+      <div class="faq-group">
+        <div class="faq-item">
           <button class="faq-question">
-            How do the workflows work?
-            <span class="chevron">⌄</span>
+            <span>Is SyncToScale a real, production-ready platform?</span>
+            <span class="faq-icon">›</span>
           </button>
           <div class="faq-answer">
-            Workflows use a simple structure: Trigger → Conditions → Actions.  
-            This mirrors real-world SaaS automation logic.
+            <p>No — SyncToScale is a concept project. The goal is to present a believable AI automation platform with realistic copy, feature design, and structure, without a full production backend.</p>
           </div>
         </div>
 
-        <div class="faq-card">
+        <div class="faq-item">
           <button class="faq-question">
-            Are the integrations real?
-            <span class="chevron">⌄</span>
+            <span>Who is this project built for?</span>
+            <span class="faq-icon">›</span>
           </button>
           <div class="faq-answer">
-            No — they're conceptual demonstrations of how systems *would* behave, not live API calls.
+            <p>It’s aimed at:</p>
+            <ul>
+              <li>Recruiters and hiring managers in SaaS / AI / workflow automation.</li>
+              <li>Teams curious how a TAM / CS / implementation-minded person thinks about product and process.</li>
+              <li>Anyone who wants to see a “fake but plausible” AI platform end to end.</li>
+            </ul>
           </div>
         </div>
-
-        <div class="faq-card">
-          <button class="faq-question">
-            Can workflows chain across tools?
-            <span class="chevron">⌄</span>
-          </button>
-          <div class="faq-answer">
-            Yes — examples include Salesforce → Slack, Google Forms → Jira, and other multi-app sequences.
-          </div>
-        </div>
-
       </div>
 
+      <h2 class="section-heading">Platform & features</h2>
+
+      <div class="faq-group">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>What kinds of workflows is SyncToScale designed around?</span>
+            <span class="faq-icon">›</span>
+          </button>
+          <div class="faq-answer">
+            <p>The platform is modeled around:</p>
+            <ul>
+              <li>Customer onboarding and implementation projects.</li>
+              <li>Account health monitoring and renewal playbooks.</li>
+              <li>Support escalations and cross-functional handoffs.</li>
+              <li>Internal operations tasks that touch multiple systems.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How does Nova (the AI assistant) fit into the product?</span>
+            <span class="faq-icon">›</span>
+          </button>
+          <div class="faq-answer">
+            <p>Nova is positioned as a sidekick — not a replacement for humans. Conceptually, Nova would:</p>
+            <ul>
+              <li>Summarize long customer histories into actionable notes.</li>
+              <li>Suggest routing, tags, and next steps for incoming requests.</li>
+              <li>Help draft communications, while humans approve and send.</li>
+            </ul>
+            <p>All of this is framed around human-in-the-loop guardrails, not “fire-and-forget” automation.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Does SyncToScale really integrate with tools like Salesforce, HubSpot, Slack, and Jira?</span>
+            <span class="faq-icon">›</span>
+          </button>
+          <div class="faq-answer">
+            <p>In this portfolio version, the integrations are conceptual only. The UI and copy are built as if real connectors exist, to demonstrate how I’d name, position, and explain them to customers.</p>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="section-heading">For recruiters & hiring managers</h2>
+
+      <div class="faq-group">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>What does this project say about how Christy works?</span>
+            <span class="faq-icon">›</span>
+          </button>
+          <div class="faq-answer">
+            <p>It reflects my tendency to:</p>
+            <ul>
+              <li>Think in systems and cross-functional workflows.</li>
+              <li>Translate technical ideas into clear, customer-friendly language.</li>
+              <li>Design for TAM / CS / implementation teams who live in multiple tools all day.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How does this connect to real experience with AI?</span>
+            <span class="faq-icon">›</span>
+          </button>
+          <div class="faq-answer">
+            <p>In previous roles, I’ve used AI tools to:</p>
+            <ul>
+              <li>Summarize calls and highlight follow-ups.</li>
+              <li>Draft customer comms while preserving voice and nuance.</li>
+              <li>Spot patterns in tickets or account risk signals.</li>
+            </ul>
+            <p>SyncToScale is a way to package that mindset in a single, cohesive story.</p>
+          </div>
+        </div>
+      </div>
     </div>
-  </section>
+  </main>
 
-  <!-- FAQ SCRIPT -->
+  <!-- FOOTER -->
+  <footer>
+    <p>SyncToScale — Portfolio Project by Christy</p>
+  </footer>
+
+  <!-- NOVA CHAT BUTTON -->
   <script>
-    document.querySelectorAll(".faq-card").forEach(card => {
-      const btn = card.querySelector(".faq-question");
+    // Simple accordion logic
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.faq-item').forEach(function (item) {
+        const btn = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
 
-      btn.addEventListener("click", () => {
-        const open = card.classList.contains("open");
+        btn.addEventListener('click', function () {
+          const isOpen = item.classList.contains('open');
 
-        document.querySelectorAll(".faq-card").forEach(c => {
-          c.classList.remove("open");
-          c.querySelector(".faq-answer").style.display = "none";
+          // close others
+          document.querySelectorAll('.faq-item.open').forEach(function (openItem) {
+            openItem.classList.remove('open');
+            const openAnswer = openItem.querySelector('.faq-answer');
+            openAnswer.style.maxHeight = null;
+          });
+
+          if (!isOpen) {
+            item.classList.add('open');
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+          } else {
+            item.classList.remove('open');
+            answer.style.maxHeight = null;
+          }
         });
-
-        if (!open) {
-          card.classList.add("open");
-          card.querySelector(".faq-answer").style.display = "block";
-        }
       });
     });
+
+    window.botpressWebChat.init({
+      botId: "nova",
+      hostUrl: "https://cdn.botpress.cloud/webchat/v3",
+      botName: "Nova",
+      hideWidget: false,
+      stylesheet: `
+        .bpw-floating-button {
+          width: 68px !important;
+          height: 68px !important;
+          border-radius: 50% !important;
+          background: radial-gradient(circle at 30% 30%, #41d1ff, #21e19f) !important;
+          box-shadow:
+            0 0 18px rgba(33, 225, 159, 0.5),
+            0 0 28px rgba(65, 209, 255, 0.45) !important;
+          border: none !important;
+          display: flex !important;
+          justify-content: center !important;
+          align-items: center !important;
+        }
+
+        .bpw-floating-button svg {
+          display: none !important;
+        }
+
+        .bpw-floating-button::before {
+          content: "";
+          width: 36px;
+          height: 36px;
+          background-image: url('https://c-mcswain.github.io/synctoscale-site/assets/nova-icon.png');
+          background-size: contain;
+          background-repeat: no-repeat;
+          display: block;
+        }
+
+        .bpw-floating-button:hover + .nova-label {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      `
+    });
   </script>
+
+  <div class="nova-label">Chat with Nova</div>
 
 </body>
 </html>
