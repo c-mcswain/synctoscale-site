@@ -1,1 +1,423 @@
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Template: Contract Handoff to CS | SyncToScale</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Nova / Botpress -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
+  <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
+</head>
+
+<body>
+  <!-- SITE HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">S</span>
+        <span class="logo-text">SyncToScale</span>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="docs.html">Docs</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+    <div class="container template-layout">
+      <!-- BREADCRUMB -->
+      <nav class="doc-breadcrumb">
+        <a href="templates.html">Templates</a>
+        <span>›</span>
+        <span>Contract Handoff to CS</span>
+      </nav>
+
+      <!-- PAGE HEADER -->
+      <header class="page-header">
+        <div class="page-header-top">
+          <h1>Contract Handoff to CS</h1>
+          <span class="badge badge-nova">Template</span>
+        </div>
+        <p class="page-subtitle">
+          Turn a Closed-Won deal into a clean handoff. Automatically create onboarding projects, assign the right CSM,
+          and share a clear summary of what was sold and what success looks like.
+        </p>
+
+        <div class="page-meta-row">
+          <span class="pill pill-soft">Category: Sales &amp; CS Handoff</span>
+          <span class="pill pill-soft">Difficulty: Beginner</span>
+          <span class="pill pill-soft">Trigger: Opportunity Closed-Won</span>
+          <span class="pill pill-soft">Systems: CRM · Project tool · Slack · CS platform</span>
+        </div>
+      </header>
+
+      <!-- MAIN GRID -->
+      <section class="template-main-grid">
+        <!-- LEFT COLUMN -->
+        <article class="template-main">
+          <!-- OVERVIEW -->
+          <section id="overview" class="doc-section">
+            <h2>Overview</h2>
+            <p>
+              The <strong>Contract Handoff to CS</strong> template keeps Sales and Customer Success aligned after
+              a deal closes. When an opportunity is marked Closed-Won in the CRM, SyncToScale creates a structured
+              onboarding project, assigns a CSM, and posts a digestible summary of deal details, timelines, and
+              dependencies — while <strong>Nova</strong> checks for risky gaps in implementation requirements.
+            </p>
+
+            <div class="info-grid">
+              <div class="info-card">
+                <h3>When to use this template</h3>
+                <ul>
+                  <li>You want every new customer to start with a clear, consistent onboarding plan.</li>
+                  <li>CSMs struggle to find contract details, timelines, and commitments.</li>
+                  <li>Sales over-communication or under-communication creates surprises in onboarding.</li>
+                  <li>You want a simple, repeatable handoff process that works across segments.</li>
+                </ul>
+              </div>
+
+              <div class="info-card">
+                <h3>What this template automates</h3>
+                <ul>
+                  <li>Listens for Closed-Won opportunities in your CRM.</li>
+                  <li>Creates a project or board in your onboarding tool (Asana, ClickUp, Jira, Monday, etc.).</li>
+                  <li>Assigns the right CSM based on region, segment, or playbook.</li>
+                  <li>Posts a handoff summary to a shared Sales ↔ CS Slack channel.</li>
+                  <li>Captures Nova’s view of risks, gaps, and next steps.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- HOW IT WORKS -->
+          <section id="how-it-works" class="doc-section">
+            <h2>How it works</h2>
+            <ol class="step-list">
+              <li>A Sales opportunity moves to a Closed-Won stage in the CRM.</li>
+              <li>SyncToScale fetches key fields about the deal, account, and primary contacts.</li>
+              <li>Nova analyzes terms, notes, and custom fields to summarize what was sold.</li>
+              <li>An onboarding project is created using your segment-specific template.</li>
+              <li>A CSM is assigned and alerted with a concise handoff summary.</li>
+              <li>Slack notifications keep Sales and CS aligned on ownership and timing.</li>
+            </ol>
+          </section>
+
+          <!-- WORKFLOW STEPS -->
+          <section id="workflow-steps" class="doc-section">
+            <h2>Workflow steps</h2>
+
+            <ol class="step-list step-list-detailed">
+              <li>
+                <h3>Step 1 — Trigger: Opportunity Closed-Won in CRM</h3>
+                <p>
+                  The workflow triggers when an Opportunity (Salesforce) or Deal (HubSpot) reaches a configured
+                  “Closed-Won” stage and meets any filters you’ve defined (e.g., minimum ARR, product line).
+                </p>
+              </li>
+
+              <li>
+                <h3>Step 2 — Pull contract &amp; account details</h3>
+                <p>
+                  SyncToScale pulls data like ARR, term length, seats, product SKUs, implementation scope, and
+                  important dates (contract start, go-live target).
+                </p>
+                <div class="nova-callout">
+                  <h4>Behind the scenes — Nova contract summary</h4>
+                  <ul>
+                    <li>Summarizes what was sold in plain language.</li>
+                    <li>Highlights unusual terms (short contracts, heavy custom work, tight timelines).</li>
+                    <li>Flags missing core details (no technical contact, no go-live date, etc.).</li>
+                  </ul>
+                </div>
+              </li>
+
+              <li>
+                <h3>Step 3 — Determine owner &amp; playbook</h3>
+                <p>
+                  Rules select a CSM or Implementation Manager based on segment, region, or team capacity, and pick
+                  an onboarding template (e.g., “SMB self-serve”, “Enterprise guided”, “Pilot”).
+                </p>
+              </li>
+
+              <li>
+                <h3>Step 4 — Create onboarding project</h3>
+                <p>
+                  SyncToScale creates a project in your chosen tool with tasks for kickoff, configuration, training,
+                  and launch, populated with due dates relative to the contract start or go-live target.
+                </p>
+              </li>
+
+              <li>
+                <h3>Step 5 — Slack handoff summary</h3>
+                <p>
+                  A clear, structured summary is posted to a shared channel (e.g., <code>#sales-cs-handoffs</code>)
+                  tagging the AE and CSM, with key details and Nova’s risk notes.
+                </p>
+              </li>
+            </ol>
+          </section>
+
+          <!-- MAPPINGS -->
+          <section id="data-mapping" class="doc-section">
+            <h2>Field mappings</h2>
+
+            <h3>CRM → Onboarding project</h3>
+            <div class="table-wrapper">
+              <table class="mapping-table">
+                <thead>
+                  <tr>
+                    <th>Source (CRM)</th>
+                    <th>Transform</th>
+                    <th>Target (Project Tool)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>Opportunity.Account.Name</code></td>
+                    <td>None</td>
+                    <td><code>project.name</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>Opportunity.Amount</code></td>
+                    <td>Format as currency</td>
+                    <td><code>project.customFields.arr</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>Opportunity.CloseDate</code></td>
+                    <td>Normalize to ISO 8601</td>
+                    <td>Used as project start date (optional)</td>
+                  </tr>
+                  <tr>
+                    <td><code>Opportunity.Go_Live_Target__c</code></td>
+                    <td>None</td>
+                    <td>Used for milestone due dates</td>
+                  </tr>
+                  <tr>
+                    <td><code>Opportunity.Seats__c</code></td>
+                    <td>None</td>
+                    <td><code>project.customFields.seats</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>Opportunity.Implementation_Notes__c</code></td>
+                    <td>Summarized by Nova</td>
+                    <td>Project description and “Handoff notes” section</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3>Segment &amp; region → CSM assignment</h3>
+            <div class="table-wrapper">
+              <table class="mapping-table">
+                <thead>
+                  <tr>
+                    <th>Segment / Region</th>
+                    <th>Condition</th>
+                    <th>Assigned owner</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>SMB · North America</td>
+                    <td><code>Segment__c = "SMB"</code> and <code>BillingCountry = "US" or "CA"</code></td>
+                    <td>Round-robin among <code>SMB_NA_CSM_POOL</code></td>
+                  </tr>
+                  <tr>
+                    <td>Mid-market · EMEA</td>
+                    <td><code>Segment__c = "Growth"</code> and <code>Region__c = "EMEA"</code></td>
+                    <td>Mapped to <code>Growth_EMEA_CSM</code></td>
+                  </tr>
+                  <tr>
+                    <td>Enterprise</td>
+                    <td><code>Segment__c = "Enterprise"</code></td>
+                    <td>Named Enterprise CSM team or Implementation pod</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- SAMPLE JSON -->
+          <section id="sample-payloads" class="doc-section">
+            <h2>Sample JSON payloads</h2>
+
+            <h3>Trigger event — Closed-Won opportunity</h3>
+            <pre class="code-block"><code>{
+  "eventId": "evt_01J2HANDOFF",
+  "eventType": "crm.opportunity.updated",
+  "source": "salesforce",
+  "occurredAt": "2025-04-04T15:10:00Z",
+  "payload": {
+    "id": "0065g00000WIN123",
+    "name": "Acme Industries - Platform Subscription",
+    "stageName": "Closed Won",
+    "amount": 120000,
+    "currencyIsoCode": "USD",
+    "closeDate": "2025-04-04",
+    "termMonths": 12,
+    "seats__c": 250,
+    "segment__c": "Growth",
+    "go_live_target__c": "2025-05-15",
+    "primary_contact__c": "0035g00000CONTACT1",
+    "implementation_notes__c": "Needs SSO + HRIS integration in phase 1. Tight go-live date.",
+    "owner": {
+      "name": "Alex Rivera",
+      "email": "alex.rivera@demo-company.com"
+    },
+    "account": {
+      "id": "0015g00000ACME01",
+      "name": "Acme Industries",
+      "billingCountry": "United States",
+      "region__c": "NA"
+    }
+  }
+}</code></pre>
+
+            <h3>Onboarding project payload (simplified)</h3>
+            <pre class="code-block"><code>{
+  "name": "Onboarding - Acme Industries",
+  "templateKey": "growth_standard_onboarding",
+  "customFields": {
+    "arr": "$120,000",
+    "seats": 250,
+    "segment": "Growth",
+    "goLiveTarget": "2025-05-15"
+  },
+  "owner": {
+    "name": "Jordan Kim",
+    "email": "jordan.kim@demo-company.com"
+  },
+  "tasks": [
+    {
+      "title": "Internal handoff review",
+      "dueDate": "2025-04-08",
+      "assignee": "Jordan Kim"
+    },
+    {
+      "title": "Customer kickoff call",
+      "dueDate": "2025-04-11",
+      "assignee": "Jordan Kim"
+    },
+    {
+      "title": "Configure SSO &amp; HRIS integration",
+      "dueDate": "2025-04-25",
+      "assignee": "Implementation Pod A"
+    }
+  ]
+}</code></pre>
+
+            <h3>Nova handoff summary</h3>
+            <pre class="code-block"><code>{
+  "summary": "Growth segment customer with 250 seats and $120k ARR. Target go-live in ~6 weeks. Phase 1: core platform + SSO + HRIS integration.",
+  "risks": [
+    "Aggressive go-live date relative to scope.",
+    "No technical contact specified on Opportunity.",
+    "SSO and HRIS integration dependencies may require security / IT involvement."
+  ],
+  "recommendedNextSteps": [
+    "Confirm technical contact and IT stakeholders before kickoff.",
+    "Validate SSO + HRIS integration timelines against target go-live.",
+    "Share implementation timeline slide with AE to set expectations."
+  ]
+}</code></pre>
+          </section>
+
+          <!-- ERROR HANDLING -->
+          <section id="error-handling" class="doc-section">
+            <h2>Error handling</h2>
+            <p>
+              Sometimes opportunities are moved back and forth between stages, or fields are incomplete
+              when Closed-Won is first set. This template gracefully handles those cases.
+            </p>
+
+            <ul>
+              <li>If required fields are missing (go-live target, primary contact), Nova marks the run “pending handoff” and posts a Slack reminder.</li>
+              <li>If the opportunity moves out of Closed-Won, SyncToScale pauses onboarding project creation.</li>
+              <li>Project creation failures are retried, then escalated via a RevOps ticket.</li>
+              <li>Duplicate runs on the same deal are merged into the existing project when possible.</li>
+            </ul>
+
+            <h3>Sample pending handoff diagnostic</h3>
+            <pre class="code-block"><code>{
+  "runId": "run_01J2HANDOFF",
+  "status": "pending_information",
+  "missingFields": [
+    "primary_contact__c",
+    "go_live_target__c"
+  ],
+  "novaMessage": "Closed-Won deal is missing a primary contact and go-live target. Recommend updating these fields before creating the onboarding project."
+}</code></pre>
+          </section>
+
+          <!-- NOVA INSIGHTS -->
+          <section id="nova-insights" class="doc-section">
+            <h2>Nova insights for this template</h2>
+            <ul>
+              <li>Shows which deals consistently arrive with incomplete handoff information.</li>
+              <li>Highlights common implementation risks based on notes and custom fields.</li>
+              <li>Helps RevOps refine required fields for Closed-Won stages.</li>
+              <li>Provides a simple story on “what was sold vs. what’s planned for onboarding”.</li>
+            </ul>
+          </section>
+
+          <!-- SETUP -->
+          <section id="setup" class="doc-section">
+            <h2>Set up this template in SyncToScale</h2>
+            <ol class="step-list">
+              <li>Select <strong>Contract Handoff to CS</strong> from the <strong>Templates</strong> library.</li>
+              <li>Connect your CRM, project management tool, Slack, and (optionally) CS platform.</li>
+              <li>Configure which stages count as Closed-Won and any ARR / product filters.</li>
+              <li>Map CRM fields (ARR, term, seats, go-live, notes) into the template.</li>
+              <li>Define CSM assignment rules and onboarding playbook selection.</li>
+              <li>Test with a sandbox or low-risk deal, then enable the template in <strong>Active</strong> mode.</li>
+            </ol>
+          </section>
+        </article>
+
+        <!-- RIGHT COLUMN -->
+        <aside class="template-sidebar">
+          <div class="card">
+            <h3>Template summary</h3>
+            <ul class="key-facts-list">
+              <li><strong>Primary trigger:</strong> Closed-Won opportunity</li>
+              <li><strong>Runtime:</strong> Real-time (seconds to minutes)</li>
+              <li><strong>Best for:</strong> B2B SaaS GTM teams</li>
+              <li><strong>Owner:</strong> RevOps · CS Ops</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Best practice defaults</h3>
+            <ul>
+              <li>Require go-live target and primary contact on all Closed-Won deals.</li>
+              <li>Use segment-specific onboarding templates.</li>
+              <li>Standard Slack channel for Sales ↔ CS handoffs.</li>
+              <li>Quarterly review of Nova’s risk patterns.</li>
+            </ul>
+          </div>
+
+          <div class="card nova-callout">
+            <h3>Nova will help you…</h3>
+            <ul>
+              <li>Catch deals that are “Closed-Won” but not truly ready for onboarding.</li>
+              <li>Spot patterns in risky deals (tight timelines, complex integrations).</li>
+              <li>Give CS clear, concise context without reading every CRM field.</li>
+            </ul>
+          </div>
+        </aside>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
