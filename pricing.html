@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pricing | SyncToScale</title>
 
-  <!-- Botpress Webchat -->
   <script src="https://cdn.botpress.cloud/webchat/v3.4/inject.js"></script>
   <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
 
@@ -80,38 +79,40 @@
       color: #475569;
     }
 
-    /* BILLING TOGGLE */
+    /* BILLING TOGGLE — FIXED WORKING VERSION */
     .toggle-wrapper {
       display: flex;
       justify-content: center;
       margin-top: 18px;
       margin-bottom: 42px;
       gap: 18px;
-      font-size: 0.95rem;
-      color: #475569;
       align-items: center;
+      font-size: 0.95rem;
     }
 
     .toggle-pill {
-      width: 54px;
-      height: 28px;
-      border-radius: 999px;
+      width: 60px;
+      height: 30px;
       background: #d1f4ed;
+      border-radius: 999px;
       position: relative;
       cursor: pointer;
-      transition: 0.25s ease;
     }
 
-    .toggle-pill::before {
-      content: "";
-      width: 24px;
-      height: 24px;
+    .toggle-circle {
+      width: 26px;
+      height: 26px;
       background: #0f766e;
       border-radius: 50%;
       position: absolute;
       top: 2px;
-      left: 2px; /* Monthly default */
-      transition: 0.25s ease;
+      left: 2px;
+      transition: all 0.25s ease;
+    }
+
+    .toggle-pill.annual .toggle-circle {
+      transform: translateX(30px);
+      background: #0f766e;
     }
 
     /* PRICING GRID */
@@ -171,7 +172,6 @@
       color: #334155;
     }
 
-    /* CTA BUTTON */
     .card-btn {
       margin-top: 18px;
       display: inline-block;
@@ -199,24 +199,11 @@
       max-width: 950px;
     }
 
-    .addon-card h2 {
-      margin: 0 0 10px;
-      color: #0b3d3d;
-    }
-
-    .addon-card p {
-      margin: 0 0 12px;
-      color: #475569;
-      font-size: 0.98rem;
-    }
-
-    /* FOOTER */
     footer {
       background: #0b3d3d;
       color: #cbd5e1;
       padding: 40px 20px;
       text-align: center;
-      margin-top: 60px;
     }
 
     .nova-label {
@@ -261,7 +248,11 @@
 
     <div class="toggle-wrapper">
       <span id="labelMonthly">Monthly</span>
-      <div class="toggle-pill" id="billingToggle"></div>
+
+      <div class="toggle-pill" id="billingToggle">
+        <div class="toggle-circle"></div>
+      </div>
+
       <span id="labelAnnual" style="opacity: 0.5;">Annual</span>
     </div>
   </section>
@@ -318,15 +309,12 @@
   <section>
     <div class="addon-card">
       <h2>Nova AI Assistant (Add-On)</h2>
-      <p>Enhance automation with AI-driven routing, insights, and workflow generation.</p>
-
       <ul class="feature-list">
         <li>Summaries of customer history</li>
         <li>AI-powered routing</li>
         <li>Draft lifecycle communications</li>
-        <li>Create workflows from natural language</li>
+        <li>Workflow generation from natural language</li>
       </ul>
-
       <p id="novaPrice" style="margin-top: 12px; font-weight: 600; color: #0b3d3d;">
         +$15 per user / month
       </p>
@@ -338,26 +326,17 @@
     <p>SyncToScale — Automation & Integration Platform</p>
   </footer>
 
-  <!-- BILLING TOGGLE SCRIPT -->
+  <!-- TOGGLE LOGIC -->
   <script>
     const toggle = document.getElementById("billingToggle");
+    const circle = toggle.querySelector(".toggle-circle");
 
-    let isAnnual = false; // default Monthly
+    let isAnnual = false;
 
     toggle.addEventListener("click", () => {
       isAnnual = !isAnnual;
+      toggle.classList.toggle("annual", isAnnual);
 
-      // Move the toggle pill
-      toggle.style.background = isAnnual ? "#b2f0e5" : "#d1f4ed";
-      toggle.style.setProperty("--pos", isAnnual ? "28px" : "2px");
-      toggle.style.transition = "0.3s ease";
-      toggle.querySelector("::before");
-
-      // Animate the circle
-      toggle.style.setProperty("--circle-left", isAnnual ? "28px" : "2px");
-      toggle.querySelector("::before");
-
-      // Labels opacity
       document.getElementById("labelMonthly").style.opacity = isAnnual ? "0.4" : "1";
       document.getElementById("labelAnnual").style.opacity = isAnnual ? "1" : "0.5";
 
@@ -366,7 +345,6 @@
 
     function updatePrices() {
       if (!isAnnual) {
-        // MONTHLY
         starterPrice.textContent = "$19";
         growthPrice.textContent = "$49";
         scalePrice.textContent = "$89";
@@ -375,7 +353,6 @@
         scaleSub.textContent = "per user / month";
         novaPrice.textContent = "+$15 per user / month";
       } else {
-        // ANNUAL (20% off)
         starterPrice.textContent = "$15";
         growthPrice.textContent = "$39";
         scalePrice.textContent = "$72";
@@ -393,7 +370,6 @@
       botId: "nova",
       hostUrl: "https://cdn.botpress.cloud/webchat/v3",
       botName: "Nova",
-      hideWidget: false,
       stylesheet: `
         .bpw-floating-button {
           width: 68px !important;
@@ -401,17 +377,6 @@
           border-radius: 50% !important;
           background: radial-gradient(circle at 30% 30%, #41d1ff, #21e19f) !important;
           border: none !important;
-          display: flex !important;
-          justify-content: center !important;
-          align-items: center !important;
-        }
-        .bpw-floating-button svg { display: none !important; }
-        .bpw-floating-button::before {
-          content: "";
-          width: 36px;
-          height: 36px;
-          background-image: url('https://c-mcswain.github.io/synctoscale-site/assets/nova-icon.png');
-          background-size: cover;
         }
       `
     });
