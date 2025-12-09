@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Field Mapping | SyncToScale Docs</title>
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Nova Botpress Webchat -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
+  <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <a href="index.html" class="logo-link">SyncToScale</a>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="faq.html">FAQ</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <h1>Field Mapping</h1>
+    <p>
+      Field mapping transforms incoming data into the structure required by each system.
+      SyncToScale supports direct mapping, formulas, conditional logic,
+      schema normalization, and Nova-assisted intelligent mapping.
+    </p>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="doc-container">
+
+    <h2>Overview</h2>
+    <p>
+      When a trigger fires, the incoming payload is rarely in the exact format another system expects.
+      Field mapping ensures objects are aligned across applications by handling conversions,
+      transformations, renaming, and schema differences.
+    </p>
+
+    <hr />
+
+    <h2>Direct Field Mapping</h2>
+    <p>
+      The simplest form of mapping: passing values from source → destination without modification.
+    </p>
+
+<pre>
+{
+  "mapping": {
+    "first_name": "payload.employee.firstName",
+    "last_name": "payload.employee.lastName",
+    "email": "payload.employee.workEmail"
+  }
+}
+</pre>
+
+    <p>
+      Missing fields can be defaulted or flagged by the validator.
+    </p>
+
+    <hr />
+
+    <h2>Schema Normalization</h2>
+    <p>
+      Systems often use different object shapes for similar data.
+      SyncToScale normalizes common objects (employee, user, contact, ticket) to a consistent schema.
+    </p>
+
+<pre>
+Incoming (HRIS):
+{
+  "fname": "Jordan",
+  "lname": "Lee",
+  "mail": "jordan@example.com"
+}
+
+Normalized:
+{
+  "first_name": "Jordan",
+  "last_name": "Lee",
+  "email": "jordan@example.com"
+}
+</pre>
+
+    <p>
+      This allows downstream systems to expect predictable field names.
+    </p>
+
+    <hr />
+
+    <h2>Transformation Mapping</h2>
+    <p>
+      Transformations alter or combine values using formulas.
+    </p>
+
+<pre>
+{
+  "mapping": {
+    "full_name": "payload.first_name + ' ' + payload.last_name",
+    "start_date_iso": "formatDate(payload.startDate, 'YYYY-MM-DD')"
+  }
+}
+</pre>
+
+    <p>
+      Nova can automatically detect formatting mismatches and recommend corrections.
+    </p>
+
+    <hr />
+
+    <h2>Conditional Mapping</h2>
+    <p>
+      Conditional logic allows fields to change based on attributes in the payload.
+    </p>
+
+<pre>
+{
+  "mapping": {
+    "employment_type": "payload.isContractor ? 'contractor' : 'full_time'",
+    "department": "payload.department || 'General'"
+  }
+}
+</pre>
+
+    <ul>
+      <li>Useful when upstream systems do not consistently populate optional fields.</li>
+      <li>Prevents workflow failures due to null or undefined values.</li>
+    </ul>
+
+    <hr />
+
+    <h2>Lookup-Based Mapping</h2>
+    <p>
+      SyncToScale can map fields based on reference values such as IDs, group names, or role mappings.
+    </p>
+
+<pre>
+{
+  "mapping": {
+    "role_id": "lookup('roles', payload.jobTitle)"
+  }
+}
+</pre>
+
+    <p>
+      Lookups help translate between systems with mismatched internal identifiers.
+    </p>
+
+    <hr />
+
+    <h2>Nova Intelligent Mapping</h2>
+    <p>
+      Nova analyzes naming patterns, historical mappings, and payload structures to:
+    </p>
+
+    <ul>
+      <li>Suggest likely field matches</li>
+      <li>Auto-map common object types</li>
+      <li>Flag incompatible data types</li>
+      <li>Recommend transformations</li>
+      <li>Detect missing required fields</li>
+    </ul>
+
+<pre>
+Nova Suggestion:
+{
+  "email": "payload.workEmail",
+  "first_name": "payload.given_name",
+  "last_name": "payload.family_name"
+}
+</pre>
+
+    <p>
+      Users can accept or override Nova’s recommendations.
+    </p>
+
+    <hr />
+
+    <h2>Troubleshooting Mapping Issues</h2>
+
+    <ul>
+      <li><strong>Null / Missing Values</strong> — Use defaults or conditionals.</li>
+      <li><strong>Type Mismatch</strong> — Convert strings⇄numbers⇄dates.</li>
+      <li><strong>Case Sensitivity Errors</strong> — Normalize keys before mapping.</li>
+      <li><strong>Object Shape Differences</strong> — Normalize upstream objects.</li>
+      <li><strong>Provider Required Fields Missing</strong> — Nova will surface warnings.</li>
+      <li><strong>Invalid Enum Values</strong> — Map to the provider’s valid choices.</li>
+      <li><strong>ID Mismatches</strong> — Use lookup tables for cross-system consistency.</li>
+    </ul>
+
+    <p>
+      Mapping issues are the most common cause of workflow failures —  
+      SyncToScale validates mappings before runtime to reduce outages.
+    </p>
+
+  </section>
+
+</body>
+</html>
