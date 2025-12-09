@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Templates Library | SyncToScale</title>
+  <title>Workflow Templates | SyncToScale</title>
 
   <link rel="stylesheet" href="styles.css" />
 
@@ -13,7 +13,7 @@
   <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
 
   <style>
-    /* Category Headers */
+    /* Category Sections */
     .template-section {
       margin: 60px auto;
       max-width: 1100px;
@@ -32,7 +32,7 @@
     /* Grid */
     .template-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 20px;
     }
 
@@ -40,23 +40,23 @@
     .template-card {
       background: #ffffff;
       border-radius: 12px;
-      padding: 22px;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+      padding: 20px 20px 18px;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
       border: 1px solid #e2e8f0;
-      transition: all 0.25s ease;
+      transition: all 0.22s ease;
       text-decoration: none;
       color: #1e293b;
       display: block;
     }
 
     .template-card:hover {
-      box-shadow: 0 4px 16px rgba(33, 225, 159, 0.28);
+      box-shadow: 0 6px 18px rgba(33, 225, 159, 0.28);
       transform: translateY(-3px);
       border-color: #21e19f;
     }
 
     .template-card h3 {
-      font-size: 18px;
+      font-size: 17px;
       margin-bottom: 6px;
       font-weight: 600;
     }
@@ -67,32 +67,42 @@
       line-height: 1.45;
     }
 
-    /* Page Title */
+    /* Page Hero */
     .page-hero {
       text-align: center;
-      padding: 60px 20px;
+      padding: 56px 20px 40px;
     }
 
     .page-hero h1 {
-      font-size: 38px;
+      font-size: 36px;
       font-weight: 700;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .page-hero p {
-      font-size: 17px;
+      font-size: 16px;
       color: #475569;
-      margin-bottom: 0;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 640px) {
+      .page-hero {
+        padding: 40px 16px 28px;
+      }
+
+      .page-hero h1 {
+        font-size: 28px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- FIXED NAVBAR -->
+  <!-- SIMPLE, HIGH-LEVEL NAVBAR -->
   <header class="site-header">
     <div class="container header-inner">
-
       <div class="logo">
         <span class="logo-mark">S</span>
         <a href="index.html" class="logo-text">SyncToScale</a>
@@ -102,46 +112,22 @@
         <a href="index.html">Home</a>
         <a href="features.html">Features</a>
         <a href="pricing.html">Pricing</a>
-
-        <div class="dropdown">
-          <button class="dropbtn">Resources</button>
-          <div class="dropdown-content">
-            <a href="resources.html">Overview</a>
-            <a href="templates.html">Templates</a>
-            <a href="integrations.html">Integrations</a>
-            <a href="security.html">Security</a>
-          </div>
-        </div>
-
-        <div class="dropdown">
-          <button class="dropbtn">Docs</button>
-          <div class="dropdown-content">
-            <a href="docs.html">Overview</a>
-            <a href="api.html">API Reference</a>
-            <a href="auth.html">Authentication</a>
-            <a href="connections.html">Connections</a>
-            <a href="triggers.html">Triggers</a>
-            <a href="actions.html">Actions</a>
-            <a href="mapping.html">Mapping</a>
-            <a href="errors.html">Errors</a>
-            <a href="monitoring.html">Monitoring</a>
-            <a href="nova.html">Nova API</a>
-          </div>
-        </div>
-
+        <a href="resources.html">Resources</a>
+        <a href="docs.html">Docs</a>
         <a href="faq.html">FAQ</a>
         <a href="about.html">About</a>
       </nav>
-
     </div>
   </header>
 
   <!-- HERO -->
   <section class="page-hero">
-    <h1>Workflow Templates Library</h1>
-    <p>Prebuilt automation blueprints to accelerate onboarding, syncs, alerts, and team operations.</p>
+    <h1>Workflow Templates</h1>
+    <p>
+      Jump-start your automations with prebuilt blueprints for onboarding, RevOps, alerts,
+      and data hygiene—powered by SyncToScale and Nova.
+    </p>
   </section>
-
 
   <!-- ============================
        HR & PEOPLE OPERATIONS
@@ -150,35 +136,32 @@
     <h2>HR & People Operations</h2>
 
     <div class="template-grid">
-
       <a class="template-card" href="template-offboarding.html">
         <h3>Offboarding Workflow</h3>
-        <p>Automate access removal, notifications, and HR system updates.</p>
+        <p>Automate access removal, notifications, and HR system updates when an employee exits.</p>
       </a>
 
       <a class="template-card" href="template-manager-welcome.html">
         <h3>Manager Welcome Packet</h3>
-        <p>Send structured onboarding resources to new managers.</p>
+        <p>Send structured onboarding resources to new managers with key links, reports, and context.</p>
       </a>
 
       <a class="template-card" href="template-prestart-checklist.html">
         <h3>Pre-Start Checklist</h3>
-        <p>Ensure all provisioning and documentation is ready before Day 1.</p>
+        <p>Ensure devices, access, and orientation tasks are ready before each new hire’s Day 1.</p>
       </a>
 
       <a class="template-card" href="template-policy-ack.html">
         <h3>Policy Acknowledgement Tracking</h3>
-        <p>Track and automate reminders for mandatory policy sign-offs.</p>
+        <p>Track and automate reminders for required trainings and policy acknowledgements.</p>
       </a>
 
       <a class="template-card" href="template-title-comp-change-alerts.html">
         <h3>Title / Compensation Change Alerts</h3>
-        <p>Instantly notify downstream tools of HR data changes.</p>
+        <p>Notify finance, IT, and managers when titles or comp bands change in your HRIS.</p>
       </a>
-
     </div>
   </section>
-
 
   <!-- ============================
        CUSTOMER SUCCESS & IMPLEMENTATION
@@ -187,20 +170,17 @@
     <h2>Customer Success & Implementation</h2>
 
     <div class="template-grid">
-
       <a class="template-card" href="template-contract-handoff.html">
         <h3>Contract Handoff</h3>
-        <p>Smooth transitions between Sales → CS with structured data syncs.</p>
+        <p>Standardize data handoff from Sales → CS so implementations start with complete context.</p>
       </a>
 
       <a class="template-card" href="template-post-implementation-checkin.html">
         <h3>Post-Implementation Check-In</h3>
-        <p>Automated follow-ups to ensure successful deployment and adoption.</p>
+        <p>Trigger automated follow-ups, tasks, and surveys after go-live milestones.</p>
       </a>
-
     </div>
   </section>
-
 
   <!-- ============================
        REVOPS & SALES AUTOMATION
@@ -209,44 +189,39 @@
     <h2>RevOps & Sales Automation</h2>
 
     <div class="template-grid">
-
       <a class="template-card" href="template-lead-contact-account-sync.html">
         <h3>Lead → Contact → Account Sync</h3>
-        <p>Unify CRM record lifecycles across GTM systems.</p>
+        <p>Normalize lead data into clean contacts and accounts, reducing duplicates across CRMs.</p>
       </a>
 
       <a class="template-card" href="template-stale-opportunities-digest.html">
         <h3>Stale Opportunities Digest</h3>
-        <p>Generate automated Slack or email digests for aging pipeline.</p>
+        <p>Send weekly digests of aging deals to sales leaders via email or Slack.</p>
       </a>
-
     </div>
   </section>
 
-
   <!-- ============================
-       AUTOMATION & ENGINEERING
+       INTEGRATIONS & AUTOMATION ENGINEERING
   ============================= -->
   <section class="template-section">
     <h2>Integrations & Automation Engineering</h2>
 
     <div class="template-grid">
-
       <a class="template-card" href="template-custom-webhook-workflow.html">
         <h3>Custom Webhook Workflow</h3>
-        <p>Trigger actions based on external systems and custom payloads.</p>
+        <p>Trigger workflows from internal apps using signed webhooks and custom payloads.</p>
       </a>
 
       <a class="template-card" href="template-api-bulk-sync.html">
         <h3>API-Driven Bulk Sync</h3>
-        <p>Mass-update or migrate data across platforms with batched requests.</p>
+        <p>Sync or migrate large datasets across platforms with batched, paginated API calls.</p>
       </a>
 
       <a class="template-card" href="template-nova-assisted-cleanup.html">
         <h3>Nova-Assisted Cleanup</h3>
-        <p>AI-powered cleanup of duplicates, invalid fields, and data drift.</p>
+        <p>Use Nova to surface inconsistencies, duplicates, and suggested data cleanup actions.</p>
       </a>
-
     </div>
   </section>
 
