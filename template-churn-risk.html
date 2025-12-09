@@ -1,1 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Template: Churn Risk Alerts | SyncToScale</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Nova / Botpress -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
+  <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
+</head>
+
+<body>
+  <!-- SITE HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">S</span>
+        <span class="logo-text">SyncToScale</span>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="docs.html">Docs</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+    <div class="container template-layout">
+      <!-- BREADCRUMB -->
+      <nav class="doc-breadcrumb">
+        <a href="templates.html">Templates</a>
+        <span>›</span>
+        <span>Churn Risk Alerts</span>
+      </nav>
+
+      <!-- PAGE HEADER -->
+      <header class="page-header">
+        <div class="page-header-top">
+          <h1>Churn Risk Alerts</h1>
+          <span class="badge badge-nova">Template</span>
+        </div>
+        <p class="page-subtitle">
+          Combine product usage, tickets, billing, and NPS into a single health score. Proactively alert CSMs
+          when accounts show early churn signals.
+        </p>
+
+        <div class="page-meta-row">
+          <span class="pill pill-soft">Category: Customer Success</span>
+          <span class="pill pill-soft">Difficulty: Intermediate</span>
+          <span class="pill pill-soft">Trigger: Scheduled scan</span>
+          <span class="pill pill-soft">Systems: Product Analytics · Helpdesk · Billing · CRM</span>
+        </div>
+      </header>
+
+      <!-- MAIN GRID -->
+      <section class="template-main-grid">
+        <!-- LEFT COLUMN -->
+        <article class="template-main">
+          <!-- OVERVIEW -->
+          <section id="overview" class="doc-section">
+            <h2>Overview</h2>
+            <p>
+              The <strong>Churn Risk Alerts</strong> template helps Customer Success teams monitor account health
+              across multiple tools. On a set schedule (e.g., daily), SyncToScale pulls signals from your product
+              analytics, helpdesk, billing system, and NPS surveys. Nova combines them into a simple risk score and
+              alerts the owning CSM when thresholds are crossed.
+            </p>
+
+            <div class="info-grid">
+              <div class="info-card">
+                <h3>When to use this template</h3>
+                <ul>
+                  <li>You track usage, tickets, and revenue but don’t have a unified health signal.</li>
+                  <li>CSMs manage too many accounts to manually check each one weekly.</li>
+                  <li>You want a lightweight, explainable alternative to heavy CS tooling.</li>
+                  <li>You need clear, auditable criteria for churn risk and save plays.</li>
+                </ul>
+              </div>
+
+              <div class="info-card">
+                <h3>What this template automates</h3>
+                <ul>
+                  <li>Scheduled health scoring for selected accounts.</li>
+                  <li>Combines product usage, support volume, NPS, and billing status.</li>
+                  <li>Creates CSM tasks in your CRM or project tool.</li>
+                  <li>Sends rich Slack alerts with Nova’s recommended next steps.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- HOW IT WORKS -->
+          <section id="how-it-works" class="doc-section">
+            <h2>How it works</h2>
+            <ol class="step-list">
+              <li>A scheduled trigger runs (e.g., daily at 08:00 in your chosen timezone).</li>
+              <li>SyncToScale loads active accounts and their CSM owners from the CRM.</li>
+              <li>For each account, it pulls usage, ticket volume, NPS, and billing status.</li>
+              <li>Nova calculates a risk score and classifies the account (Healthy, Watch, At-risk).</li>
+              <li>At-risk accounts generate tasks and Slack alerts for the owning CSM.</li>
+              <li>Nova tracks how risk scores improve (or worsen) after follow-up actions.</li>
+            </ol>
+          </section>
+
+          <!-- WORKFLOW STEPS -->
+          <section id="workflow-steps" class="doc-section">
+            <h2>Workflow steps</h2>
+
+            <ol class="step-list step-list-detailed">
+              <li>
+                <h3>Step 1 — Trigger: Scheduled run</h3>
+                <p>
+                  This template is designed to run on a schedule, such as daily or weekly. You can configure
+                  the cadence under <strong>Automation &gt; Schedules</strong> in SyncToScale.
+                </p>
+              </li>
+
+              <li>
+                <h3>Step 2 — Load target accounts</h3>
+                <p>
+                  SyncToScale queries your CRM for active subscriptions, filtered by owner, segment, or ARR threshold
+                  (e.g., “All accounts &gt; $10k ARR”).
+                </p>
+              </li>
+
+              <li>
+                <h3>Step 3 — Pull signals from tools</h3>
+                <p>
+                  For each account, we gather:
+                </p>
+                <ul>
+                  <li><strong>Usage:</strong> logins, key events, or seats used (from Amplitude, Mixpanel, Segment, etc.).</li>
+                  <li><strong>Support:</strong> ticket count and CSAT over the last 30 days.</li>
+                  <li><strong>NPS / surveys:</strong> most recent score and trend.</li>
+                  <li><strong>Billing:</strong> past-due invoices or downgrades (Stripe, Chargebee, Recurly, etc.).</li>
+                </ul>
+                <div class="nova-callout">
+                  <h4>Behind the scenes — Nova scoring</h4>
+                  <p>Nova uses a simple, explainable scoring model you can adjust:</p>
+                  <ul>
+                    <li>Usage change vs. baseline (−40% may be a risk flag).</li>
+                    <li>Ticket surge + low CSAT = higher risk.</li>
+                    <li>Recent NPS detractor always increases risk.</li>
+                    <li>Billing issues raise risk and surface in the alert.</li>
+                  </ul>
+                </div>
+              </li>
+
+              <li>
+                <h3>Step 4 — Calculate risk score</h3>
+                <p>
+                  Each account gets a numeric score (0–100) and a label:
+                  <strong>Healthy</strong>, <strong>Watch</strong>, or <strong>At-risk</strong>.
+                </p>
+              </li>
+
+              <li>
+                <h3>Step 5 — Create tasks &amp; alerts</h3>
+                <p>
+                  For accounts marked <strong>At-risk</strong>, SyncToScale:
+                </p>
+                <ul>
+                  <li>Creates a follow-up task or call in the CRM.</li>
+                  <li>Posts a detailed Slack message with context and Nova’s suggestions.</li>
+                  <li>Optionally adds a “Churn Risk” tag or custom field for reporting.</li>
+                </ul>
+              </li>
+            </ol>
+          </section>
+
+          <!-- MAPPINGS -->
+          <section id="data-mapping" class="doc-section">
+            <h2>Field mappings</h2>
+
+            <h3>CRM → Product analytics &amp; billing</h3>
+            <div class="table-wrapper">
+              <table class="mapping-table">
+                <thead>
+                  <tr>
+                    <th>Source (CRM)</th>
+                    <th>Transform</th>
+                    <th>Target (Analytics / Billing)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>Account.Id</code></td>
+                    <td>Pass-through as <code>accountId</code></td>
+                    <td><code>usage.accountId</code>, <code>billing.customerId</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>Account.Domain__c</code> or <code>Website</code></td>
+                    <td>Normalize domain</td>
+                    <td>Used as key for analytics workspace / tenant</td>
+                  </tr>
+                  <tr>
+                    <td><code>Account.Owner__r.Email</code></td>
+                    <td>Map to internal user / Slack handle</td>
+                    <td>Used in alert recipient and task owner</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3>Signals → Health score</h3>
+            <div class="table-wrapper">
+              <table class="mapping-table">
+                <thead>
+                  <tr>
+                    <th>Signal</th>
+                    <th>Example rule</th>
+                    <th>Score impact</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Usage drop</td>
+                    <td>30-day active users down &gt;= 40% vs. prior 30 days</td>
+                    <td>−30 points</td>
+                  </tr>
+                  <tr>
+                    <td>Ticket surge</td>
+                    <td>Tickets in last 14 days &gt; 3× account baseline</td>
+                    <td>−20 points</td>
+                  </tr>
+                  <tr>
+                    <td>NPS detractor</td>
+                    <td>Most recent NPS &lt;= 6</td>
+                    <td>−25 points</td>
+                  </tr>
+                  <tr>
+                    <td>Billing issues</td>
+                    <td>Invoice past due &gt; 14 days</td>
+                    <td>−25 points</td>
+                  </tr>
+                  <tr>
+                    <td>Positive usage trend</td>
+                    <td>Usage up &gt;= 30% vs. baseline</td>
+                    <td>+20 points</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- SAMPLE JSON -->
+          <section id="sample-payloads" class="doc-section">
+            <h2>Sample JSON payloads</h2>
+
+            <h3>Scheduled run context</h3>
+            <pre class="code-block"><code>{
+  "eventId": "evt_01J2QCHURN",
+  "eventType": "schedule.triggered",
+  "source": "synctoscale",
+  "payload": {
+    "scheduleId": "daily_churn_scan",
+    "runAt": "2025-04-02T08:00:00Z",
+    "filters": {
+      "minArr": 10000,
+      "segments": ["Growth", "Enterprise"]
+    }
+  }
+}</code></pre>
+
+            <h3>Aggregated signals for one account</h3>
+            <pre class="code-block"><code>{
+  "account": {
+    "id": "0015g00000XYZ789",
+    "name": "Acme Industries",
+    "arr": 85000,
+    "owner": {
+      "name": "Jordan Kim",
+      "email": "jordan.kim@demo-company.com",
+      "slackUserId": "U03CSM123"
+    }
+  },
+  "signals": {
+    "usage": {
+      "activeUsersCurrent": 42,
+      "activeUsersPrevious": 81,
+      "pctChange": -48.1,
+      "keyEventsCurrent": 215,
+      "keyEventsPrevious": 392
+    },
+    "support": {
+      "ticketsLast30Days": 19,
+      "ticketsBaseline": 6,
+      "csatLast30Days": 3.4
+    },
+    "nps": {
+      "latestScore": 5,
+      "latestLabel": "Detractor",
+      "lastResponseAt": "2025-03-22T14:55:00Z"
+    },
+    "billing": {
+      "status": "past_due",
+      "daysPastDue": 21,
+      "amountPastDue": 2350
+    }
+  }
+}</code></pre>
+
+            <h3>Nova health score output</h3>
+            <pre class="code-block"><code>{
+  "accountId": "0015g00000XYZ789",
+  "riskScore": 28,
+  "classification": "At-risk",
+  "factors": [
+    "Usage down 48.1% vs. previous period (-30)",
+    "Tickets 19 vs. baseline 6 (+13 tickets) (-15)",
+    "Latest NPS = 5 (Detractor) (-25)",
+    "Invoice past due 21 days (-20)"
+  ],
+  "recommendedActions": [
+    "Schedule a 30-minute check-in within 3 days.",
+    "Review the last 10 tickets for themes to address live.",
+    "Coordinate with billing to clear past-due invoice during the call."
+  ]
+}</code></pre>
+          </section>
+
+          <!-- ERROR HANDLING -->
+          <section id="error-handling" class="doc-section">
+            <h2>Error handling</h2>
+            <p>
+              This template is resilient to partial data gaps. If one signal source isn’t reachable, Nova will still
+              generate a score with adjusted confidence.
+            </p>
+
+            <ul>
+              <li>Missing analytics data: risk score falls back to support + NPS + billing.</li>
+              <li>Billing system offline: a warning is added to Nova diagnostics, score is flagged as partial.</li>
+              <li>CRM task creation failures are retried and surfaced in a summary report.</li>
+            </ul>
+
+            <h3>Sample partial-data diagnostic</h3>
+            <pre class="code-block"><code>{
+  "runId": "run_01J2QCHURN",
+  "status": "completed_with_warnings",
+  "warnings": [
+    {
+      "type": "analytics_unavailable",
+      "message": "Product analytics API returned 503 for workspace acme-industries.",
+      "impact": "Using support, NPS, and billing only for score calculation."
+    }
+  ]
+}</code></pre>
+          </section>
+
+          <!-- NOVA INSIGHTS -->
+          <section id="nova-insights" class="doc-section">
+            <h2>Nova insights for this template</h2>
+            <ul>
+              <li>Shows which signals most frequently drive accounts into “At-risk”.</li>
+              <li>Highlights accounts that stayed at risk for multiple runs without follow-up.</li>
+              <li>Tracks how scores change after CSM calls or QBRs are logged.</li>
+              <li>Suggests new risk rules based on your historical churn patterns.</li>
+            </ul>
+          </section>
+
+          <!-- SETUP -->
+          <section id="setup" class="doc-section">
+            <h2>Set up this template in SyncToScale</h2>
+            <ol class="step-list">
+              <li>Select <strong>Churn Risk Alerts</strong> from the <strong>Templates</strong> library.</li>
+              <li>Connect your CRM, product analytics, helpdesk, NPS, and billing tools.</li>
+              <li>Choose which segments / ARR bands to include in the scan.</li>
+              <li>Adjust scoring weights and thresholds to fit your business.</li>
+              <li>Connect Slack and pick the channel for daily summaries.</li>
+              <li>Enable the daily schedule and review Nova’s dashboard after the first few runs.</li>
+            </ol>
+          </section>
+        </article>
+
+        <!-- RIGHT COLUMN -->
+        <aside class="template-sidebar">
+          <div class="card">
+            <h3>Template summary</h3>
+            <ul class="key-facts-list">
+              <li><strong>Primary trigger:</strong> Scheduled scan</li>
+              <li><strong>Runtime:</strong> Batch (depends on account volume)</li>
+              <li><strong>Best for:</strong> CSM teams 5+ people</li>
+              <li><strong>Owner:</strong> CS Ops · RevOps</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Best practice defaults</h3>
+            <ul>
+              <li>Daily runs on weekdays at local 08:00.</li>
+              <li>Focus on Growth / Enterprise segments first.</li>
+              <li>Review thresholds quarterly with CS leadership.</li>
+              <li>Use Nova’s history view in QBR prep.</li>
+            </ul>
+          </div>
+
+          <div class="card nova-callout">
+            <h3>Nova will help you…</h3>
+            <ul>
+              <li>Explain “why this account is at risk” in plain language.</li>
+              <li>Spot false positives and tune the scoring model.</li>
+              <li>Share a simple, shareable story with leadership around churn risk trends.</li>
+            </ul>
+          </div>
+        </aside>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
 
