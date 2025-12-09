@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>Template: Stale Opportunities Digest | SyncToScale</title>
+  <title>Template: Title & Compensation Change Alerts | SyncToScale</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <link rel="stylesheet" href="styles.css" />
@@ -41,26 +41,26 @@
       <nav class="doc-breadcrumb">
         <a href="templates.html">Templates</a>
         <span>›</span>
-        <span>Stale Opportunities Digest</span>
+        <span>Title & Compensation Change Alerts</span>
       </nav>
 
       <!-- PAGE HEADER -->
       <header class="page-header">
         <div class="page-header-top">
-          <h1>Stale Opportunities Digest</h1>
+          <h1>Title & Compensation Change Alerts</h1>
           <span class="badge badge-nova">Template</span>
         </div>
 
         <p class="page-subtitle">
-          Automatically surface aging pipeline deals that haven’t been touched, updated, or progressed.
-          Send weekly digests to reps and managers — with Nova highlighting risk, next steps, and ICP fit.
+          Automatically detect job title changes, compensation adjustments, and role updates in the HRIS — then notify
+          Payroll, Finance, IT, and Managers. Nova highlights potential errors, inconsistencies, or missing approvals.
         </p>
 
         <div class="page-meta-row">
-          <span class="pill pill-soft">Category: CRM & RevOps</span>
-          <span class="pill pill-soft">Difficulty: Beginner</span>
-          <span class="pill pill-soft">Trigger: Scheduled (Weekly)</span>
-          <span class="pill pill-soft">Systems: CRM · Slack · Email · Nova</span>
+          <span class="pill pill-soft">Category: People Ops & Compliance</span>
+          <span class="pill pill-soft">Difficulty: Intermediate</span>
+          <span class="pill pill-soft">Trigger: HRIS employee.updated</span>
+          <span class="pill pill-soft">Systems: HRIS · Slack · Email · Payroll · Identity Access</span>
         </div>
       </header>
 
@@ -74,31 +74,31 @@
           <section id="overview" class="doc-section">
             <h2>Overview</h2>
             <p>
-              The <strong>Stale Opportunities Digest</strong> template automatically compiles a weekly summary of
-              pipeline opportunities that haven’t moved, haven’t been contacted recently, or show signs of going cold.
-              Nova reviews each deal for risk, identifies possible next steps, and surfaces which reps or segments
-              need the most attention.
+              The <strong>Title & Compensation Change Alerts</strong> template automatically identifies changes
+              to job titles, compensation bands, pay rates, job levels, FLSA status, and promotions. It alerts the
+              relevant teams while Nova analyzes potential issues, such as unapproved changes, compensation outliers,
+              or mismatched job levels.
             </p>
 
             <div class="info-grid">
               <div class="info-card">
                 <h3>When to use this template</h3>
                 <ul>
-                  <li>Your pipeline reviews rely on manual spreadsheets or ad-hoc digging.</li>
-                  <li>Reps forget to update opportunities regularly.</li>
-                  <li>Sales managers want proactive visibility into aging deals.</li>
-                  <li>You want Nova to help prioritize follow-up actions.</li>
+                  <li>Payroll or Finance often receives late notification of comp changes.</li>
+                  <li>Managers forget to follow approval workflows.</li>
+                  <li>You want automated validation for compliance-sensitive fields.</li>
+                  <li>You need a consistent record of employee changes across teams.</li>
                 </ul>
               </div>
 
               <div class="info-card">
                 <h3>What this template automates</h3>
                 <ul>
-                  <li>Weekly scan for stale, inactive, or aging opportunities.</li>
-                  <li>Summaries delivered to AEs, SDRs, and managers.</li>
-                  <li>Nova commentary on risk, recommended actions, and likelihood of revival.</li>
-                  <li>Pipeline hygiene insights for RevOps.</li>
-                  <li>Optional auto-reminders for reps with lots of stale pipeline.</li>
+                  <li>Detects HRIS updates that modify key fields (title, salary, FLSA, level).</li>
+                  <li>Sends Slack or email alerts to Payroll, Finance, and IT.</li>
+                  <li>Surfaces Nova insights about inconsistencies or missing approvals.</li>
+                  <li>Logs changes for audits & comp cycle reporting.</li>
+                  <li>Optionally triggers IT access review or updated provisioning.</li>
                 </ul>
               </div>
             </div>
@@ -108,12 +108,11 @@
           <section id="how-it-works" class="doc-section">
             <h2>How it works</h2>
             <ol class="step-list">
-              <li>A weekly scheduled job queries CRM for all open opportunities.</li>
-              <li>SyncToScale filters deals meeting “stale” criteria.</li>
-              <li>Nova analyzes risk indicators and suggests next actions.</li>
-              <li>A digest is generated, grouped by rep or segment.</li>
-              <li>Slack/Email sends the digest automatically.</li>
-              <li>RevOps receives a macro-level summary of pipeline hygiene.</li>
+              <li>An employee's record is updated in the HRIS.</li>
+              <li>SyncToScale compares new vs. previous values.</li>
+              <li>Nova evaluates whether the change appears valid or risky.</li>
+              <li>Alerts are sent to the correct teams with a detailed summary.</li>
+              <li>Optional downstream updates (payroll system, access changes) run automatically.</li>
             </ol>
           </section>
 
@@ -124,60 +123,62 @@
             <ol class="step-list step-list-detailed">
 
               <li>
-                <h3>Step 1 — Scheduled weekly trigger</h3>
+                <h3>Step 1 — Trigger: HRIS employee.updated</h3>
                 <p>
-                  Workflow runs weekly (default: Mondays 8 AM). Adjustable to any cadence.
+                  Runs when fields such as <code>jobTitle</code>, <code>compensationRate</code>,
+                  <code>jobLevel</code>, or <code>flsaStatus</code> are modified.
                 </p>
               </li>
 
               <li>
-                <h3>Step 2 — Query opportunities</h3>
-                <p>
-                  Filters include:
-                </p>
+                <h3>Step 2 — Detect field changes</h3>
+                <p>SyncToScale automatically compares:</p>
                 <ul>
-                  <li>No activity in X days (default: 14)</li>
-                  <li>No stage movement in X days (default: 21)</li>
-                  <li>Past close date</li>
-                  <li>Low engagement score (optional)</li>
+                  <li>Old vs. new title</li>
+                  <li>Old vs. new salary/hourly rate</li>
+                  <li>Old vs. new job level</li>
+                  <li>Old vs. new department</li>
+                  <li>Old vs. new FLSA/exempt status</li>
                 </ul>
               </li>
 
               <li>
-                <h3>Step 3 — Nova stale-deal evaluation</h3>
+                <h3>Step 3 — Nova compensation & title validation</h3>
                 <p>
-                  Nova scores each deal on:
+                  Nova analyzes:
                 </p>
                 <div class="nova-callout">
                   <ul>
-                    <li>Risk of loss</li>
-                    <li>ICP fit</li>
-                    <li>Engagement trends</li>
-                    <li>Recommmended next steps</li>
-                    <li>Opportunity age vs. typical win cycle</li>
+                    <li>Whether the change fits standard compensation bands</li>
+                    <li>Whether approval workflow is missing</li>
+                    <li>Whether job level changes align with role expectations</li>
+                    <li>Is comp adjustment unusually high/low for the tier?</li>
                   </ul>
                 </div>
               </li>
 
               <li>
-                <h3>Step 4 — Build digest</h3>
+                <h3>Step 4 — Send alerts</h3>
                 <p>
-                  Deals are grouped by owner, segment, or region and assembled into Slack/email digest format.
+                  Slack/Email alerts are sent to:
                 </p>
+                <ul>
+                  <li>Payroll</li>
+                  <li>Finance</li>
+                  <li>IT (for access review)</li>
+                  <li>Manager</li>
+                  <li>People Ops</li>
+                </ul>
               </li>
 
               <li>
-                <h3>Step 5 — Send notifications</h3>
-                <p>
-                  AEs and SDRs receive personalized lists; managers receive rollups.
-                </p>
-              </li>
-
-              <li>
-                <h3>Step 6 — Log insights</h3>
-                <p>
-                  Summary metrics are written to CRM or an analytics warehouse for pipeline health reporting.
-                </p>
+                <h3>Step 5 — Optional downstream updates</h3>
+                <p>Automated adjustments may include:</p>
+                <ul>
+                  <li>Updating payroll or compensation systems</li>
+                  <li>Triggering an IT access review ticket</li>
+                  <li>Updating managerial permissions or system roles</li>
+                </ul>
               </li>
 
             </ol>
@@ -187,132 +188,123 @@
           <section id="data-mapping" class="doc-section">
             <h2>Field mappings</h2>
 
-            <h3>Opportunity → Digest</h3>
+            <h3>HRIS → Alert summary</h3>
             <div class="table-wrapper">
               <table class="mapping-table">
                 <thead>
                   <tr>
-                    <th>CRM Field</th>
+                    <th>HRIS Field</th>
                     <th>Transform</th>
-                    <th>Digest Field</th>
+                    <th>Alert Field</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td><code>Name</code></td>
-                    <td>None</td>
-                    <td>Opportunity Name</td>
+                    <td><code>jobTitle</code></td>
+                    <td>Compare old vs. new</td>
+                    <td>Updated Title</td>
                   </tr>
                   <tr>
-                    <td><code>Amount</code></td>
-                    <td>Currency formatting</td>
-                    <td>Deal Value</td>
+                    <td><code>compensationRate</code></td>
+                    <td>Normalize currency</td>
+                    <td>New Compensation</td>
                   </tr>
                   <tr>
-                    <td><code>Owner.Name</code></td>
-                    <td>None</td>
-                    <td>Assigned Rep</td>
+                    <td><code>jobLevel</code></td>
+                    <td>Convert numeric/string discrepancies</td>
+                    <td>New Level</td>
                   </tr>
                   <tr>
-                    <td><code>LastActivityDate</code></td>
-                    <td>Days since last activity</td>
-                    <td>Staleness Score</td>
+                    <td><code>department</code></td>
+                    <td>Normalize labeling</td>
+                    <td>Department</td>
                   </tr>
                   <tr>
-                    <td><code>StageName</code></td>
-                    <td>Normalize stage</td>
-                    <td>Pipeline Stage</td>
+                    <td><code>flsaStatus</code></td>
+                    <td>Standardize values (“Exempt”, “Non-Exempt”)</td>
+                    <td>FLSA Status</td>
                   </tr>
                 </tbody>
               </table>
             </div>
 
-            <h3>Nova risk evaluation</h3>
+            <h3>Nova validation results</h3>
             <div class="table-wrapper">
               <table class="mapping-table">
                 <thead>
                   <tr>
-                    <th>Metric</th>
-                    <th>Transform</th>
-                    <th>Insight</th>
+                    <th>Nova Signal</th>
+                    <th>Description</th>
+                    <th>Impact</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Stage age</td>
-                    <td>Compare to win-cycle baseline</td>
-                    <td>Risk of stall</td>
+                    <td>Band alignment</td>
+                    <td>Checks if new comp fits role range</td>
+                    <td>Compliance + Payroll</td>
                   </tr>
                   <tr>
-                    <td>Engagement signals</td>
-                    <td>Summarize activity logs</td>
-                    <td>Suggested next touch</td>
+                    <td>Approval missing</td>
+                    <td>No workflow detected</td>
+                    <td>Manager + HR review</td>
                   </tr>
                   <tr>
-                    <td>ICP score</td>
-                    <td>Analyze firmographics</td>
-                    <td>Likelihood of revival</td>
+                    <td>Level mismatch</td>
+                    <td>Title doesn’t match level</td>
+                    <td>HR validation needed</td>
                   </tr>
                   <tr>
-                    <td>Close-date drift</td>
-                    <td>Calculate delta</td>
-                    <td>Forecast at-risk</td>
+                    <td>Large delta</td>
+                    <td>Unusually large comp jump</td>
+                    <td>Finance review</td>
                   </tr>
                 </tbody>
               </table>
             </div>
-
           </section>
 
           <!-- SAMPLE JSON -->
           <section id="sample-payloads" class="doc-section">
             <h2>Sample JSON payloads</h2>
 
-            <h3>Sample stale opportunity record</h3>
+            <h3>Trigger event — HRIS employee.updated</h3>
             <pre class="code-block"><code>{
-  "opportunityId": "0065g00000WIN999",
-  "name": "Acme – Enterprise Expansion",
-  "amount": 85000,
-  "stage": "Proposal",
-  "owner": "alex.rivera@demo-company.com",
-  "daysSinceLastActivity": 23,
-  "daysInStage": 31,
-  "closeDate": "2025-03-15",
-  "novaInsights": {
-    "riskScore": 0.78,
-    "icpFit": "Medium",
-    "recommendedActions": [
-      "Send recap email with next steps.",
-      "Reconfirm timeline with champion.",
-      "Share ROI calculator to re-engage."
-    ]
+  "eventType": "employee.updated",
+  "employeeId": "EMP-4411",
+  "changes": {
+    "old": {
+      "jobTitle": "Support Specialist",
+      "compensationRate": 64000,
+      "jobLevel": 2,
+      "flsaStatus": "Non-Exempt"
+    },
+    "new": {
+      "jobTitle": "Support Team Lead",
+      "compensationRate": 78000,
+      "jobLevel": 3,
+      "flsaStatus": "Exempt"
+    }
   }
 }</code></pre>
 
-            <h3>Digest example</h3>
+            <h3>Nova validation output</h3>
             <pre class="code-block"><code>{
-  "digestDate": "2025-04-08",
-  "owner": "Alex Rivera",
-  "opportunities": [
+  "signals": [
     {
-      "name": "Acme – Enterprise Expansion",
-      "value": "$85,000",
-      "lastActivity": "23 days ago",
-      "stage": "Proposal",
-      "nova": {
-        "risk": "High",
-        "nextSteps": "Reconnect with champion; proposal stagnant."
-      }
+      "type": "approval_missing",
+      "message": "No promotion approval found in workflow history."
+    },
+    {
+      "type": "level_alignment",
+      "message": "Title 'Support Team Lead' aligns with Level 3."
+    },
+    {
+      "type": "comp_band_check",
+      "message": "New salary is within the standard range for Level 3."
     }
   ],
-  "summary": {
-    "totalStaleDeals": 4,
-    "totalValue": "$210,000",
-    "novaHighlights": [
-      "2 opportunities likely need requalification.",
-      "1 opportunity has mismatched close date expectations."
-    ]
-  }
+  "risk": "medium"
 }</code></pre>
           </section>
 
@@ -320,17 +312,17 @@
           <section id="error-handling" class="doc-section">
             <h2>Error handling</h2>
             <ul>
-              <li>If CRM API fails, run resumes automatically in next scheduled window.</li>
-              <li>Missing rep assignments → notify Sales Ops.</li>
-              <li>Opportunities with invalid dates are excluded and logged.</li>
-              <li>Nova risk scores fallback to “Unknown” if analytics unavailable.</li>
+              <li>If required fields are missing, Nova flags the change and halts notifications.</li>
+              <li>If payroll sync fails, retry + notify Payroll channel.</li>
+              <li>If IT access review cannot be created, send fallback alert.</li>
+              <li>All changes are logged for audit readiness.</li>
             </ul>
 
-            <h3>Example error</h3>
+            <h3>Sample error</h3>
             <pre class="code-block"><code>{
-  "runId": "run_01J2STALEGST",
+  "runId": "run_01J2TITLECOMP",
   "status": "warning",
-  "message": "5 opportunities missing LastActivityDate. Logged for cleanup."
+  "message": "FLSA status update missing required new job level. Pausing workflow."
 }</code></pre>
           </section>
 
@@ -338,10 +330,10 @@
           <section id="nova-insights" class="doc-section">
             <h2>Nova insights for this template</h2>
             <ul>
-              <li>Identifies reps with the most aging pipeline.</li>
-              <li>Predicts opportunity revival likelihood.</li>
-              <li>Shows patterns in stuck pipeline stages.</li>
-              <li>Improves forecast accuracy by addressing stale deals early.</li>
+              <li>Detects unapproved compensation or title changes.</li>
+              <li>Evaluates pay rate alignment with standardized bands.</li>
+              <li>Flags suspicious or risky changes for HR review.</li>
+              <li>Ensures consistent downstream updates across systems.</li>
             </ul>
           </section>
 
@@ -349,12 +341,11 @@
           <section id="setup" class="doc-section">
             <h2>Set up this template</h2>
             <ol class="step-list">
-              <li>Select <strong>Stale Opportunities Digest</strong> in your Templates Library.</li>
-              <li>Connect your CRM + Slack/Email tools.</li>
-              <li>Define stale criteria (no activity in X days, etc.).</li>
-              <li>Configure digest grouping (by rep, region, segment).</li>
-              <li>Enable Nova risk evaluation and suggestions.</li>
-              <li>Turn on weekly schedule.</li>
+              <li>Select <strong>Title & Compensation Change Alerts</strong> in your Templates Library.</li>
+              <li>Connect HRIS, Slack/Email, Payroll, and IT systems.</li>
+              <li>Configure which fields should trigger alerts.</li>
+              <li>Enable Nova’s compensation band and approval validation.</li>
+              <li>Turn on the workflow.</li>
             </ol>
           </section>
 
@@ -366,28 +357,28 @@
           <div class="card">
             <h3>Template summary</h3>
             <ul class="key-facts-list">
-              <li><strong>Trigger:</strong> Weekly scheduled run</li>
-              <li><strong>Runtime:</strong> Batch + Nova analysis</li>
-              <li><strong>Owner:</strong> RevOps · Sales Management</li>
-              <li><strong>Systems:</strong> CRM · Slack/Email · Nova</li>
+              <li><strong>Trigger:</strong> HRIS employee.updated</li>
+              <li><strong>Runtime:</strong> Real-time</li>
+              <li><strong>Owner:</strong> People Ops · Payroll · Finance</li>
+              <li><strong>Systems:</strong> HRIS · Payroll · Slack/Email</li>
             </ul>
           </div>
 
           <div class="card">
             <h3>Best practice defaults</h3>
             <ul>
-              <li>Consider 14 days of inactivity as “stale.”</li>
-              <li>Group digest by rep for clarity.</li>
-              <li>Only send manager digests for deals above a value threshold.</li>
+              <li>Always require manager + HR approval for job level changes.</li>
+              <li>Enable Nova band alignment checks.</li>
+              <li>Send alerts to HR + Payroll as a combined message.</li>
             </ul>
           </div>
 
           <div class="card nova-callout">
             <h3>Nova will help you…</h3>
             <ul>
-              <li>Spot stuck deals before forecast reviews.</li>
-              <li>Identify forgotten pipeline at risk of slipping.</li>
-              <li>Recommend personalized next steps per opportunity.</li>
+              <li>Prevent compliance issues caused by unexpected changes.</li>
+              <li>Ensure new compensation aligns with documented ranges.</li>
+              <li>Identify unusual or risky compensation updates early.</li>
             </ul>
           </div>
 
