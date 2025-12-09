@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Features | SyncToScale</title>
 
-  <!-- Botpress Webchat -->
+  <!-- Botpress -->
   <script src="https://cdn.botpress.cloud/webchat/v3.4/inject.js"></script>
   <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
 
@@ -18,7 +18,7 @@
       color: #1e293b;
     }
 
-    /* NAVBAR (same as index) */
+    /* NAVBAR */
     header {
       position: sticky;
       top: 0;
@@ -51,7 +51,7 @@
       font-size: 1rem;
       font-weight: 500;
       padding-bottom: 4px;
-      transition: color .2s ease, border-bottom .2s ease;
+      transition: 0.2s;
       border-bottom: 2px solid transparent;
     }
 
@@ -60,7 +60,27 @@
       border-bottom: 2px solid #14b8a6;
     }
 
-    /* LAYOUT */
+    /* HERO */
+    .features-hero {
+      text-align: center;
+      padding: 60px 20px 50px;
+      background: linear-gradient(135deg, #41d1ff, #21e19f);
+      color: white;
+    }
+
+    .features-hero h1 {
+      margin-bottom: 10px;
+      font-size: 2.2rem;
+    }
+
+    .features-hero p {
+      max-width: 620px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+      opacity: 0.95;
+    }
+
+    /* SECTION */
     .section {
       padding: 60px 20px;
     }
@@ -75,191 +95,129 @@
       margin-bottom: 40px;
     }
 
-    .section-heading h1,
     .section-heading h2 {
-      margin-bottom: 10px;
+      font-size: 1.9rem;
+      margin-bottom: 8px;
+      color: #0b3d3d;
     }
 
-    .section-heading p {
+    /* FEATURE GRID */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 28px;
+    }
+
+    .feature-card {
+      background: white;
+      padding: 26px 24px;
+      border-radius: 16px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+      transition: 0.25s;
+      border: 1px solid #e2e8f0;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      border-color: #14b8a6;
+    }
+
+    /* CATEGORY CHIP */
+    .chip {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #e0fdf4;
+      border: 1px solid #14b8a6;
+      font-size: 0.72rem;
+      margin-bottom: 12px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: #0f766e;
+    }
+
+    /* ICONS: unified Nova teal brand */
+    .feature-icon {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 12px;
+      opacity: 0.95;
+    }
+
+    .feature-card h3 {
+      margin-bottom: 8px;
+      font-size: 1.15rem;
+      color: #0b3d3d;
+    }
+
+    .feature-card p {
       margin: 0;
-      color: #64748b;
+      font-size: 0.95rem;
+      color: #475569;
     }
 
+    /* VALUE SECTION */
     .alt-bg {
       background: #eefdfb;
     }
 
-    /* SUB HERO */
-    .sub-hero {
-      padding: 60px 20px 40px;
-      background: radial-gradient(circle at 20% 20%, #41d1ff, #21e19f);
-      color: white;
-    }
-
-    .sub-hero .container {
+    .value-flex {
       display: flex;
       flex-wrap: wrap;
+      gap: 40px;
       align-items: center;
-      gap: 32px;
     }
 
-    .sub-hero-text {
-      flex: 1.2;
-      min-width: 260px;
+    .value-text {
+      flex: 1;
+      min-width: 300px;
     }
 
-    .sub-hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-size: 12px;
-      background: rgba(15, 23, 42, 0.25);
-      margin-bottom: 10px;
-    }
-
-    .sub-hero-text h1 {
-      font-size: 2.1rem;
-      margin: 0 0 10px;
-    }
-
-    .sub-hero-text p {
-      margin: 0 0 16px;
-      max-width: 480px;
-    }
-
-    .sub-hero-meta {
-      font-size: 0.9rem;
-      opacity: 0.95;
-    }
-
-    .sub-hero-pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
+    .value-text ul {
       margin-top: 16px;
+      padding-left: 18px;
     }
 
-    .pill {
-      font-size: 0.8rem;
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(226, 232, 240, 0.6);
-      background: rgba(15, 23, 42, 0.1);
+    .value-img img {
+      max-width: 420px;
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.09);
     }
 
-    /* FEATURE GRID */
-    .feature-grid {
+    /* MIGRATION / WHY SWITCH SECTION */
+    .switch-section {
+      background: #ffffff;
+      padding: 70px 20px;
+      border-top: 1px solid #e2e8f0;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .comparison-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-      margin-top: 20px;
+      gap: 26px;
+      margin-top: 30px;
     }
 
-    .feature-card {
-      background: #ffffff;
+    .comparison-card {
+      background: #f8fafc;
+      padding: 22px;
       border-radius: 14px;
-      padding: 22px 22px 20px;
-      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
       border: 1px solid #e2e8f0;
     }
 
-    .feature-tag {
-      display: inline-flex;
-      font-size: 0.75rem;
-      padding: 3px 8px;
-      border-radius: 999px;
-      background: #ecfeff;
-      color: #0f766e;
-      margin-bottom: 8px;
-      font-weight: 500;
-    }
-
-    .feature-card h3 {
-      margin: 0 0 8px;
-      font-size: 1.1rem;
-    }
-
-    .feature-card p {
-      margin: 0 0 10px;
-      font-size: 0.95rem;
-      color: #4b5563;
-    }
-
-    .feature-meta {
-      font-size: 0.85rem;
-      color: #64748b;
-    }
-
-    /* USE-CASE STRIPES */
-    .usecase-row {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
-      margin-top: 24px;
-    }
-
-    .usecase-card {
-      background: #ffffff;
-      border-radius: 14px;
-      padding: 20px 20px 18px;
-      border: 1px solid #e2e8f0;
-    }
-
-    .usecase-chip {
-      display: inline-flex;
-      align-items: center;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: #ecfeff;
-      color: #0f766e;
-      font-size: 0.75rem;
-      margin-bottom: 8px;
-      font-weight: 500;
-    }
-
-    .usecase-card h3 {
-      margin: 0 0 8px;
+    .comparison-card h3 {
       font-size: 1.05rem;
+      margin-bottom: 10px;
+      color: #0b3d3d;
     }
 
-    .usecase-card ul {
-      margin: 0;
+    .comparison-card ul {
       padding-left: 18px;
-      font-size: 0.95rem;
-      color: #4b5563;
-    }
-
-    .usecase-card li {
-      margin-bottom: 6px;
-    }
-
-    /* CTA STRIP */
-    .cta-strip {
-      border-radius: 16px;
-      padding: 20px 22px;
-      background: linear-gradient(135deg, #0f766e, #14b8a6);
-      color: #ecfeff;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      margin-top: 10px;
-    }
-
-    .cta-strip p {
       margin: 0;
-      font-size: 0.95rem;
-    }
-
-    .cta-chip {
-      display: inline-flex;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.15);
-      font-size: 0.85rem;
-      white-space: nowrap;
+      color: #475569;
     }
 
     /* FOOTER */
@@ -271,7 +229,6 @@
       margin-top: 60px;
     }
 
-    /* NOVA LABEL */
     .nova-label {
       position: fixed;
       bottom: 38px;
@@ -284,35 +241,18 @@
       font-weight: 500;
       opacity: 0;
       transform: translateY(6px);
-      transition: opacity .25s ease, transform .25s ease;
       pointer-events: none;
       z-index: 999999;
-    }
-
-    @media (max-width: 640px) {
-      .sub-hero {
-        padding-top: 40px;
-        padding-bottom: 32px;
-      }
-
-      .sub-hero-text h1 {
-        font-size: 1.7rem;
-      }
-
-      .section {
-        padding: 48px 16px;
-      }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
+  <!-- NAV -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="logo">SyncToScale</a>
-
       <nav class="nav">
         <a href="index.html">Home</a>
         <a href="features.html">Features</a>
@@ -324,116 +264,149 @@
     </div>
   </header>
 
-  <!-- SUB HERO -->
-  <section class="sub-hero">
-    <div class="container">
-      <div class="sub-hero-text">
-        <div class="sub-hero-eyebrow">AI orchestration, minus the chaos</div>
-        <h1>Features built for real-world workflows — not toy demos.</h1>
-        <p>SyncToScale connects your SaaS stack, routes work intelligently, and keeps humans in the loop where it matters most.</p>
-        <div class="sub-hero-meta">Designed with TAMs, implementation managers, and support leaders in mind.</div>
-        <div class="sub-hero-pill-row">
-          <span class="pill">AI-assisted routing</span>
-          <span class="pill">Human-in-the-loop approvals</span>
-          <span class="pill">No-code automations</span>
-        </div>
-      </div>
-    </div>
+  <!-- HERO -->
+  <section class="features-hero">
+    <h1>Powerful Automation Built for Modern Teams</h1>
+    <p>SyncToScale connects your systems, orchestrates cross-team workflows, and delivers AI-driven insights with dependable accuracy.</p>
   </section>
 
-  <!-- CORE AUTOMATION FEATURES -->
+  <!-- CORE FEATURES -->
   <section class="section">
     <div class="container">
+
       <div class="section-heading">
-        <h2>Automation that understands your team</h2>
-        <p>Less “if-this-then-that spaghetti,” more structured workflows your ops team can actually maintain.</p>
+        <h2>Core Platform Features</h2>
+        <p>The essential capabilities that power automation across Customer Success, Support, Operations, and Revenue teams.</p>
       </div>
 
-      <div class="feature-grid">
+      <div class="features-grid">
+
+        <!-- 1 -->
         <div class="feature-card">
-          <span class="feature-tag">Routing & Triage</span>
-          <h3>AI-powered intake & smart assignment</h3>
-          <p>Score and route tickets, tasks, and requests based on customer segment, urgency, product area, and SLAs.</p>
-          <div class="feature-meta">Use Nova to suggest owners, tags, and next best actions – your team still has final say.</div>
+          <div class="chip">Automation</div>
+          <img class="feature-icon" src="https://cdn.jsdelivr.net/gh/tabler/tabler-icons/icons/adjustments-alt.svg">
+          <h3>Multi-System Workflow Automation</h3>
+          <p>Automate complex, multi-step processes across CRM, ticketing, project tools, and communication platforms — all without engineering.</p>
         </div>
 
+        <!-- 2 -->
         <div class="feature-card">
-          <span class="feature-tag">Workflow Engine</span>
-          <h3>No-code flows your ops team controls</h3>
-          <p>Drag-and-drop steps like “update CRM,” “notify Slack,” “create Jira issue,” and “wait for human approval.”</p>
-          <div class="feature-meta">Templates for onboarding, renewals, escalations, and launch playbooks.</div>
+          <div class="chip">Automation</div>
+          <img class="feature-icon" src="https://cdn.jsdelivr.net/gh/tabler/tabler-icons/icons/bolt.svg">
+          <h3>Event-Based Triggers</h3>
+          <p>Start workflows instantly based on CRM updates, customer behavior, ticket creation, form submissions, or internal requests.</p>
         </div>
 
+        <!-- 3 -->
         <div class="feature-card">
-          <span class="feature-tag">AI Assist</span>
-          <h3>Nova as your sidekick, not your boss</h3>
-          <p>Drafts updates, summarizes context, and surfaces key risks — but never auto-sends without your review.</p>
-          <div class="feature-meta">Explainable suggestions: see exactly which data points Nova used.</div>
+          <div class="chip">AI</div>
+          <img class="feature-icon" src="https://cdn.jsdelivr.net/gh/tabler/tabler-icons/icons/brain.svg">
+          <h3>AI-Assisted Routing</h3>
+          <p>Nova analyzes sentiment, urgency, and context to classify inbound requests and suggest the optimal routing path.</p>
         </div>
 
+        <!-- 4 -->
         <div class="feature-card">
-          <span class="feature-tag">Data Integrity</span>
-          <h3>Guardrails to prevent CRM chaos</h3>
-          <p>De-duplicate records, enforce naming conventions, and sync only trusted fields across systems.</p>
-          <div class="feature-meta">Perfect for TAMs who are tired of “ghost values” and conflicting truth sources.</div>
+          <div class="chip">Governance</div>
+          <img class="feature-icon" src="https://cdn.jsdelivr.net/gh/tabler/tabler-icons/icons/shield-check.svg">
+          <h3>Human-in-the-Loop Approvals</h3>
+          <p>Add review steps to ensure accuracy for escalations, lifecycle changes, or communications before they go out.</p>
         </div>
+
+        <!-- 5 -->
+        <div class="feature-card">
+          <div class="chip">Integrations</div>
+          <img class="feature-icon" src="https://cdn.jsdelivr.net/gh/tabler/tabler-icons/icons/git-merge.svg">
+          <h3>Data Mapping & Sync Rules</h3>
+          <p>Normalize fields, prevent duplicates, and synchronize object changes across your systems with flexible mapping controls.</p>
+        </div>
+
+        <!-- 6 -->
+        <div class="feature-card">
+          <div class="chip">Visibility</div>
+          <img class="feature-icon" src="https://cdn.jsdelivr.net/gh/tabler/tabler-icons/icons/chart-bar.svg">
+          <h3>Cross-Tool Visibility</h3>
+          <p>Monitor workflow runs, sync logs, automations, and data pipelines in one centralized, observability-friendly dashboard.</p>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- USE CASES -->
+  <!-- NOVA AI SECTION -->
   <section class="section alt-bg">
+    <div class="container value-flex">
+
+      <div class="value-text">
+        <h2>Meet Nova — Your AI Workflow Companion</h2>
+        <p>Designed for real operational work, Nova transforms unstructured information into actionable steps that lighten cognitive load across teams.</p>
+
+        <ul>
+          <li>Summarizes customer history and multi-threaded tickets</li>
+          <li>Detects sentiment, urgency, and risk in conversations</li>
+          <li>Auto-classifies inbound requests with high accuracy</li>
+          <li>Drafts customer-ready communication or lifecycle steps</li>
+          <li>Builds workflow templates from plain-language prompts</li>
+        </ul>
+      </div>
+
+      <div class="value-img">
+        <img src="https://images.unsplash.com/photo-1593378026486-6c8cfa1b4f52?auto=format&fit=crop&w=900&q=60" alt="AI Dashboard">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MIGRATION SECTION -->
+  <section class="switch-section">
     <div class="container">
       <div class="section-heading">
-        <h2>Built for cross-functional teams</h2>
-        <p>SyncToScale gives each function what they need — without five different automation tools to maintain.</p>
+        <h2>Why Teams Switch to SyncToScale</h2>
+        <p>Purpose-built automation for SaaS operations — without the limitations of traditional workflow tools.</p>
       </div>
 
-      <div class="usecase-row">
-        <div class="usecase-card">
-          <div class="usecase-chip">Customer Success & TAM</div>
-          <h3>Stay ahead of renewals and risk</h3>
+      <div class="comparison-grid">
+
+        <div class="comparison-card">
+          <h3>From Zapier</h3>
           <ul>
-            <li>Auto-flag high-risk accounts when signals stack up.</li>
-            <li>Trigger success plans in your CS platform of choice.</li>
-            <li>Summarize key context before every EBR.</li>
+            <li>Handles deeper, multi-step business workflows</li>
+            <li>Supports multi-object CRM logic and sync rules</li>
+            <li>Includes human approvals and conditional forks</li>
+            <li>Built for teams, not hobby automations</li>
           </ul>
         </div>
 
-        <div class="usecase-card">
-          <div class="usecase-chip">Implementation & Projects</div>
-          <h3>Standardize onboarding without losing nuance</h3>
+        <div class="comparison-card">
+          <h3>From Make.com</h3>
           <ul>
-            <li>Template project plans for each segment or product.</li>
-            <li>Auto-create tasks in Asana/Jira as milestones unlock.</li>
-            <li>Keep stakeholders synced in Slack and email.</li>
+            <li>Cleaner UI designed for CS, TAM, & Support workflows</li>
+            <li>Real-time sync visibility and error handling</li>
+            <li>AI-native routing and workflow creation</li>
+            <li>Stronger governance and audit trails</li>
           </ul>
         </div>
 
-        <div class="usecase-card">
-          <div class="usecase-chip">Support & Operations</div>
-          <h3>Shorter queues, clearer ownership</h3>
+        <div class="comparison-card">
+          <h3>From Workato</h3>
           <ul>
-            <li>AI-assisted categorization and escalation paths.</li>
-            <li>Playbooks for “hand-off to Engineering” or “loop in CS.”</li>
-            <li>Reporting to see where work actually gets stuck.</li>
+            <li>No enterprise-minimum barrier</li>
+            <li>Easier onboarding for non-technical teams</li>
+            <li>Lower workflow complexity for similar outcomes</li>
+            <li>Faster iteration for customer-facing teams</li>
           </ul>
         </div>
-      </div>
 
-      <div class="cta-strip">
-        <p>This is a portfolio project — but the workflows are modeled on real SaaS teams.</p>
-        <span class="cta-chip">Recruiter? Head to the About page for context →</span>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <p>SyncToScale — Portfolio Project by Christy</p>
+    <p>SyncToScale — Automation & Integration Platform</p>
   </footer>
 
-  <!-- NOVA CHAT BUTTON -->
+  <!-- CHAT BUTTON -->
   <script>
     window.botpressWebChat.init({
       botId: "nova",
@@ -467,11 +440,6 @@
           background-size: contain;
           background-repeat: no-repeat;
           display: block;
-        }
-
-        .bpw-floating-button:hover + .nova-label {
-          opacity: 1;
-          transform: translateY(0);
         }
       `
     });
