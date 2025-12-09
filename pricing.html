@@ -18,6 +18,7 @@
       color: #1e293b;
     }
 
+    /* NAVBAR */
     header {
       position: sticky;
       top: 0;
@@ -50,7 +51,7 @@
       font-size: 1rem;
       font-weight: 500;
       padding-bottom: 4px;
-      transition: color .2s ease, border-bottom .2s ease;
+      transition: 0.2s;
       border-bottom: 2px solid transparent;
     }
 
@@ -59,154 +60,153 @@
       border-bottom: 2px solid #14b8a6;
     }
 
-    .section {
-      padding: 60px 20px;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    .section-heading {
+    /* HERO */
+    .pricing-hero {
       text-align: center;
-      margin-bottom: 40px;
+      padding: 60px 20px 40px;
     }
 
-    .section-heading p {
-      margin: 0;
-      color: #64748b;
-    }
-
-    .sub-hero {
-      padding: 50px 20px 40px;
-      background: linear-gradient(135deg, #41d1ff, #21e19f);
-      color: white;
-      text-align: center;
-    }
-
-    .sub-hero h1 {
-      margin-bottom: 8px;
-      font-size: 2.1rem;
-    }
-
-    .sub-hero p {
-      margin: 0;
-      max-width: 540px;
-      margin-inline: auto;
-      opacity: 0.95;
-    }
-
-    .sub-hero-note {
-      font-size: 0.88rem;
-      opacity: 0.9;
-      margin-top: 10px;
-    }
-
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-      margin-top: 20px;
-    }
-
-    .pricing-card {
-      background: #ffffff;
-      border-radius: 16px;
-      padding: 24px 22px 22px;
-      border: 1px solid #e2e8f0;
-      box-shadow: 0 4px 18px rgba(15, 23, 42, 0.05);
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .pricing-pill {
-      display: inline-flex;
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      background: #ecfeff;
-      color: #0f766e;
-      font-weight: 500;
-      margin-bottom: 4px;
-    }
-
-    .pricing-card h3 {
-      margin: 0;
-      font-size: 1.25rem;
-    }
-
-    .pricing-price {
-      font-size: 1.4rem;
-      font-weight: 700;
+    .pricing-hero h1 {
+      margin-bottom: 10px;
+      font-size: 2.3rem;
       color: #0b3d3d;
     }
 
-    .pricing-price span {
-      font-size: 0.85rem;
-      color: #64748b;
-      font-weight: 400;
+    .pricing-hero p {
+      max-width: 620px;
+      margin: 0 auto;
+      opacity: 0.9;
+      font-size: 1.05rem;
+      color: #475569;
     }
 
-    .pricing-desc {
+    /* BILLING TOGGLE (STATIC DISPLAY ONLY) */
+    .toggle-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-top: 18px;
+      margin-bottom: 42px;
+      gap: 18px;
       font-size: 0.95rem;
-      color: #4b5563;
+      color: #475569;
     }
 
-    .pricing-card ul {
-      margin: 6px 0 0;
-      padding-left: 18px;
-      font-size: 0.92rem;
-      color: #4b5563;
+    .toggle-pill {
+      width: 52px;
+      height: 26px;
+      border-radius: 999px;
+      background: #d1f4ed;
+      position: relative;
     }
 
-    .pricing-card li {
+    .toggle-pill::before {
+      content: "";
+      width: 22px;
+      height: 22px;
+      background: #0f766e;
+      border-radius: 50%;
+      position: absolute;
+      top: 2px;
+      left: 2px; /* static position for "Monthly" */
+    }
+
+    /* PRICING GRID */
+    .pricing-grid {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 26px;
+      padding: 0 20px 60px;
+    }
+
+    .price-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e2e8f0;
+      transition: 0.25s;
+    }
+
+    .price-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.07);
+      border-color: #14b8a6;
+    }
+
+    .price-tier {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #0b3d3d;
       margin-bottom: 6px;
     }
 
-    .pricing-badge {
-      font-size: 0.75rem;
-      padding: 3px 8px;
-      border-radius: 999px;
-      background: #0f766e;
-      color: #ecfeff;
-      align-self: flex-start;
+    .price-amount {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #0b3d3d;
     }
 
-    .footnote {
-      margin-top: 24px;
-      font-size: 0.85rem;
-      color: #64748b;
-      text-align: center;
+    .price-sub {
+      font-size: 0.9rem;
+      color: #475569;
+      margin-bottom: 16px;
     }
 
-    .cta-banner {
-      margin-top: 32px;
-      border-radius: 16px;
-      padding: 20px 22px;
-      background: #0b3d3d;
-      color: #e2f3ff;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 18px 0 0;
     }
 
-    .cta-banner p {
-      margin: 0;
+    .feature-list li {
+      margin-bottom: 10px;
+      font-size: 0.92rem;
+      color: #334155;
+    }
+
+    /* CTA BUTTONS */
+    .card-btn {
+      margin-top: 18px;
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
       font-size: 0.95rem;
+      font-weight: 600;
+      background: #0f766e;
+      color: white;
+      transition: 0.2s;
     }
 
-    .cta-banner span {
-      font-size: 0.85rem;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.45);
-      white-space: nowrap;
+    .card-btn:hover {
+      background: #0d5e57;
     }
 
+    /* NOVA ADD-ON */
+    .addon-card {
+      background: #eefdfb;
+      border: 1px solid #b2f0e5;
+      padding: 26px;
+      border-radius: 16px;
+      margin: 40px auto 80px;
+      max-width: 950px;
+    }
+
+    .addon-card h2 {
+      margin: 0 0 10px;
+      color: #0b3d3d;
+    }
+
+    .addon-card p {
+      margin: 0 0 12px;
+      color: #475569;
+      font-size: 0.98rem;
+    }
+
+    /* FOOTER */
     footer {
       background: #0b3d3d;
       color: #cbd5e1;
@@ -215,6 +215,7 @@
       margin-top: 60px;
     }
 
+    /* NOVA LABEL */
     .nova-label {
       position: fixed;
       bottom: 38px;
@@ -227,19 +228,8 @@
       font-weight: 500;
       opacity: 0;
       transform: translateY(6px);
-      transition: opacity .25s ease, transform .25s ease;
       pointer-events: none;
       z-index: 999999;
-    }
-
-    @media (max-width: 640px) {
-      .sub-hero h1 {
-        font-size: 1.8rem;
-      }
-
-      .section {
-        padding: 48px 16px;
-      }
     }
   </style>
 </head>
@@ -250,7 +240,6 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="logo">SyncToScale</a>
-
       <nav class="nav">
         <a href="index.html">Home</a>
         <a href="features.html">Features</a>
@@ -263,79 +252,99 @@
   </header>
 
   <!-- HERO -->
-  <section class="sub-hero">
-    <h1>Simple, SaaS-style pricing — purely for show.</h1>
-    <p>This is a portfolio project, so you won’t actually be charged — but the plans map to real-world usage patterns.</p>
-    <div class="sub-hero-note">Perfect for recruiters who want to see how an AI platform could be packaged.</div>
+  <section class="pricing-hero">
+    <h1>Simple, Transparent Pricing</h1>
+    <p>Start small or scale across teams — SyncToScale grows with your workflows.</p>
+
+    <div class="toggle-wrapper">
+      <span>Monthly</span>
+      <div class="toggle-pill"></div>
+      <span style="opacity: 0.5;">Annual</span>
+    </div>
   </section>
 
-  <!-- PRICING TIERS -->
-  <section class="section">
-    <div class="container">
-      <div class="section-heading">
-        <h2>Pick the plan that feels familiar</h2>
-        <p>Modeled after the pricing pages you’d see from modern SaaS automation platforms.</p>
+  <!-- PRICING GRID -->
+  <section>
+    <div class="pricing-grid">
+
+      <!-- STARTER -->
+      <div class="price-card">
+        <div class="price-tier">Starter</div>
+        <div class="price-amount">$19</div>
+        <div class="price-sub">per user / month</div>
+
+        <ul class="feature-list">
+          <li>Up to 5 automated workflows</li>
+          <li>Basic integrations (Slack, Google, Asana)</li>
+          <li>Single-user activity view</li>
+          <li>Email support</li>
+        </ul>
+
+        <a href="#" class="card-btn">Get Started</a>
       </div>
 
-      <div class="pricing-grid">
-        <div class="pricing-card">
-          <span class="pricing-pill">Starter</span>
-          <h3>Launch</h3>
-          <div class="pricing-price">$49<span>/workspace/mo</span></div>
-          <p class="pricing-desc">For tiny teams dipping their toes into AI-powered workflow orchestration.</p>
-          <ul>
-            <li>Up to 3 connected tools (e.g. Salesforce, Slack, HubSpot)</li>
-            <li>5 active workflows</li>
-            <li>Nova suggestions in “read-only” mode</li>
-            <li>Email support within 2 business days</li>
-          </ul>
-        </div>
+      <!-- GROWTH -->
+      <div class="price-card">
+        <div class="price-tier">Growth</div>
+        <div class="price-amount">$49</div>
+        <div class="price-sub">per user / month</div>
 
-        <div class="pricing-card">
-          <span class="pricing-pill">Most Popular</span>
-          <span class="pricing-badge">For growing SaaS teams</span>
-          <h3>Scale</h3>
-          <div class="pricing-price">$149<span>/workspace/mo</span></div>
-          <p class="pricing-desc">For CS, implementation, and support teams who want shared automations.</p>
-          <ul>
-            <li>Up to 10 connected tools</li>
-            <li>Unlimited workflows & templates</li>
-            <li>Human-in-the-loop approvals for key steps</li>
-            <li>Usage dashboards & SLA reporting</li>
-          </ul>
-        </div>
+        <ul class="feature-list">
+          <li>Unlimited workflows</li>
+          <li>CRM integrations (Salesforce, HubSpot)</li>
+          <li>Advanced triggers & data sync rules</li>
+          <li>Team dashboards & shared visibility</li>
+          <li>Priority support</li>
+        </ul>
 
-        <div class="pricing-card">
-          <span class="pricing-pill">Enterprise</span>
-          <h3>Orchestrate</h3>
-          <div class="pricing-price">Custom<span> / annual</span></div>
-          <p class="pricing-desc">For companies who treat automation as infrastructure, not just convenience.</p>
-          <ul>
-            <li>Unlimited workspaces & environments</li>
-            <li>Advanced governance & audit logs</li>
-            <li>Fine-tuned Nova models per workflow</li>
-            <li>White-glove implementation support</li>
-          </ul>
-        </div>
+        <a href="#" class="card-btn">Choose Growth</a>
       </div>
 
-      <div class="footnote">
-        None of these plans are live — they’re here to demonstrate how I’d communicate packaging and value for an AI workflow product.
+      <!-- SCALE -->
+      <div class="price-card">
+        <div class="price-tier">Scale</div>
+        <div class="price-amount">$89</div>
+        <div class="price-sub">per user / month</div>
+
+        <ul class="feature-list">
+          <li>Enterprise-grade integrations</li>
+          <li>Human-in-the-loop approvals</li>
+          <li>Custom data mapping & governance controls</li>
+          <li>Unlimited team workspaces</li>
+          <li>Dedicated TAM support channel</li>
+        </ul>
+
+        <a href="#" class="card-btn">Contact Sales</a>
       </div>
 
-      <div class="cta-banner">
-        <p>Recruiter or hiring manager? The About page explains the project goals, stack, and how this ties to my experience.</p>
-        <span>View “About This Project” →</span>
-      </div>
+    </div>
+  </section>
+
+  <!-- NOVA AI ADD-ON -->
+  <section>
+    <div class="addon-card">
+      <h2>Nova AI Assistant (Add-On)</h2>
+      <p>Enhance automation with AI-driven insights, routing, and summarization.</p>
+
+      <ul class="feature-list">
+        <li>Summaries of customer history & ticket threads</li>
+        <li>AI-powered routing and classification</li>
+        <li>Drafting lifecycle communications</li>
+        <li>Workflow generation from natural language</li>
+      </ul>
+
+      <p style="margin-top: 12px; font-weight: 600; color: #0b3d3d;">
+        +$15 per user / month
+      </p>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <p>SyncToScale — Portfolio Project by Christy</p>
+    <p>SyncToScale — Automation & Integration Platform</p>
   </footer>
 
-  <!-- NOVA CHAT BUTTON -->
+  <!-- BOTPRESS BUTTON -->
   <script>
     window.botpressWebChat.init({
       botId: "nova",
@@ -356,11 +365,7 @@
           justify-content: center !important;
           align-items: center !important;
         }
-
-        .bpw-floating-button svg {
-          display: none !important;
-        }
-
+        .bpw-floating-button svg { display: none !important; }
         .bpw-floating-button::before {
           content: "";
           width: 36px;
@@ -369,11 +374,6 @@
           background-size: contain;
           background-repeat: no-repeat;
           display: block;
-        }
-
-        .bpw-floating-button:hover + .nova-label {
-          opacity: 1;
-          transform: translateY(0);
         }
       `
     });
