@@ -1,1 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Template: Custom Webhook → Workflow | SyncToScale</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Nova / Botpress -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
+  <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
+</head>
+
+<body>
+
+  <!-- SITE HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">S</span>
+        <span class="logo-text">SyncToScale</span>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="docs.html">Docs</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+    <div class="container template-layout">
+
+      <!-- BREADCRUMB -->
+      <nav class="doc-breadcrumb">
+        <a href="templates.html">Templates</a>
+        <span>›</span>
+        <span>Custom Webhook → Workflow</span>
+      </nav>
+
+      <!-- PAGE HEADER -->
+      <header class="page-header">
+        <div class="page-header-top">
+          <h1>Custom Webhook → Workflow</h1>
+          <span class="badge badge-nova">Template</span>
+        </div>
+
+        <p class="page-subtitle">
+          Connect any system that can send HTTP requests to SyncToScale. Define a custom webhook endpoint,
+          map incoming JSON, and orchestrate downstream actions — with Nova helping validate payloads and
+          suggest mappings.
+        </p>
+
+        <div class="page-meta-row">
+          <span class="pill pill-soft">Category: Developer &amp; Custom</span>
+          <span class="pill pill-soft">Difficulty: Advanced</span>
+          <span class="pill pill-soft">Trigger: Incoming webhook</span>
+          <span class="pill pill-soft">Systems: Any system · SyncToScale · Nova</span>
+        </div>
+      </header>
+
+      <!-- MAIN GRID -->
+      <section class="template-main-grid">
+
+        <!-- LEFT COLUMN -->
+        <article class="template-main">
+
+          <!-- OVERVIEW -->
+          <section id="overview" class="doc-section">
+            <h2>Overview</h2>
+            <p>
+              The <strong>Custom Webhook → Workflow</strong> template lets you integrate tools that don’t have a
+              native connector (yet). You define a JSON payload shape, receive events over HTTPS, and use
+              SyncToScale to map fields, branch logic, and trigger actions in the rest of your stack —
+              while <strong>Nova</strong> inspects examples, suggests mappings, and validates payloads in real time.
+            </p>
+
+            <div class="info-grid">
+              <div class="info-card">
+                <h3>When to use this template</h3>
+                <ul>
+                  <li>You have an internal tool that can call webhooks, but no API connector.</li>
+                  <li>You want to prototype a new integration quickly.</li>
+                  <li>You need a flexible “catch-all” endpoint for events.</li>
+                  <li>You want Nova to help design mappings from sample JSON.</li>
+                </ul>
+              </div>
+
+              <div class="info-card">
+                <h3>What this template automates</h3>
+                <ul>
+                  <li>Creates a secure, unique webhook URL for your workflow.</li>
+                  <li>Normalizes and validates incoming JSON payloads.</li>
+                  <li>Maps payload fields into SyncToScale objects.</li>
+                  <li>Routes events to actions (CRM, HRIS, ticketing, Slack, etc.).</li>
+                  <li>Logs events and Nova diagnostics for debugging.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- HOW IT WORKS -->
+          <section id="how-it-works" class="doc-section">
+            <h2>How it works</h2>
+            <ol class="step-list">
+              <li>You create a Custom Webhook template instance in SyncToScale.</li>
+              <li>SyncToScale generates a unique HTTPS endpoint and secret.</li>
+              <li>Your external system sends JSON payloads to that endpoint.</li>
+              <li>Nova analyzes examples and proposes field mappings and validations.</li>
+              <li>Mapped data is passed into your downstream workflow steps.</li>
+              <li>All runs are logged with payload snapshots and Nova insights.</li>
+            </ol>
+          </section>
+
+          <!-- WORKFLOW STEPS -->
+          <section id="workflow-steps" class="doc-section">
+            <h2>Workflow steps</h2>
+
+            <ol class="step-list step-list-detailed">
+              <li>
+                <h3>Step 1 — Trigger: Incoming HTTP webhook</h3>
+                <p>
+                  The workflow begins when an HTTP POST request hits your unique SyncToScale webhook URL with a
+                  JSON body. Optional HMAC signatures or bearer tokens can be required.
+                </p>
+              </li>
+
+              <li>
+                <h3>Step 2 — Validate &amp; parse JSON</h3>
+                <p>
+                  SyncToScale checks that:
+                </p>
+                <ul>
+                  <li>The body is valid JSON.</li>
+                  <li>Required keys are present.</li>
+                  <li>Optional signature headers match the expected secret (if configured).</li>
+                </ul>
+                <div class="nova-callout">
+                  <h4>Nova assists by:</h4>
+                  <ul>
+                    <li>Generating a proposed JSON schema from example payloads.</li>
+                    <li>Highlighting fields that are often missing or inconsistent.</li>
+                    <li>Suggesting which fields should be required or optional.</li>
+                  </ul>
+                </div>
+              </li>
+
+              <li>
+                <h3>Step 3 — Transform &amp; map fields</h3>
+                <p>
+                  You configure mappings from arbitrary JSON keys into structured fields (like account, user,
+                  ticket, or event). Nova can suggest mapping rules based on names and sample values.
+                </p>
+              </li>
+
+              <li>
+                <h3>Step 4 — Route to downstream actions</h3>
+                <p>
+                  Based on payload content (event type, severity, source, etc.), the workflow branches into actions like:
+                </p>
+                <ul>
+                  <li>Create or update records in other systems.</li>
+                  <li>Send Slack alerts or emails.</li>
+                  <li>Append events into a log or analytics store.</li>
+                </ul>
+              </li>
+
+              <li>
+                <h3>Step 5 — Respond to the webhook caller</h3>
+                <p>
+                  SyncToScale returns a configurable HTTP status and optional JSON response indicating success,
+                  partial success, or error details.
+                </p>
+              </li>
+            </ol>
+          </section>
+
+          <!-- MAPPINGS -->
+          <section id="data-mapping" class="doc-section">
+            <h2>Field mappings</h2>
+
+            <h3>Webhook JSON → SyncToScale event</h3>
+            <div class="table-wrapper">
+              <table class="mapping-table">
+                <thead>
+                  <tr>
+                    <th>Incoming JSON key</th>
+                    <th>Transform</th>
+                    <th>Mapped field</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>event_type</code></td>
+                    <td>Lowercase</td>
+                    <td><code>eventType</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>source_system</code></td>
+                    <td>Trim + lowercase</td>
+                    <td><code>source</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>timestamp</code></td>
+                    <td>Parse to ISO-8601</td>
+                    <td><code>occurredAt</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>payload.user.email</code></td>
+                    <td>Lowercase &amp; validate</td>
+                    <td><code>userEmail</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>payload.account_id</code></td>
+                    <td>Stringify</td>
+                    <td><code>accountExternalId</code></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3>Routing rules</h3>
+            <div class="table-wrapper">
+              <table class="mapping-table">
+                <thead>
+                  <tr>
+                    <th>Condition</th>
+                    <th>Action</th>
+                    <th>Example</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>eventType = "ticket.created"</code></td>
+                    <td>Create CRM case + Slack alert</td>
+                    <td>Support form submission</td>
+                  </tr>
+                  <tr>
+                    <td><code>eventType = "usage.spike"</code></td>
+                    <td>Post to product-ops channel</td>
+                    <td>Usage anomaly notifications</td>
+                  </tr>
+                  <tr>
+                    <td><code>eventType = "billing.charge_failed"</code></td>
+                    <td>Create billing task + email CSM</td>
+                    <td>Billing system webhook</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- SAMPLE JSON -->
+          <section id="sample-payloads" class="doc-section">
+            <h2>Sample JSON payloads</h2>
+
+            <h3>Example incoming webhook payload</h3>
+            <pre class="code-block"><code>{
+  "event_type": "ticket.created",
+  "source_system": "internal_help_portal",
+  "timestamp": "2025-04-03T16:20:00Z",
+  "payload": {
+    "ticket_id": "TCK-10291",
+    "subject": "Cannot access reporting dashboard",
+    "priority": "high",
+    "user": {
+      "email": "morgan.shaw@demo-company.com",
+      "name": "Morgan Shaw"
+    },
+    "metadata": {
+      "plan": "Enterprise",
+      "account_id": "ACCT-4390"
+    }
+  }
+}</code></pre>
+
+            <h3>Internal normalized event (after mapping)</h3>
+            <pre class="code-block"><code>{
+  "eventId": "evt_01J2WEBHOOK",
+  "eventType": "ticket.created",
+  "source": "internal_help_portal",
+  "occurredAt": "2025-04-03T16:20:00Z",
+  "accountExternalId": "ACCT-4390",
+  "userEmail": "morgan.shaw@demo-company.com",
+  "data": {
+    "ticketId": "TCK-10291",
+    "subject": "Cannot access reporting dashboard",
+    "priority": "high",
+    "plan": "Enterprise"
+  }
+}</code></pre>
+
+            <h3>Response sent back to caller</h3>
+            <pre class="code-block"><code>{
+  "status": "accepted",
+  "runId": "run_01J2WEBHOOKFLOW",
+  "novaSummary": "Ticket created in Zendesk and Slack alert sent to #support-sev-high."
+}</code></pre>
+          </section>
+
+          <!-- ERROR HANDLING -->
+          <section id="error-handling" class="doc-section">
+            <h2>Error handling</h2>
+            <p>
+              Because external systems rely on HTTP responses, this template includes explicit, predictable
+              error semantics.
+            </p>
+            <ul>
+              <li><strong>400 Bad Request</strong> for invalid JSON or missing required keys.</li>
+              <li><strong>401/403</strong> for invalid or missing authentication signatures.</li>
+              <li><strong>202 Accepted</strong> for async processing even when downstream systems are busy.</li>
+              <li>All failures are logged with payload snippet and Nova diagnostic notes.</li>
+            </ul>
+
+            <h3>Sample error diagnostic</h3>
+            <pre class="code-block"><code>{
+  "runId": "run_01J2WEBHOOKFLOW",
+  "status": "failed",
+  "httpStatus": 400,
+  "error": {
+    "type": "schema_validation_failed",
+    "message": "Required field 'event_type' missing from payload",
+    "novaHints": [
+      "Check the integration docs for required keys.",
+      "Example payloads suggest event_type is usually present."
+    ]
+  }
+}</code></pre>
+          </section>
+
+          <!-- NOVA INSIGHTS -->
+          <section id="nova-insights" class="doc-section">
+            <h2>Nova insights for this template</h2>
+            <ul>
+              <li>Suggests mappings from sample payloads to SyncToScale fields.</li>
+              <li>Identifies common payload errors and missing fields across runs.</li>
+              <li>Groups similar events to propose reusable workflow branches.</li>
+              <li>Highlights external systems with high failure rates or poor payload hygiene.</li>
+            </ul>
+          </section>
+
+          <!-- SETUP -->
+          <section id="setup" class="doc-section">
+            <h2>Set up this template in SyncToScale</h2>
+            <ol class="step-list">
+              <li>Select <strong>Custom Webhook → Workflow</strong> from the <strong>Templates</strong> library.</li>
+              <li>Copy the generated webhook URL and secret into your external system.</li>
+              <li>Send a few sample payloads in “Preview” mode.</li>
+              <li>Use Nova’s suggestions to define required fields and mappings.</li>
+              <li>Add downstream actions (Slack, CRM, ticketing, etc.).</li>
+              <li>Switch from <strong>Preview</strong> to <strong>Active</strong> once validated.</li>
+            </ol>
+          </section>
+
+        </article>
+
+        <!-- RIGHT COLUMN -->
+        <aside class="template-sidebar">
+
+          <div class="card">
+            <h3>Template summary</h3>
+            <ul class="key-facts-list">
+              <li><strong>Trigger:</strong> Incoming HTTP POST webhook</li>
+              <li><strong>Runtime:</strong> Real-time</li>
+              <li><strong>Owner:</strong> Developers · Ops</li>
+              <li><strong>Systems:</strong> Any system that can call HTTPS</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Best practice defaults</h3>
+            <ul>
+              <li>Enable HMAC or token-based authentication on the webhook.</li>
+              <li>Use Nova to lock down a JSON schema before going live.</li>
+              <li>Return 202 for long-running workflows rather than 200.</li>
+            </ul>
+          </div>
+
+          <div class="card nova-callout">
+            <h3>Nova will help you…</h3>
+            <ul>
+              <li>Design your payload schema from real examples.</li>
+              <li>Catch malformed payloads before they break flows.</li>
+              <li>Discover patterns across events and propose re-usable templates.</li>
+            </ul>
+          </div>
+
+        </aside>
+
+      </section>
+    </div>
+  </main>
+
+</body>
+</html>
 
