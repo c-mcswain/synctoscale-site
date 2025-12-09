@@ -6,17 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SyncToScale</title>
 
-  <!-- Main Styles -->
-  <link rel="stylesheet" href="styles.css" />
-
   <!-- Botpress Webchat -->
-  <script src="https://cdn.botpress.cloud/webchat/v3.4/inject.js" defer></script>
+  <script src="https://cdn.botpress.cloud/webchat/v3.4/inject.js"></script>
   <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
 
   <style>
-    /* ==========================
-       GLOBAL BASE
-    =========================== */
     body {
       margin: 0;
       font-family: Inter, Arial, sans-serif;
@@ -24,124 +18,209 @@
       color: #1e293b;
     }
 
+    /* NAVBAR */
     header {
       position: sticky;
       top: 0;
-      z-index: 9999;
-      background: rgba(255, 255, 255, 0.92);
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.9);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid #e2e8f0;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
     }
 
     header .container {
       max-width: 1100px;
       margin: auto;
-      padding: 15px 20px;
+      padding: 18px 24px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
     }
 
     .logo {
-      font-size: 22px;
+      font-size: 1.6rem;
       font-weight: 700;
-      color: #1e293b;
+      color: #0b3d3d;
       text-decoration: none;
     }
 
-    nav a {
-      margin-left: 20px;
+    .nav a {
+      color: #0b3d3d;
+      margin-left: 26px;
       text-decoration: none;
-      color: #475569;
+      font-size: 1rem;
       font-weight: 500;
+      padding-bottom: 4px;
+      transition: color .2s ease, border-bottom .2s ease;
+      border-bottom: 2px solid transparent;
     }
 
-    nav a:hover {
-      color: #0ea5e9;
+    .nav a:hover {
+      color: #14b8a6;
+      border-bottom: 2px solid #14b8a6;
     }
 
-    /* ==========================
-       RESPONSIVE HERO FIX
-    =========================== */
+    /* ============================
+       HERO — RESPONSIVE BANNER
+       (no overlap, no cropping)
+    ============================ */
     .hero {
       width: 100%;
-      max-width: 1100px;
-      margin: auto;
-      padding: 40px 20px 20px;
-      box-sizing: border-box;
-      text-align: left;
-    }
-
-    /* Hero text spacing */
-    .hero h1 {
-      font-size: 56px;
-      font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 12px;
-    }
-
-    /* Responsive hero image container */
-    .hero-img-wrap {
-      width: 100%;
-      overflow: hidden;
+      background-color: #f8fafc;
+      background-image: url('https://c-mcswain.github.io/synctoscale-site/synctoscale-banner.png');
+      background-repeat: no-repeat;
+      background-position: center top;
+      background-size: contain;          /* show full banner image */
       display: block;
     }
 
-    .hero-img {
-      width: 100%;
-      height: auto;
+    /* Aspect-ratio box so height scales with width */
+    .hero::before {
+      content: "";
       display: block;
-      object-fit: cover;
-      object-position: center;
+      padding-top: 40%;                  /* desktop height (~2.5:1 banner) */
     }
 
-    /* ===============================
-       MOBILE HERO FIX
-    =============================== */
+    /* On small phones, give a bit more height so text isn't squished */
     @media (max-width: 600px) {
-      .hero {
-        padding-top: 20px !important;
-      }
-
-      .hero h1 {
-        font-size: 34px;
-        line-height: 1.15;
+      .hero::before {
+        padding-top: 55%;
       }
     }
 
-    /* ==========================
-       FEATURE SECTION
-    =========================== */
+    /* SECTIONS */
     .section {
       padding: 60px 20px;
-      text-align: center;
     }
 
-    .section h2 {
-      font-size: 28px;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .section p {
-      color: #475569;
-      max-width: 650px;
-      margin: 0 auto 30px;
-      font-size: 17px;
-    }
-
-    .logo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 30px;
-      max-width: 700px;
+    .container {
+      max-width: 1100px;
       margin: auto;
-      padding: 20px 0;
     }
 
-    .logo-grid img {
-      width: 70px;
-      height: auto;
+    .section-heading {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    /* INTEGRATIONS GRID */
+    .integrations-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+      gap: 28px;
+      justify-items: center;
+      align-items: center;
+      margin-top: 32px;
+    }
+
+    .integrations-grid img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      opacity: 0.85;
+      transition: opacity .2s, transform .2s;
+    }
+
+    .integrations-grid img:hover {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+
+    /* ALT BACKGROUND */
+    .alt-bg {
+      background: #eefdfb;
+    }
+
+    /* HOW IT WORKS */
+    .hiw-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    .hiw-card {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      width: 300px;
+      box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.06);
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .hiw-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* VALUE SECTION */
+    .value-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .value-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .value-img img {
+      width: 100%;
+      max-width: 420px;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    .value-list {
+      margin-top: 20px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .value-list li {
+      margin: 10px 0;
+      font-size: 1.05rem;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #0b3d3d;
+      color: #cbd5e1;
+      padding: 40px 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    /* OPTIONAL: slightly shrink chat widget on desktop */
+    #bp-web-widget {
+      transform: scale(0.85);
+      transform-origin: bottom right;
+      right: 18px !important;
+      bottom: 18px !important;
+    }
+
+    @media (max-width: 600px) {
+      #bp-web-widget {
+        transform: scale(1);
+      }
+    }
+
+    /* Nova launcher icon (with cache-buster for Safari) */
+    .bpw-floating-button::before {
+      content: "";
+      width: 40px;
+      height: 40px;
+      background-image: url('https://c-mcswain.github.io/synctoscale-site/assets/nova-icon.png?v=2');
+      background-size: contain !important;
+      background-repeat: no-repeat !important;
+      display: block;
+    }
+
+    .bpw-floating-button svg {
+      display: none !important;
     }
   </style>
 </head>
@@ -149,10 +228,11 @@
 <body>
 
   <!-- NAVBAR -->
-  <header>
-    <div class="container">
+  <header class="site-header">
+    <div class="container header-inner">
       <a href="index.html" class="logo">SyncToScale</a>
-      <nav>
+
+      <nav class="nav">
         <a href="index.html">Home</a>
         <a href="features.html">Features</a>
         <a href="pricing.html">Pricing</a>
@@ -163,35 +243,91 @@
     </div>
   </header>
 
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <h1>Sync Your Systems.<br>Scale Your Success.</h1>
+  <!-- HERO (pure banner) -->
+  <section class="hero"></section>
 
-    <p>
-      Streamline your processes and maximize growth with our innovative platform
-      that integrates seamlessly with your existing workflows.
-    </p>
+  <!-- INTEGRATIONS -->
+  <section id="integrations" class="section">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Works Seamlessly With Your Tools</h2>
+        <p>SyncToScale connects your business systems so data flows exactly where you need it.</p>
+      </div>
 
-    <div class="hero-img-wrap">
-      <img class="hero-img" src="assets/hero-banner.png" alt="SyncToScale Banner" />
+      <div class="integrations-grid">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/salesforce/salesforce-original.svg" alt="Salesforce" />
+        <img src="assets/synctoscale-icons/hubspot.png" alt="HubSpot" />
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slack/slack-original.svg" alt="Slack" />
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" alt="Jira" />
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Google Workspace" />
+        <img src="assets/synctoscale-icons/asana.png" alt="Asana" />
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/notion.svg" alt="Notion" />
+      </div>
     </div>
   </section>
 
-  <!-- FEATURES SECTION -->
-  <section class="section">
-    <h2>Works Seamlessly With Your Tools</h2>
-    <p>SyncToScale connects your business systems so data flows exactly where you need it.</p>
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works" class="section alt-bg">
+    <div class="container">
+      <div class="section-heading">
+        <h2>How SyncToScale Works</h2>
+        <p>Automate. Streamline. Scale — no engineering required.</p>
+      </div>
 
-    <div class="logo-grid">
-      <img src="assets/salesforce.png" alt="Salesforce" />
-      <img src="assets/hubspot.png" alt="HubSpot" />
-      <img src="assets/slack.png" alt="Slack" />
-      <img src="assets/jira.png" alt="Jira" />
-      <img src="assets/google.png" alt="Google" />
-      <img src="assets/asana.png" alt="Asana" />
-      <img src="assets/notion.png" alt="Notion" />
+      <div class="hiw-grid">
+        <div class="hiw-card">
+          <h3>1. Connect Your Tools</h3>
+          <p>Integrate your CRM, HRIS, project apps, and communication platforms in seconds.</p>
+        </div>
+
+        <div class="hiw-card">
+          <h3>2. Build Smart Workflows</h3>
+          <p>Create flows that sync data, trigger actions, and eliminate repetitive tasks.</p>
+        </div>
+
+        <div class="hiw-card">
+          <h3>3. Scale Effortlessly</h3>
+          <p>Enjoy real-time syncing and error-free automation as your business grows.</p>
+        </div>
+      </div>
     </div>
   </section>
+
+  <!-- VALUE SECTION -->
+  <section id="value" class="section">
+    <div class="container value-flex">
+      <div class="value-text">
+        <h2>Why Teams Choose SyncToScale</h2>
+        <p>Businesses waste hours maintaining systems that should already talk to each other. SyncToScale eliminates gaps, giving your team reliable automation and real-time visibility.</p>
+
+        <ul class="value-list">
+          <li>✔ Real-time syncing across your entire workflow</li>
+          <li>✔ Zero-code automation engine</li>
+          <li>✔ Prevents duplicates and data inconsistencies</li>
+          <li>✔ Built for SaaS, HR, operations, and revenue teams</li>
+        </ul>
+      </div>
+
+      <div class="value-img">
+        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=900&q=60" alt="Dashboard mockup">
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>SyncToScale — Portfolio Project by Christy</p>
+  </footer>
+
+  <!-- NOVA CHAT INIT (launcher icon override only) -->
+  <script>
+    window.botpressWebChat.init({
+      botId: "nova",
+      hostUrl: "https://cdn.botpress.cloud/webchat/v3",
+      botName: "Nova",
+      hideWidget: false
+    });
+  </script>
 
 </body>
 </html>
