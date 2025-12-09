@@ -14,6 +14,7 @@
   <!-- NAVBAR -->
   <header class="site-header">
     <div class="container header-inner">
+
       <div class="logo">
         <a href="index.html" class="logo-link">SyncToScale</a>
       </div>
@@ -26,16 +27,18 @@
         <a href="resources.html">Resources</a>
         <a href="about.html">About</a>
       </nav>
+
     </div>
   </header>
 
-  <!-- HERO SECTION -->
+  <!-- HERO -->
   <section class="page-hero">
     <h1>Developer Documentation</h1>
     <p>
-      Explore how SyncToScale orchestrates workflows using triggers, actions,
-      transformations, API calls, and intelligent Nova-powered automation.
+      Learn how SyncToScale orchestrates workflows using triggers, actions, field mappings,
+      API calls, error handling, and Nova-powered automation intelligence.
     </p>
+
     <a href="api.html" class="cta-btn">View API Reference</a>
   </section>
 
@@ -43,49 +46,49 @@
   <section class="container section">
     <div class="docs-grid">
 
-      <a class="doc-card" href="#">
+      <a class="doc-card" href="quickstart.html">
         <h3>⚡ Quickstart</h3>
-        <p>Set up your first connection and run a workflow end-to-end.</p>
+        <p>Create your first connection and run a workflow end-to-end.</p>
       </a>
 
-      <a class="doc-card" href="#">
+      <a class="doc-card" href="authentication.html">
         <h3>🔐 Authentication</h3>
         <p>OAuth, API keys, token handling, and connection validation.</p>
       </a>
 
-      <a class="doc-card" href="#">
+      <a class="doc-card" href="connections.html">
         <h3>🔗 Connections</h3>
-        <p>How SyncToScale manages app connections and health checks.</p>
+        <p>Manage, validate, and monitor integration connections.</p>
       </a>
 
-      <a class="doc-card" href="#">
+      <a class="doc-card" href="triggers.html">
         <h3>🚀 Triggers</h3>
-        <p>Event-based, polling, and scheduled triggers that start workflows.</p>
+        <p>Event, polling, and scheduled triggers that initiate workflows.</p>
       </a>
 
-      <a class="doc-card" href="#">
+      <a class="doc-card" href="actions.html">
         <h3>⚙️ Actions</h3>
-        <p>Create, update, and search records across apps using normalized schemas.</p>
+        <p>Create, update, search, and transform records across applications.</p>
       </a>
 
-      <a class="doc-card" href="#">
+      <a class="doc-card" href="mapping.html">
         <h3>🗂 Field Mapping</h3>
-        <p>Map fields, apply transformations, and resolve data type mismatches.</p>
+        <p>Map fields, apply transformations, and resolve data mismatches.</p>
       </a>
 
-      <a class="doc-card" href="#">
+      <a class="doc-card" href="errors.html">
         <h3>🛑 Error Handling</h3>
-        <p>Retry logic, conflict resolution, malformed payload handling.</p>
+        <p>Retry logic, conflict resolution, malformed payload behavior.</p>
       </a>
 
-      <a class="doc-card" href="#">
+      <a class="doc-card" href="monitoring.html">
         <h3>📊 Logs & Monitoring</h3>
-        <p>Debug workflows with step-by-step execution visibility.</p>
+        <p>Debug workflows with step-by-step execution logs.</p>
       </a>
 
-      <a class="doc-card" href="#">
+      <a class="doc-card" href="nova-api.html">
         <h3>✨ Nova AI API</h3>
-        <p>Use Nova for automatic field matching, anomaly detection, and smart remediation.</p>
+        <p>AI-powered field matching, anomaly detection, and auto-remediation.</p>
       </a>
 
     </div>
@@ -95,8 +98,8 @@
   <section class="container section">
     <h2>Platform Architecture</h2>
     <p>
-      SyncToScale uses an event-driven pipeline with connection pooling, retry
-      behavior, Nova-assisted error classification, and structured logs.
+      SyncToScale uses an event-driven execution engine with connection pooling,
+      resilient retry behavior, Nova-assisted error classification, and structured workflow logs.
     </p>
 
 <pre>
@@ -112,8 +115,8 @@ POST /workflows/run
 </pre>
 
     <p>
-      The engine validates the trigger, expands mapped actions, executes transforms,
-      and processes each step with built-in exponential backoff.
+      The engine validates the trigger, expands mapped actions, runs transformations, and
+      processes each step with built-in exponential backoff and real-time monitoring.
     </p>
   </section>
 
