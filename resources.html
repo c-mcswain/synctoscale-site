@@ -1,69 +1,99 @@
-/* ----------------------------------------
-   RESOURCES PAGE
----------------------------------------- */
+<!DOCTYPE html>
+<html lang="en">
 
-.resources-hero {
-  text-align: center;
-  padding: 60px 20px;
-  background: linear-gradient(180deg, #eefdfb 0%, #ffffff 90%);
-  border-bottom: 1px solid #e2e8f0;
-}
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resources | SyncToScale</title>
 
-.resources-hero h1 {
-  font-size: 40px;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
+  <link rel="stylesheet" href="styles.css" />
+</head>
 
-.resources-hero p {
-  font-size: 17px;
-  color: #475569;
-  max-width: 540px;
-  margin: 0 auto 20px;
-}
+<body>
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <a href="index.html" class="logo-link">
+          <span class="logo-mark">S</span>
+          <span class="logo-text">SyncToScale</span>
+        </a>
+      </div>
 
-.cta-btn {
-  display: inline-block;
-  background: linear-gradient(90deg, #41d1ff, #21e19f);
-  padding: 12px 26px;
-  border-radius: 10px;
-  color: white;
-  font-weight: 600;
-  text-decoration: none;
-  transition: 0.2s ease;
-}
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="faq.html">FAQ</a>
+        <a href="resources.html" class="active">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
 
-.cta-btn:hover {
-  opacity: 0.9;
-  transform: translateY(-2px);
-}
+  <!-- HERO -->
+  <section class="resources-hero">
+    <div class="container">
+      <h1>Resources</h1>
+      <p>
+        Your central hub for developer docs, API references, templates, and security details that make SyncToScale feel like a real platform.
+      </p>
 
-/* GRID */
-.resources-grid {
-  padding: 60px 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 28px;
-}
+      <a href="about.html" class="cta-btn">
+        For Recruiters: Learn About This Project
+      </a>
+    </div>
+  </section>
 
-.resource-card {
-  background: #ffffff;
-  padding: 24px;
-  border-radius: 14px;
-  text-decoration: none;
-  color: #1e293b;
-  border: 1px solid #e2e8f0;
-  transition: 0.25s ease;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.03);
-}
+  <!-- RESOURCES GRID -->
+  <section class="resources-grid container">
+    <a class="resource-card" href="docs.html">
+      <div class="icon-placeholder">📘</div>
+      <h3>Developer Docs</h3>
+      <p>
+        Concept overviews, guides, and examples that explain how SyncToScale works under the hood.
+      </p>
+    </a>
 
-.resource-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-  border-color: #41d1ff;
-}
+    <a class="resource-card" href="api.html">
+      <div class="icon-placeholder">🔌</div>
+      <h3>API Reference</h3>
+      <p>
+        REST API endpoints, authentication patterns, request/response examples, and error handling.
+      </p>
+    </a>
 
-.icon-placeholder {
-  font-size: 32px;
-  margin-bottom: 14px;
-}
+    <a class="resource-card" href="integrations.html">
+      <div class="icon-placeholder">🔗</div>
+      <h3>Integrations</h3>
+      <p>
+        A library of supported tools like Salesforce, HubSpot, Slack, Jira, and Google Workspace.
+      </p>
+    </a>
+
+    <a class="resource-card" href="templates.html">
+      <div class="icon-placeholder">📂</div>
+      <h3>Workflow Templates</h3>
+      <p>
+        Pre-built automation blueprints for onboarding, support routing, CRM syncs, and more.
+      </p>
+    </a>
+
+    <a class="resource-card" href="security.html">
+      <div class="icon-placeholder">🛡️</div>
+      <h3>Security & Compliance</h3>
+      <p>
+        SOC 2-style controls, encryption, SSO/SSO, RBAC, and data retention practices.
+      </p>
+    </a>
+
+    <a class="resource-card" href="changelog.html">
+      <div class="icon-placeholder">📝</div>
+      <h3>Changelog</h3>
+      <p>
+        Release notes and platform updates that make SyncToScale feel like it’s actively shipping.
+      </p>
+    </a>
+  </section>
+</body>
+</html>
