@@ -1,1 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Template: New Hire IT Onboarding | SyncToScale</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Nova / Botpress -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
+  <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
+</head>
+
+<body>
+  <!-- SITE HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">S</span>
+        <span class="logo-text">SyncToScale</span>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="docs.html">Docs</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+    <div class="container template-layout">
+      <!-- BREADCRUMB -->
+      <nav class="doc-breadcrumb">
+        <a href="templates.html">Templates</a>
+        <span>›</span>
+        <span>New Hire IT Onboarding</span>
+      </nav>
+
+      <!-- PAGE HEADER -->
+      <header class="page-header">
+        <div class="page-header-top">
+          <h1>New Hire IT Onboarding</h1>
+          <span class="badge badge-nova">Template</span>
+        </div>
+        <p class="page-subtitle">
+          Automatically provision accounts, groups, and tickets when a new employee is created in your HRIS.
+          Keep IT, HR, and managers in lockstep from offer accept to day one.
+        </p>
+
+        <div class="page-meta-row">
+          <span class="pill pill-soft">Category: HR &amp; IT Ops</span>
+          <span class="pill pill-soft">Difficulty: Intermediate</span>
+          <span class="pill pill-soft">Trigger: New hire created</span>
+          <span class="pill pill-soft">Systems: HRIS · Google Workspace · Okta · Jira · Slack</span>
+        </div>
+      </header>
+
+      <!-- MAIN GRID -->
+      <section class="template-main-grid">
+        <!-- LEFT COLUMN -->
+        <article class="template-main">
+          <!-- OVERVIEW -->
+          <section id="overview" class="doc-section">
+            <h2>Overview</h2>
+            <p>
+              The <strong>New Hire IT Onboarding</strong> template listens for a new employee record in your HRIS
+              (e.g., BambooHR, Rippling, Gusto, HiBob) and orchestrates a standardized IT onboarding flow.
+              SyncToScale generates usernames, requests hardware, creates accounts, and notifies the right people —
+              while <strong>Nova</strong> watches for incomplete data and potential conflicts.
+            </p>
+
+            <div class="info-grid">
+              <div class="info-card">
+                <h3>When to use this template</h3>
+                <ul>
+                  <li>You want a consistent, auditable onboarding checklist for every new hire.</li>
+                  <li>IT is manually creating accounts in multiple tools today.</li>
+                  <li>Start dates are slipping because access isn’t ready on day one.</li>
+                  <li>You want Nova to flag missing manager, location, or role data before provisioning.</li>
+                </ul>
+              </div>
+
+              <div class="info-card">
+                <h3>What this template automates</h3>
+                <ul>
+                  <li>Create core accounts (Google Workspace / Microsoft 365).</li>
+                  <li>Assign SSO / Okta groups based on department and role.</li>
+                  <li>Create an IT onboarding ticket in Jira or ServiceNow.</li>
+                  <li>Post a summary to an #it-new-hires Slack channel.</li>
+                  <li>Optionally request laptop and hardware.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- HOW IT WORKS -->
+          <section id="how-it-works" class="doc-section">
+            <h2>How it works</h2>
+            <ol class="step-list">
+              <li>
+                HR creates a new employee in the HRIS with status <code>Pending</code> or <code>Hired</code>.
+              </li>
+              <li>
+                HRIS sends a webhook to SyncToScale (or is polled on a schedule).
+              </li>
+              <li>
+                SyncToScale normalizes the payload, generates a username, and enriches department + manager data.
+              </li>
+              <li>
+                Accounts and groups are created across identity, collaboration, and ticketing tools.
+              </li>
+              <li>
+                Nova validates required fields and surfaces any issues as <strong>guided fixes</strong>.
+              </li>
+              <li>
+                A single Slack summary message confirms successful provisioning with deep links to each system.
+              </li>
+            </ol>
+          </section>
+
+          <!-- WORKFLOW STEPS -->
+          <section id="workflow-steps" class="doc-section">
+            <h2>Workflow steps</h2>
+
+            <ol class="step-list step-list-detailed">
+              <li>
+                <h3>Step 1 — Trigger: New hire created in HRIS</h3>
+                <p>
+                  The workflow is triggered when a new employee is created with a <code>hireDate</code> in the future
+                  and <code>employmentStatus = "Hired"</code>.
+                </p>
+              </li>
+
+              <li>
+                <h3>Step 2 — Normalize and validate profile</h3>
+                <p>
+                  SyncToScale normalizes names, generates a proposed email username, and validates that
+                  <code>managerEmail</code>, <code>location</code>, and <code>jobTitle</code> are present.
+                </p>
+                <div class="nova-callout">
+                  <h4>Behind the scenes — Nova validation</h4>
+                  <ul>
+                    <li>Suggests alternate usernames if email is already taken.</li>
+                    <li>Flags start dates in the past or more than 90 days in the future.</li>
+                    <li>Highlights missing manager or department for IT follow-up.</li>
+                  </ul>
+                </div>
+              </li>
+
+              <li>
+                <h3>Step 3 — Create core identity account</h3>
+                <p>
+                  Create a Google Workspace (or Microsoft 365) account with the normalized profile and assign
+                  the appropriate license SKU.
+                </p>
+              </li>
+
+              <li>
+                <h3>Step 4 — Assign Okta / SSO groups</h3>
+                <p>
+                  Based on department and location, SyncToScale assigns SSO groups that map to standard app bundles
+                  (e.g., “Sales – US”, “Engineering – EU”).
+                </p>
+              </li>
+
+              <li>
+                <h3>Step 5 — Create IT onboarding ticket</h3>
+                <p>
+                  A Jira / ServiceNow ticket is created with a checklist of tasks (hardware, access, security training)
+                  and is automatically assigned to the IT onboarding queue.
+                </p>
+              </li>
+
+              <li>
+                <h3>Step 6 — Notify stakeholders</h3>
+                <p>
+                  A summary is posted to Slack (e.g., <code>#it-new-hires</code>) with links to the HRIS profile,
+                  identity admin panel, and Jira ticket.
+                </p>
+              </li>
+            </ol>
+          </section>
+
+          <!-- MAPPINGS -->
+          <section id="data-mapping" class="doc-section">
+            <h2>Field mappings</h2>
+
+            <h3>HRIS → Identity (Google Workspace)</h3>
+            <div class="table-wrapper">
+              <table class="mapping-table">
+                <thead>
+                  <tr>
+                    <th>Source (HRIS)</th>
+                    <th>Transform</th>
+                    <th>Target (Identity)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>firstName</code></td>
+                    <td>Capitalize</td>
+                    <td><code>name.givenName</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>lastName</code></td>
+                    <td>Capitalize</td>
+                    <td><code>name.familyName</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>preferredName</code> (fallback: <code>firstName</code>)</td>
+                    <td>Use if present</td>
+                    <td><code>name.fullName</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>department</code></td>
+                    <td>Normalize to canonical list</td>
+                    <td><code>organizations[0].department</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>jobTitle</code></td>
+                    <td>Trim and title-case</td>
+                    <td><code>organizations[0].title</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>location</code></td>
+                    <td>Map to office / region code</td>
+                    <td><code>addresses[0].country</code>, <code>addresses[0].locality</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>managerEmail</code></td>
+                    <td>Lookup user ID</td>
+                    <td><code>relations[0].value</code> (manager)</td>
+                  </tr>
+                  <tr>
+                    <td><code>workEmail</code> (generated if missing)</td>
+                    <td><code>{{firstName[0]}}{{lastName}}@company.com</code></td>
+                    <td><code>primaryEmail</code></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3>HRIS → Okta group assignment</h3>
+            <div class="table-wrapper">
+              <table class="mapping-table">
+                <thead>
+                  <tr>
+                    <th>Rule</th>
+                    <th>Condition</th>
+                    <th>Assigned group(s)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Sales – US</td>
+                    <td><code>department = "Sales"</code> and <code>location.country = "US"</code></td>
+                    <td><code>grp_sales_us_core</code>, <code>grp_crm_users</code></td>
+                  </tr>
+                  <tr>
+                    <td>Engineering – EU</td>
+                    <td><code>department = "Engineering"</code> and <code>location.region = "EU"</code></td>
+                    <td><code>grp_eng_eu_core</code>, <code>grp_git_repo_access</code></td>
+                  </tr>
+                  <tr>
+                    <td>HR – Global</td>
+                    <td><code>department = "People"</code> or <code>"HR"</code></td>
+                    <td><code>grp_hr_global</code>, <code>grp_hris_admin</code></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- SAMPLE JSON -->
+          <section id="sample-payloads" class="doc-section">
+            <h2>Sample JSON payloads</h2>
+
+            <h3>Trigger event — New hire created</h3>
+            <pre class="code-block"><code>{
+  "eventId": "evt_01J2N4ZKJ2QW",
+  "eventType": "hiring.new_hire.created",
+  "source": "bamboohr",
+  "occurredAt": "2025-04-01T16:20:11Z",
+  "payload": {
+    "employeeId": "EMP-10293",
+    "firstName": "Jordan",
+    "lastName": "Lee",
+    "preferredName": "Jordy",
+    "personalEmail": "jordy.lee@example.com",
+    "workEmail": null,
+    "hireDate": "2025-05-06",
+    "employmentStatus": "Hired",
+    "department": "Engineering",
+    "jobTitle": "Senior Software Engineer",
+    "location": {
+      "country": "US",
+      "city": "Denver",
+      "timezone": "America/Denver"
+    },
+    "managerEmail": "maria.ross@demo-company.com"
+  }
+}</code></pre>
+
+            <h3>Workflow blueprint — simplified view</h3>
+            <pre class="code-block"><code>{
+  "id": "tmpl_new_hire_it_onboarding",
+  "name": "New Hire IT Onboarding",
+  "version": 1,
+  "trigger": {
+    "type": "webhook",
+    "eventType": "hiring.new_hire.created",
+    "source": "hris",
+    "filters": {
+      "employmentStatus": ["Hired"],
+      "hireDate_not_null": true
+    }
+  },
+  "steps": [
+    {
+      "id": "normalize_profile",
+      "type": "transform",
+      "uses": "nova.profile_normalization",
+      "input": "@trigger.payload",
+      "output": "profile"
+    },
+    {
+      "id": "create_identity",
+      "type": "action",
+      "connector": "google_workspace",
+      "operation": "users.create",
+      "input": "@profile.identity"
+    },
+    {
+      "id": "assign_okta_groups",
+      "type": "action",
+      "connector": "okta",
+      "operation": "groups.assign_by_rules",
+      "input": {
+        "userId": "@create_identity.id",
+        "rules": "@profile.groupRules"
+      }
+    },
+    {
+      "id": "create_it_ticket",
+      "type": "action",
+      "connector": "jira",
+      "operation": "issues.create",
+      "input": {
+        "projectKey": "IT",
+        "issueType": "Task",
+        "summary": "Onboard @profile.fullName (@profile.jobTitle)",
+        "fields": {
+          "description": "Auto-created by SyncToScale new hire template.",
+          "customfield_employeeId": "@profile.employeeId"
+        }
+      }
+    },
+    {
+      "id": "notify_slack",
+      "type": "action",
+      "connector": "slack",
+      "operation": "chat.postMessage",
+      "input": {
+        "channel": "#it-new-hires",
+        "text": "✅ New hire onboarded: @profile.fullName (@profile.jobTitle). Accounts created in Google / Okta / Jira."
+      }
+    }
+  ]
+}</code></pre>
+          </section>
+
+          <!-- ERROR HANDLING -->
+          <section id="error-handling" class="doc-section">
+            <h2>Error handling</h2>
+            <p>
+              This template includes opinionated error handling that helps IT fix issues quickly without
+              replaying the entire workflow manually.
+            </p>
+
+            <ul>
+              <li>Identity creation errors are retried up to 3 times with exponential backoff.</li>
+              <li>Conflicting email addresses raise a <code>username_conflict</code> error with Nova suggestions.</li>
+              <li>Missing required HR fields create a “Blocked” Jira issue assigned to HR or People Ops.</li>
+              <li>All errors are summarized in Nova’s run history and can be exported as CSV.</li>
+            </ul>
+
+            <h3>Sample error object</h3>
+            <pre class="code-block"><code>{
+  "runId": "run_01J2N5D2KX4Y",
+  "stepId": "create_identity",
+  "status": "failed",
+  "error": {
+    "type": "username_conflict",
+    "message": "Email jordan.lee@demo-company.com is already in use.",
+    "retriable": false,
+    "novaInsights": [
+      "Try username j.lee or jordan.lee2.",
+      "Existing account belongs to a contractor ID CTR-4491.",
+      "Consider merging HRIS records before continuing."
+    ],
+    "raw": {
+      "providerStatusCode": 409,
+      "providerErrorId": "googleapi_7FD3A9"
+    }
+  }
+}</code></pre>
+          </section>
+
+          <!-- NOVA INSIGHTS -->
+          <section id="nova-insights" class="doc-section">
+            <h2>Nova insights for this template</h2>
+            <ul>
+              <li>Detects conflicting email addresses and suggests safe alternatives.</li>
+              <li>Flags missing manager, department, or location fields before provisioning.</li>
+              <li>Highlights hires starting in &lt; 48 hours with incomplete access setup.</li>
+              <li>Shows a grounded timeline of which systems were provisioned in which order.</li>
+              <li>Surfaces long-running steps (e.g., hardware shipping) in a single view.</li>
+            </ul>
+          </section>
+
+          <!-- SETUP -->
+          <section id="setup" class="doc-section">
+            <h2>Set up this template in SyncToScale</h2>
+            <ol class="step-list">
+              <li>Go to <strong>Templates &gt; Library</strong> and select <strong>New Hire IT Onboarding</strong>.</li>
+              <li>Connect your HRIS, identity provider (Google / M365), Okta, Jira, and Slack.</li>
+              <li>Review and adjust the username generation rules and Okta group mapping table.</li>
+              <li>Map HRIS fields to the template’s required fields using the visual mapper.</li>
+              <li>Turn on <strong>Nova validation</strong> for “Required onboarding data”.</li>
+              <li>Run in <strong>Dry Run</strong> mode for 1–2 hires, then switch the toggle to <strong>Active</strong>.</li>
+            </ol>
+          </section>
+        </article>
+
+        <!-- RIGHT COLUMN -->
+        <aside class="template-sidebar">
+          <div class="card">
+            <h3>Template summary</h3>
+            <ul class="key-facts-list">
+              <li><strong>Primary trigger:</strong> New hire created in HRIS</li>
+              <li><strong>Runtime:</strong> Near real-time (seconds)</li>
+              <li><strong>Best for:</strong> 50–2,000 employee orgs</li>
+              <li><strong>Owner:</strong> IT · People Ops</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Best practice defaults</h3>
+            <ul>
+              <li>Username format: <code>firstInitial + lastName</code></li>
+              <li>Standard “Day One” app bundle per department</li>
+              <li>All runs logged for audit and access reviews</li>
+              <li>Easy to clone per region or business unit</li>
+            </ul>
+          </div>
+
+          <div class="card nova-callout">
+            <h3>Nova will help you…</h3>
+            <ul>
+              <li>Spot inconsistent department naming across systems.</li>
+              <li>Visualize where onboarding gets stuck most often.</li>
+              <li>Summarize onboarding runs for audits or security reviews.</li>
+            </ul>
+          </div>
+        </aside>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
 
