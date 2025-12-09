@@ -1,0 +1,399 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Template: Post-Implementation Check-In | SyncToScale</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Nova / Botpress -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
+  <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
+</head>
+
+<body>
+  <!-- SITE HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">S</span>
+        <span class="logo-text">SyncToScale</span>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="docs.html">Docs</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+    <div class="container template-layout">
+
+      <!-- BREADCRUMB -->
+      <nav class="doc-breadcrumb">
+        <a href="templates.html">Templates</a>
+        <span>›</span>
+        <span>Post-Implementation Check-In</span>
+      </nav>
+
+      <!-- PAGE HEADER -->
+      <header class="page-header">
+        <div class="page-header-top">
+          <h1>Post-Implementation Check-In</h1>
+          <span class="badge badge-nova">Template</span>
+        </div>
+
+        <p class="page-subtitle">
+          Automatically follow up with customers shortly after implementation.
+          Capture early sentiment, usage signals, and Nova insights to help CSMs take proactive action.
+        </p>
+
+        <div class="page-meta-row">
+          <span class="pill pill-soft">Category: Customer Success</span>
+          <span class="pill pill-soft">Difficulty: Beginner</span>
+          <span class="pill pill-soft">Trigger: X days after implementation completion</span>
+          <span class="pill pill-soft">Systems: CRM · CS Tool · Email · Slack · Product Analytics</span>
+        </div>
+      </header>
+
+      <!-- MAIN GRID -->
+      <section class="template-main-grid">
+
+        <!-- LEFT COLUMN -->
+        <article class="template-main">
+
+          <!-- OVERVIEW -->
+          <section id="overview" class="doc-section">
+            <h2>Overview</h2>
+            <p>
+              The <strong>Post-Implementation Check-In</strong> template ensures no customer falls through
+              the cracks in the critical early period after onboarding. A check-in message, sentiment request,
+              and usage summary are automatically sent to the primary contact, with Nova analyzing the results
+              and surfacing early-warning risks for the CSM.
+            </p>
+
+            <div class="info-grid">
+              <div class="info-card">
+                <h3>When to use this template</h3>
+                <ul>
+                  <li>You want structured follow-up after onboarding completes.</li>
+                  <li>CSMs are manually tracking which customers need check-ins.</li>
+                  <li>You want Nova to detect early churn or dissatisfaction signals.</li>
+                  <li>You want to standardize sentiment and feedback capture.</li>
+                </ul>
+              </div>
+
+              <div class="info-card">
+                <h3>What this template automates</h3>
+                <ul>
+                  <li>Sends a check-in email or Slack message to the customer.</li>
+                  <li>Shares early usage insights.</li>
+                  <li>Collects sentiment and feedback in a structured format.</li>
+                  <li>Logs results to CRM or CS platform.</li>
+                  <li>Surfaces Nova insights for the CSM.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- HOW IT WORKS -->
+          <section id="how-it-works" class="doc-section">
+            <h2>How it works</h2>
+            <ol class="step-list">
+              <li>Implementation is marked "Complete" in CRM or CS tool.</li>
+              <li>SyncToScale waits the configured number of days (e.g., 7, 14, or 30).</li>
+              <li>Sends automated check-in message with tailored usage insights.</li>
+              <li>Collects response + sentiment score.</li>
+              <li>Logs the check-in outcome to your CS platform.</li>
+              <li>Nova evaluates risk and recommends follow-up actions.</li>
+            </ol>
+          </section>
+
+          <!-- WORKFLOW STEPS -->
+          <section id="workflow-steps" class="doc-section">
+            <h2>Workflow steps</h2>
+
+            <ol class="step-list step-list-detailed">
+
+              <li>
+                <h3>Step 1 — Trigger: Implementation complete</h3>
+                <p>
+                  Runs when the implementation project is moved to a terminal status like
+                  <code>Completed</code>, <code>Live</code>, or <code>Onboarding Done</code>.
+                </p>
+              </li>
+
+              <li>
+                <h3>Step 2 — Wait X days</h3>
+                <p>
+                  A delay is applied to allow customers time to begin using the product and form early impressions.
+                </p>
+              </li>
+
+              <li>
+                <h3>Step 3 — Pull key usage data</h3>
+                <p>
+                  SyncToScale fetches product insights such as:
+                </p>
+                <ul>
+                  <li>Active users</li>
+                  <li>Adoption progress by feature</li>
+                  <li>Support tickets created in the first week</li>
+                  <li>Any errors or blocked workflows*</li>
+                </ul>
+              </li>
+
+              <li>
+                <h3>Step 4 — Create & send check-in message</h3>
+                <p>
+                  A personalized check-in email or Slack message is automatically sent to the primary contact.
+                </p>
+
+                <div class="nova-callout">
+                  <h4>Message includes:</h4>
+                  <ul>
+                    <li>Thank you + congratulations</li>
+                    <li>Usage highlights</li>
+                    <li>Ask for sentiment (1–5 scale)</li>
+                    <li>Open-ended feedback prompt</li>
+                    <li>Link to request support or schedule a follow-up call</li>
+                  </ul>
+                </div>
+              </li>
+
+              <li>
+                <h3>Step 5 — Log the check-in</h3>
+                <p>
+                  SyncToScale saves:
+                </p>
+                <ul>
+                  <li>Sentiment score</li>
+                  <li>Feedback</li>
+                  <li>Usage metrics</li>
+                  <li>Nova insights</li>
+                </ul>
+              </li>
+
+              <li>
+                <h3>Step 6 — Notify the CSM</h3>
+                <p>
+                  A Slack or email summary is sent to the CSM with Nova’s analysis and recommended follow-up.
+                </p>
+              </li>
+
+            </ol>
+          </section>
+
+          <!-- MAPPINGS -->
+          <section id="data-mapping" class="doc-section">
+            <h2>Field mappings</h2>
+
+            <h3>CRM / CS Tool → Check-In Message</h3>
+            <div class="table-wrapper">
+              <table class="mapping-table">
+                <thead>
+                  <tr>
+                    <th>Source Field</th>
+                    <th>Transform</th>
+                    <th>Mapped To</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>Account.Name</code></td>
+                    <td>None</td>
+                    <td>Message greeting</td>
+                  </tr>
+                  <tr>
+                    <td><code>PrimaryContact.Email</code></td>
+                    <td>Lowercase validation</td>
+                    <td>Recipient</td>
+                  </tr>
+                  <tr>
+                    <td><code>CSM.Email</code></td>
+                    <td>None</td>
+                    <td>CC / internal notification</td>
+                  </tr>
+                  <tr>
+                    <td><code>GoLiveDate__c</code></td>
+                    <td>Calculate days since launch</td>
+                    <td>Message context</td>
+                  </tr>
+                  <tr>
+                    <td>Usage metrics (API)</td>
+                    <td>Summaries</td>
+                    <td>Usage insights section</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3>Usage analytics → Insights bundle</h3>
+            <div class="table-wrapper">
+              <table class="mapping-table">
+                <thead>
+                  <tr>
+                    <th>Metric</th>
+                    <th>Transform</th>
+                    <th>Insight</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>User logins</td>
+                    <td>Compare to baseline</td>
+                    <td>Adoption level</td>
+                  </tr>
+                  <tr>
+                    <td>Feature usage percentages</td>
+                    <td>Identify unused key features</td>
+                    <td>Suggested follow-up topics</td>
+                  </tr>
+                  <tr>
+                    <td>Ticket volume</td>
+                    <td>Sum first 14 days</td>
+                    <td>Experience health indicator</td>
+                  </tr>
+                  <tr>
+                    <td>Error frequency</td>
+                    <td>Pattern detection</td>
+                    <td>Potential blockers</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- SAMPLE JSON -->
+          <section id="sample-payloads" class="doc-section">
+            <h2>Sample JSON payloads</h2>
+
+            <h3>Trigger event — Implementation completed</h3>
+            <pre class="code-block"><code>{
+  "eventId": "evt_01J2POSTIMPL",
+  "eventType": "onboarding.completed",
+  "source": "cs_platform",
+  "payload": {
+    "accountId": "ACCT-3812",
+    "accountName": "BrightWave Media",
+    "primaryContact": {
+      "name": "Jordan Ellis",
+      "email": "jordan.ellis@brightwavemedia.com"
+    },
+    "csm": {
+      "name": "Taylor Reed",
+      "email": "taylor.reed@demo-company.com"
+    },
+    "goLiveDate": "2025-04-01",
+    "products": ["Core Platform", "Analytics Suite"]
+  }
+}</code></pre>
+
+            <h3>Check-in message record (example)</h3>
+            <pre class="code-block"><code>{
+  "sentiment": 4,
+  "feedback": "We're loving the platform so far! One feature seems a bit confusing but we'll book time with our CSM.",
+  "usage": {
+    "activeUsers": 34,
+    "loginsLast7Days": 120,
+    "features": {
+      "Dashboards": 82,
+      "Workflow Builder": 33,
+      "API": 12
+    }
+  },
+  "novaInsights": [
+    "Low adoption of Workflow Builder compared to similar customers.",
+    "High login volume suggests good early engagement.",
+    "Recommend scheduling an enablement call focused on automations."
+  ]
+}</code></pre>
+          </section>
+
+          <!-- ERROR HANDLING -->
+          <section id="error-handling" class="doc-section">
+            <h2>Error handling</h2>
+            <ul>
+              <li>If contact email is invalid, send fallback to CSM for manual outreach.</li>
+              <li>If analytics API is unavailable, send message without usage metrics but log Nova warning.</li>
+              <li>If customer does not respond, auto-send reminder after 5 days.</li>
+              <li>Duplicate check-ins are prevented for the same implementation record.</li>
+            </ul>
+
+            <h3>Sample warning</h3>
+            <pre class="code-block"><code>{
+  "runId": "run_01J2POSTIMPL",
+  "warning": "Usage analytics unavailable. Nova summary provided with limited data."
+}</code></pre>
+          </section>
+
+          <!-- NOVA INSIGHTS -->
+          <section id="nova-insights" class="doc-section">
+            <h2>Nova insights for this template</h2>
+            <ul>
+              <li>Highlights customers with low early adoption.</li>
+              <li>Detects correlations between ticket patterns and negative sentiment.</li>
+              <li>Identifies accounts needing early lifecycle intervention.</li>
+              <li>Provides CSMs with predictive churn signals.</li>
+            </ul>
+          </section>
+
+          <!-- SETUP -->
+          <section id="setup" class="doc-section">
+            <h2>Set up this template</h2>
+            <ol class="step-list">
+              <li>Open <strong>Post-Implementation Check-In</strong> in the Templates Library.</li>
+              <li>Connect CRM, CS Platform, Slack, Email, and Product Analytics tools.</li>
+              <li>Define the number of days after go-live to trigger the workflow.</li>
+              <li>Customize your check-in message content.</li>
+              <li>Enable Nova sentiment analysis and usage insight generation.</li>
+              <li>Activate the template.</li>
+            </ol>
+          </section>
+
+        </article>
+
+        <!-- RIGHT COLUMN -->
+        <aside class="template-sidebar">
+          <div class="card">
+            <h3>Template summary</h3>
+            <ul class="key-facts-list">
+              <li><strong>Trigger:</strong> Implementation completed → wait X days</li>
+              <li><strong>Runtime:</strong> Scheduled + event-driven</li>
+              <li><strong>Owner:</strong> Customer Success</li>
+              <li><strong>Systems:</strong> CRM · CS Platform · Analytics · Slack/Email</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Best practice defaults</h3>
+            <ul>
+              <li>Use 14 days as the standard follow-up window.</li>
+              <li>Include a simple 1–5 sentiment scale.</li>
+              <li>Send usage insights to the CSM even if the customer does not respond.</li>
+            </ul>
+          </div>
+
+          <div class="card nova-callout">
+            <h3>Nova will help you…</h3>
+            <ul>
+              <li>Spot at-risk accounts early.</li>
+              <li>Target low-usage customers for enablement.</li>
+              <li>Predict satisfaction outcomes from early behaviors.</li>
+            </ul>
+          </div>
+        </aside>
+
+      </section>
+    </div>
+  </main>
+</body>
+</html>
