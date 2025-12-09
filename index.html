@@ -60,13 +60,14 @@
       border-bottom: 2px solid #14b8a6;
     }
 
-    /* HERO */
+    /* HERO — Banner Only */
     .hero {
       width: 100%;
       height: 360px;
       background: url('https://c-mcswain.github.io/synctoscale-site/synctoscale-banner.png') center/cover no-repeat;
     }
 
+    /* SECTIONS */
     .section {
       padding: 60px 20px;
     }
@@ -172,22 +173,35 @@
       margin-top: 60px;
     }
 
-    /* Nova tooltip label */
-    .nova-label {
-      position: fixed;
-      bottom: 38px;
-      right: 90px;
-      background: rgba(0, 0, 0, 0.78);
-      color: white;
-      padding: 8px 14px;
-      border-radius: 12px;
-      font-size: 14px;
-      font-weight: 500;
-      opacity: 0;
-      transform: translateY(6px);
-      transition: opacity .25s ease, transform .25s ease;
-      pointer-events: none;
-      z-index: 999999;
+    /* ⭐ MINI + SCALING CHAT WIDGET (Free Plan Safe) ⭐ */
+    #bp-web-widget {
+      transform: scale(0.8);
+      transform-origin: bottom right;
+      right: 18px !important;
+      bottom: 18px !important;
+    }
+
+    #bp-web-widget .bpw-widget-container {
+      border-radius: 22px !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+      overflow: hidden !important;
+    }
+
+    /* Force Safari to use your updated PNG */
+    .bpw-floating-button::before {
+      content: "";
+      width: 40px;
+      height: 40px;
+      background-image: url('https://c-mcswain.github.io/synctoscale-site/assets/nova-icon.png?v=2');
+      background-size: contain !important;
+      background-repeat: no-repeat !important;
+      display: block;
+    }
+
+    @media (max-width: 600px) {
+      #bp-web-widget {
+        transform: scale(1);
+      }
     }
   </style>
 </head>
@@ -260,12 +274,34 @@
     </div>
   </section>
 
+  <!-- VALUE SECTION -->
+  <section id="value" class="section">
+    <div class="container value-flex">
+      <div class="value-text">
+        <h2>Why Teams Choose SyncToScale</h2>
+        <p>Businesses waste hours maintaining systems that should already talk to each other. SyncToScale eliminates gaps, giving your team reliable automation and real-time visibility.</p>
+
+        <ul class="value-list">
+          <li>✔ Real-time syncing across your entire workflow</li>
+          <li>✔ Zero-code automation engine</li>
+          <li>✔ Prevents duplicates and data inconsistencies</li>
+          <li>✔ Built for SaaS, HR, operations, and revenue teams</li>
+        </ul>
+      </div>
+
+      <div class="value-img">
+        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=900&q=60" alt="Dashboard mockup">
+      </div>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer>
     <p>SyncToScale — Portfolio Project by Christy</p>
   </footer>
 
-  <!-- ⭐ NOVA CHAT BUTTON + MINI FROSTED CHAT STYLES ⭐ -->
+
+  <!-- ⭐ NOVA CHAT BUTTON ⭐ -->
   <script>
     window.botpressWebChat.init({
       botId: "nova",
@@ -273,129 +309,21 @@
       botName: "Nova",
       hideWidget: false,
 
+      /* Replace launcher icon for ALL browsers */
       stylesheet: `
-     /* ==========================================================
-   MINI FLOATING CHAT — 200×280 + Frosted Glass Theme
-========================================================== */
-
-/* FORCE CHAT WINDOW SIZE */
-.bpw-widget-container,
-.bpw-layout,
-.bpw-chat-container,
-.bpw-chat-frame,
-iframe.bpw-extension,
-.bpw-widget-container iframe {
-  width: 200px !important;
-  height: 280px !important;
-  max-width: 200px !important;
-  max-height: 280px !important;
-  border-radius: 16px !important;
-  overflow: hidden !important;
-}
-
-/* MAIN FROSTED BACKGROUND */
-.bpw-layout,
-.bpw-chat-container,
-.bpw-chat-frame {
-  background: rgba(20, 20, 20, 0.20) !important;
-  backdrop-filter: blur(14px) saturate(140%) !important;
-  -webkit-backdrop-filter: blur(14px) saturate(140%) !important;
-}
-
-/* HEADER (smaller + frosted) */
-.bpw-header {
-  background: rgba(0, 0, 0, 0.25) !important;
-  backdrop-filter: blur(10px) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
-  border: none !important;
-  padding: 4px 6px !important;
-  min-height: 28px !important;
-}
-
-/* MESSAGE AREA */
-.bpw-body {
-  background: transparent !important;
-  padding: 4px !important;
-  height: calc(280px - 80px) !important;
-  border: none !important;
-}
-
-/* FOOTER INPUT AREA */
-.bpw-footer {
-  background: rgba(0, 0, 0, 0.25) !important;
-  backdrop-filter: blur(10px) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
-  border: none !important;
-  padding: 4px 6px !important;
-  min-height: 32px !important;
-}
-
-/* MESSAGE BUBBLES — frosted droplets */
-.bpw-message-container {
-  background: rgba(255, 255, 255, 0.12) !important;
-  border-radius: 12px !important;
-  color: #fff !important;
-  backdrop-filter: blur(8px) !important;
-  -webkit-backdrop-filter: blur(8px) !important;
-  font-size: 13px !important;
-  padding: 6px 8px !important;
-}
-
-.bpw-message-container.bot {
-  background: rgba(0, 0, 0, 0.28) !important;
-}
-
-/* INPUT BOX */
-.bpw-input textarea {
-  background: rgba(255, 255, 255, 0.12) !important;
-  border-radius: 8px !important;
-  padding: 4px 8px !important;
-  font-size: 12px !important;
-  color: #fff !important;
-}
-
-/* REMOVE HARD BORDERS / SHADOWS */
-.bpw-header,
-.bpw-footer,
-.bpw-body,
-.bpw-layout {
-  border: none !important;
-  box-shadow: none !important;
-}
-
-/* NOVA LAUNCHER BUTTON */
-.bpw-floating-button {
-  width: 68px !important;
-  height: 68px !important;
-  border-radius: 50% !important;
-  background: radial-gradient(circle at 30% 30%, #41d1ff, #21e19f) !important;
-  box-shadow: 
-    0 0 18px rgba(33,225,159,0.5),
-    0 0 28px rgba(65,209,255,0.45) !important;
-  border: none !important;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-}
-
-.bpw-floating-button svg {
-  display: none !important;
-}
-
-.bpw-floating-button::before {
-  content: "";
-  width: 36px;
-  height: 36px;
-  background-image: url('https://c-mcswain.github.io/synctoscale-site/assets/nova-icon.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  display: block;
+        .bpw-floating-button svg { display: none !important; }
+        .bpw-floating-button::before {
+          content: "";
+          width: 40px;
+          height: 40px;
+          background-image: url('https://c-mcswain.github.io/synctoscale-site/assets/nova-icon.png?v=2');
+          background-size: contain !important;
+          background-repeat: no-repeat !important;
+          display: block;
         }
       `
     });
   </script>
-
-  <div class="nova-label">Chat with Nova</div>
 
 </body>
 </html>
