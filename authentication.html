@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Authentication | SyncToScale Docs</title>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <a href="index.html" class="logo-link">SyncToScale</a>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="faq.html">FAQ</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <h1>Authentication</h1>
+    <p>
+      SyncToScale supports OAuth 2.0, API Key authentication, and scoped access.
+      This guide explains how connections are created, refreshed, validated, and monitored.
+    </p>
+  </section>
+
+  <!-- PAGE CONTENT -->
+  <section class="doc-container">
+
+    <h2>Overview</h2>
+    <p>
+      Every integration in SyncToScale begins with a secure, validated connection.
+      Once authenticated, SyncToScale performs automated health checks, token refresh logic,
+      and permission validation to ensure every workflow run has access to required resources.
+    </p>
+
+    <hr />
+
+    <h2>OAuth 2.0 (Recommended)</h2>
+    <p>
+      Most modern applications (including HubSpot, Google Workspace, Slack, and Microsoft 365)
+      use OAuth 2.0. This allows end-users to grant and revoke access without sharing passwords.
+    </p>
+
+<pre>
+POST /auth/oauth/start
+{
+  "provider": "google",
+  "redirect_url": "https://synctoscale.me/oauth/callback"
+}
+</pre>
+
+    <h3>Token Response</h3>
+
+<pre>
+{
+  "access_token": "ya29.a0AW...",
+  "refresh_token": "1//0gH3...",
+  "expires_in": 3600,
+  "scope": "users.read calendar.readonly"
+}
+</pre>
+
+    <p>
+      SyncToScale stores encrypted tokens and refreshes them automatically.
+      If a refresh fails, the connection enters a <strong>Needs Attention</strong> state.
+    </p>
+
+    <hr />
+
+    <h2>API Key Authentication</h2>
+    <p>
+      Some systems (like older CRM or HRIS tools) use API keys. This method is simple but less secure,
+      as rotating credentials often requires the admin to manually replace the stored key.
+    </p>
+
+<pre>
+POST /auth/api-key
+{
+  "api_key": "sk_live_abc123",
+  "provider": "legacy_crm"
+}
+</pre>
+
+    <p>
+      SyncToScale validates the key by performing a lightweight test request to confirm scope and access.
+    </p>
+
+    <hr />
+
+    <h2>Connection Status & Health Checks</h2>
+    <p>
+      Connections are monitored continuously to ensure workflows don't fail due to expired credentials.
+      Health checks include:
+    </p>
+
+    <ul>
+      <li>Token validation</li>
+      <li>Permission scope checks</li>
+      <li>Rate limit monitoring</li>
+      <li>Endpoint availability checks</li>
+      <li>Recent authentication error detection</li>
+    </ul>
+
+<pre>
+GET /connections/{id}/health
+</pre>
+
+<pre>
+{
+  "status": "healthy",
+  "last_checked": "2025-01-18T12:44:00Z",
+  "warnings": []
+}
+</pre>
+
+    <hr />
+
+    <h2>Error States</h2>
+    <p>
+      SyncToScale automatically detects authentication-related issues and assigns
+      a clear state to help users troubleshoot quickly.
+    </p>
+
+    <ul>
+      <li><strong>Expired Token</strong> — Refresh failed, requires reconnect.</li>
+      <li><strong>Insufficient Permissions</strong> — Workflow requires scopes not granted.</li>
+      <li><strong>Invalid Credentials</strong> — API key or token no longer valid.</li>
+      <li><strong>Provider Outage</strong> — Upstream service unreachable.</li>
+      <li><strong>Rate Limit Lockout</strong> — Temporary hold triggered by remote provider.</li>
+    </ul>
+
+    <hr />
+
+    <h2>Best Practices</h2>
+    <p>
+      To ensure stable workflows, we recommend:
+    </p>
+
+    <ul>
+      <li>Using OAuth whenever possible</li>
+      <li>Granting the minimum required scopes for each integration</li>
+      <li>Rotating API keys every 90 days</li>
+      <li>Monitoring connection warnings via the Logs dashboard</li>
+    </ul>
+
+  </section>
+
+</body>
+</html>
