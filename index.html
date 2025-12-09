@@ -18,7 +18,9 @@
       color: #1e293b;
     }
 
-    /* NAVBAR */
+    /* -----------------------------------------
+       NAVBAR
+    ----------------------------------------- */
     header {
       position: sticky;
       top: 0;
@@ -42,7 +44,6 @@
       font-weight: 700;
       color: #0b3d3d;
       text-decoration: none;
-      -webkit-font-smoothing: antialiased;
     }
 
     .nav a {
@@ -61,34 +62,32 @@
       border-bottom: 2px solid #14b8a6;
     }
 
-    /* HERO — Fully Responsive (no more cut-off on mobile) */
+    /* -----------------------------------------
+       HERO — RESPONSIVE, NO CROPPING, NO OVERFLOW
+    ----------------------------------------- */
     .hero {
       width: 100%;
-      background-image: url('https://c-mcswain.github.io/synctoscale-site/synctoscale-banner.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      overflow: hidden;
+      height: 360px;
+      background: url('https://c-mcswain.github.io/synctoscale-site/synctoscale-banner.png') center/cover no-repeat;
+      margin: 0;
+      padding: 0;
     }
 
-    /* Maintain consistent ratio on all screens */
-    .hero {
-      aspect-ratio: 16 / 9;
-    }
-
-    @media (max-width: 768px) {
+    @media (max-width: 600px) {
       .hero {
-        aspect-ratio: 1 / 1; /* Square crop on phones */
-        background-position: top center;
+        height: 220px;
+        background-position: top;
       }
     }
 
-    /* TIGHT spacing fix between hero and next section */
+    /* Tight spacing between hero + next section */
     .hero + .section {
       padding-top: 10px !important;
     }
 
-    /* SECTIONS */
+    /* -----------------------------------------
+       SECTIONS
+    ----------------------------------------- */
     .section {
       padding: 60px 20px;
     }
@@ -103,7 +102,9 @@
       margin-bottom: 40px;
     }
 
-    /* INTEGRATIONS GRID */
+    /* -----------------------------------------
+       INTEGRATIONS GRID
+    ----------------------------------------- */
     .integrations-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
@@ -126,12 +127,16 @@
       transform: scale(1.1);
     }
 
-    /* ALT BACKGROUND */
+    /* -----------------------------------------
+       ALT SECTION
+    ----------------------------------------- */
     .alt-bg {
       background: #eefdfb;
     }
 
-    /* HOW IT WORKS */
+    /* -----------------------------------------
+       HOW IT WORKS
+    ----------------------------------------- */
     .hiw-grid {
       display: flex;
       flex-wrap: wrap;
@@ -154,7 +159,9 @@
       box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
     }
 
-    /* VALUE SECTION */
+    /* -----------------------------------------
+       VALUE SECTION
+    ----------------------------------------- */
     .value-flex {
       display: flex;
       flex-wrap: wrap;
@@ -185,7 +192,9 @@
       font-size: 1.05rem;
     }
 
-    /* FOOTER */
+    /* -----------------------------------------
+       FOOTER
+    ----------------------------------------- */
     footer {
       background: #0b3d3d;
       color: #cbd5e1;
@@ -194,7 +203,9 @@
       margin-top: 60px;
     }
 
-    /* NOVA LABEL */
+    /* -----------------------------------------
+       NOVA LABEL (Hover Tooltip)
+    ----------------------------------------- */
     .nova-label {
       position: fixed;
       bottom: 38px;
@@ -308,7 +319,7 @@
     <p>SyncToScale — Portfolio Project by Christy</p>
   </footer>
 
-  <!-- BOTPRESS WIDGET -->
+  <!-- NOVA CHAT BUTTON -->
   <script>
     window.botpressWebChat.init({
       botId: "nova",
@@ -322,10 +333,17 @@
           height: 68px !important;
           border-radius: 50% !important;
           background: radial-gradient(circle at 30% 30%, #41d1ff, #21e19f) !important;
-          box-shadow: 
+          box-shadow:
             0 0 18px rgba(33, 225, 159, 0.5),
             0 0 28px rgba(65, 209, 255, 0.45) !important;
           border: none !important;
+          display: flex !important;
+          justify-content: center !important;
+          align-items: center !important;
+        }
+
+        .bpw-floating-button svg {
+          display: none !important;
         }
 
         .bpw-floating-button::before {
@@ -336,6 +354,11 @@
           background-size: contain;
           background-repeat: no-repeat;
           display: block;
+        }
+
+        .bpw-floating-button:hover + .nova-label {
+          opacity: 1;
+          transform: translateY(0);
         }
       `
     });
