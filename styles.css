@@ -1,10 +1,10 @@
 /* ======================================================
-   SYNC-TO-SCALE — COMPLETE MERGED SITE STYLESHEET
-   Unified across all pages
+   SYNC-TO-SCALE — FINAL UNIFIED DESIGN SYSTEM
+   Modern Light SaaS (Design Style A)
 ====================================================== */
 
 /* ------------------------------------------------------
-   BASE TOKEN SYSTEM
+   BASE TOKENS
 ------------------------------------------------------ */
 
 :root {
@@ -14,14 +14,14 @@
   --text-dark: #1e293b;
   --text-medium: #475569;
 
-  --primary: #0ea5e9;              /* Teal/blue */
+  --primary: #0ea5e9;
   --primary-hover: #0284c7;
 
-  --nova-gradient-start: #41d1ff;
-  --nova-gradient-end: #21e19f;
+  --nova-start: #41d1ff;
+  --nova-end: #21e19f;
 
-  --border-light: #e2e8f0;
   --radius: 14px;
+  --border-light: #e2e8f0;
 
   --shadow-sm: 0 2px 4px rgba(0,0,0,0.04);
   --shadow-md: 0 6px 14px rgba(0,0,0,0.08);
@@ -37,7 +37,7 @@ body {
 }
 
 /* ------------------------------------------------------
-   GLOBAL CONTAINERS
+   CONTAINERS
 ------------------------------------------------------ */
 
 .container {
@@ -50,12 +50,6 @@ body {
   padding: 60px 0;
 }
 
-.section h2,
-.page-hero h1 {
-  font-weight: 700;
-  margin-bottom: 15px;
-}
-
 /* ------------------------------------------------------
    NAVBAR
 ------------------------------------------------------ */
@@ -64,23 +58,23 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255,255,255,0.9);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-light);
 }
 
-header .container {
-  height: 60px;
+header .header-inner {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+  height: 60px;
 }
 
-.logo a {
-  font-weight: 700;
-  font-size: 20px;
+.logo-link {
   color: var(--text-dark);
   text-decoration: none;
+  font-weight: 700;
+  font-size: 20px;
 }
 
 .nav a {
@@ -96,45 +90,35 @@ header .container {
 }
 
 /* ------------------------------------------------------
-   HERO (Shared)
+   HERO SECTIONS (shared)
 ------------------------------------------------------ */
 
-.page-hero,
-.resources-hero {
-  text-align: center;
+.page-hero {
   padding: 60px 20px;
-  background: linear-gradient(
-    180deg,
-    #eefdfb 0%,
-    #ffffff 90%
-  );
+  text-align: center;
+  background: linear-gradient(180deg, #eefdfb 0%, #ffffff 90%);
   border-bottom: 1px solid var(--border-light);
 }
 
-.page-hero h1,
-.resources-hero h1 {
+.page-hero h1 {
   font-size: 40px;
+  font-weight: 700;
   margin-bottom: 10px;
 }
 
-.page-hero p,
-.resources-hero p {
+.page-hero p {
   font-size: 17px;
   color: var(--text-medium);
-  max-width: 600px;
+  max-width: 650px;
   margin: 0 auto 20px;
 }
 
-/* CTA BUTTON */
+/* CTA Button */
 .cta-btn {
   display: inline-block;
+  background: linear-gradient(90deg, var(--nova-start), var(--nova-end));
   padding: 12px 26px;
   border-radius: 10px;
-  background: linear-gradient(
-    90deg,
-    var(--nova-gradient-start),
-    var(--nova-gradient-end)
-  );
   color: white;
   font-weight: 600;
   text-decoration: none;
@@ -152,6 +136,7 @@ header .container {
 
 .card,
 .resource-card,
+.doc-card,
 .template-card,
 .api-card {
   background: var(--bg-white);
@@ -160,10 +145,13 @@ header .container {
   padding: 24px;
   box-shadow: var(--shadow-sm);
   transition: 0.2s ease;
+  text-decoration: none;
+  color: var(--text-dark);
 }
 
 .card:hover,
 .resource-card:hover,
+.doc-card:hover,
 .template-card:hover,
 .api-card:hover {
   transform: translateY(-4px);
@@ -173,103 +161,102 @@ header .container {
 
 .card h3,
 .resource-card h3,
+.doc-card h3,
 .template-card h3 {
   margin-top: 0;
+  margin-bottom: 10px;
   font-size: 20px;
   font-weight: 600;
 }
 
 /* ------------------------------------------------------
-   RESOURCES PAGE (CLEAN FINAL VERSION)
+   GRID SYSTEMS
 ------------------------------------------------------ */
 
-.resources-grid {
-  padding: 60px 0;
+.resources-grid,
+.docs-grid,
+.template-grid,
+.api-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 28px;
+  gap: 24px;
 }
 
-.resource-card {
-  text-decoration: none;
-  color: var(--text-dark);
+/* ------------------------------------------------------
+   RESOURCES PAGE
+------------------------------------------------------ */
+
+.resources-hero {
+  padding: 60px 20px;
+  text-align: center;
+  background: linear-gradient(180deg, #eefdfb 0%, #ffffff 90%);
+  border-bottom: 1px solid var(--border-light);
 }
 
-.resource-card h3 {
-  color: var(--primary-hover);
-  margin-bottom: 10px;
+.resources-hero h1 {
+  font-size: 40px;
+  margin-bottom: 6px;
 }
 
-.resource-card p {
-  font-size: 15px;
-  color: var(--text-medium);
+.resources-hero p {
+  font-size: 17px;
+  max-width: 600px;
+  margin: 0 auto 20px;
 }
 
 .icon-placeholder {
   font-size: 32px;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 
 /* ------------------------------------------------------
-   TEMPLATES GRID
+   DOCS HOMEPAGE (Automation Style)
 ------------------------------------------------------ */
 
-.template-grid {
-  display: grid;
-  gap: 24px;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  margin-top: 20px;
+.docs-grid {
+  margin-top: 40px;
 }
 
-/* ------------------------------------------------------
-   FAQ PAGE STYLING
------------------------------------------------------- */
-
-.faq-page {
-  padding: 80px 20px;
+.doc-card p {
+  color: var(--text-medium);
+  font-size: 15px;
 }
 
-.faq-card {
-  padding: 28px;
-  border-radius: 14px;
-  box-shadow: var(--shadow-sm);
-}
-
-.faq-header {
-  display: flex;
-  justify-content: space-between;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 18px;
-}
-
-.faq-body {
-  display: none;
-  margin-top: 12px;
-  font-size: 16px;
-}
-
-/* ------------------------------------------------------
-   DOCS / API PAGE
------------------------------------------------------- */
-
-.doc-container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 40px 20px;
-}
-
+/* Code Blocks */
 pre {
   background: #f1f5f9;
   padding: 18px;
   border-radius: 8px;
   border: 1px solid var(--border-light);
-  font-size: 14px;
   overflow-x: auto;
+  font-size: 14px;
 }
 
 /* ------------------------------------------------------
-   BOTPRESS NOVA WIDGET (MINI)
+   FAQ (cleaned + minimal)
+------------------------------------------------------ */
+
+.faq-card {
+  border-radius: 14px;
+  box-shadow: var(--shadow-sm);
+  padding: 24px;
+}
+
+.faq-header {
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.faq-body {
+  display: none;
+  margin-top: 14px;
+  color: var(--text-medium);
+  font-size: 16px;
+}
+
+/* ------------------------------------------------------
+   BOTPRESS NOVA WIDGET
 ------------------------------------------------------ */
 
 #bp-web-widget {
@@ -279,17 +266,17 @@ pre {
   bottom: 16px !important;
 }
 
-#bp-web-widget iframe {
-  border-radius: 22px !important;
-}
-
 #bp-web-widget .bpw-widget-container {
   border-radius: 22px !important;
   box-shadow: 0 10px 30px rgba(0,0,0,0.35) !important;
   overflow: hidden !important;
 }
 
-/* Mobile — full size */
+#bp-web-widget iframe {
+  border-radius: 22px !important;
+}
+
+/* Full size on mobile */
 @media (max-width: 600px) {
   #bp-web-widget {
     transform: scale(1);
