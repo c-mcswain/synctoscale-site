@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Template: Stale Opportunities Digest | SyncToScale</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Nova / Botpress -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
+  <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
+</head>
+
+<body>
+
+  <!-- SITE HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">S</span>
+        <span class="logo-text">SyncToScale</span>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="docs.html">Docs</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+    <div class="container template-layout">
+
+      <!-- BREADCRUMB -->
+      <nav class="doc-breadcrumb">
+        <a href="templates.html">Templates</a>
+        <span>›</span>
+        <span>Stale Opportunities Digest</span>
+      </nav>
+
+      <!-- PAGE HEADER -->
+      <header class="page-header">
+        <div class="page-header-top">
+          <h1>Stale Opportunities Digest</h1>
+          <span class="badge badge-nova">Template</span>
+        </div>
+
+        <p class="page-subtitle">
+          Automatically surface aging pipeline deals that haven’t been touched, updated, or progressed.
+          Send weekly digests to reps and managers — with Nova highlighting risk, next steps, and ICP fit.
+        </p>
+
+        <div class="page-meta-row">
+          <span class="pill pill-soft">Category: CRM & RevOps</span>
+          <span class="pill pill-soft">Difficulty: Beginner</span>
+          <span class="pill pill-soft">Trigger: Scheduled (Weekly)</span>
+          <span class="pill pill-soft">Systems: CRM · Slack · Email · Nova</span>
+        </div>
+      </header>
+
+      <!-- MAIN GRID -->
+      <section class="template-main-grid">
+
+        <!-- LEFT COLUMN -->
+        <article class="template-main">
+
+          <!-- OVERVIEW -->
+          <section id="overview" class="doc-section">
+            <h2>Overview</h2>
+            <p>
+              The <strong>Stale Opportunities Digest</strong> template automatically compiles a weekly summary of
+              pipeline opportunities that haven’t moved, haven’t been contacted recently, or show signs of going cold.
+              Nova reviews each deal for risk, identifies possible next steps, and surfaces which reps or segments
+              need the most attention.
+            </p>
+
+            <div class="info-grid">
+              <div class="info-card">
+                <h3>When to use this template</h3>
+                <ul>
+                  <li>Your pipeline reviews rely on manual spreadsheets or ad-hoc digging.</li>
+                  <li>Reps forget to update opportunities regularly.</li>
+                  <li>Sales managers want proactive visibility into aging deals.</li>
+                  <li>You want Nova to help prioritize follow-up actions.</li>
+                </ul>
+              </div>
+
+              <div class="info-card">
+                <h3>What this template automates</h3>
+                <ul>
+                  <li>Weekly scan for stale, inactive, or aging opportunities.</li>
+                  <li>Summaries delivered to AEs, SDRs, and managers.</li>
+                  <li>Nova commentary on risk, recommended actions, and likelihood of revival.</li>
+                  <li>Pipeline hygiene insights for RevOps.</li>
+                  <li>Optional auto-reminders for reps with lots of stale pipeline.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- HOW IT WORKS -->
+          <section id="how-it-works" class="doc-section">
+            <h2>How it works</h2>
+            <ol class="step-list">
+              <li>A weekly scheduled job queries CRM for all open opportunities.</li>
+              <li>SyncToScale filters deals meeting “stale” criteria.</li>
+              <li>Nova analyzes risk indicators and suggests next actions.</li>
+              <li>A digest is generated, grouped by rep or segment.</li>
+              <li>Slack/Email sends the digest automatically.</li>
+              <li>RevOps receives a macro-level summary of pipeline hygiene.</li>
+            </ol>
+          </section>
+
+          <!-- WORKFLOW STEPS -->
+          <section id="workflow-steps" class="doc-section">
+            <h2>Workflow steps</h2>
+
+            <ol class="step-list step-list-detailed">
+
+              <li>
+                <h3>Step 1 — Scheduled weekly trigger</h3>
+                <p>
+                  Workflow runs weekly (default: Mondays 8 AM). Adjustable to any cadence.
+                </p>
+              </li>
+
+              <li>
+                <h3>Step 2 — Query opportunities</h3>
+                <p>
+                  Filters include:
+                </p>
+                <ul>
+                  <li>No activity in X days (default: 14)</li>
+                  <li>No stage movement in X days (default: 21)</li>
+                  <li>Past close date</li>
+                  <li>Low engagement score (optional)</li>
+                </ul>
+              </li>
+
+              <li>
+                <h3>Step 3 — Nova stale-deal evaluation</h3>
+                <p>
+                  Nova scores each deal on:
+                </p>
+                <div class="nova-callout">
+                  <ul>
+                    <li>Risk of loss</li>
+                    <li>ICP fit</li>
+                    <li>Engagement trends</li>
+                    <li>Recommmended next steps</li>
+                    <li>Opportunity age vs. typical win cycle</li>
+                  </ul>
+                </div>
+              </li>
+
+              <li>
+                <h3>Step 4 — Build digest</h3>
+                <p>
+                  Deals are grouped by owner, segment, or region and assembled into Slack/email digest format.
+                </p>
+              </li>
+
+              <li>
+                <h3>Step 5 — Send notifications</h3>
+                <p>
+                  AEs and SDRs receive personalized lists; managers receive rollups.
+                </p>
+              </li>
+
+              <li>
+                <h3>Step 6 — Log insights</h3>
+                <p>
+                  Summary metrics are written to CRM or an analytics warehouse for pipeline health reporting.
+                </p>
+              </li>
+
+            </ol>
+          </section>
+
+          <!-- MAPPINGS -->
+          <section id="data-mapping" class="doc-section">
+            <h2>Field mappings</h2>
+
+            <h3>Opportunity → Digest</h3>
+            <div class="table-wrapper">
+              <table class="mapping-table">
+                <thead>
+                  <tr>
+                    <th>CRM Field</th>
+                    <th>Transform</th>
+                    <th>Digest Field</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>Name</code></td>
+                    <td>None</td>
+                    <td>Opportunity Name</td>
+                  </tr>
+                  <tr>
+                    <td><code>Amount</code></td>
+                    <td>Currency formatting</td>
+                    <td>Deal Value</td>
+                  </tr>
+                  <tr>
+                    <td><code>Owner.Name</code></td>
+                    <td>None</td>
+                    <td>Assigned Rep</td>
+                  </tr>
+                  <tr>
+                    <td><code>LastActivityDate</code></td>
+                    <td>Days since last activity</td>
+                    <td>Staleness Score</td>
+                  </tr>
+                  <tr>
+                    <td><code>StageName</code></td>
+                    <td>Normalize stage</td>
+                    <td>Pipeline Stage</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3>Nova risk evaluation</h3>
+            <div class="table-wrapper">
+              <table class="mapping-table">
+                <thead>
+                  <tr>
+                    <th>Metric</th>
+                    <th>Transform</th>
+                    <th>Insight</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Stage age</td>
+                    <td>Compare to win-cycle baseline</td>
+                    <td>Risk of stall</td>
+                  </tr>
+                  <tr>
+                    <td>Engagement signals</td>
+                    <td>Summarize activity logs</td>
+                    <td>Suggested next touch</td>
+                  </tr>
+                  <tr>
+                    <td>ICP score</td>
+                    <td>Analyze firmographics</td>
+                    <td>Likelihood of revival</td>
+                  </tr>
+                  <tr>
+                    <td>Close-date drift</td>
+                    <td>Calculate delta</td>
+                    <td>Forecast at-risk</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </section>
+
+          <!-- SAMPLE JSON -->
+          <section id="sample-payloads" class="doc-section">
+            <h2>Sample JSON payloads</h2>
+
+            <h3>Sample stale opportunity record</h3>
+            <pre class="code-block"><code>{
+  "opportunityId": "0065g00000WIN999",
+  "name": "Acme – Enterprise Expansion",
+  "amount": 85000,
+  "stage": "Proposal",
+  "owner": "alex.rivera@demo-company.com",
+  "daysSinceLastActivity": 23,
+  "daysInStage": 31,
+  "closeDate": "2025-03-15",
+  "novaInsights": {
+    "riskScore": 0.78,
+    "icpFit": "Medium",
+    "recommendedActions": [
+      "Send recap email with next steps.",
+      "Reconfirm timeline with champion.",
+      "Share ROI calculator to re-engage."
+    ]
+  }
+}</code></pre>
+
+            <h3>Digest example</h3>
+            <pre class="code-block"><code>{
+  "digestDate": "2025-04-08",
+  "owner": "Alex Rivera",
+  "opportunities": [
+    {
+      "name": "Acme – Enterprise Expansion",
+      "value": "$85,000",
+      "lastActivity": "23 days ago",
+      "stage": "Proposal",
+      "nova": {
+        "risk": "High",
+        "nextSteps": "Reconnect with champion; proposal stagnant."
+      }
+    }
+  ],
+  "summary": {
+    "totalStaleDeals": 4,
+    "totalValue": "$210,000",
+    "novaHighlights": [
+      "2 opportunities likely need requalification.",
+      "1 opportunity has mismatched close date expectations."
+    ]
+  }
+}</code></pre>
+          </section>
+
+          <!-- ERROR HANDLING -->
+          <section id="error-handling" class="doc-section">
+            <h2>Error handling</h2>
+            <ul>
+              <li>If CRM API fails, run resumes automatically in next scheduled window.</li>
+              <li>Missing rep assignments → notify Sales Ops.</li>
+              <li>Opportunities with invalid dates are excluded and logged.</li>
+              <li>Nova risk scores fallback to “Unknown” if analytics unavailable.</li>
+            </ul>
+
+            <h3>Example error</h3>
+            <pre class="code-block"><code>{
+  "runId": "run_01J2STALEGST",
+  "status": "warning",
+  "message": "5 opportunities missing LastActivityDate. Logged for cleanup."
+}</code></pre>
+          </section>
+
+          <!-- NOVA INSIGHTS -->
+          <section id="nova-insights" class="doc-section">
+            <h2>Nova insights for this template</h2>
+            <ul>
+              <li>Identifies reps with the most aging pipeline.</li>
+              <li>Predicts opportunity revival likelihood.</li>
+              <li>Shows patterns in stuck pipeline stages.</li>
+              <li>Improves forecast accuracy by addressing stale deals early.</li>
+            </ul>
+          </section>
+
+          <!-- SETUP -->
+          <section id="setup" class="doc-section">
+            <h2>Set up this template</h2>
+            <ol class="step-list">
+              <li>Select <strong>Stale Opportunities Digest</strong> in your Templates Library.</li>
+              <li>Connect your CRM + Slack/Email tools.</li>
+              <li>Define stale criteria (no activity in X days, etc.).</li>
+              <li>Configure digest grouping (by rep, region, segment).</li>
+              <li>Enable Nova risk evaluation and suggestions.</li>
+              <li>Turn on weekly schedule.</li>
+            </ol>
+          </section>
+
+        </article>
+
+        <!-- RIGHT COLUMN -->
+        <aside class="template-sidebar">
+
+          <div class="card">
+            <h3>Template summary</h3>
+            <ul class="key-facts-list">
+              <li><strong>Trigger:</strong> Weekly scheduled run</li>
+              <li><strong>Runtime:</strong> Batch + Nova analysis</li>
+              <li><strong>Owner:</strong> RevOps · Sales Management</li>
+              <li><strong>Systems:</strong> CRM · Slack/Email · Nova</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Best practice defaults</h3>
+            <ul>
+              <li>Consider 14 days of inactivity as “stale.”</li>
+              <li>Group digest by rep for clarity.</li>
+              <li>Only send manager digests for deals above a value threshold.</li>
+            </ul>
+          </div>
+
+          <div class="card nova-callout">
+            <h3>Nova will help you…</h3>
+            <ul>
+              <li>Spot stuck deals before forecast reviews.</li>
+              <li>Identify forgotten pipeline at risk of slipping.</li>
+              <li>Recommend personalized next steps per opportunity.</li>
+            </ul>
+          </div>
+
+        </aside>
+
+      </section>
+    </div>
+  </main>
+
+</body>
+</html>
+
