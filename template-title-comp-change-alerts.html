@@ -1,1 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8" />
+  <title>Template: Title or Compensation Change Alerts | SyncToScale</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Nova / Botpress -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
+  <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">S</span>
+        <span class="logo-text">SyncToScale</span>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="docs.html">Docs</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PAGE CONTENT -->
+  <main class="page-wrap">
+    <div class="container template-layout">
+
+      <!-- Breadcrumb -->
+      <nav class="doc-breadcrumb">
+        <a href="templates.html">Templates</a>
+        <span>›</span>
+        <span>Title or Compensation Change Alerts</span>
+      </nav>
+
+      <!-- Header -->
+      <header class="page-header">
+        <div class="page-header-top">
+          <h1>Title or Compensation Change Alerts</h1>
+          <span class="badge badge-nova">Template</span>
+        </div>
+
+        <p class="page-subtitle">
+          Automatically detect promotion, role change, or compensation adjustments within your HRIS and push real-time
+          alerts to managers, payroll, RevOps, and IT. Nova identifies risk patterns and validates missing or unexpected values.
+        </p>
+
+        <div class="page-meta-row">
+          <span class="pill pill-soft">Category: People Ops & Compliance</span>
+          <span class="pill pill-soft">Difficulty: Beginner</span>
+          <span class="pill pill-soft">Trigger: HRIS field update</span>
+          <span class="pill pill-soft">Systems: HRIS · Payroll · Identity · Slack</span>
+        </div>
+      </header>
+
+      <!-- MAIN GRID -->
+      <section class="template-main-grid">
+
+        <!-- LEFT COLUMN -->
+        <article class="template-main">
+
+          <!-- OVERVIEW -->
+          <section id="overview" class="doc-section">
+            <h2>Overview</h2>
+            <p>
+              The <strong>Title or Compensation Change Alerts</strong> template monitors HRIS updates for sensitive People Ops events:
+              promotions, lateral moves, salary adjustments, bonus changes, and other compensation-related updates.
+              When a change is detected, SyncToScale identifies what changed, who it impacts, and which teams must be notified.
+            </p>
+
+            <div class="info-grid">
+              <div class="info-card">
+                <h3>When to use this template</h3>
+                <ul>
+                  <li>You want instant alerts when job titles or pay bands change.</li>
+                  <li>Payroll and IT need to react quickly (system permissions, pay updates, role access, etc.).</li>
+                  <li>You want a consistent audit trail for compensation changes.</li>
+                  <li>You want Nova to check for anomalies or missing approval fields.</li>
+                </ul>
+              </div>
+
+              <div class="info-card">
+                <h3>What this template automates</h3>
+                <ul>
+                  <li>Detects HRIS changes on title, job code, salary, or pay band.</li>
+                  <li>Sends alerts to HR, Payroll, IT, or managers.</li>
+                  <li>Logs updates in an audit system or dashboard.</li>
+                  <li>Triggers access reviews or provisioning updates if needed.</li>
+                  <li>Uses Nova to validate fields and identify unusual entries.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- HOW IT WORKS -->
+          <section id="how-it-works" class="doc-section">
+            <h2>How it works</h2>
+            <ol class="step-list">
+              <li>An employee profile is updated in the HRIS.</li>
+              <li>SyncToScale detects specific field changes (title, department, compensation ranges).</li>
+              <li>Nova compares old vs new fields for anomalies or approval mismatches.</li>
+              <li>Internal teams are notified with details and next steps.</li>
+              <li>System updates (permissions, payroll adjustments) can trigger automatically.</li>
+            </ol>
+          </section>
+
+          <!-- WORKFLOW -->
+          <section id="workflow-steps" class="doc-section">
+            <h2>Workflow steps</h2>
+
+            <ol class="step-list step-list-detailed">
+
+              <li>
+                <h3>Step 1 — Trigger: HRIS employee updated</h3>
+                <p>
+                  The workflow runs whenever the HRIS sends a webhook event or API call with an updated employee profile.
+                </p>
+              </li>
+
+              <li>
+                <h3>Step 2 — Detect relevant field changes</h3>
+                <p>Changes monitored by default:</p>
+                <ul>
+                  <li><code>jobTitle</code></li>
+                  <li><code>jobCode</code></li>
+                  <li><code>department</code></li>
+                  <li><code>salary</code></li>
+                  <li><code>payBand</code></li>
+                  <li><code>manager</code></li>
+                </ul>
+
+                <div class="nova-callout">
+                  <strong>Nova checks:</strong>
+                  <ul>
+                    <li>Whether the new values are out of expected ranges.</li>
+                    <li>If mandatory fields (effective date, approver) are missing.</li>
+                    <li>If title changes conflict with other systems.</li>
+                  </ul>
+                </div>
+              </li>
+
+              <li>
+                <h3>Step 3 — Create a structured change summary</h3>
+                <p>Example:</p>
+                <pre class="code-block"><code>{
+  "employee": "Jordan Smith",
+  "changedFields": {
+    "jobTitle": { "old": "HRBP", "new": "Senior HRBP" },
+    "salary": { "old": 92000, "new": 108000 }
+  },
+  "effectiveDate": "2025-06-01"
+}</code></pre>
+              </li>
+
+              <li>
+                <h3>Step 4 — Notify relevant teams</h3>
+                <p>Notifications may be sent to:</p>
+                <ul>
+                  <li>HR / People Ops</li>
+                  <li>Payroll</li>
+                  <li>IT (for access adjustments)</li>
+                  <li>Manager(s)</li>
+                </ul>
+              </li>
+
+              <li>
+                <h3>Step 5 — Optional workflow actions</h3>
+                <p>Examples:</p>
+                <ul>
+                  <li>Trigger payroll compensation update task.</li>
+                  <li>Initiate IT access role review.</li>
+                  <li>Create approval-task in HRIS or project management tool.</li>
+                </ul>
+              </li>
+
+              <li>
+                <h3>Step 6 — Log change for compliance</h3>
+                <p>
+                  Each change is captured in an audit record along with Nova’s diagnostic scoring.
+                </p>
+              </li>
+
+            </ol>
+          </section>
+
+          <!-- FIELD MAPPING -->
+          <section id="data-mapping" class="doc-section">
+            <h2>Field mappings</h2>
+
+            <h3>HRIS → Change Alert</h3>
+            <div class="table-wrapper">
+              <table class="mapping-table">
+                <thead>
+                  <tr>
+                    <th>HRIS Field</th>
+                    <th>Transform</th>
+                    <th>Mapped Field</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>jobTitle</code></td>
+                    <td>None</td>
+                    <td><code>newTitle</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>salary</code></td>
+                    <td>Format as currency</td>
+                    <td><code>newSalary</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>effectiveDate</code></td>
+                    <td>ISO standard</td>
+                    <td><code>effectiveDate</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>approver</code></td>
+                    <td>Lookup by email</td>
+                    <td><code>approvedBy</code></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3>Alert metadata</h3>
+            <div class="table-wrapper">
+              <table class="mapping-table">
+                <thead>
+                  <tr>
+                    <th>Metadata</th>
+                    <th>Description</th>
+                    <th>Example</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>alertType</code></td>
+                    <td>Promotion, Transfer, Pay Change</td>
+                    <td>"Promotion"</td>
+                  </tr>
+                  <tr>
+                    <td><code>severity</code></td>
+                    <td>Flag based on degree of change</td>
+                    <td>"High"</td>
+                  </tr>
+                  <tr>
+                    <td><code>novaConfidence</code></td>
+                    <td>Nova’s accuracy confidence score</td>
+                    <td>0.94</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- SAMPLE JSON -->
+          <section id="sample-payloads" class="doc-section">
+            <h2>Sample JSON payloads</h2>
+
+            <h3>HRIS update payload</h3>
+            <pre class="code-block"><code>{
+  "event": "employee.updated",
+  "employeeId": "EMP-2219",
+  "changes": {
+    "jobTitle": { "old": "HRBP", "new": "Senior HRBP" },
+    "salary": { "old": 92000, "new": 108000 }
+  },
+  "effectiveDate": "2025-06-01"
+}</code></pre>
+
+            <h3>Alert object created</h3>
+            <pre class="code-block"><code>{
+  "alertId": "alert_01J2TITLE001",
+  "employeeId": "EMP-2219",
+  "alertType": "Compensation Adjustment",
+  "changedFields": {
+    "jobTitle": { "old": "HRBP", "new": "Senior HRBP" },
+    "salary": { "old": 92000, "new": 108000 }
+  },
+  "severity": "High",
+  "effectiveDate": "2025-06-01",
+  "novaConfidence": 0.94
+}</code></pre>
+
+            <h3>Slack notification</h3>
+            <pre class="code-block"><code>{
+  "channel": "hr-announcements",
+  "message": "🔔 *Compensation Change:* Jordan Smith promoted to *Senior HRBP*. Salary updated.",
+  "detailsUrl": "https://synctoscale.me/logs/alert_01J2TITLE001"
+}</code></pre>
+          </section>
+
+          <!-- ERROR HANDLING -->
+          <section id="error-handling" class="doc-section">
+            <h2>Error handling</h2>
+            <ul>
+              <li>If required fields (salary, approver, effective date) are missing, Nova flags the update.</li>
+              <li>Out-of-range salary changes get routed to HR for review.</li>
+              <li>Title changes that don’t match job code patterns are flagged.</li>
+            </ul>
+
+            <h3>Example diagnostic</h3>
+            <pre class="code-block"><code>{
+  "runId": "run_01J2TITLE",
+  "status": "warning",
+  "message": "Salary increase exceeds allowed range for pay band.",
+  "novaHint": "Verify comp approval record or adjust pay band thresholds."
+}</code></pre>
+          </section>
+
+          <!-- NOVA INSIGHTS -->
+          <section id="nova-insights" class="doc-section">
+            <h2>Nova insights for this template</h2>
+            <ul>
+              <li>Detects role changes that may require access updates or security reviews.</li>
+              <li>Highlights compensation changes that deviate from norms or approval paths.</li>
+              <li>Identifies inconsistent job titles across systems.</li>
+              <li>Predicts downstream process impact (payroll, IT provisioning, security clearance).</li>
+            </ul>
+          </section>
+
+          <!-- SETUP -->
+          <section id="setup" class="doc-section">
+            <h2>Set up this template</h2>
+            <ol class="step-list">
+              <li>Select <strong>Title or Compensation Change Alerts</strong> in the Templates Library.</li>
+              <li>Connect your HRIS, payroll, and Slack/Email systems.</li>
+              <li>Choose which fields trigger alerts.</li>
+              <li>Configure recipients for title, salary, or department changes.</li>
+              <li>Enable Nova anomaly detection for early warnings.</li>
+              <li>Activate the workflow.</li>
+            </ol>
+          </section>
+
+        </article>
+
+        <!-- RIGHT SIDEBAR -->
+        <aside class="template-sidebar">
+
+          <div class="card">
+            <h3>Template summary</h3>
+            <ul class="key-facts-list">
+              <li><strong>Trigger:</strong> HRIS profile update</li>
+              <li><strong>Runtime:</strong> Real-time</li>
+              <li><strong>Owner:</strong> HR · Payroll · IT Ops</li>
+              <li><strong>Systems:</strong> HRIS · Payroll · Slack/Email</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Best practices</h3>
+            <ul>
+              <li>Always check for effective dates before payroll runs.</li>
+              <li>Send IT notifications if job title implies permission changes.</li>
+              <li>Require approval metadata on salary changes.</li>
+            </ul>
+          </div>
+
+          <div class="card nova-callout">
+            <h3>Nova helps you…</h3>
+            <ul>
+              <li>Spot unusual compensation updates instantly.</li>
+              <li>Verify approval completeness.</li>
+              <li>Predict downstream access changes.</li>
+            </ul>
+          </div>
+
+        </aside>
+
+      </section>
+    </div>
+  </main>
+
+</body>
+</html>
