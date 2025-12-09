@@ -166,29 +166,6 @@
       padding-bottom: 12px;
     }
 
-    .pdf-cta {
-      margin-top: 14px;
-      border-radius: 14px;
-      padding: 12px 14px;
-      background: #0b3d3d;
-      color: #e2f3ff;
-      font-size: 0.92rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .pdf-cta a {
-      color: #e2f3ff;
-      font-size: 0.86rem;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.55);
-      text-decoration: none;
-    }
-
     footer {
       background: #0b3d3d;
       color: #cbd5e1;
@@ -218,7 +195,7 @@
 
 <body>
 
-  <!-- NAVBAR -->
+  <!-- NAVIGATION -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="logo">SyncToScale</a>
@@ -243,19 +220,16 @@
     </div>
   </section>
 
-  <!-- CONTENT -->
+  <!-- MAIN CONTENT -->
   <main class="section">
     <div class="container">
 
-      <!-- CTA -->
-      <div class="pdf-cta">
-        <p>Want a quick overview of the platform’s purpose?</p>
-        <a href="about.html">Learn more →</a>
-      </div>
-
-      <!-- GENERAL -->
+      <!-- GENERAL CATEGORY -->
       <h2 class="section-heading">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="#0f766e"><circle cx="12" cy="12" r="10" stroke="#0f766e" stroke-width="2" fill="none"/><path d="M12 7a2.5 2.5 0 00-1 4.8v.2h2v-.2A2.5 2.5 0 0012 7zM12 17h.01" stroke="#0f766e" stroke-width="2" stroke-linecap="round"/></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#0f766e">
+          <circle cx="12" cy="12" r="10" stroke="#0f766e" stroke-width="2" fill="none"/>
+          <path d="M12 7a2.5 2.5 0 00-1 4.8v.2h2v-.2A2.5 2.5 0 0012 7zM12 17h.01" stroke="#0f766e" stroke-width="2" stroke-linecap="round"/>
+        </svg>
         General Questions
       </h2>
 
@@ -267,7 +241,7 @@
             <span class="faq-icon">›</span>
           </button>
           <div class="faq-answer">
-            <p>SyncToScale is an automation and integration platform that connects business systems, synchronizes data, and orchestrates cross-team workflows. Organizations use it to reduce manual work, streamline operations, and maintain consistent, up-to-date information across tools.</p>
+            <p>SyncToScale is an automation and integration platform used to connect business systems, synchronize data, and orchestrate cross-team workflows. It reduces manual work by ensuring information flows reliably between tools.</p>
           </div>
         </div>
 
@@ -277,14 +251,14 @@
             <span class="faq-icon">›</span>
           </button>
           <div class="faq-answer">
-            <p>SyncToScale is designed for SaaS-centric teams that operate across multiple systems, including:</p>
+            <p>SyncToScale is designed for teams operating across multiple systems, including:</p>
             <ul>
               <li>Customer Success & Technical Account Management</li>
               <li>Implementation & Onboarding</li>
               <li>Support & Operations</li>
               <li>Revenue Operations & Product teams</li>
             </ul>
-            <p>It is built for organizations that need reliable workflow automation without heavy engineering investment.</p>
+            <p>It enables complex workflows without requiring engineering resources.</p>
           </div>
         </div>
 
@@ -309,44 +283,41 @@
             <span class="faq-icon">›</span>
           </button>
           <div class="faq-answer">
-            <p>SyncToScale supports multi-step automations across the entire customer lifecycle. Examples include:</p>
+            <p>SyncToScale supports multi-step automations across CRM, support, operations, and product tools. Common workflows include:</p>
             <ul>
-              <li>Customer onboarding workflows triggered by CRM updates</li>
-              <li>CSAT or NPS follow-up sequences</li>
-              <li>Automated ticket enrichment and routing</li>
-              <li>Usage or health-score monitoring alerts</li>
-              <li>Renewal and expansion playbook automation</li>
-              <li>Internal request routing between teams or departments</li>
+              <li>Customer onboarding sequences triggered by CRM updates</li>
+              <li>Automated ticket enrichment, routing, and tagging</li>
+              <li>Usage-based alerts for CS or TAM teams</li>
+              <li>Renewal and risk monitoring workflows</li>
+              <li>Internal operations routing and approvals</li>
             </ul>
-            <p>Triggers, actions, branching logic, and human approvals are all supported.</p>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question">
-            <span>How does Nova (the AI engine) work within the platform?</span>
+            <span>How does Nova (the AI engine) help automate work?</span>
             <span class="faq-icon">›</span>
           </button>
           <div class="faq-answer">
-            <p>Nova enhances workflows by providing AI-powered assistance such as:</p>
+            <p>Nova provides AI-powered support for decision-making and workflow generation. Capabilities include:</p>
             <ul>
-              <li>Summarizing long customer histories or ticket threads</li>
-              <li>Auto-classifying incoming requests and suggesting routing paths</li>
-              <li>Detecting patterns across accounts, tickets, or usage data</li>
-              <li>Drafting communications for customer-facing teams</li>
-              <li>Generating workflow steps from natural language instructions</li>
+              <li>Summarizing customer conversations or ticket histories</li>
+              <li>Auto-classifying inbound requests and suggesting next steps</li>
+              <li>Detecting early risk signals across accounts</li>
+              <li>Drafting customer-ready communication templates</li>
+              <li>Creating workflow steps from natural language prompts</li>
             </ul>
-            <p>Nova operates with a human-in-the-loop model to maintain clarity, accuracy, and oversight.</p>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question">
-            <span>Which integrations are supported?</span>
+            <span>Which integrations does SyncToScale support?</span>
             <span class="faq-icon">›</span>
           </button>
           <div class="faq-answer">
-            <p>SyncToScale provides pre-built connectors for commonly used SaaS platforms, including:</p>
+            <p>SyncToScale includes prebuilt connectors for:</p>
             <ul>
               <li>Salesforce</li>
               <li>HubSpot</li>
@@ -356,7 +327,7 @@
               <li>Asana</li>
               <li>Notion</li>
             </ul>
-            <p>Each connector supports triggers, actions, and field-level data mapping for workflow automation.</p>
+            <p>Each supports triggers, actions, and field mapping for cross-system automation.</p>
           </div>
         </div>
 
@@ -375,28 +346,27 @@
 
         <div class="faq-item">
           <button class="faq-question">
-            <span>What does SyncToScale demonstrate from a product perspective?</span>
+            <span>What does SyncToScale demonstrate about workflow thinking?</span>
             <span class="faq-icon">›</span>
           </button>
           <div class="faq-answer">
-            <p>The platform reflects modern expectations for automation tools, emphasizing:</p>
+            <p>The platform reflects modern automation standards, showcasing:</p>
             <ul>
-              <li>Clear, intuitive workflow communication</li>
-              <li>Cross-system thinking and operational awareness</li>
-              <li>Use of AI to enhance—not replace—human workflows</li>
-              <li>Practical, customer-centric language rather than technical jargon</li>
+              <li>Clear workflow logic and lifecycle awareness</li>
+              <li>Cross-functional process design thinking</li>
+              <li>Human-centered implementation of AI</li>
+              <li>Operational clarity across CS, TAM, Support, and Ops</li>
             </ul>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question">
-            <span>How does SyncToScale relate to real operational workflows?</span>
+            <span>How does SyncToScale model real-world SaaS processes?</span>
             <span class="faq-icon">›</span>
           </button>
           <div class="faq-answer">
-            <p>SyncToScale models real SaaS processes such as onboarding, risk monitoring, renewals, escalations, and internal operations. The workflows, terminology, and automation patterns reflect industry best practices and the everyday challenges of fast-moving teams.</p>
-            <p>This ensures the platform feels familiar and immediately useful to CS, TAM, support, and operations professionals.</p>
+            <p>Workflows are based on industry best practices in onboarding, risk management, lifecycle playbooks, escalations, and internal request handoffs. This ensures the platform aligns with how modern SaaS teams actually operate.</p>
           </div>
         </div>
 
@@ -412,16 +382,16 @@
 
   <!-- CHAT BUTTON -->
   <script>
-    // accordion logic
-    document.addEventListener('DOMContentLoaded', function () {
-      document.querySelectorAll('.faq-item').forEach(function (item) {
+    // Accordion behavior
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.faq-item').forEach(item => {
         const btn = item.querySelector('.faq-question');
         const answer = item.querySelector('.faq-answer');
 
-        btn.addEventListener('click', function () {
+        btn.addEventListener('click', () => {
           const isOpen = item.classList.contains('open');
 
-          document.querySelectorAll('.faq-item.open').forEach(function (openItem) {
+          document.querySelectorAll('.faq-item.open').forEach(openItem => {
             openItem.classList.remove('open');
             openItem.querySelector('.faq-answer').style.maxHeight = null;
           });
@@ -482,5 +452,4 @@
   <div class="nova-label">Chat with Nova</div>
 
 </body>
-
 </html>
