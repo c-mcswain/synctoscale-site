@@ -1,119 +1,372 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <title>About This Project | SyncToScale</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Botpress Webchat -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.4/inject.js"></script>
+  <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Inter, Arial, sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    }
+
+    header .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #0b3d3d;
+      text-decoration: none;
+    }
+
+    .nav a {
+      color: #0b3d3d;
+      margin-left: 26px;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      padding-bottom: 4px;
+      transition: color .2s ease, border-bottom .2s ease;
+      border-bottom: 2px solid transparent;
+    }
+
+    .nav a:hover {
+      color: #14b8a6;
+      border-bottom: 2px solid #14b8a6;
+    }
+
+    .section {
+      padding: 60px 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .hero-about {
+      padding: 50px 20px 36px;
+      background: radial-gradient(circle at 15% 20%, #41d1ff, #21e19f);
+      color: white;
+    }
+
+    .hero-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-chip {
+      display: inline-flex;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.2);
+      font-size: 0.78rem;
+      margin-bottom: 10px;
+    }
+
+    .hero-about h1 {
+      margin: 0 0 10px;
+      font-size: 2.1rem;
+    }
+
+    .hero-about p {
+      margin: 0;
+      max-width: 620px;
+      opacity: 0.96;
+    }
+
+    .hero-meta {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.6fr);
+      gap: 32px;
+      margin-top: 24px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 22px 22px 20px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 1.2rem;
+    }
+
+    .card p {
+      margin-top: 0;
+      font-size: 0.95rem;
+      color: #4b5563;
+    }
+
+    .card ul {
+      margin: 8px 0 0;
+      padding-left: 18px;
+      font-size: 0.94rem;
+      color: #4b5563;
+    }
+
+    .meta-tag {
+      display: inline-flex;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: #ecfeff;
+      font-size: 0.78rem;
+      color: #0f766e;
+      margin-bottom: 6px;
+    }
+
+    .lede {
+      font-size: 1rem;
+      color: #0f172a;
+    }
+
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .stack-chip {
+      font-size: 0.9rem;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #eff6ff;
+      color: #1e40af;
+      display: inline-block;
+      margin: 4px 4px 0 0;
+    }
+
+    .note-box {
+      margin-top: 24px;
+      border-radius: 14px;
+      padding: 16px 18px;
+      background: #0b3d3d;
+      color: #e2f3ff;
+      font-size: 0.94rem;
+    }
+
+    .note-box strong {
+      font-weight: 600;
+    }
+
+    footer {
+      background: #0b3d3d;
+      color: #cbd5e1;
+      padding: 40px 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .nova-label {
+      position: fixed;
+      bottom: 38px;
+      right: 90px;
+      background: rgba(0, 0, 0, 0.78);
+      color: white;
+      padding: 8px 14px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 500;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity .25s ease, transform .25s ease;
+      pointer-events: none;
+      z-index: 999999;
+    }
+
+    @media (max-width: 768px) {
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-about h1 {
+        font-size: 1.8rem;
+      }
+
+      .section {
+        padding: 48px 16px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- NAVBAR (Unified + Fixed) -->
-  <header>
-    <div class="container">
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <div class="container header-inner">
       <a href="index.html" class="logo">SyncToScale</a>
 
       <nav class="nav">
         <a href="index.html">Home</a>
         <a href="features.html">Features</a>
         <a href="pricing.html">Pricing</a>
-        <a href="faq.html">FAQ</a>
-        <a href="docs.html">Docs</a>
         <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="resources.html">Resources</a>
       </nav>
     </div>
   </header>
 
+  <!-- HERO -->
+  <section class="hero-about">
+    <div class="hero-inner">
+      <div class="hero-chip">Portfolio project • AI workflow platform concept</div>
+      <h1>About SyncToScale</h1>
+      <p>A fictional AI automation platform designed to look and feel like a real SaaS product — built to showcase how I think about workflow design, customer experience, and ops-friendly AI.</p>
+      <div class="hero-meta">Created by Christy McSwain · Technical Account Manager / Implementation-minded nerd.</div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
   <main class="section">
-    <div class="container">
-      <div class="section-heading">
-        <h2>About This Project</h2>
-        <p>Why SyncToScale was created, what it demonstrates, and how it was built.</p>
-      </div>
-
-      <div class="card" style="margin-bottom:2rem;">
-        <h3>The Purpose</h3>
-        <p>
-          SyncToScale is a fictional SaaS platform created by <strong>Christy (Christy M.)</strong> 
-          as a portfolio project to demonstrate real-world skills in 
-          <strong>Technical Account Management, Customer Success, Implementation, API reasoning, 
-          troubleshooting, and AI-assisted support design.</strong>
+    <div class="container two-col">
+      <div class="card">
+        <span class="meta-tag">What this project represents</span>
+        <h2>Why build a pretend AI platform?</h2>
+        <p class="lede">
+          My day-to-day work lives at the intersection of customer experience, operations, and tooling. SyncToScale is a sandbox
+          to show how I’d shape an AI-powered workflow product for real teams.
         </p>
-        <p>
-          The goal was to build a project that reflects the types of systems TAMs, CSMs, and 
-          onboarding specialists work with every day: workflow logic, integrations, dependency mapping, 
-          error handling, customer education, and scalable self-serve resources.
-        </p>
-      </div>
-
-      <div class="card" style="margin-bottom:2rem;">
-        <h3>What This Project Demonstrates</h3>
         <ul>
-          <li>Technical troubleshooting with API-style errors and root-cause analysis</li>
-          <li>Understanding of SaaS automation platforms & integrations</li>
-          <li>Workflow thinking and cross-system logic design</li>
-          <li>Customer education structure (FAQs, documentation, best practices)</li>
-          <li>AI-driven support assistant creation (SyncBot Nova)</li>
-          <li>Frontend build and GitHub Pages deployment</li>
-          <li>Branding, UX writing, and knowledge architecture</li>
-        </ul>
-      </div>
-
-      <div class="card" style="margin-bottom:2rem;">
-        <h3>How SyncBot Nova Was Built</h3>
-        <p>SyncBot Nova is an AI support assistant powered by Chatbase. It was trained using:</p>
-        <ul>
-          <li>A custom knowledge base describing SyncToScale’s features, API, errors, and use cases</li>
-          <li>Instructions on tone, troubleshooting structure, and behavior</li>
-          <li>Special recruiter-facing “meta” knowledge so Nova can explain why the project exists</li>
-        </ul>
-        <p>
-          Nova provides answers about the platform, debugging guidance, API logic, and information 
-          about the purpose of the project—making it a guided, interactive portfolio piece.
-        </p>
-      </div>
-
-      <div class="card" style="margin-bottom:2rem;">
-        <h3>Tech & Tools Used</h3>
-        <ul>
-          <li>HTML, CSS, and JavaScript (fully custom-coded)</li>
-          <li>GitHub Pages for hosting</li>
-          <li>Chatbase for the embedded AI chatbot</li>
-          <li>Custom branding & visuals (including SyncBot Nova’s icon)</li>
+          <li>Translate messy, cross-functional workflows into clear, reusable playbooks.</li>
+          <li>Highlight the kinds of automations TAMs, CSMs, and implementation managers actually need.</li>
+          <li>Demonstrate comfort with technical concepts (integrations, data flow, guardrails) in human language.</li>
+          <li>Showcase product sense: positioning, pricing, docs, FAQ, and resource design.</li>
         </ul>
       </div>
 
       <div class="card">
-        <h3>Try Asking SyncBot Nova</h3>
-        <p>To understand the project better, ask Nova:</p>
-        <ul>
-          <li>“Who created SyncToScale?”</li>
-          <li>“Why was SyncToScale built?”</li>
-          <li>“What skills does this project demonstrate?”</li>
-          <li>“How was SyncBot Nova trained?”</li>
-          <li>“What would Christy’s role be in a real SaaS environment?”</li>
-        </ul>
-      </div>
+        <span class="meta-tag">Under the hood</span>
+        <h2>What’s real vs. concept</h2>
+        <p>The UI and copy are real; the backend is intentionally minimal. Think of this as a narrative demo of how I’d support and shape an AI platform alongside Product, Eng, and Operations.</p>
 
+        <div class="stack-grid">
+          <div>
+            <strong>Conceptual features:</strong>
+            <div class="stack-chip">AI-assisted routing</div>
+            <div class="stack-chip">Human-in-the-loop approvals</div>
+            <div class="stack-chip">Workflow templates</div>
+            <div class="stack-chip">Data hygiene guardrails</div>
+          </div>
+          <div>
+            <strong>Actual stack (for this site):</strong>
+            <div class="stack-chip">HTML / CSS</div>
+            <div class="stack-chip">Vanilla JS</div>
+            <div class="stack-chip">Botpress (Nova)</div>
+            <div class="stack-chip">Static hosting</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" style="margin-top: 26px;">
+      <div class="card">
+        <span class="meta-tag">For recruiters & hiring managers</span>
+        <h2>How this connects to my experience</h2>
+        <p>
+          I’ve spent years in HR tech and SaaS roles (TAM, customer success, implementation-adjacent support), where “automation”
+          is only useful if it respects human nuance and process reality.
+        </p>
+        <ul>
+          <li>Experience mapping messy workflows for CS, Support, and RevOps teams.</li>
+          <li>Comfort translating between technical constraints and business requirements.</li>
+          <li>Hands-on work improving routing, queue design, and tooling adoption.</li>
+          <li>Practical use of AI tools to summarize, triage, and coach — not replace — human work.</li>
+        </ul>
+        <div class="note-box">
+          <strong>If you’re skimming:</strong> this project is my way of saying “I understand the problems an AI automation platform is
+          trying to solve — and I know how to support customers, internal teams, and product decisions around it.”
+        </div>
+      </div>
     </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-main">
-        <div class="logo">
-          <span class="logo-mark">S</span>
-          <span class="logo-text">SyncToScale</span>
-        </div>
-        <p class="footer-copy">Portfolio project created by Christy M.</p>
-      </div>
-      <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-      </div>
-    </div>
+  <!-- FOOTER -->
+  <footer>
+    <p>SyncToScale — Portfolio Project by Christy</p>
   </footer>
+
+  <!-- NOVA CHAT BUTTON -->
+  <script>
+    window.botpressWebChat.init({
+      botId: "nova",
+      hostUrl: "https://cdn.botpress.cloud/webchat/v3",
+      botName: "Nova",
+      hideWidget: false,
+      stylesheet: `
+        .bpw-floating-button {
+          width: 68px !important;
+          height: 68px !important;
+          border-radius: 50% !important;
+          background: radial-gradient(circle at 30% 30%, #41d1ff, #21e19f) !important;
+          box-shadow:
+            0 0 18px rgba(33, 225, 159, 0.5),
+            0 0 28px rgba(65, 209, 255, 0.45) !important;
+          border: none !important;
+          display: flex !important;
+          justify-content: center !important;
+          align-items: center !important;
+        }
+
+        .bpw-floating-button svg {
+          display: none !important;
+        }
+
+        .bpw-floating-button::before {
+          content: "";
+          width: 36px;
+          height: 36px;
+          background-image: url('https://c-mcswain.github.io/synctoscale-site/assets/nova-icon.png');
+          background-size: contain;
+          background-repeat: no-repeat;
+          display: block;
+        }
+
+        .bpw-floating-button:hover + .nova-label {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      `
+    });
+  </script>
+
+  <div class="nova-label">Chat with Nova</div>
 
 </body>
 </html>
