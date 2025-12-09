@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Templates Library | SyncToScale</title>
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Botpress Webchat -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
+  <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
+
+  <style>
+    /* Category Headers */
+    .template-section {
+      margin: 60px auto;
+      max-width: 1100px;
+      padding: 0 20px;
+    }
+
+    .template-section h2 {
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      background: linear-gradient(90deg, #41d1ff, #21e19f);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Grid */
+    .template-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    /* Cards */
+    .template-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 22px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+      border: 1px solid #e2e8f0;
+      transition: all 0.25s ease;
+      text-decoration: none;
+      color: #1e293b;
+      display: block;
+    }
+
+    .template-card:hover {
+      box-shadow: 0 4px 16px rgba(33, 225, 159, 0.28);
+      transform: translateY(-3px);
+      border-color: #21e19f;
+    }
+
+    .template-card h3 {
+      font-size: 18px;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .template-card p {
+      font-size: 14px;
+      color: #475569;
+      line-height: 1.45;
+    }
+
+    /* Page Title */
+    .page-hero {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .page-hero h1 {
+      font-size: 38px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .page-hero p {
+      font-size: 17px;
+      color: #475569;
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 600px) {
+      .page-hero {
+        padding: 40px 20px;
+      }
+
+      .page-hero h1 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <span class="logo-mark">S</span>
+        <a href="index.html" class="logo-text">SyncToScale</a>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+
+        <div class="dropdown">
+          <button class="dropbtn">Resources</button>
+          <div class="dropdown-content">
+            <a href="resources.html">Overview</a>
+            <a href="templates-index.html">Templates</a>
+            <a href="integrations.html">Integrations</a>
+            <a href="security.html">Security</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button class="dropbtn">Docs</button>
+          <div class="dropdown-content">
+            <a href="docs.html">Overview</a>
+            <a href="api.html">API Reference</a>
+            <a href="auth.html">Authentication</a>
+            <a href="connections.html">Connections</a>
+            <a href="triggers.html">Triggers</a>
+            <a href="actions.html">Actions</a>
+            <a href="mapping.html">Mapping</a>
+            <a href="errors.html">Errors</a>
+            <a href="monitoring.html">Monitoring</a>
+            <a href="nova.html">Nova</a>
+          </div>
+        </div>
+
+        <a href="faq.html">FAQ</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <h1>Workflow Templates Library</h1>
+    <p>Prebuilt automation blueprints to accelerate onboarding, syncs, alerts, and team operations.</p>
+  </section>
+
+
+  <!-- ============================
+       HR & PEOPLE OPERATIONS
+  ============================= -->
+  <section class="template-section">
+    <h2>HR & People Operations</h2>
+
+    <div class="template-grid">
+
+      <a class="template-card" href="template-offboarding.html">
+        <h3>Offboarding Workflow</h3>
+        <p>Automate access removal, notifications, and HR system updates.</p>
+      </a>
+
+      <a class="template-card" href="template-manager-welcome.html">
+        <h3>Manager Welcome Packet</h3>
+        <p>Send structured onboarding resources to new managers.</p>
+      </a>
+
+      <a class="template-card" href="template-prestart-checklist.html">
+        <h3>Pre-Start Checklist</h3>
+        <p>Ensure all provisioning and documentation is ready before Day 1.</p>
+      </a>
+
+      <a class="template-card" href="template-policy-ack.html">
+        <h3>Policy Acknowledgement Tracking</h3>
+        <p>Track and automate reminders for mandatory policy sign-offs.</p>
+      </a>
+
+      <a class="template-card" href="template-title-comp-change-alerts.html">
+        <h3>Title / Compensation Change Alerts</h3>
+        <p>Instantly notify downstream tools of HR data changes.</p>
+      </a>
+
+    </div>
+  </section>
+
+
+  <!-- ============================
+       CUSTOMER SUCCESS & IMPLEMENTATION
+  ============================= -->
+  <section class="template-section">
+    <h2>Customer Success & Implementation</h2>
+
+    <div class="template-grid">
+
+      <a class="template-card" href="template-contract-handoff.html">
+        <h3>Contract Handoff</h3>
+        <p>Smooth transitions between Sales → CS with structured data syncs.</p>
+      </a>
+
+      <a class="template-card" href="template-post-implementation-checkin.html">
+        <h3>Post-Implementation Check-In</h3>
+        <p>Automated follow-ups to ensure successful deployment and adoption.</p>
+      </a>
+
+    </div>
+  </section>
+
+
+  <!-- ============================
+       REVOPS & SALES AUTOMATION
+  ============================= -->
+  <section class="template-section">
+    <h2>RevOps & Sales Automation</h2>
+
+    <div class="template-grid">
+
+      <a class="template-card" href="template-lead-contact-account-sync.html">
+        <h3>Lead → Contact → Account Sync</h3>
+        <p>Unify CRM record lifecycles across GTM systems.</p>
+      </a>
+
+      <a class="template-card" href="template-stale-opportunities-digest.html">
+        <h3>Stale Opportunities Digest</h3>
+        <p>Generate automated Slack or email digests for aging pipeline.</p>
+      </a>
+
+    </div>
+  </section>
+
+
+  <!-- ============================
+       AUTOMATION & ENGINEERING
+  ============================= -->
+  <section class="template-section">
+    <h2>Integrations & Automation Engineering</h2>
+
+    <div class="template-grid">
+
+      <a class="template-card" href="template-custom-webhook-workflow.html">
+        <h3>Custom Webhook Workflow</h3>
+        <p>Trigger actions based on external systems and custom payloads.</p>
+      </a>
+
+      <a class="template-card" href="template-api-bulk-sync.html">
+        <h3>API-Driven Bulk Sync</h3>
+        <p>Mass-update or migrate data across platforms with batched requests.</p>
+      </a>
+
+      <a class="template-card" href="template-nova-assisted-cleanup.html">
+        <h3>Nova-Assisted Cleanup</h3>
+        <p>AI-powered cleanup of duplicates, invalid fields, and data drift.</p>
+      </a>
+
+    </div>
+  </section>
+
+</body>
+</html>
