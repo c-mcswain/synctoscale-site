@@ -1,1 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Template: Lead → Contact → Account Sync | SyncToScale</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Nova / Botpress -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
+  <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
+</head>
+
+<body>
+  <!-- SITE HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">S</span>
+        <span class="logo-text">SyncToScale</span>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="docs.html">Docs</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+    <div class="container template-layout">
+
+      <!-- BREADCRUMB -->
+      <nav class="doc-breadcrumb">
+        <a href="templates.html">Templates</a>
+        <span>›</span>
+        <span>Lead → Contact → Account Sync</span>
+      </nav>
+
+      <!-- PAGE HEADER -->
+      <header class="page-header">
+        <div class="page-header-top">
+          <h1>Lead → Contact → Account Sync</h1>
+          <span class="badge badge-nova">Template</span>
+        </div>
+
+        <p class="page-subtitle">
+          Automatically convert leads, attach them to the correct accounts, enrich CRM records, and prevent
+          duplicates using Nova’s intelligent matching and normalization.
+        </p>
+
+        <div class="page-meta-row">
+          <span class="pill pill-soft">Category: CRM & RevOps</span>
+          <span class="pill pill-soft">Difficulty: Intermediate</span>
+          <span class="pill pill-soft">Trigger: Lead created or updated</span>
+          <span class="pill pill-soft">Systems: CRM · Enrichment API · Slack · Email</span>
+        </div>
+      </header>
+
+      <!-- MAIN GRID -->
+      <section class="template-main-grid">
+
+        <!-- LEFT COLUMN -->
+        <article class="template-main">
+
+          <!-- OVERVIEW -->
+          <section id="overview" class="doc-section">
+            <h2>Overview</h2>
+            <p>
+              The <strong>Lead → Contact → Account Sync</strong> template automates a clean and consistent
+              lead conversion process. When new leads enter the CRM, SyncToScale checks for duplicates, enriches
+              them with external firmographic data, normalizes fields, and converts the lead into a Contact +
+              Account with directional rules powered by <strong>Nova</strong>.
+            </p>
+
+            <div class="info-grid">
+              <div class="info-card">
+                <h3>When to use this template</h3>
+                <ul>
+                  <li>Your CRM has duplicate lead and contact records.</li>
+                  <li>Sales reps manually convert leads inconsistently.</li>
+                  <li>Marketing → Sales handoff often breaks due to missing fields.</li>
+                  <li>You want Nova to detect merge candidates and auto-route to correct accounts.</li>
+                </ul>
+              </div>
+
+              <div class="info-card">
+                <h3>What this template automates</h3>
+                <ul>
+                  <li>Lead normalization (email, domain, capitalization, phone).</li>
+                  <li>Duplicate detection using Nova match logic.</li>
+                  <li>Lead conversion to Contact + Account in Salesforce or HubSpot.</li>
+                  <li>Account attachment rules (existing or new).</li>
+                  <li>Slack alerts for high-value or strategic accounts.</li>
+                  <li>Complete logging for RevOps and audit trails.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- HOW IT WORKS -->
+          <section id="how-it-works" class="doc-section">
+            <h2>How it works</h2>
+            <ol class="step-list">
+              <li>A lead is created or updated in the CRM (Salesforce / HubSpot).</li>
+              <li>SyncToScale enriches the record (domain → company info).</li>
+              <li>Nova checks for duplicate contacts or accounts.</li>
+              <li>If a match exists → attach lead to existing account and update fields.</li>
+              <li>If no match → create new Account + Contact automatically.</li>
+              <li>Run normalization rules and push back to CRM.</li>
+              <li>Alert Sales or RevOps for high-value or mismatched domain leads.</li>
+            </ol>
+          </section>
+
+          <!-- WORKFLOW STEPS -->
+          <section id="workflow-steps" class="doc-section">
+            <h2>Workflow steps</h2>
+
+            <ol class="step-list step-list-detailed">
+
+              <li>
+                <h3>Step 1 — Trigger: Lead created/updated</h3>
+                <p>
+                  Triggered via CRM webhook or scheduled polling. Filters can restrict events to only marketing-sourced
+                  leads or those with required fields (email).
+                </p>
+              </li>
+
+              <li>
+                <h3>Step 2 — Normalize lead fields</h3>
+                <p>
+                  SyncToScale applies transformations such as:
+                </p>
+                <ul>
+                  <li>Email → lowercase & domain extraction</li>
+                  <li>Phone → E.164 format</li>
+                  <li>Name → title case</li>
+                  <li>Company → trim punctuation and normalize</li>
+                </ul>
+              </li>
+
+              <li>
+                <h3>Step 3 — Nova deduplication</h3>
+                <p>
+                  Nova evaluates the lead against existing Contacts and Accounts with multi-factor scoring:
+                </p>
+                <div class="nova-callout">
+                  <ul>
+                    <li>Email match (primary and secondary)</li>
+                    <li>Domain match + name similarity</li>
+                    <li>Phone number match</li>
+                    <li>Intent signals from marketing tools</li>
+                  </ul>
+                </div>
+              </li>
+
+              <li>
+                <h3>Step 4 — Convert lead</h3>
+                <p>
+                  Depending on the outcome:
+                </p>
+                <ul>
+                  <li><strong>Match found:</strong> Convert lead and attach to the existing account.</li>
+                  <li><strong>No match:</strong> Create new account using enriched firmographics.</li>
+                </ul>
+              </li>
+
+              <li>
+                <h3>Step 5 — Enrich data</h3>
+                <p>
+                  SyncToScale calls enrichment APIs (Clearbit, Apollo, etc.) to populate:
+                </p>
+                <ul>
+                  <li>Company size</li>
+                  <li>Industry</li>
+                  <li>Tech stack</li>
+                  <li>Revenue estimates</li>
+                </ul>
+              </li>
+
+              <li>
+                <h3>Step 6 — Alert Sales</h3>
+                <p>
+                  Alerts are sent when:
+                </p>
+                <ul>
+                  <li>Lead belongs to a strategic account</li>
+                  <li>Domain mismatch suggests personal or disposable email</li>
+                  <li>Nova detects multiple possible account matches</li>
+                </ul>
+              </li>
+
+            </ol>
+          </section>
+
+          <!-- MAPPINGS -->
+          <section id="data-mapping" class="doc-section">
+            <h2>Field mappings</h2>
+
+            <h3>Lead → Contact</h3>
+            <div class="table-wrapper">
+              <table class="mapping-table">
+                <thead>
+                  <tr>
+                    <th>Lead Field</th>
+                    <th>Transform</th>
+                    <th>Contact Field</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>FirstName</code>, <code>LastName</code></td>
+                    <td>Title case</td>
+                    <td><code>Name</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>Email</code></td>
+                    <td>Lowercase</td>
+                    <td><code>Email</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>Phone</code></td>
+                    <td>Format to E.164</td>
+                    <td><code>Phone</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>Title</code></td>
+                    <td>Clean punctuation</td>
+                    <td><code>JobTitle</code></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3>Lead → Account</h3>
+            <div class="table-wrapper">
+              <table class="mapping-table">
+                <thead>
+                  <tr>
+                    <th>Lead Field</th>
+                    <th>Transform</th>
+                    <th>Account Field</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>Company</code></td>
+                    <td>Normalize company naming</td>
+                    <td><code>Name</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>Email Domain</code></td>
+                    <td>Extracted domain</td>
+                    <td><code>Website</code></td>
+                  </tr>
+                  <tr>
+                    <td>Firmographic data</td>
+                    <td>Via enrichment APIs</td>
+                    <td>Industry, Size, Revenue</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </section>
+
+          <!-- SAMPLE JSON -->
+          <section id="sample-payloads" class="doc-section">
+            <h2>Sample JSON payloads</h2>
+
+            <h3>Trigger event — Lead created</h3>
+            <pre class="code-block"><code>{
+  "eventId": "evt_01J2LEADSYNC",
+  "eventType": "lead.created",
+  "source": "salesforce",
+  "payload": {
+    "id": "00Q5g00000LDE123",
+    "firstName": "Liam",
+    "lastName": "Brenner",
+    "email": "liam.brenner@brighttech.io",
+    "company": "BrightTech",
+    "phone": "+1 (555) 832-0293",
+    "title": "VP Engineering",
+    "leadSource": "Marketing Campaign",
+    "owner": "julia.mason@demo-company.com"
+  }
+}</code></pre>
+
+            <h3>Nova dedupe evaluation</h3>
+            <pre class="code-block"><code>{
+  "possibleMatches": [
+    {
+      "contactId": "0035g00000CN456",
+      "matchScore": 0.92,
+      "matchingFactors": ["Email domain", "Company name similarity"]
+    }
+  ],
+  "decision": "AUTO_ATTACH_EXISTING_ACCOUNT"
+}</code></pre>
+
+            <h3>Conversion output</h3>
+            <pre class="code-block"><code>{
+  "converted": true,
+  "contactId": "0035g00000CN456",
+  "accountId": "0015g00000BT999",
+  "novaInsights": [
+    "Lead matched existing account with strong similarity.",
+    "Recommend alerting AE due to job title seniority (VP)."
+  ]
+}</code></pre>
+          </section>
+
+          <!-- ERROR HANDLING -->
+          <section id="error-handling" class="doc-section">
+            <h2>Error handling</h2>
+            <ul>
+              <li>If email is missing, Nova marks the record for manual review.</li>
+              <li>If multiple account matches exist, the workflow pauses and alerts RevOps.</li>
+              <li>If enrichment fails, conversion proceeds with CRM-only fields.</li>
+              <li>Duplicate conversions are prevented by ID locking.</li>
+            </ul>
+
+            <h3>Sample diagnostic</h3>
+            <pre class="code-block"><code>{
+  "runId": "run_01J2LEADSYNC",
+  "status": "needs_review",
+  "message": "Multiple possible accounts detected.",
+  "novaSuggestions": [
+    "Match score gap is small (0.79–0.82). Manual assignment recommended."
+  ]
+}</code></pre>
+          </section>
+
+          <!-- NOVA INSIGHTS -->
+          <section id="nova-insights" class="doc-section">
+            <h2>Nova insights for this template</h2>
+            <ul>
+              <li>Identifies duplicate leads across CRM and MAP systems.</li>
+              <li>Scores likelihood of correct account association.</li>
+              <li>Normalizes fields to improve CRM reporting accuracy.</li>
+              <li>Highlights high-value or strategic leads.</li>
+            </ul>
+          </section>
+
+          <!-- SETUP -->
+          <section id="setup" class="doc-section">
+            <h2>Set up this template</h2>
+            <ol class="step-list">
+              <li>Select <strong>Lead → Contact → Account Sync</strong> in your Templates Library.</li>
+              <li>Connect your CRM + Enrichment API providers.</li>
+              <li>Define duplicate detection tolerance (match scoring rules).</li>
+              <li>Customize conversion rules for strategic accounts.</li>
+              <li>Enable Nova dedupe + normalization logic.</li>
+              <li>Turn on Active mode.</li>
+            </ol>
+          </section>
+
+        </article>
+
+        <!-- RIGHT COLUMN -->
+        <aside class="template-sidebar">
+
+          <div class="card">
+            <h3>Template summary</h3>
+            <ul class="key-facts-list">
+              <li><strong>Trigger:</strong> Lead created or updated</li>
+              <li><strong>Runtime:</strong> Real-time or scheduled</li>
+              <li><strong>Owner:</strong> RevOps · Sales</li>
+              <li><strong>Systems:</strong> CRM · Enrichment APIs · Slack</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Best practice defaults</h3>
+            <ul>
+              <li>Prefer auto-attach when match score ≥ 0.85.</li>
+              <li>Flag disposable or personal email domains.</li>
+              <li>Send Slack alert only for senior roles (Director+).</li>
+            </ul>
+          </div>
+
+          <div class="card nova-callout">
+            <h3>Nova will help you…</h3>
+            <ul>
+              <li>Reduce CRM clutter by merging duplicates.</li>
+              <li>Auto-identify correct accounts with high confidence.</li>
+              <li>Surface insights on ideal ICP (ideal customer profile).</li>
+            </ul>
+          </div>
+
+        </aside>
+
+      </section>
+    </div>
+  </main>
+</body>
+</html>
 
