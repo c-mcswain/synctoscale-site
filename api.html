@@ -5,89 +5,281 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>API Reference | SyncToScale</title>
+
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Nova Botpress Webchat -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
+  <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
 </head>
 
 <body>
 
-<header>
-  <div class="container">
-    <a href="index.html" class="logo">SyncToScale</a>
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <div class="container header-inner">
 
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="features.html">Features</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="about.html">About</a>
-
-      <div class="dropdown">
-        <button class="dropbtn">Resources</button>
-        <div class="dropdown-content">
-          <a href="resources.html">Overview</a>
-          <a href="docs.html">Developer Docs</a>
-          <a href="api.html">API Reference</a>
-          <a href="templates.html">Templates</a>
-          <a href="security.html">Security</a>
-        </div>
+      <div class="logo">
+        <a href="index.html" class="logo-link">SyncToScale</a>
       </div>
-    </nav>
-  </div>
-</header>
 
-<section class="page-hero">
-  <h1>API Reference</h1>
-  <p>REST API endpoints to power your integrations.</p>
-</section>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="faq.html">FAQ</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
 
-<div class="doc-container">
+    </div>
+  </header>
 
-  <section id="authentication">
+  <!-- HERO -->
+  <section class="page-hero">
+    <h1>API Reference</h1>
+    <p>
+      The SyncToScale API enables workflow execution, connection management,
+      event ingestion, and access to Nova AI services.  
+      All requests use JSON and require authentication.
+    </p>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="doc-container">
+
+    <!-- AUTH -->
     <h2>Authentication</h2>
-    <p>SyncToScale uses Bearer token authentication for all API requests.</p>
+    <p>
+      All API requests must include a project token.  
+      Pass the token using the <code>Authorization</code> header:
+    </p>
 
-    <pre><code>
-Authorization: Bearer &lt;YOUR_API_KEY&gt;
-    </code></pre>
-  </section>
+<pre>
+Authorization: Bearer &lt;project_token&gt;
+Content-Type: application/json
+</pre>
 
-  <section id="endpoints">
-    <h2>Endpoints</h2>
+    <hr />
 
-    <h3>List Users</h3>
-    <pre><code>
-GET /v1/users
-    </code></pre>
+    <!-- WORKFLOW RUN ENDPOINT -->
+    <h2>Run a Workflow</h2>
+    <p>
+      Execute a workflow manually by posting a payload to the run endpoint.
+    </p>
 
-    <h3>Create Workflow</h3>
-    <pre><code>
-POST /v1/workflows
+<pre>
+POST /workflows/{id}/run
+</pre>
+
+    <h3>Request Body</h3>
+<pre>
 {
-  "name": "Sync Salesforce Leads",
-  "trigger": "lead.created",
-  "actions": [...]
+  "payload": {
+    "employee_id": "12345",
+    "email": "test@example.com"
+  }
 }
-    </code></pre>
+</pre>
 
-    <h3>Execute Workflow</h3>
-    <pre><code>
-POST /v1/workflows/{id}/run
+    <h3>Response</h3>
+<pre>
 {
-  "payload": {...}
+  "run_id": "run_789",
+  "status": "queued",
+  "triggered_at": "2025-01-20T14:02:01Z"
 }
-    </code></pre>
-  </section>
+</pre>
 
-  <section id="rate-limits">
+    <hr />
+
+    <!-- CONNECTIONS -->
+    <h2>Connections</h2>
+
+    <h3>Create Connection</h3>
+<pre>
+POST /connections
+{
+  "provider": "slack",
+  "auth_type": "oauth",
+  "scopes": ["chat:write", "users:read"]
+}
+</pre>
+
+    <h3>Get Connection Status</h3>
+<pre>
+GET /connections/{id}
+</pre>
+
+<pre>
+{
+  "id": "conn_123",
+  "provider": "slack",
+  "status": "healthy",
+  "last_validated": "2025-01-18T12:44:00Z"
+}
+</pre>
+
+    <hr />
+
+    <!-- TRIGGERS -->
+    <h2>Triggers</h2>
+
+    <h3>Send Event Trigger</h3>
+<pre>
+POST /triggers/event
+{
+  "provider": "bamboohr",
+  "event_type": "employee.updated",
+  "payload": {
+    "id": "9981",
+    "email": "updated@example.com"
+  }
+}
+</pre>
+
+    <h3>Trigger Response</h3>
+<pre>
+{
+  "status": "queued",
+  "workflow": "sync_to_hr",
+  "triggered_at": "2025-01-20T14:12:00Z"
+}
+</pre>
+
+    <hr />
+
+    <!-- ACTIONS -->
+    <h2>Actions</h2>
+
+    <h3>Execute Action</h3>
+<pre>
+POST /actions/run
+{
+  "provider": "hubspot",
+  "action": "create_contact",
+  "payload": {
+    "email": "new@example.com",
+    "first_name": "Jordan",
+    "last_name": "Lee"
+  }
+}
+</pre>
+
+    <h3>Response</h3>
+<pre>
+{
+  "status": "success",
+  "record_id": "contact_88171"
+}
+</pre>
+
+    <hr />
+
+    <!-- MAPPING VALIDATION -->
+    <h2>Validate Mapping</h2>
+<pre>
+POST /mapping/validate
+{
+  "payload": {
+    "first_name": "Jordan",
+    "start_date": "12/01/2025"
+  },
+  "expected_schema": {
+    "first_name": "string",
+    "start_date": "date"
+  }
+}
+</pre>
+
+<pre>
+{
+  "valid": false,
+  "issues": [
+    { "field": "start_date", "expected": "YYYY-MM-DD" }
+  ]
+}
+</pre>
+
+    <hr />
+
+    <!-- ERROR LOOKUP -->
+    <h2>Error Lookup</h2>
+
+<pre>
+GET /errors/{run_id}
+</pre>
+
+<pre>
+{
+  "run_id": "run_456",
+  "step": "create_user",
+  "error_code": "invalid_permission",
+  "message": "User lacks write access to directory"
+}
+</pre>
+
+    <hr />
+
+    <!-- NOVA -->
+    <h2>Nova AI Endpoints</h2>
+
+    <h3>Mapping Suggestion</h3>
+<pre>
+POST /nova/v1/mapping/suggest
+</pre>
+
+<pre>
+{
+  "suggested_mapping": {
+    "first_name": "fname",
+    "email": "workEmail"
+  }
+}
+</pre>
+
+    <h3>Error Classification</h3>
+<pre>
+POST /nova/v1/errors/classify
+</pre>
+
+<pre>
+{
+  "category": "insufficient_permissions",
+  "recommended_fix": "Re-authenticate with directory.write"
+}
+</pre>
+
+    <hr />
+
+    <!-- PAGINATION -->
+    <h2>Pagination</h2>
+<pre>
+GET /runs?limit=20&cursor=abc123
+</pre>
+
+<pre>
+{
+  "data": [...],
+  "next_cursor": "def456"
+}
+</pre>
+
+    <hr />
+
+    <!-- RATE LIMITS -->
     <h2>Rate Limits</h2>
-    <p>Default rate limits:</p>
-    <ul>
-      <li>10,000 requests / hour</li>
-      <li>Burst capacity: 200 requests / second</li>
-      <li>Webhook retries: exponential backoff</li>
-    </ul>
-  </section>
+    <p>The API enforces per-project and per-token rate limits.</p>
 
-</div>
+<pre>
+{
+  "limit": 5000,
+  "remaining": 4977,
+  "reset": "2025-01-20T15:00:00Z"
+}
+</pre>
+
+  </section>
 
 </body>
 </html>
