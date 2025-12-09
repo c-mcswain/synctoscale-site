@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Actions | SyncToScale Docs</title>
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Nova Botpress Webchat -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
+  <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <div class="logo">
+        <a href="index.html" class="logo-link">SyncToScale</a>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="faq.html">FAQ</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <h1>Actions</h1>
+    <p>
+      Actions define what a workflow does after a trigger fires.
+      SyncToScale supports create/update operations, searches, transformations,
+      and multi-step logic across connected applications.
+    </p>
+  </section>
+
+
+  <!-- PAGE CONTENT -->
+  <section class="doc-container">
+
+    <h2>Overview</h2>
+    <p>
+      When a workflow runs, the incoming payload is passed through a sequence of steps called <strong>actions</strong>.
+      Each action uses the authenticated connection to perform an operation in the target system.
+    </p>
+
+    <hr />
+
+    <h2>Common Action Types</h2>
+    <p>SyncToScale supports a wide range of standardized actions across all integrations:</p>
+
+    <ul>
+      <li><strong>Create Record</strong> — Add a new employee, deal, user, ticket, etc.</li>
+      <li><strong>Update Record</strong> — Modify fields on an existing object.</li>
+      <li><strong>Upsert Record</strong> — Create if missing; update if present.</li>
+      <li><strong>Search Record</strong> — Find matching records by email, ID, or custom criteria.</li>
+      <li><strong>Send Event</strong> — Push structured data to another system or platform.</li>
+      <li><strong>Run Transformation</strong> — Apply formulas or reshape payloads for downstream steps.</li>
+    </ul>
+
+    <hr />
+
+    <h2>Create / Update Example</h2>
+
+<pre>
+POST /actions/run
+{
+  "provider": "hubspot",
+  "action": "create_record",
+  "object": "contact",
+  "payload": {
+    "email": "test@example.com",
+    "first_name": "Jordan",
+    "last_name": "Doe"
+  }
+}
+</pre>
+
+    <p>
+      The action executes using the authenticated HubSpot connection,
+      applying object-specific validations and required fields.
+    </p>
+
+    <hr />
+
+    <h2>Upsert Logic</h2>
+    <p>
+      Upserts prevent duplicate records by combining a lookup + create/update in a single step.
+    </p>
+
+<pre>
+{
+  "provider": "bamboohr",
+  "action": "upsert_employee",
+  "lookup": { "email": "jordan@example.com" },
+  "payload": {
+    "first_name": "Jordan",
+    "last_name": "Doe",
+    "department": "Engineering"
+  }
+}
+</pre>
+
+    <p>
+      SyncToScale determines whether the employee already exists, then performs the appropriate action.
+    </p>
+
+    <hr />
+
+    <h2>Search Actions</h2>
+    <p>
+      Searches help locate existing records before performing a write operation.
+      This prevents duplicate users or conflicting updates.
+    </p>
+
+<pre>
+{
+  "provider": "google_workspace",
+  "action": "search_user",
+  "criteria": {
+    "email": "jordan@example.com"
+  }
+}
+</pre>
+
+    <p>
+      Search results can be used to drive conditional branching inside the workflow.
+    </p>
+
+    <hr />
+
+    <h2>Transformation Actions</h2>
+    <p>
+      Transformations modify the incoming payload using formulas or mapping rules.
+      These are often used to normalize data formats between systems.
+    </p>
+
+<pre>
+{
+  "action": "transform",
+  "expression": {
+    "full_name": "payload.first_name + ' ' + payload.last_name"
+  }
+}
+</pre>
+
+    <p>
+      Nova AI can optionally infer missing fields or recommend mapping corrections.
+    </p>
+
+    <hr />
+
+    <h2>Error Handling in Actions</h2>
+    <p>
+      Errors in an action step can occur due to invalid data, missing required fields,
+      upstream outages, or insufficient permissions.
+    </p>
+
+    <ul>
+      <li><strong>400 - Bad Request</strong> — Invalid object structure or missing required fields.</li>
+      <li><strong>401 - Unauthorized</strong> — Token invalid; connection in “Needs Attention.”</li>
+      <li><strong>404 - Not Found</strong> — Action attempted on a missing record.</li>
+      <li><strong>409 - Conflict</strong> — Duplicate object or versioning conflict.</li>
+      <li><strong>429 - Rate Limited</strong> — Provider throttled the request; retry enabled.</li>
+      <li><strong>500/503</strong> — Provider outage or temporary instability.</li>
+    </ul>
+
+    <p>
+      SyncToScale retries certain actions automatically using exponential backoff.
+    </p>
+
+    <hr />
+
+    <h2>Action Execution Flow</h2>
+
+<pre>
+{
+  "step": "create_record",
+  "provider": "slack",
+  "object": "user",
+  "status": "success",
+  "attempts": 1,
+  "timestamp": "2025-01-20T14:22:00Z"
+}
+</pre>
+
+    <p>This log entry shows the executed step and metadata for debugging.</p>
+
+  </section>
+
+</body>
+</html>
