@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pricing | SyncToScale</title>
 
+  <!-- Botpress Webchat -->
   <script src="https://cdn.botpress.cloud/webchat/v3.4/inject.js"></script>
   <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
 
@@ -79,7 +80,7 @@
       color: #475569;
     }
 
-    /* BILLING TOGGLE — FIXED WORKING VERSION */
+    /* BILLING TOGGLE — functional sliding version */
     .toggle-wrapper {
       display: flex;
       justify-content: center;
@@ -97,6 +98,7 @@
       border-radius: 999px;
       position: relative;
       cursor: pointer;
+      transition: background 0.25s ease;
     }
 
     .toggle-circle {
@@ -112,7 +114,6 @@
 
     .toggle-pill.annual .toggle-circle {
       transform: translateX(30px);
-      background: #0f766e;
     }
 
     /* PRICING GRID */
@@ -122,7 +123,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
       gap: 26px;
-      padding: 0 20px 60px;
+      padding: 0 20px 20px; /* tightened bottom spacing */
     }
 
     .price-card {
@@ -189,21 +190,34 @@
       background: #0d5e57;
     }
 
-    /* NOVA ADD-ON */
+    /* NOVA ADD-ON — tightened spacing */
     .addon-card {
       background: #eefdfb;
       border: 1px solid #b2f0e5;
       padding: 26px;
       border-radius: 16px;
-      margin: 40px auto 80px;
+      margin: 10px auto 80px; /* reduced margin above */
       max-width: 950px;
     }
 
+    .addon-card h2 {
+      margin: 0 0 10px;
+      color: #0b3d3d;
+    }
+
+    .addon-card p {
+      margin: 0 0 12px;
+      color: #475569;
+      font-size: 0.98rem;
+    }
+
+    /* FOOTER */
     footer {
       background: #0b3d3d;
       color: #cbd5e1;
       padding: 40px 20px;
       text-align: center;
+      margin-top: 40px;
     }
 
     .nova-label {
@@ -226,7 +240,7 @@
 
 <body>
 
-  <!-- NAV -->
+  <!-- NAVBAR -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="logo">SyncToScale</a>
@@ -305,16 +319,18 @@
     </div>
   </section>
 
-  <!-- NOVA ADD-ON -->
+  <!-- NOVA AI ADD-ON -->
   <section>
     <div class="addon-card">
       <h2>Nova AI Assistant (Add-On)</h2>
+
       <ul class="feature-list">
         <li>Summaries of customer history</li>
         <li>AI-powered routing</li>
-        <li>Draft lifecycle communications</li>
-        <li>Workflow generation from natural language</li>
+        <li>Draft customer communications</li>
+        <li>Create workflows from natural language</li>
       </ul>
+
       <p id="novaPrice" style="margin-top: 12px; font-weight: 600; color: #0b3d3d;">
         +$15 per user / month
       </p>
@@ -329,7 +345,6 @@
   <!-- TOGGLE LOGIC -->
   <script>
     const toggle = document.getElementById("billingToggle");
-    const circle = toggle.querySelector(".toggle-circle");
 
     let isAnnual = false;
 
@@ -348,37 +363,32 @@
         starterPrice.textContent = "$19";
         growthPrice.textContent = "$49";
         scalePrice.textContent = "$89";
+
         starterSub.textContent = "per user / month";
         growthSub.textContent = "per user / month";
         scaleSub.textContent = "per user / month";
+
         novaPrice.textContent = "+$15 per user / month";
       } else {
         starterPrice.textContent = "$15";
         growthPrice.textContent = "$39";
         scalePrice.textContent = "$72";
+
         starterSub.textContent = "per user / month (billed annually)";
         growthSub.textContent = "per user / month (billed annually)";
         scaleSub.textContent = "per user / month (billed annually)";
+
         novaPrice.textContent = "+$12 per user / month (billed annually)";
       }
     }
   </script>
 
-  <!-- BOTPRESS -->
+  <!-- BOT -->
   <script>
     window.botpressWebChat.init({
       botId: "nova",
       hostUrl: "https://cdn.botpress.cloud/webchat/v3",
-      botName: "Nova",
-      stylesheet: `
-        .bpw-floating-button {
-          width: 68px !important;
-          height: 68px !important;
-          border-radius: 50% !important;
-          background: radial-gradient(circle at 30% 30%, #41d1ff, #21e19f) !important;
-          border: none !important;
-        }
-      `
+      botName: "Nova"
     });
   </script>
 
