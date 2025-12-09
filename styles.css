@@ -668,3 +668,31 @@ pre {
 #bp-web-widget .bpw-footer {
   background: transparent !important;
 }
+/* =========================================
+   Botpress Nova – scale chat widget down
+   (works on free plan, affects outer shell)
+========================================= */
+
+/* Desktop: visually shrink the chat in the corner */
+#bp-web-widget {
+  transform: scale(0.8);
+  transform-origin: bottom right;
+  right: 16px !important;
+  bottom: 16px !important;
+}
+
+/* Give the outer shell softer corners & shadow */
+#bp-web-widget .bpw-widget-container {
+  border-radius: 22px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35) !important;
+  overflow: hidden !important;
+}
+
+/* On small screens, keep it full size so it’s usable */
+@media (max-width: 600px) {
+  #bp-web-widget {
+    transform: scale(1);
+    right: 0 !important;
+    bottom: 0 !important;
+  }
+}
