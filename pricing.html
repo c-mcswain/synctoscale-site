@@ -80,7 +80,7 @@
       color: #475569;
     }
 
-    /* BILLING TOGGLE (STATIC DISPLAY ONLY) */
+    /* BILLING TOGGLE */
     .toggle-wrapper {
       display: flex;
       justify-content: center;
@@ -89,25 +89,29 @@
       gap: 18px;
       font-size: 0.95rem;
       color: #475569;
+      align-items: center;
     }
 
     .toggle-pill {
-      width: 52px;
-      height: 26px;
+      width: 54px;
+      height: 28px;
       border-radius: 999px;
       background: #d1f4ed;
       position: relative;
+      cursor: pointer;
+      transition: 0.25s ease;
     }
 
     .toggle-pill::before {
       content: "";
-      width: 22px;
-      height: 22px;
+      width: 24px;
+      height: 24px;
       background: #0f766e;
       border-radius: 50%;
       position: absolute;
       top: 2px;
-      left: 2px; /* static position for "Monthly" */
+      left: 2px; /* Monthly default */
+      transition: 0.25s ease;
     }
 
     /* PRICING GRID */
@@ -167,7 +171,7 @@
       color: #334155;
     }
 
-    /* CTA BUTTONS */
+    /* CTA BUTTON */
     .card-btn {
       margin-top: 18px;
       display: inline-block;
@@ -215,7 +219,6 @@
       margin-top: 60px;
     }
 
-    /* NOVA LABEL */
     .nova-label {
       position: fixed;
       bottom: 38px;
@@ -236,7 +239,7 @@
 
 <body>
 
-  <!-- NAVBAR -->
+  <!-- NAV -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="logo">SyncToScale</a>
@@ -257,9 +260,9 @@
     <p>Start small or scale across teams — SyncToScale grows with your workflows.</p>
 
     <div class="toggle-wrapper">
-      <span>Monthly</span>
-      <div class="toggle-pill"></div>
-      <span style="opacity: 0.5;">Annual</span>
+      <span id="labelMonthly">Monthly</span>
+      <div class="toggle-pill" id="billingToggle"></div>
+      <span id="labelAnnual" style="opacity: 0.5;">Annual</span>
     </div>
   </section>
 
@@ -267,73 +270,64 @@
   <section>
     <div class="pricing-grid">
 
-      <!-- STARTER -->
       <div class="price-card">
         <div class="price-tier">Starter</div>
-        <div class="price-amount">$19</div>
-        <div class="price-sub">per user / month</div>
-
+        <div class="price-amount" id="starterPrice">$19</div>
+        <div class="price-sub" id="starterSub">per user / month</div>
         <ul class="feature-list">
           <li>Up to 5 automated workflows</li>
-          <li>Basic integrations (Slack, Google, Asana)</li>
+          <li>Basic integrations</li>
           <li>Single-user activity view</li>
           <li>Email support</li>
         </ul>
-
         <a href="#" class="card-btn">Get Started</a>
       </div>
 
-      <!-- GROWTH -->
       <div class="price-card">
         <div class="price-tier">Growth</div>
-        <div class="price-amount">$49</div>
-        <div class="price-sub">per user / month</div>
-
+        <div class="price-amount" id="growthPrice">$49</div>
+        <div class="price-sub" id="growthSub">per user / month</div>
         <ul class="feature-list">
           <li>Unlimited workflows</li>
-          <li>CRM integrations (Salesforce, HubSpot)</li>
+          <li>CRM integrations</li>
           <li>Advanced triggers & data sync rules</li>
-          <li>Team dashboards & shared visibility</li>
+          <li>Team dashboards</li>
           <li>Priority support</li>
         </ul>
-
         <a href="#" class="card-btn">Choose Growth</a>
       </div>
 
-      <!-- SCALE -->
       <div class="price-card">
         <div class="price-tier">Scale</div>
-        <div class="price-amount">$89</div>
-        <div class="price-sub">per user / month</div>
-
+        <div class="price-amount" id="scalePrice">$89</div>
+        <div class="price-sub" id="scaleSub">per user / month</div>
         <ul class="feature-list">
           <li>Enterprise-grade integrations</li>
           <li>Human-in-the-loop approvals</li>
-          <li>Custom data mapping & governance controls</li>
-          <li>Unlimited team workspaces</li>
-          <li>Dedicated TAM support channel</li>
+          <li>Custom governance controls</li>
+          <li>Unlimited workspaces</li>
+          <li>Dedicated support</li>
         </ul>
-
         <a href="#" class="card-btn">Contact Sales</a>
       </div>
 
     </div>
   </section>
 
-  <!-- NOVA AI ADD-ON -->
+  <!-- NOVA ADD-ON -->
   <section>
     <div class="addon-card">
       <h2>Nova AI Assistant (Add-On)</h2>
-      <p>Enhance automation with AI-driven insights, routing, and summarization.</p>
+      <p>Enhance automation with AI-driven routing, insights, and workflow generation.</p>
 
       <ul class="feature-list">
-        <li>Summaries of customer history & ticket threads</li>
-        <li>AI-powered routing and classification</li>
-        <li>Drafting lifecycle communications</li>
-        <li>Workflow generation from natural language</li>
+        <li>Summaries of customer history</li>
+        <li>AI-powered routing</li>
+        <li>Draft lifecycle communications</li>
+        <li>Create workflows from natural language</li>
       </ul>
 
-      <p style="margin-top: 12px; font-weight: 600; color: #0b3d3d;">
+      <p id="novaPrice" style="margin-top: 12px; font-weight: 600; color: #0b3d3d;">
         +$15 per user / month
       </p>
     </div>
@@ -344,7 +338,56 @@
     <p>SyncToScale — Automation & Integration Platform</p>
   </footer>
 
-  <!-- BOTPRESS BUTTON -->
+  <!-- BILLING TOGGLE SCRIPT -->
+  <script>
+    const toggle = document.getElementById("billingToggle");
+
+    let isAnnual = false; // default Monthly
+
+    toggle.addEventListener("click", () => {
+      isAnnual = !isAnnual;
+
+      // Move the toggle pill
+      toggle.style.background = isAnnual ? "#b2f0e5" : "#d1f4ed";
+      toggle.style.setProperty("--pos", isAnnual ? "28px" : "2px");
+      toggle.style.transition = "0.3s ease";
+      toggle.querySelector("::before");
+
+      // Animate the circle
+      toggle.style.setProperty("--circle-left", isAnnual ? "28px" : "2px");
+      toggle.querySelector("::before");
+
+      // Labels opacity
+      document.getElementById("labelMonthly").style.opacity = isAnnual ? "0.4" : "1";
+      document.getElementById("labelAnnual").style.opacity = isAnnual ? "1" : "0.5";
+
+      updatePrices();
+    });
+
+    function updatePrices() {
+      if (!isAnnual) {
+        // MONTHLY
+        starterPrice.textContent = "$19";
+        growthPrice.textContent = "$49";
+        scalePrice.textContent = "$89";
+        starterSub.textContent = "per user / month";
+        growthSub.textContent = "per user / month";
+        scaleSub.textContent = "per user / month";
+        novaPrice.textContent = "+$15 per user / month";
+      } else {
+        // ANNUAL (20% off)
+        starterPrice.textContent = "$15";
+        growthPrice.textContent = "$39";
+        scalePrice.textContent = "$72";
+        starterSub.textContent = "per user / month (billed annually)";
+        growthSub.textContent = "per user / month (billed annually)";
+        scaleSub.textContent = "per user / month (billed annually)";
+        novaPrice.textContent = "+$12 per user / month (billed annually)";
+      }
+    }
+  </script>
+
+  <!-- BOTPRESS -->
   <script>
     window.botpressWebChat.init({
       botId: "nova",
@@ -357,9 +400,6 @@
           height: 68px !important;
           border-radius: 50% !important;
           background: radial-gradient(circle at 30% 30%, #41d1ff, #21e19f) !important;
-          box-shadow:
-            0 0 18px rgba(33, 225, 159, 0.5),
-            0 0 28px rgba(65, 209, 255, 0.45) !important;
           border: none !important;
           display: flex !important;
           justify-content: center !important;
@@ -371,9 +411,7 @@
           width: 36px;
           height: 36px;
           background-image: url('https://c-mcswain.github.io/synctoscale-site/assets/nova-icon.png');
-          background-size: contain;
-          background-repeat: no-repeat;
-          display: block;
+          background-size: cover;
         }
       `
     });
