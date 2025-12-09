@@ -1,1 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Template: Pre-Start Checklist | SyncToScale</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Nova / Botpress -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
+  <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
+</head>
+
+<body>
+  <!-- SITE HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">S</span>
+        <span class="logo-text">SyncToScale</span>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="docs.html">Docs</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+    <div class="container template-layout">
+
+      <!-- BREADCRUMB -->
+      <nav class="doc-breadcrumb">
+        <a href="templates.html">Templates</a>
+        <span>›</span>
+        <span>Pre-Start Checklist</span>
+      </nav>
+
+      <!-- PAGE HEADER -->
+      <header class="page-header">
+        <div class="page-header-top">
+          <h1>Pre-Start Checklist</h1>
+          <span class="badge badge-nova">Template</span>
+        </div>
+
+        <p class="page-subtitle">
+          Automatically spin up a pre-start checklist for every new hire. Make sure hardware, access, paperwork,
+          and welcome moments are ready before day one — with Nova highlighting gaps in real time.
+        </p>
+
+        <div class="page-meta-row">
+          <span class="pill pill-soft">Category: Employee Onboarding</span>
+          <span class="pill pill-soft">Difficulty: Beginner</span>
+          <span class="pill pill-soft">Trigger: New hire created / X days before start</span>
+          <span class="pill pill-soft">Systems: HRIS · Task/Project Tool · Slack · Email</span>
+        </div>
+      </header>
+
+      <!-- MAIN GRID -->
+      <section class="template-main-grid">
+
+        <!-- LEFT COLUMN -->
+        <article class="template-main">
+
+          <!-- OVERVIEW -->
+          <section id="overview" class="doc-section">
+            <h2>Overview</h2>
+            <p>
+              The <strong>Pre-Start Checklist</strong> template ensures critical onboarding steps are completed
+              before a new hire’s first day. When a new employee is created in your HRIS (or a certain number of
+              days before their start date), SyncToScale automatically creates a checklist of tasks for People Ops,
+              IT, and the hiring manager — with <strong>Nova</strong> flagging missing details that could delay
+              onboarding.
+            </p>
+
+            <div class="info-grid">
+              <div class="info-card">
+                <h3>When to use this template</h3>
+                <ul>
+                  <li>New hires arrive without laptops, access, or schedules ready.</li>
+                  <li>Onboarding tasks live in scattered spreadsheets or docs.</li>
+                  <li>You want consistent pre-start steps across departments.</li>
+                  <li>You want Nova to warn you before a first-day surprise.</li>
+                </ul>
+              </div>
+
+              <div class="info-card">
+                <h3>What this template automates</h3>
+                <ul>
+                  <li>Creates a pre-start checklist per new hire in your task/project tool.</li>
+                  <li>Assigns tasks to IT, People Ops, and the hiring manager.</li>
+                  <li>Sets due dates relative to the hire’s start date.</li>
+                  <li>Posts a summary to Slack or email with the checklist link.</li>
+                  <li>Uses Nova to highlight gaps (no laptop, missing address, etc.).</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- HOW IT WORKS -->
+          <section id="how-it-works" class="doc-section">
+            <h2>How it works</h2>
+            <ol class="step-list">
+              <li>A new hire is created in the HRIS with a start date.</li>
+              <li>SyncToScale builds a structured onboarding profile.</li>
+              <li>Nova checks for missing key fields and potential blockers.</li>
+              <li>A pre-start checklist is created using your chosen template in Asana, ClickUp, Jira, etc.</li>
+              <li>Tasks are assigned with due dates based on the start date (e.g., T-10 days, T-5 days).</li>
+              <li>A Slack or email notification shares the checklist with stakeholders.</li>
+            </ol>
+          </section>
+
+          <!-- WORKFLOW STEPS -->
+          <section id="workflow-steps" class="doc-section">
+            <h2>Workflow steps</h2>
+
+            <ol class="step-list step-list-detailed">
+
+              <li>
+                <h3>Step 1 — Trigger: New hire created / pre-start window</h3>
+                <p>
+                  The workflow can run in two ways:
+                </p>
+                <ul>
+                  <li>Immediately when a new hire is created (<code>employee.created</code> event), or</li>
+                  <li>On a daily schedule that looks for hires whose start date is within a pre-start window
+                    (e.g., 7 or 10 days away).</li>
+                </ul>
+              </li>
+
+              <li>
+                <h3>Step 2 — Build onboarding profile</h3>
+                <p>
+                  SyncToScale maps HRIS data into a normalized profile used across your onboarding templates
+                  (name, role, location, manager, start date, employment type, etc.).
+                </p>
+              </li>
+
+              <li>
+                <h3>Step 3 — Nova pre-start validation</h3>
+                <p>
+                  Nova evaluates whether you have enough information to start pre-day-one work:
+                </p>
+                <div class="nova-callout">
+                  <ul>
+                    <li>Missing or inconsistent start date.</li>
+                    <li>No manager or manager email.</li>
+                    <li>Missing location (for equipment shipping or in-office prep).</li>
+                    <li>No hardware type selected (laptop, peripherals).</li>
+                    <li>Short pre-start window (e.g., start date is &lt; 3 days away).</li>
+                  </ul>
+                </div>
+              </li>
+
+              <li>
+                <h3>Step 4 — Create checklist in task/project tool</h3>
+                <p>
+                  SyncToScale creates a project/board or checklist for the new hire using your base template, then
+                  fills in details like name, start date, and role-specific tasks.
+                </p>
+              </li>
+
+              <li>
+                <h3>Step 5 — Assign tasks &amp; due dates</h3>
+                <p>
+                  Tasks are assigned to People Ops, IT, and the manager with due dates relative to the start date.
+                  For example:
+                </p>
+                <ul>
+                  <li>T-10 days: Submit hardware order.</li>
+                  <li>T-7 days: Confirm access & systems.</li>
+                  <li>T-3 days: Send welcome email + schedule intro meetings.</li>
+                </ul>
+              </li>
+
+              <li>
+                <h3>Step 6 — Notify stakeholders</h3>
+                <p>
+                  A Slack message or email is sent to the manager and People Ops with:
+                </p>
+                <ul>
+                  <li>Checklist link</li>
+                  <li>Summary of key tasks & due dates</li>
+                  <li>Nova insights about possible pre-start issues</li>
+                </ul>
+              </li>
+            </ol>
+          </section>
+
+          <!-- MAPPINGS -->
+          <section id="data-mapping" class="doc-section">
+            <h2>Field mappings</h2>
+
+            <h3>HRIS → Pre-Start Checklist</h3>
+            <div class="table-wrapper">
+              <table class="mapping-table">
+                <thead>
+                  <tr>
+                    <th>HRIS Field</th>
+                    <th>Transform</th>
+                    <th>Checklist Field</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>firstName</code>, <code>lastName</code></td>
+                    <td>Combine, title case</td>
+                    <td>Checklist title: <code>Pre-Start – {{FullName}}</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>hireDate</code></td>
+                    <td>Normalize to ISO + timezone</td>
+                    <td>Base date for all due dates</td>
+                  </tr>
+                  <tr>
+                    <td><code>department</code></td>
+                    <td>Normalize to static list</td>
+                    <td>Used to pick appropriate checklist variant</td>
+                  </tr>
+                  <tr>
+                    <td><code>jobTitle</code></td>
+                    <td>Title case</td>
+                    <td>Shown in project custom field</td>
+                  </tr>
+                  <tr>
+                    <td><code>managerEmail</code></td>
+                    <td>Directory lookup</td>
+                    <td>Assigned owner / watcher</td>
+                  </tr>
+                  <tr>
+                    <td><code>employmentType</code> (e.g., FTE, Contractor)</td>
+                    <td>Map to category</td>
+                    <td>Adjusts tasks (e.g., equipment vs. BYOD)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3>Checklist task rules</h3>
+            <div class="table-wrapper">
+              <table class="mapping-table">
+                <thead>
+                  <tr>
+                    <th>Task name</th>
+                    <th>Owner</th>
+                    <th>Due date offset</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Submit hardware request</td>
+                    <td>IT</td>
+                    <td>Start date − 10 days</td>
+                  </tr>
+                  <tr>
+                    <td>Confirm tool access & groups</td>
+                    <td>IT</td>
+                    <td>Start date − 5 days</td>
+                  </tr>
+                  <tr>
+                    <td>Send welcome email</td>
+                    <td>Manager</td>
+                    <td>Start date − 3 days</td>
+                  </tr>
+                  <tr>
+                    <td>Schedule intro meetings</td>
+                    <td>Manager</td>
+                    <td>Start date − 2 days</td>
+                  </tr>
+                  <tr>
+                    <td>Verify paperwork completion</td>
+                    <td>People Ops</td>
+                    <td>Start date − 2 days</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- SAMPLE JSON -->
+          <section id="sample-payloads" class="doc-section">
+            <h2>Sample JSON payloads</h2>
+
+            <h3>Trigger event — New hire created</h3>
+            <pre class="code-block"><code>{
+  "eventId": "evt_01J2PRESTART",
+  "eventType": "employee.created",
+  "source": "bamboohr",
+  "payload": {
+    "employeeId": "EMP-10402",
+    "firstName": "Devon",
+    "lastName": "Nguyen",
+    "jobTitle": "Customer Support Specialist",
+    "department": "Support",
+    "hireDate": "2025-05-12",
+    "employmentType": "Full-time",
+    "managerEmail": "melissa.parker@demo-company.com",
+    "location": {
+      "city": "Austin",
+      "country": "US",
+      "timezone": "America/Chicago"
+    }
+  }
+}</code></pre>
+
+            <h3>Checklist payload (simplified)</h3>
+            <pre class="code-block"><code>{
+  "name": "Pre-Start – Devon Nguyen",
+  "templateKey": "pre_start_standard",
+  "customFields": {
+    "startDate": "2025-05-12",
+    "department": "Support",
+    "role": "Customer Support Specialist"
+  },
+  "tasks": [
+    {
+      "title": "Submit hardware request",
+      "owner": "IT",
+      "dueDate": "2025-05-02"
+    },
+    {
+      "title": "Confirm Zendesk & Slack access",
+      "owner": "IT",
+      "dueDate": "2025-05-07"
+    },
+    {
+      "title": "Send welcome email to Devon",
+      "owner": "Manager",
+      "dueDate": "2025-05-09"
+    },
+    {
+      "title": "Schedule first week 1:1s",
+      "owner": "Manager",
+      "dueDate": "2025-05-10"
+    }
+  ],
+  "novaInsights": [
+    "Start date is 10 days away – hardware order should be placed now.",
+    "No hardware type selected; recommend confirming laptop preference.",
+    "Devon is remote – confirm shipping address for equipment."
+  ]
+}</code></pre>
+          </section>
+
+          <!-- ERROR HANDLING -->
+          <section id="error-handling" class="doc-section">
+            <h2>Error handling</h2>
+            <p>
+              Pre-start work is time-sensitive. This template surfaces any blockers early so they can be fixed
+              manually if needed.
+            </p>
+            <ul>
+              <li>Missing start date: Nova blocks checklist creation and alerts People Ops.</li>
+              <li>Unknown manager: checklist is still created, but manager-owned tasks are assigned to People Ops until resolved.</li>
+              <li>Project/tool API errors: retries with backoff, then logs a warning and sends a fallback email summary.</li>
+            </ul>
+
+            <h3>Sample diagnostic for missing start date</h3>
+            <pre class="code-block"><code>{
+  "runId": "run_01J2PRESTART",
+  "status": "pending_information",
+  "missingFields": ["hireDate"],
+  "novaMessage": "Cannot generate pre-start checklist without a start date. Please update the hireDate in the HRIS."
+}</code></pre>
+          </section>
+
+          <!-- NOVA INSIGHTS -->
+          <section id="nova-insights" class="doc-section">
+            <h2>Nova insights for this template</h2>
+            <ul>
+              <li>Shows which departments consistently cut pre-start timelines too close.</li>
+              <li>Highlights tasks that frequently miss their due dates.</li>
+              <li>Identifies patterns like “remote hires without hardware requests”.</li>
+              <li>Helps People Ops refine pre-start SLAs and expectations.</li>
+            </ul>
+          </section>
+
+          <!-- SETUP -->
+          <section id="setup" class="doc-section">
+            <h2>Set up this template in SyncToScale</h2>
+            <ol class="step-list">
+              <li>Select <strong>Pre-Start Checklist</strong> from the <strong>Templates</strong> library.</li>
+              <li>Connect your HRIS and preferred task/project tool (Asana, ClickUp, Jira, etc.).</li>
+              <li>Define your pre-start window (e.g., “7 days before start date”).</li>
+              <li>Customize the task list for your organization and departments.</li>
+              <li>Turn on Nova’s pre-start validation checks.</li>
+              <li>Run a test with a mock new hire, then enable in <strong>Active</strong> mode.</li>
+            </ol>
+          </section>
+
+        </article>
+
+        <!-- RIGHT COLUMN -->
+        <aside class="template-sidebar">
+          <div class="card">
+            <h3>Template summary</h3>
+            <ul class="key-facts-list">
+              <li><strong>Trigger:</strong> New hire created / pre-start window</li>
+              <li><strong>Runtime:</strong> Immediate once triggered</li>
+              <li><strong>Owner:</strong> People Ops · IT · Hiring Manager</li>
+              <li><strong>Systems:</strong> HRIS · Task tool · Slack/Email</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Best practice defaults</h3>
+            <ul>
+              <li>Use at least a 7–10 day pre-start window.</li>
+              <li>Keep 8–12 core tasks that apply to every hire.</li>
+              <li>Add department-specific tasks via rules, not manual edits.</li>
+            </ul>
+          </div>
+
+          <div class="card nova-callout">
+            <h3>Nova will help you…</h3>
+            <ul>
+              <li>Spot hires at risk of a rocky first day.</li>
+              <li>See which teams are consistently late on pre-start tasks.</li>
+              <li>Refine your checklist to prevent recurring issues.</li>
+            </ul>
+          </div>
+        </aside>
+
+      </section>
+    </div>
+  </main>
+</body>
+</html>
 
