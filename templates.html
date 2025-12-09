@@ -13,12 +13,58 @@
   <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
 
   <style>
-    /* Deep Teal Headers */
+    /* -----------------------------------------
+       NAVBAR — EXACT COPY FROM INDEX
+    ----------------------------------------- */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    }
+
+    header .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #0b3d3d;
+      text-decoration: none;
+    }
+
+    .nav a {
+      color: #0b3d3d;
+      margin-left: 26px;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      padding-bottom: 4px;
+      transition: color .2s ease, border-bottom .2s ease;
+      border-bottom: 2px solid transparent;
+    }
+
+    .nav a:hover {
+      color: #14b8a6;
+      border-bottom: 2px solid #14b8a6;
+    }
+
+    /* -----------------------------------------
+       TEMPLATE PAGE STYLES
+    ----------------------------------------- */
     .template-section h2 {
       font-size: 26px;
       font-weight: 700;
       margin-bottom: 16px;
-      background: linear-gradient(90deg, #1d6f7a, #14645d); /* deep teal gradient */
+      background: linear-gradient(90deg, #1d6f7a, #14645d);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -29,14 +75,12 @@
       padding: 0 20px;
     }
 
-    /* Grid */
     .template-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 20px;
     }
 
-    /* Cards */
     .template-card {
       background: #ffffff;
       border-radius: 12px;
@@ -67,7 +111,6 @@
       line-height: 1.45;
     }
 
-    /* Hero */
     .page-hero {
       text-align: center;
       padding: 56px 20px 40px;
@@ -77,6 +120,7 @@
       font-size: 36px;
       font-weight: 700;
       margin-bottom: 8px;
+      color: #0b3d3d;
     }
 
     .page-hero p {
@@ -95,32 +139,26 @@
         font-size: 28px;
       }
     }
-
-    /* Bold SyncToScale logo */
-    .logo-text {
-      font-weight: 700 !important;
-    }
   </style>
 </head>
 
 <body>
 
-  <!-- CLEAN NAVBAR (bold logo, no extra S) -->
- <header class="site-header">
-  <div class="container header-inner">
-    <a href="index.html" class="logo">SyncToScale</a>
+  <!-- NAVBAR FROM INDEX -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">SyncToScale</a>
 
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="features.html">Features</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="about.html">About</a>
-      <a href="faq.html">FAQ</a>
-      <a href="resources.html">Resources</a>
-    </nav>
-  </div>
-</header>
-
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="resources.html">Resources</a>
+      </nav>
+    </div>
+  </header>
 
   <!-- HERO -->
   <section class="page-hero">
@@ -131,7 +169,7 @@
     </p>
   </section>
 
-  <!-- HR & People Ops -->
+  <!-- HR & PEOPLE OPS -->
   <section class="template-section">
     <h2>HR & People Operations</h2>
 
@@ -163,7 +201,7 @@
     </div>
   </section>
 
-  <!-- CS & Implementation -->
+  <!-- CS & IMPLEMENTATION -->
   <section class="template-section">
     <h2>Customer Success & Implementation</h2>
 
@@ -180,7 +218,7 @@
     </div>
   </section>
 
-  <!-- RevOps -->
+  <!-- REVOPS -->
   <section class="template-section">
     <h2>RevOps & Sales Automation</h2>
 
@@ -197,14 +235,14 @@
     </div>
   </section>
 
-  <!-- Engineering -->
+  <!-- ENGINEERING -->
   <section class="template-section">
     <h2>Integrations & Automation Engineering</h2>
 
     <div class="template-grid">
       <a class="template-card" href="template-custom-webhook-workflow.html">
         <h3>Custom Webhook Workflow</h3>
-        <p>Trigger automation using signed, custom webhook payloads.</p>
+        <p>Trigger automation using signed webhook payloads.</p>
       </a>
 
       <a class="template-card" href="template-api-bulk-sync.html">
