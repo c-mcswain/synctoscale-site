@@ -4,7 +4,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Features — SyncToScale</title>
+  <title>Features | SyncToScale</title>
+
+  <!-- Botpress Webchat -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.4/inject.js"></script>
+  <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
 
   <style>
     body {
@@ -14,7 +18,7 @@
       color: #1e293b;
     }
 
-    /* NAVBAR */
+    /* NAVBAR (same as index) */
     header {
       position: sticky;
       top: 0;
@@ -33,7 +37,6 @@
       justify-content: space-between;
     }
 
-    /* CLICKABLE LOGO */
     .logo {
       font-size: 1.6rem;
       font-weight: 700;
@@ -57,28 +60,7 @@
       border-bottom: 2px solid #14b8a6;
     }
 
-    /* HERO SECTION */
-    .hero {
-      padding: 90px 20px 70px;
-      text-align: center;
-      background: #ffffff;
-    }
-
-    .hero h1 {
-      font-size: 2.4rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-      color: #0b3d3d;
-    }
-
-    .hero p {
-      font-size: 1.15rem;
-      max-width: 600px;
-      margin: auto;
-      color: #475569;
-    }
-
-    /* FEATURE GRID */
+    /* LAYOUT */
     .section {
       padding: 60px 20px;
     }
@@ -88,98 +70,196 @@
       margin: auto;
     }
 
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 32px;
-      margin-top: 40px;
-    }
-
-    .feature-card {
-      background: #fff;
-      padding: 26px;
-      border-radius: 14px;
-      box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.06);
-      transition: transform .2s ease, box-shadow .2s ease;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    .feature-card h3 {
-      margin-bottom: 10px;
-      font-size: 1.25rem;
-      color: #0b3d3d;
-    }
-
-    .feature-card p {
-      color: #475569;
-      line-height: 1.55;
-    }
-
-    /* VISUAL SECTION */
-    .visual-section {
-      padding: 80px 20px;
-      background: #eefdfb;
+    .section-heading {
       text-align: center;
-    }
-
-    .visual-section img {
-      width: 100%;
-      max-width: 700px;
-      border-radius: 16px;
-      box-shadow: 0px 8px 22px rgba(0, 0, 0, 0.08);
-    }
-
-    .visual-section h2 {
-      margin-bottom: 16px;
-      font-size: 2rem;
-      color: #0b3d3d;
-    }
-
-    .visual-section p {
-      max-width: 650px;
-      margin: auto;
-      font-size: 1.1rem;
-      color: #475569;
       margin-bottom: 40px;
     }
 
-    /* CTA */
-    .cta-section {
-      padding: 80px 20px;
-      text-align: center;
+    .section-heading h1,
+    .section-heading h2 {
+      margin-bottom: 10px;
     }
 
-    .cta-section h2 {
-      font-size: 2rem;
-      margin-bottom: 16px;
-      color: #0b3d3d;
+    .section-heading p {
+      margin: 0;
+      color: #64748b;
     }
 
-    .cta-section p {
-      font-size: 1.1rem;
-      color: #475569;
-      max-width: 600px;
-      margin: auto;
-      margin-bottom: 30px;
+    .alt-bg {
+      background: #eefdfb;
     }
 
-    .cta-button {
-      padding: 14px 34px;
-      font-size: 1rem;
-      font-weight: 600;
-      background: #0b3d3d;
+    /* SUB HERO */
+    .sub-hero {
+      padding: 60px 20px 40px;
+      background: radial-gradient(circle at 20% 20%, #41d1ff, #21e19f);
       color: white;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background .2s;
     }
 
-    .cta-button:hover {
-      background: #14b8a6;
+    .sub-hero .container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .sub-hero-text {
+      flex: 1.2;
+      min-width: 260px;
+    }
+
+    .sub-hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      background: rgba(15, 23, 42, 0.25);
+      margin-bottom: 10px;
+    }
+
+    .sub-hero-text h1 {
+      font-size: 2.1rem;
+      margin: 0 0 10px;
+    }
+
+    .sub-hero-text p {
+      margin: 0 0 16px;
+      max-width: 480px;
+    }
+
+    .sub-hero-meta {
+      font-size: 0.9rem;
+      opacity: 0.95;
+    }
+
+    .sub-hero-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .pill {
+      font-size: 0.8rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(226, 232, 240, 0.6);
+      background: rgba(15, 23, 42, 0.1);
+    }
+
+    /* FEATURE GRID */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 20px;
+    }
+
+    .feature-card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 22px 22px 20px;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+      border: 1px solid #e2e8f0;
+    }
+
+    .feature-tag {
+      display: inline-flex;
+      font-size: 0.75rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #ecfeff;
+      color: #0f766e;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .feature-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.1rem;
+    }
+
+    .feature-card p {
+      margin: 0 0 10px;
+      font-size: 0.95rem;
+      color: #4b5563;
+    }
+
+    .feature-meta {
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+
+    /* USE-CASE STRIPES */
+    .usecase-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .usecase-card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .usecase-chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #ecfeff;
+      color: #0f766e;
+      font-size: 0.75rem;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .usecase-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+    }
+
+    .usecase-card ul {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 0.95rem;
+      color: #4b5563;
+    }
+
+    .usecase-card li {
+      margin-bottom: 6px;
+    }
+
+    /* CTA STRIP */
+    .cta-strip {
+      border-radius: 16px;
+      padding: 20px 22px;
+      background: linear-gradient(135deg, #0f766e, #14b8a6);
+      color: #ecfeff;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .cta-strip p {
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    .cta-chip {
+      display: inline-flex;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.15);
+      font-size: 0.85rem;
+      white-space: nowrap;
     }
 
     /* FOOTER */
@@ -190,90 +270,162 @@
       text-align: center;
       margin-top: 60px;
     }
+
+    /* NOVA LABEL */
+    .nova-label {
+      position: fixed;
+      bottom: 38px;
+      right: 90px;
+      background: rgba(0, 0, 0, 0.78);
+      color: white;
+      padding: 8px 14px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 500;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity .25s ease, transform .25s ease;
+      pointer-events: none;
+      z-index: 999999;
+    }
+
+    @media (max-width: 640px) {
+      .sub-hero {
+        padding-top: 40px;
+        padding-bottom: 32px;
+      }
+
+      .sub-hero-text h1 {
+        font-size: 1.7rem;
+      }
+
+      .section {
+        padding: 48px 16px;
+      }
+    }
   </style>
 </head>
 
 <body>
 
   <!-- NAVBAR -->
-<!-- NAVBAR -->
-<header>
-  <div class="container">
-    <a href="index.html" class="logo">SyncToScale</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">SyncToScale</a>
 
-  <nav class="nav">
-  <a href="index.html">Home</a>
-  <a href="features.html">Features</a>
-  <a href="pricing.html">Pricing</a>
-  <a href="about.html">About</a>
-  <a href="faq.html">FAQ</a>
-  <a href="resources.html">Resources</a>
-</nav>
-  </div>
-</header>
-
-
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="resources.html">Resources</a>
+      </nav>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <h1>Powerful Features Designed to Scale With You</h1>
-    <p>Automate workflows, sync systems, and eliminate manual work — all without writing a single line of code.</p>
-  </section>
-
-  <!-- FEATURES GRID -->
-  <section class="section">
+  <!-- SUB HERO -->
+  <section class="sub-hero">
     <div class="container">
-      <div class="features-grid">
-
-        <div class="feature-card">
-          <h3>Unified Data Sync</h3>
-          <p>Connect your tech stack and ensure consistent, accurate data across every tool your team relies on.</p>
+      <div class="sub-hero-text">
+        <div class="sub-hero-eyebrow">AI orchestration, minus the chaos</div>
+        <h1>Features built for real-world workflows — not toy demos.</h1>
+        <p>SyncToScale connects your SaaS stack, routes work intelligently, and keeps humans in the loop where it matters most.</p>
+        <div class="sub-hero-meta">Designed with TAMs, implementation managers, and support leaders in mind.</div>
+        <div class="sub-hero-pill-row">
+          <span class="pill">AI-assisted routing</span>
+          <span class="pill">Human-in-the-loop approvals</span>
+          <span class="pill">No-code automations</span>
         </div>
-
-        <div class="feature-card">
-          <h3>Zero-Code Workflow Builder</h3>
-          <p>Build, automate, and streamline processes without engineering resources or complex setup.</p>
-        </div>
-
-        <div class="feature-card">
-          <h3>AI-Powered Insights</h3>
-          <p>Surface bottlenecks, prevent errors, and optimize automations using AI-guided recommendations.</p>
-        </div>
-
-        <div class="feature-card">
-          <h3>Multi-App Triggers</h3>
-          <p>Kick off workflows based on key events: new hires, closed deals, updated tickets, and more.</p>
-        </div>
-
-        <div class="feature-card">
-          <h3>Error Handling & Alerts</h3>
-          <p>Get notified instantly if a workflow fails, with retry logic and diagnostics built in.</p>
-        </div>
-
-        <div class="feature-card">
-          <h3>Scalable Architecture</h3>
-          <p>Whether you’re a startup or enterprise, SyncToScale adapts to your automation needs as they grow.</p>
-        </div>
-
       </div>
     </div>
   </section>
 
-  <!-- VISUAL -->
-  <section class="visual-section">
-    <h2>See SyncToScale In Action</h2>
-    <p>A clean, intuitive automation experience designed for real business workflows.</p>
-    <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1200&q=60"
-      alt="Workflow preview">
+  <!-- CORE AUTOMATION FEATURES -->
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Automation that understands your team</h2>
+        <p>Less “if-this-then-that spaghetti,” more structured workflows your ops team can actually maintain.</p>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <span class="feature-tag">Routing & Triage</span>
+          <h3>AI-powered intake & smart assignment</h3>
+          <p>Score and route tickets, tasks, and requests based on customer segment, urgency, product area, and SLAs.</p>
+          <div class="feature-meta">Use Nova to suggest owners, tags, and next best actions – your team still has final say.</div>
+        </div>
+
+        <div class="feature-card">
+          <span class="feature-tag">Workflow Engine</span>
+          <h3>No-code flows your ops team controls</h3>
+          <p>Drag-and-drop steps like “update CRM,” “notify Slack,” “create Jira issue,” and “wait for human approval.”</p>
+          <div class="feature-meta">Templates for onboarding, renewals, escalations, and launch playbooks.</div>
+        </div>
+
+        <div class="feature-card">
+          <span class="feature-tag">AI Assist</span>
+          <h3>Nova as your sidekick, not your boss</h3>
+          <p>Drafts updates, summarizes context, and surfaces key risks — but never auto-sends without your review.</p>
+          <div class="feature-meta">Explainable suggestions: see exactly which data points Nova used.</div>
+        </div>
+
+        <div class="feature-card">
+          <span class="feature-tag">Data Integrity</span>
+          <h3>Guardrails to prevent CRM chaos</h3>
+          <p>De-duplicate records, enforce naming conventions, and sync only trusted fields across systems.</p>
+          <div class="feature-meta">Perfect for TAMs who are tired of “ghost values” and conflicting truth sources.</div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- CTA -->
-  <section class="cta-section">
-    <h2>Explore the SyncToScale Project</h2>
-    <p>This project demonstrates how AI-powered automation can streamline workflows and centralize business systems.</p>
-    <a href="/index.html" class="cta-button">Back to Home</a>
+  <!-- USE CASES -->
+  <section class="section alt-bg">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Built for cross-functional teams</h2>
+        <p>SyncToScale gives each function what they need — without five different automation tools to maintain.</p>
+      </div>
+
+      <div class="usecase-row">
+        <div class="usecase-card">
+          <div class="usecase-chip">Customer Success & TAM</div>
+          <h3>Stay ahead of renewals and risk</h3>
+          <ul>
+            <li>Auto-flag high-risk accounts when signals stack up.</li>
+            <li>Trigger success plans in your CS platform of choice.</li>
+            <li>Summarize key context before every EBR.</li>
+          </ul>
+        </div>
+
+        <div class="usecase-card">
+          <div class="usecase-chip">Implementation & Projects</div>
+          <h3>Standardize onboarding without losing nuance</h3>
+          <ul>
+            <li>Template project plans for each segment or product.</li>
+            <li>Auto-create tasks in Asana/Jira as milestones unlock.</li>
+            <li>Keep stakeholders synced in Slack and email.</li>
+          </ul>
+        </div>
+
+        <div class="usecase-card">
+          <div class="usecase-chip">Support & Operations</div>
+          <h3>Shorter queues, clearer ownership</h3>
+          <ul>
+            <li>AI-assisted categorization and escalation paths.</li>
+            <li>Playbooks for “hand-off to Engineering” or “loop in CS.”</li>
+            <li>Reporting to see where work actually gets stuck.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cta-strip">
+        <p>This is a portfolio project — but the workflows are modeled on real SaaS teams.</p>
+        <span class="cta-chip">Recruiter? Head to the About page for context →</span>
+      </div>
+    </div>
   </section>
 
   <!-- FOOTER -->
@@ -281,6 +433,51 @@
     <p>SyncToScale — Portfolio Project by Christy</p>
   </footer>
 
-</body>
+  <!-- NOVA CHAT BUTTON -->
+  <script>
+    window.botpressWebChat.init({
+      botId: "nova",
+      hostUrl: "https://cdn.botpress.cloud/webchat/v3",
+      botName: "Nova",
+      hideWidget: false,
+      stylesheet: `
+        .bpw-floating-button {
+          width: 68px !important;
+          height: 68px !important;
+          border-radius: 50% !important;
+          background: radial-gradient(circle at 30% 30%, #41d1ff, #21e19f) !important;
+          box-shadow:
+            0 0 18px rgba(33, 225, 159, 0.5),
+            0 0 28px rgba(65, 209, 255, 0.45) !important;
+          border: none !important;
+          display: flex !important;
+          justify-content: center !important;
+          align-items: center !important;
+        }
 
+        .bpw-floating-button svg {
+          display: none !important;
+        }
+
+        .bpw-floating-button::before {
+          content: "";
+          width: 36px;
+          height: 36px;
+          background-image: url('https://c-mcswain.github.io/synctoscale-site/assets/nova-icon.png');
+          background-size: contain;
+          background-repeat: no-repeat;
+          display: block;
+        }
+
+        .bpw-floating-button:hover + .nova-label {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      `
+    });
+  </script>
+
+  <div class="nova-label">Chat with Nova</div>
+
+</body>
 </html>
