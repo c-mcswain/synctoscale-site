@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logs & Monitoring | SyncToScale Docs</title>
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Nova Botpress Webchat -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
+  <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <div class="logo">
+        <a href="index.html" class="logo-link">SyncToScale</a>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="faq.html">FAQ</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <h1>Logs & Monitoring</h1>
+    <p>
+      SyncToScale provides real-time visibility into workflow execution, connection health,
+      payload transformations, and Nova-assisted anomaly detection—helping you diagnose issues quickly.
+    </p>
+  </section>
+
+  <!-- PAGE CONTENT -->
+  <section class="doc-container">
+
+    <h2>Overview</h2>
+    <p>
+      Monitoring is essential for troubleshooting automation issues.  
+      SyncToScale captures every workflow run, each step execution, payload inputs/outputs,
+      connection behavior, and warning or error states.
+    </p>
+
+    <hr />
+
+    <h2>Workflow Run History</h2>
+    <p>
+      Every workflow execution is logged with timestamps, trigger details, and run-level metadata.
+    </p>
+
+<pre>
+GET /workflows/{id}/runs
+[
+  {
+    "run_id": "run_123",
+    "status": "success",
+    "trigger": "employee.created",
+    "started_at": "2025-01-20T14:00:01Z",
+    "duration_ms": 420
+  },
+  {
+    "run_id": "run_122",
+    "status": "failed",
+    "trigger": "employee.created",
+    "started_at": "2025-01-20T13:58:10Z",
+    "duration_ms": 812
+  }
+]
+</pre>
+
+    <p>Failed runs automatically surface their root cause and failing step.</p>
+
+    <hr />
+
+    <h2>Step-Level Logs</h2>
+    <p>
+      Each action inside the workflow produces its own log entry with full detail.
+    </p>
+
+<pre>
+{
+  "step": "search_user",
+  "provider": "google_workspace",
+  "status": "success",
+  "attempts": 1,
+  "input": { "email": "jordan@example.com" },
+  "output": { "user_id": "gw_8871" },
+  "timestamp": "2025-01-20T14:12:04Z"
+}
+</pre>
+
+    <p>
+      Logs include the payload before and after transformations for transparent debugging.
+    </p>
+
+    <hr />
+
+    <h2>Connection Health Monitoring</h2>
+    <p>
+      Every workflow run includes a health snapshot of the connection used:
+    </p>
+
+<pre>
+{
+  "connection_id": "conn_abc123",
+  "status": "healthy",
+  "rate_limit_remaining": 47,
+  "token_expires_in": 3600,
+  "last_validated": "2025-01-20T14:00:00Z"
+}
+</pre>
+
+    <ul>
+      <li>Low rate limits trigger warnings</li>
+      <li>Expired tokens place the connection into “Needs Attention”</li>
+      <li>Provider issues are surfaced before workflow failure</li>
+    </ul>
+
+    <hr />
+
+    <h2>Payload Snapshots</h2>
+    <p>
+      SyncToScale captures snapshots of the payload at each major stage:
+    </p>
+
+    <ul>
+      <li>Incoming trigger payload</li>
+      <li>Normalized object</li>
+      <li>Mapped payload</li>
+      <li>Provider response</li>
+    </ul>
+
+<pre>
+{
+  "stage": "mapped_payload",
+  "data": {
+    "full_name": "Jordan Lee",
+    "email": "jordan@example.com",
+    "department": "Engineering"
+  }
+}
+</pre>
+
+    <hr />
+
+    <h2>Error Grouping</h2>
+    <p>
+      When multiple failures share a root cause—permissions, invalid mappings, outages—
+      SyncToScale groups them automatically for easier diagnosis.
+    </p>
+
+<pre>
+{
+  "group": "insufficient_permissions",
+  "occurrences": 14,
+  "affected_workflows": ["new-hire-sync", "it-provisioning"],
+  "recommended_fix": "Re-authenticate Slack with chat:write scope"
+}
+</pre>
+
+    <p>Grouped insights help identify systemic issues quickly.</p>
+
+    <hr />
+
+    <h2>Nova Anomaly Detection</h2>
+    <p>
+      Nova continuously analyzes workflow runs and connection behavior to detect anomalies such as:
+    </p>
+
+    <ul>
+      <li>Spike in failures for a specific action</li>
+      <li>Drift in payload structure</li>
+      <li>Rate limit saturation</li>
+      <li>Unexpected increases in duration</li>
+      <li>Provider instability</li>
+    </ul>
+
+<pre>
+Nova Insight:
+{
+  "anomaly": "Error rate increased 4x in past 30 minutes",
+  "likely_cause": "HubSpot API latency",
+  "confidence": 0.92
+}
+</pre>
+
+    <hr />
+
+    <h2>Full Run Example</h2>
+
+<pre>
+{
+  "run_id": "run_123",
+  "status": "success",
+  "trigger": "employee.created",
+  "steps": [
+    { "step": "normalize", "status": "success" },
+    { "step": "search_user", "status": "success" },
+    { "step": "create_user", "status": "success" }
+  ],
+  "duration_ms": 420,
+  "started_at": "2025-01-20T14:00:01Z"
+}
+</pre>
+
+    <p>
+      This structured execution trace provides the full picture for debugging and optimization.
+    </p>
+
+  </section>
+
+</body>
+</html>
