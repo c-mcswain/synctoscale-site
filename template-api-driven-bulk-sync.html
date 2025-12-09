@@ -1,1 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Template: API-Driven Bulk Sync | SyncToScale</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Nova / Botpress -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
+  <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
+</head>
+
+<body>
+
+  <!-- SITE HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">S</span>
+        <span class="logo-text">SyncToScale</span>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="docs.html">Docs</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+    <div class="container template-layout">
+
+      <!-- BREADCRUMB -->
+      <nav class="doc-breadcrumb">
+        <a href="templates.html">Templates</a>
+        <span>›</span>
+        <span>API-Driven Bulk Sync</span>
+      </nav>
+
+      <!-- PAGE HEADER -->
+      <header class="page-header">
+        <div class="page-header-top">
+          <h1>API-Driven Bulk Sync</h1>
+          <span class="badge badge-nova">Template</span>
+        </div>
+
+        <p class="page-subtitle">
+          Run large-scale data synchronization jobs between multiple systems using the SyncToScale Bulk Sync engine.
+          Ideal for nightly HRIS → Payroll syncs, CRM backfills, analytics warehouse updates, or bulk identity
+          provisioning. Nova validates dataset quality and identifies mapping inconsistencies.
+        </p>
+
+        <div class="page-meta-row">
+          <span class="pill pill-soft">Category: Developer & Custom</span>
+          <span class="pill pill-soft">Difficulty: Advanced</span>
+          <span class="pill pill-soft">Trigger: Scheduled or manual run</span>
+          <span class="pill pill-soft">Systems: HRIS · CRM · Payroll · Warehouse · Custom APIs</span>
+        </div>
+      </header>
+
+      <!-- MAIN GRID -->
+      <section class="template-main-grid">
+
+        <!-- LEFT COLUMN -->
+        <article class="template-main">
+
+          <!-- OVERVIEW -->
+          <section id="overview" class="doc-section">
+            <h2>Overview</h2>
+            <p>
+              The <strong>API-Driven Bulk Sync</strong> template enables large-volume data transfers using paginated API
+              calls and structured mapping rules. It is designed for high-throughput, idempotent jobs such as
+              employee directory backfills, CRM reconstructions, or policy audit exports. Nova analyzes datasets to
+              identify anomalies, missing fields, duplicates, and mapping gaps before sync begins.
+            </p>
+
+            <div class="info-grid">
+              <div class="info-card">
+                <h3>When to use this template</h3>
+                <ul>
+                  <li>Nightly or scheduled HRIS → Payroll syncs.</li>
+                  <li>Backfills of CRM Contacts, Accounts, or Opportunities.</li>
+                  <li>Bulk provisioning updates to identity platforms.</li>
+                  <li>Analytics warehouse loads (Snowflake, BigQuery, Redshift).</li>
+                  <li>Large datasets requiring pagination, batching, or queued processing.</li>
+                </ul>
+              </div>
+
+              <div class="info-card">
+                <h3>What this template automates</h3>
+                <ul>
+                  <li>Paginated API fetches from source systems.</li>
+                  <li>Bulk writes to destination systems.</li>
+                  <li>Mapping transformation rules for large datasets.</li>
+                  <li>Retry logic + idempotent writes.</li>
+                  <li>Nova anomaly detection and schema validation.</li>
+                  <li>Run logs with metrics (records processed, skipped, failed).</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- HOW IT WORKS -->
+          <section id="how-it-works" class="doc-section">
+            <h2>How it works</h2>
+            <ol class="step-list">
+              <li>SyncToScale makes API calls to fetch dataset pages.</li>
+              <li>Nova inspects samples to verify schema and detect missing fields.</li>
+              <li>Each record is transformed via your mapping rules.</li>
+              <li>Records are sent in batches to the destination system.</li>
+              <li>Failures are retried with exponential backoff.</li>
+              <li>Run metrics and Nova diagnostics are logged for review.</li>
+            </ol>
+          </section>
+
+          <!-- WORKFLOW STEPS -->
+          <section id="workflow-steps" class="doc-section">
+            <h2>Workflow steps</h2>
+
+            <ol class="step-list step-list-detailed">
+
+              <li>
+                <h3>Step 1 — Trigger: Scheduled or manual</h3>
+                <p>Supports nightly, hourly, or on-demand execution.</p>
+              </li>
+
+              <li>
+                <h3>Step 2 — Fetch paginated data</h3>
+                <p>
+                  SyncToScale uses cursor-based pagination or page-number APIs to fetch the full dataset.
+                  Supports:
+                </p>
+                <ul>
+                  <li>Offset pagination</li>
+                  <li>Cursor pagination</li>
+                  <li>Time-window “delta” syncs</li>
+                </ul>
+              </li>
+
+              <li>
+                <h3>Step 3 — Nova schema validation</h3>
+                <p>Nova performs dataset-wide checks:</p>
+                <div class="nova-callout">
+                  <ul>
+                    <li>Missing required fields</li>
+                    <li>Unexpected nulls</li>
+                    <li>Duplicate IDs</li>
+                    <li>Inconsistent field formats</li>
+                  </ul>
+                </div>
+              </li>
+
+              <li>
+                <h3>Step 4 — Transform & map fields</h3>
+                <p>Mapping rules define how each record is shaped for the destination system.</p>
+              </li>
+
+              <li>
+                <h3>Step 5 — Batch writes</h3>
+                <p>
+                  Data is written in batches (configurable default: 200 records per batch) for performance and
+                  resiliency.
+                </p>
+              </li>
+
+              <li>
+                <h3>Step 6 — Retry & error queue</h3>
+                <p>
+                  Failed records are retried automatically. Unrecoverable failures are added to an error queue for
+                  review with Nova context.
+                </p>
+              </li>
+
+              <li>
+                <h3>Step 7 — Logging & metrics</h3>
+                <p>
+                  Run summary includes processed count, skipped, updated, failed, and Nova insights.
+                </p>
+              </li>
+
+            </ol>
+          </section>
+
+          <!-- MAPPINGS -->
+          <section id="data-mapping" class="doc-section">
+            <h2>Field mappings</h2>
+
+            <h3>Source API → Destination system</h3>
+            <div class="table-wrapper">
+              <table class="mapping-table">
+                <thead>
+                  <tr>
+                    <th>Source Field</th>
+                    <th>Transform</th>
+                    <th>Destination Field</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>id</code></td>
+                    <td>Stringify</td>
+                    <td><code>externalId</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>first_name</code> + <code>last_name</code></td>
+                    <td>Join + title case</td>
+                    <td><code>fullName</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>email_address</code></td>
+                    <td>Lowercase + validate</td>
+                    <td><code>email</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>department</code></td>
+                    <td>Normalize values</td>
+                    <td><code>department</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>updated_at</code></td>
+                    <td>Convert to ISO-8601</td>
+                    <td><code>lastModified</code></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3>Bulk sync metadata fields</h3>
+            <div class="table-wrapper">
+              <table class="mapping-table">
+                <thead>
+                  <tr>
+                    <th>Metadata</th>
+                    <th>Description</th>
+                    <th>Example</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>batchId</code></td>
+                    <td>Internal grouping for writes</td>
+                    <td>"batch_0031"</td>
+                  </tr>
+                  <tr>
+                    <td><code>runId</code></td>
+                    <td>Each sync execution is traceable</td>
+                    <td>"run_01J2SYNC"</td>
+                  </tr>
+                  <tr>
+                    <td><code>pageIndex</code></td>
+                    <td>Pagination index</td>
+                    <td>12</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- SAMPLE JSON -->
+          <section id="sample-payloads" class="doc-section">
+            <h2>Sample JSON payloads</h2>
+
+            <h3>Sample page from a source API</h3>
+            <pre class="code-block"><code>{
+  "page": 3,
+  "pageSize": 2,
+  "total": 1500,
+  "items": [
+    {
+      "id": 99201,
+      "first_name": "Ari",
+      "last_name": "Danvers",
+      "email_address": "ari.danvers@example.com",
+      "department": "people",
+      "updated_at": "2025-04-02T16:00:00Z"
+    },
+    {
+      "id": 99202,
+      "first_name": "Sofia",
+      "last_name": "Tran",
+      "email_address": "sofia.tran@example.com",
+      "department": "engineering",
+      "updated_at": "2025-04-02T17:15:00Z"
+    }
+  ]
+}</code></pre>
+
+            <h3>Mapped bulk record</h3>
+            <pre class="code-block"><code>{
+  "externalId": "99201",
+  "fullName": "Ari Danvers",
+  "email": "ari.danvers@example.com",
+  "department": "People",
+  "lastModified": "2025-04-02T16:00:00Z",
+  "batchId": "batch_0031",
+  "runId": "run_01J2SYNC"
+}</code></pre>
+
+            <h3>Final batch write payload</h3>
+            <pre class="code-block"><code>{
+  "runId": "run_01J2SYNC",
+  "batchId": "batch_0031",
+  "destination": "hris",
+  "records": [
+    {
+      "externalId": "99201",
+      "email": "ari.danvers@example.com"
+    },
+    {
+      "externalId": "99202",
+      "email": "sofia.tran@example.com"
+    }
+  ]
+}</code></pre>
+
+            <h3>Nova anomaly report</h3>
+            <pre class="code-block"><code>{
+  "missingFields": ["department"],
+  "unexpectedNulls": ["email_address"],
+  "duplicateIds": ["99114", "99115"],
+  "formatInconsistencies": [
+    {
+      "field": "updated_at",
+      "example": "April 1st, 2025"
+    }
+  ],
+  "confidence": 0.72
+}</code></pre>
+          </section>
+
+          <!-- ERROR HANDLING -->
+          <section id="error-handling" class="doc-section">
+            <h2>Error handling</h2>
+            <ul>
+              <li>All failed records go to a retry queue with exponential backoff.</li>
+              <li>Unrecoverable failures go to an error queue with Nova diagnostics.</li>
+              <li>Network/API failures trigger automatic re-fetch of failed pages.</li>
+              <li>Schema mismatch halts run until reviewed.</li>
+            </ul>
+
+            <h3>Example error</h3>
+            <pre class="code-block"><code>{
+  "runId": "run_01J2SYNC",
+  "status": "partial_failure",
+  "failedRecords": 17,
+  "novaHints": [
+    "Email format invalid for several entries.",
+    "Department normalization rules missing for 'BizOps'."
+  ]
+}</code></pre>
+          </section>
+
+          <!-- NOVA INSIGHTS -->
+          <section id="nova-insights" class="doc-section">
+            <h2>Nova insights for this template</h2>
+            <ul>
+              <li>Detects malformed datasets before sync begins.</li>
+              <li>Identifies duplicate, missing, or inconsistent fields across batches.</li>
+              <li>Proposes mapping rules based on field usage patterns.</li>
+              <li>Highlights whether deltas or full syncs would be more efficient.</li>
+              <li>Predicts overall sync health across historical runs.</li>
+            </ul>
+          </section>
+
+          <!-- SETUP -->
+          <section id="setup" class="doc-section">
+            <h2>Set up this template</h2>
+            <ol class="step-list">
+              <li>Select <strong>API-Driven Bulk Sync</strong> from Templates.</li>
+              <li>Configure source and destination APIs.</li>
+              <li>Define dataset mappings + transforms.</li>
+              <li>Enable Nova schema validation.</li>
+              <li>Set schedule (nightly recommended).</li>
+              <li>Run in Preview mode before activating.</li>
+            </ol>
+          </section>
+
+        </article>
+
+        <!-- RIGHT COLUMN -->
+        <aside class="template-sidebar">
+
+          <div class="card">
+            <h3>Template summary</h3>
+            <ul class="key-facts-list">
+              <li><strong>Trigger:</strong> Scheduled or manual</li>
+              <li><strong>Runtime:</strong> Paginated + batch processing</li>
+              <li><strong>Owner:</strong> Data Engineering · Ops</li>
+              <li><strong>Systems:</strong> Any API-based platform</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Best practice defaults</h3>
+            <ul>
+              <li>Use delta syncs for large datasets.</li>
+              <li>Set batch size between 100–500 records.</li>
+              <li>Let Nova run schema validation before every sync.</li>
+            </ul>
+          </div>
+
+          <div class="card nova-callout">
+            <h3>Nova will help you…</h3>
+            <ul>
+              <li>Catch data inconsistencies before syncing.</li>
+              <li>Improve mapping accuracy at scale.</li>
+              <li>Maintain reliable, repeatable bulk-sync operations.</li>
+            </ul>
+          </div>
+
+        </aside>
+
+      </section>
+    </div>
+  </main>
+
+</body>
+</html>
 
