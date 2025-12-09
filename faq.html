@@ -3,8 +3,8 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>About This Project | SyncToScale</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ | SyncToScale</title>
 
   <!-- Botpress Webchat -->
   <script src="https://cdn.botpress.cloud/webchat/v3.4/inject.js"></script>
@@ -14,18 +14,17 @@
     body {
       margin: 0;
       font-family: Inter, Arial, sans-serif;
-      background: #020617; /* very dark slate */
-      color: #e2e8f0;
+      background: #f8fafc;
+      color: #1e293b;
     }
 
-    /* NAVBAR – same structure, darker backdrop */
     header {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(15, 23, 42, 0.9);
+      background: rgba(255, 255, 255, 0.9);
       backdrop-filter: blur(10px);
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
     }
 
     header .container {
@@ -40,12 +39,12 @@
     .logo {
       font-size: 1.6rem;
       font-weight: 700;
-      color: #e0f2f1;
+      color: #0b3d3d;
       text-decoration: none;
     }
 
     .nav a {
-      color: #cbd5f5;
+      color: #0b3d3d;
       margin-left: 26px;
       text-decoration: none;
       font-size: 1rem;
@@ -56,175 +55,146 @@
     }
 
     .nav a:hover {
-      color: #5eead4;
-      border-bottom: 2px solid #5eead4;
+      color: #14b8a6;
+      border-bottom: 2px solid #14b8a6;
     }
 
     .section {
-      padding: 56px 20px 64px;
+      padding: 52px 20px 60px;
     }
 
     .container {
-      max-width: 960px;
+      max-width: 900px;
       margin: auto;
     }
 
-    /* HERO */
-    .about-hero {
-      padding: 52px 20px 40px;
-      background: radial-gradient(circle at 10% 0%, #0ea5e9, #0b3d3d 55%, #020617 100%);
-      color: #e0f2fe;
-      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+    .faq-hero {
+      padding: 42px 20px 32px;
+      background: linear-gradient(135deg, #41d1ff, #21e19f);
+      color: white;
+      text-align: center;
     }
 
-    .about-hero-inner {
-      max-width: 960px;
-      margin: 0 auto;
+    .faq-hero h1 {
+      margin-bottom: 8px;
+      font-size: 2rem;
     }
 
-    .about-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+    .faq-hero p {
+      margin: 0;
+      max-width: 520px;
+      margin-inline: auto;
+      opacity: 0.95;
+      font-size: 0.98rem;
+    }
+
+    .faq-hero-cta {
+      margin-top: 14px;
+    }
+
+    .faq-hero-cta a {
+      color: #fff;
       padding: 4px 10px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.45);
-      font-size: 0.78rem;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-    }
-
-    .about-hero h1 {
-      margin: 12px 0 10px;
-      font-size: 2.1rem;
-    }
-
-    .about-hero p {
-      margin: 0;
-      max-width: 620px;
-      opacity: 0.96;
-      font-size: 0.98rem;
-    }
-
-    .about-meta {
-      margin-top: 14px;
       font-size: 0.88rem;
-      opacity: 0.9;
-      color: #bfdbfe;
+      background: rgba(15, 23, 42, 0.25);
+      text-decoration: none;
     }
 
-    /* LAYOUT */
-    .two-col {
-      display: grid;
-      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.6fr);
-      gap: 32px;
-      margin-top: 28px;
+    .section-heading {
+      margin-bottom: 16px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #0b3d3d;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    .card {
-      background: radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.16), rgba(15, 23, 42, 0.95));
-      border-radius: 18px;
-      padding: 20px 22px 18px;
-      border: 1px solid rgba(148, 163, 184, 0.45);
-      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.55);
-    }
-
-    .card h2 {
-      margin-top: 0;
-      margin-bottom: 8px;
-      font-size: 1.2rem;
-      color: #e5f6ff;
-    }
-
-    .card p {
-      margin-top: 0;
-      font-size: 0.95rem;
-      color: #cbd5f5;
-    }
-
-    .card ul {
-      margin: 8px 0 0;
-      padding-left: 18px;
-      font-size: 0.94rem;
-      color: #cbd5f5;
-    }
-
-    .meta-tag {
-      display: inline-flex;
-      padding: 3px 9px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.7);
-      border: 1px solid rgba(94, 234, 212, 0.5);
-      font-size: 0.78rem;
-      color: #a5f3fc;
-      margin-bottom: 6px;
-    }
-
-    .lede {
-      font-size: 0.98rem;
-      color: #e5f6ff;
-    }
-
-    .stack-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
+    .faq-group {
       margin-top: 16px;
     }
 
-    .stack-chip {
-      font-size: 0.88rem;
+    .faq-item {
+      border-radius: 14px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      border: none;
+      background: transparent;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      font-size: 0.98rem;
+      color: #0f172a;
+    }
+
+    .faq-question span {
+      flex: 1;
+      text-align: left;
+      padding-right: 12px;
+    }
+
+    .faq-icon {
+      font-size: 1.1rem;
+      transition: transform 0.2s ease;
+      color: #0f766e;
+    }
+
+    .faq-item.open .faq-icon {
+      transform: rotate(90deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 16px;
+      font-size: 0.93rem;
+      color: #4b5563;
+      transition: max-height 0.22s ease, padding-bottom 0.22s ease;
+    }
+
+    .faq-item.open .faq-answer {
+      padding-bottom: 12px;
+    }
+
+    .pdf-cta {
+      margin-top: 14px;
+      border-radius: 14px;
+      padding: 12px 14px;
+      background: #0b3d3d;
+      color: #e2f3ff;
+      font-size: 0.92rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pdf-cta a {
+      color: #e2f3ff;
+      font-size: 0.86rem;
       padding: 6px 10px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.8);
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      color: #e5f6ff;
-      display: inline-block;
-      margin: 4px 4px 0 0;
-    }
-
-    .note-box {
-      margin-top: 26px;
-      border-radius: 16px;
-      padding: 16px 18px;
-      background: rgba(15, 23, 42, 0.95);
-      border: 1px solid rgba(94, 234, 212, 0.55);
-      font-size: 0.94rem;
-      color: #e0f2fe;
-    }
-
-    .note-box strong {
-      font-weight: 600;
-    }
-
-    .section-subtitle {
-      margin: 36px 0 10px;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #a5b4fc;
-    }
-
-    .timeline-list {
-      list-style: none;
-      padding-left: 0;
-      margin: 6px 0 0;
-      font-size: 0.93rem;
-      color: #cbd5f5;
-    }
-
-    .timeline-list li {
-      margin-bottom: 6px;
+      background: rgba(15, 23, 42, 0.55);
+      text-decoration: none;
     }
 
     footer {
-      background: #020617;
-      color: #64748b;
-      padding: 32px 20px 40px;
+      background: #0b3d3d;
+      color: #cbd5e1;
+      padding: 40px 20px;
       text-align: center;
-      margin-top: 40px;
-      border-top: 1px solid rgba(30, 64, 175, 0.6);
-      font-size: 0.85rem;
+      margin-top: 60px;
     }
 
     .nova-label {
@@ -242,24 +212,6 @@
       transition: opacity .25s ease, transform .25s ease;
       pointer-events: none;
       z-index: 999999;
-    }
-
-    @media (max-width: 768px) {
-      .two-col {
-        grid-template-columns: 1fr;
-      }
-
-      .section {
-        padding: 48px 16px 56px;
-      }
-
-      .about-hero {
-        padding: 40px 16px 32px;
-      }
-
-      .about-hero h1 {
-        font-size: 1.8rem;
-      }
     }
   </style>
 </head>
@@ -283,118 +235,208 @@
   </header>
 
   <!-- HERO -->
-  <section class="about-hero">
-    <div class="about-hero-inner">
-      <div class="about-chip">Portfolio project • Automation & integration platform concept</div>
-      <h1>About SyncToScale</h1>
-      <p>
-        SyncToScale is a self-initiated product project that imagines a realistic automation and integration platform for modern SaaS
-        teams. It is designed to look, feel, and read like a launch-ready product site.
-      </p>
-      <div class="about-meta">
-        Built and written by Christy McSwain — with a focus on workflow design, customer experience, AI-assisted operations, and
-        product storytelling.
-      </div>
+  <section class="faq-hero">
+    <h1>Frequently Asked Questions</h1>
+    <p>Answers to common questions about SyncToScale’s automation engine, integrations, and AI capabilities.</p>
+    <div class="faq-hero-cta">
+      <a href="about.html">Looking for project details? Visit the About page →</a>
     </div>
   </section>
 
-  <!-- MAIN CONTENT -->
+  <!-- CONTENT -->
   <main class="section">
-    <div class="container two-col">
+    <div class="container">
 
-      <!-- LEFT COLUMN: PURPOSE & PROBLEM -->
-      <section class="card">
-        <span class="meta-tag">Project purpose</span>
-        <h2>Why this platform was created</h2>
-        <p class="lede">
-          SyncToScale exists to demonstrate how an automation platform for TAM, CS, implementation, and support teams could be shaped —
-          from positioning and feature narrative to workflows, docs, and UI.
-        </p>
-        <p>
-          The site is intentionally written as if SyncToScale were a live product in the automation and integration space. Underneath,
-          it functions as a portfolio piece to showcase product sense, operational thinking, and comfort with AI-enabled workflows.
-        </p>
-        <ul>
-          <li>Model realistic cross-tool workflows for revenue, CS, and operations teams.</li>
-          <li>Showcase how AI can assist with routing, summarization, and decision support without replacing humans.</li>
-          <li>Illustrate how a technical, workflow-heavy product can still feel approachable and clear.</li>
-        </ul>
-      </section>
+      <!-- CTA -->
+      <div class="pdf-cta">
+        <p>Want a quick overview of the platform’s purpose?</p>
+        <a href="about.html">Learn more →</a>
+      </div>
 
-      <!-- RIGHT COLUMN: WHAT IT SHOWCASES -->
-      <section class="card">
-        <span class="meta-tag">What the project highlights</span>
-        <h2>Skills and focus areas</h2>
-        <p>
-          SyncToScale is designed to highlight strengths that are relevant in Technical Account Management, Customer Success, and
-          implementation-adjacent roles.
-        </p>
-        <ul>
-          <li>Translating messy, cross-functional processes into structured, automatable workflows.</li>
-          <li>Explaining technical concepts (integrations, triggers, routing, data sync) in accessible language.</li>
-          <li>Positioning AI as a practical assistant in everyday operations, not a buzzword.</li>
-          <li>Designing information architecture across pages: marketing, FAQ, pricing, and resources.</li>
-        </ul>
-      </section>
+      <!-- GENERAL -->
+      <h2 class="section-heading">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#0f766e"><circle cx="12" cy="12" r="10" stroke="#0f766e" stroke-width="2" fill="none"/><path d="M12 7a2.5 2.5 0 00-1 4.8v.2h2v-.2A2.5 2.5 0 0012 7zM12 17h.01" stroke="#0f766e" stroke-width="2" stroke-linecap="round"/></svg>
+        General Questions
+      </h2>
 
-    </div>
+      <div class="faq-group">
 
-    <!-- SECOND ROW -->
-    <div class="container" style="margin-top: 26px;">
-      <section class="card">
-        <span class="meta-tag">Under the hood</span>
-        <h2>What is real vs. simulated</h2>
-        <p>
-          The site is intentionally narrow in scope: it focuses on UX, structure, and communication details that a customer or
-          evaluator would experience when exploring a new automation platform.
-        </p>
-
-        <div class="stack-grid">
-          <div>
-            <strong style="font-size:0.9rem; color:#e5f6ff;">Conceptual product capabilities</strong>
-            <div class="stack-chip">Multi-system workflow automation</div>
-            <div class="stack-chip">AI-assisted routing & summaries</div>
-            <div class="stack-chip">Human-in-the-loop approvals</div>
-            <div class="stack-chip">Data hygiene & sync rules</div>
-            <div class="stack-chip">Role-based access & guardrails</div>
-          </div>
-          <div>
-            <strong style="font-size:0.9rem; color:#e5f6ff;">Actual implementation details</strong>
-            <div class="stack-chip">Static HTML & CSS</div>
-            <div class="stack-chip">Lightweight JavaScript (FAQ, interactions)</div>
-            <div class="stack-chip">Botpress (Nova) webchat integration</div>
-            <div class="stack-chip">Static hosting & asset pipeline</div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>What is SyncToScale?</span>
+            <span class="faq-icon">›</span>
+          </button>
+          <div class="faq-answer">
+            <p>SyncToScale is an automation and integration platform that connects business systems, synchronizes data, and orchestrates cross-team workflows. Organizations use it to reduce manual work, streamline operations, and maintain consistent, up-to-date information across tools.</p>
           </div>
         </div>
 
-        <p style="margin-top:14px;">
-          The goal is not to replicate a full backend, but to present a coherent, believable front door for an AI-enabled automation platform —
-          the part prospects, customers, and internal teams would interact with first.
-        </p>
-
-        <div class="section-subtitle">How recruiters and hiring managers can read this project</div>
-        <ul class="timeline-list">
-          <li><strong>Product lens:</strong> How features are named, grouped, and explained.</li>
-          <li><strong>Operations lens:</strong> How real-world workflows (onboarding, escalations, renewals) are modeled.</li>
-          <li><strong>Customer lens:</strong> How the platform speaks to TAM, CS, support, and ops pain points.</li>
-        </ul>
-
-        <div class="note-box">
-          <strong>In short:</strong> SyncToScale is a realistic product wrapper around a portfolio project. It is intentionally designed
-          to feel like a viable automation platform while making it clear here that it was conceived, written, and assembled by a single
-          person as a demonstration of how they think about tools, teams, and AI.
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Who uses SyncToScale?</span>
+            <span class="faq-icon">›</span>
+          </button>
+          <div class="faq-answer">
+            <p>SyncToScale is designed for SaaS-centric teams that operate across multiple systems, including:</p>
+            <ul>
+              <li>Customer Success & Technical Account Management</li>
+              <li>Implementation & Onboarding</li>
+              <li>Support & Operations</li>
+              <li>Revenue Operations & Product teams</li>
+            </ul>
+            <p>It is built for organizations that need reliable workflow automation without heavy engineering investment.</p>
+          </div>
         </div>
-      </section>
+
+      </div>
+
+      <!-- PLATFORM & FEATURES -->
+      <h2 class="section-heading">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#0f766e">
+          <rect x="3" y="3" width="7" height="7" rx="1.5" stroke="#0f766e" stroke-width="2" fill="none"/>
+          <rect x="14" y="3" width="7" height="7" rx="1.5" stroke="#0f766e" stroke-width="2" fill="none"/>
+          <rect x="3" y="14" width="7" height="7" rx="1.5" stroke="#0f766e" stroke-width="2" fill="none"/>
+          <rect x="14" y="14" width="7" height="7" rx="1.5" stroke="#0f766e" stroke-width="2" fill="none"/>
+        </svg>
+        Platform & Features
+      </h2>
+
+      <div class="faq-group">
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>What types of workflows can SyncToScale automate?</span>
+            <span class="faq-icon">›</span>
+          </button>
+          <div class="faq-answer">
+            <p>SyncToScale supports multi-step automations across the entire customer lifecycle. Examples include:</p>
+            <ul>
+              <li>Customer onboarding workflows triggered by CRM updates</li>
+              <li>CSAT or NPS follow-up sequences</li>
+              <li>Automated ticket enrichment and routing</li>
+              <li>Usage or health-score monitoring alerts</li>
+              <li>Renewal and expansion playbook automation</li>
+              <li>Internal request routing between teams or departments</li>
+            </ul>
+            <p>Triggers, actions, branching logic, and human approvals are all supported.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How does Nova (the AI engine) work within the platform?</span>
+            <span class="faq-icon">›</span>
+          </button>
+          <div class="faq-answer">
+            <p>Nova enhances workflows by providing AI-powered assistance such as:</p>
+            <ul>
+              <li>Summarizing long customer histories or ticket threads</li>
+              <li>Auto-classifying incoming requests and suggesting routing paths</li>
+              <li>Detecting patterns across accounts, tickets, or usage data</li>
+              <li>Drafting communications for customer-facing teams</li>
+              <li>Generating workflow steps from natural language instructions</li>
+            </ul>
+            <p>Nova operates with a human-in-the-loop model to maintain clarity, accuracy, and oversight.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Which integrations are supported?</span>
+            <span class="faq-icon">›</span>
+          </button>
+          <div class="faq-answer">
+            <p>SyncToScale provides pre-built connectors for commonly used SaaS platforms, including:</p>
+            <ul>
+              <li>Salesforce</li>
+              <li>HubSpot</li>
+              <li>Slack</li>
+              <li>Jira</li>
+              <li>Google Workspace</li>
+              <li>Asana</li>
+              <li>Notion</li>
+            </ul>
+            <p>Each connector supports triggers, actions, and field-level data mapping for workflow automation.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RECRUITERS / EVALUATORS -->
+      <h2 class="section-heading">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#0f766e">
+          <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z" stroke="#0f766e" stroke-width="2" fill="none"/>
+          <path d="M4 20c0-3.2 3.6-5 8-5s8 1.8 8 5" stroke="#0f766e" stroke-width="2" fill="none"/>
+        </svg>
+        For Recruiters & Evaluators
+      </h2>
+
+      <div class="faq-group">
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>What does SyncToScale demonstrate from a product perspective?</span>
+            <span class="faq-icon">›</span>
+          </button>
+          <div class="faq-answer">
+            <p>The platform reflects modern expectations for automation tools, emphasizing:</p>
+            <ul>
+              <li>Clear, intuitive workflow communication</li>
+              <li>Cross-system thinking and operational awareness</li>
+              <li>Use of AI to enhance—not replace—human workflows</li>
+              <li>Practical, customer-centric language rather than technical jargon</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How does SyncToScale relate to real operational workflows?</span>
+            <span class="faq-icon">›</span>
+          </button>
+          <div class="faq-answer">
+            <p>SyncToScale models real SaaS processes such as onboarding, risk monitoring, renewals, escalations, and internal operations. The workflows, terminology, and automation patterns reflect industry best practices and the everyday challenges of fast-moving teams.</p>
+            <p>This ensures the platform feels familiar and immediately useful to CS, TAM, support, and operations professionals.</p>
+          </div>
+        </div>
+
+      </div>
+
     </div>
   </main>
 
   <!-- FOOTER -->
   <footer>
-    <p>SyncToScale is a personal project created by Christy McSwain to showcase product thinking, workflow design, and AI-assisted operations.</p>
+    <p>SyncToScale — Automation & Integration Platform</p>
   </footer>
 
-  <!-- NOVA CHAT BUTTON -->
+  <!-- CHAT BUTTON -->
   <script>
+    // accordion logic
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.faq-item').forEach(function (item) {
+        const btn = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+
+        btn.addEventListener('click', function () {
+          const isOpen = item.classList.contains('open');
+
+          document.querySelectorAll('.faq-item.open').forEach(function (openItem) {
+            openItem.classList.remove('open');
+            openItem.querySelector('.faq-answer').style.maxHeight = null;
+          });
+
+          if (!isOpen) {
+            item.classList.add('open');
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+          } else {
+            item.classList.remove('open');
+            answer.style.maxHeight = null;
+          }
+        });
+      });
+    });
+
     window.botpressWebChat.init({
       botId: "nova",
       hostUrl: "https://cdn.botpress.cloud/webchat/v3",
@@ -440,4 +482,5 @@
   <div class="nova-label">Chat with Nova</div>
 
 </body>
+
 </html>
