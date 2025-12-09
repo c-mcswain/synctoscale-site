@@ -80,7 +80,7 @@
       color: #475569;
     }
 
-    /* BILLING TOGGLE — functional sliding version */
+    /* BILLING TOGGLE */
     .toggle-wrapper {
       display: flex;
       justify-content: center;
@@ -116,29 +116,63 @@
       transform: translateX(30px);
     }
 
-    /* PRICING GRID */
+    /* PRICING GRID — tight spacing */
     .pricing-grid {
       max-width: 1100px;
       margin: auto;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
       gap: 26px;
-      padding: 0 20px 20px; /* tightened bottom spacing */
+      padding: 0 20px 4px;
     }
 
+    /* BASE CARD STYLE */
     .price-card {
       background: #ffffff;
       border-radius: 16px;
       padding: 28px;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
       border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
       transition: 0.25s;
+      position: relative;
     }
 
     .price-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 10px 24px rgba(0, 0, 0, 0.07);
-      border-color: #14b8a6;
+    }
+
+    /* NOVA GRADIENT BORDER — RECOMMENDED */
+    .price-card.recommended {
+      border: 2px solid transparent;
+      background-clip: padding-box;
+      position: relative;
+    }
+
+    .price-card.recommended::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      padding: 2px;
+      background: linear-gradient(135deg, #41d1ff, #21e19f);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    /* RECOMMENDED BADGE */
+    .recommended-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #41d1ff, #21e19f);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
     }
 
     .price-tier {
@@ -190,25 +224,15 @@
       background: #0d5e57;
     }
 
-    /* NOVA ADD-ON — tightened spacing */
+    /* ADD-ON — blended shadow + tight spacing */
     .addon-card {
       background: #eefdfb;
       border: 1px solid #b2f0e5;
       padding: 26px;
       border-radius: 16px;
-      margin: 10px auto 80px; /* reduced margin above */
+      margin: 4px auto 80px;
       max-width: 950px;
-    }
-
-    .addon-card h2 {
-      margin: 0 0 10px;
-      color: #0b3d3d;
-    }
-
-    .addon-card p {
-      margin: 0 0 12px;
-      color: #475569;
-      font-size: 0.98rem;
+      box-shadow: 0 -8px 18px rgba(0, 0, 0, 0.04);
     }
 
     /* FOOTER */
@@ -275,6 +299,7 @@
   <section>
     <div class="pricing-grid">
 
+      <!-- STARTER -->
       <div class="price-card">
         <div class="price-tier">Starter</div>
         <div class="price-amount" id="starterPrice">$19</div>
@@ -288,7 +313,9 @@
         <a href="#" class="card-btn">Get Started</a>
       </div>
 
-      <div class="price-card">
+      <!-- GROWTH — RECOMMENDED -->
+      <div class="price-card recommended">
+        <div class="recommended-badge">RECOMMENDED</div>
         <div class="price-tier">Growth</div>
         <div class="price-amount" id="growthPrice">$49</div>
         <div class="price-sub" id="growthSub">per user / month</div>
@@ -302,6 +329,7 @@
         <a href="#" class="card-btn">Choose Growth</a>
       </div>
 
+      <!-- SCALE -->
       <div class="price-card">
         <div class="price-tier">Scale</div>
         <div class="price-amount" id="scalePrice">$89</div>
@@ -315,11 +343,10 @@
         </ul>
         <a href="#" class="card-btn">Contact Sales</a>
       </div>
-
     </div>
   </section>
 
-  <!-- NOVA AI ADD-ON -->
+  <!-- NOVA ADD-ON -->
   <section>
     <div class="addon-card">
       <h2>Nova AI Assistant (Add-On)</h2>
@@ -342,10 +369,9 @@
     <p>SyncToScale — Automation & Integration Platform</p>
   </footer>
 
-  <!-- TOGGLE LOGIC -->
+  <!-- PRICING TOGGLE LOGIC -->
   <script>
     const toggle = document.getElementById("billingToggle");
-
     let isAnnual = false;
 
     toggle.addEventListener("click", () => {
@@ -383,7 +409,7 @@
     }
   </script>
 
-  <!-- BOT -->
+  <!-- BOTPRESS -->
   <script>
     window.botpressWebChat.init({
       botId: "nova",
