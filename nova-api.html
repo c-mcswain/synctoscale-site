@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nova AI API | SyncToScale Docs</title>
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Nova Botpress Webchat -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
+  <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <div class="logo">
+        <a href="index.html" class="logo-link">SyncToScale</a>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="faq.html">FAQ</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <h1>Nova AI API</h1>
+    <p>
+      Nova is SyncToScale’s AI engine for field mapping, anomaly detection,
+      error classification, and workflow recommendations.  
+      Use the Nova API to make your automations smarter and more resilient.
+    </p>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="doc-container">
+
+    <h2>Overview</h2>
+    <p>
+      Nova analyzes payloads, schemas, connection states, and historical workflow runs to:
+    </p>
+    <ul>
+      <li>Suggest field mappings between systems</li>
+      <li>Detect anomalies and spikes in failure rates</li>
+      <li>Classify errors into actionable categories</li>
+      <li>Recommend transformations and default values</li>
+      <li>Surface likely root cause for sync issues</li>
+    </ul>
+
+    <hr />
+
+    <h2>Authentication</h2>
+    <p>
+      The Nova API uses the same project-level authentication as the core SyncToScale API.
+      You must include a valid API key or OAuth token in each request.
+    </p>
+
+<pre>
+GET /nova/v1/health
+Authorization: Bearer &lt;project_token&gt;
+</pre>
+
+<pre>
+{
+  "status": "ok",
+  "model": "nova-sync-1.0",
+  "uptime_seconds": 87423
+}
+</pre>
+
+    <hr />
+
+    <h2>Field Mapping Suggestions</h2>
+    <p>
+      Nova can propose mappings between a source payload and a target schema.
+      This is especially helpful during implementation or when working with unfamiliar systems.
+    </p>
+
+<pre>
+POST /nova/v1/mapping/suggest
+{
+  "source_payload": {
+    "fname": "Jordan",
+    "lname": "Lee",
+    "mail": "jordan@example.com"
+  },
+  "target_schema": {
+    "first_name": "string",
+    "last_name": "string",
+    "email": "string"
+  }
+}
+</pre>
+
+<pre>
+Response:
+{
+  "suggested_mapping": {
+    "first_name": "fname",
+    "last_name": "lname",
+    "email": "mail"
+  },
+  "confidence": {
+    "first_name": 0.97,
+    "last_name": 0.96,
+    "email": 0.99
+  }
+}
+</pre>
+
+    <p>Implementers can accept, edit, or override these mappings.</p>
+
+    <hr />
+
+    <h2>Anomaly Detection</h2>
+    <p>
+      Nova monitors workflow runs and connection behavior to detect outliers and patterns.
+    </p>
+
+<pre>
+POST /nova/v1/anomalies/detect
+{
+  "window_minutes": 30,
+  "workflow_id": "new-hire-sync"
+}
+</pre>
+
+<pre>
+Response:
+{
+  "anomalies": [
+    {
+      "type": "error_rate_spike",
+      "severity": "high",
+      "metric": "failure_rate",
+      "previous_baseline": 0.02,
+      "current_value": 0.18
+    }
+  ],
+  "suggested_actions": [
+    "Check recent changes to mappings",
+    "Review HubSpot connection health",
+    "Inspect provider status page"
+  ]
+}
+</pre>
+
+    <hr />
+
+    <h2>Error Classification</h2>
+    <p>
+      Rather than leaving teams to interpret raw error messages,
+      Nova classifies errors into consistent categories with recommended fixes.
+    </p>
+
+<pre>
+POST /nova/v1/errors/classify
+{
+  "provider": "slack",
+  "http_status": 403,
+  "raw_error": "missing_scope: chat:write"
+}
+</pre>
+
+<pre>
+Response:
+{
+  "category": "insufficient_permissions",
+  "likely_cause": "Missing chat:write scope",
+  "recommended_fix": "Re-authenticate Slack with the required scope",
+  "confidence": 0.94
+}
+</pre>
+
+    <hr />
+
+    <h2>Transformation Recommendations</h2>
+    <p>
+      Nova can propose transformations when data types or formats don’t match the target system.
+    </p>
+
+<pre>
+POST /nova/v1/mapping/transform-suggest
+{
+  "field_name": "start_date",
+  "incoming_value": "12/01/2025",
+  "expected_format": "YYYY-MM-DD"
+}
+</pre>
+
+<pre>
+Response:
+{
+  "recommended_expression": "formatDate(payload.start_date, 'YYYY-MM-DD')",
+  "notes": "Convert from MM/DD/YYYY to ISO format"
+}
+</pre>
+
+    <hr />
+
+    <h2>Inline Nova Usage in Workflows</h2>
+    <p>
+      Nova can be invoked as part of a workflow step to enrich or validate data dynamically.
+    </p>
+
+<pre>
+{
+  "step": "nova_validate_mapping",
+  "input": {
+    "workflow": "new-hire-sync",
+    "payload": {
+      "first_name": "Jordan",
+      "last_name": "Lee",
+      "start_date": "12/01/2025"
+    }
+  }
+}
+</pre>
+
+<pre>
+Response:
+{
+  "status": "ok_with_warnings",
+  "warnings": [
+    "start_date format does not match expected pattern 'YYYY-MM-DD'"
+  ],
+  "recommendations": [
+    "Apply date normalization before create_user step"
+  ]
+}
+</pre>
+
+    <hr />
+
+    <h2>Best Practices</h2>
+    <p>To get the most from Nova in an implementation or support role:</p>
+    <ul>
+      <li>Use Nova mapping suggestions at the start of new integrations</li>
+      <li>Enable anomaly detection for critical workflows</li>
+      <li>Review Nova error classifications during incident triage</li>
+      <li>Log Nova recommendations alongside workflow runs</li>
+      <li>Iterate mappings based on Nova’s insight during onboarding</li>
+    </ul>
+
+    <p>
+      Nova is designed to augment, not replace, human judgment—helping teams
+      reduce time spent troubleshooting and increase confidence in automation.
+    </p>
+
+  </section>
+
+</body>
+</html>
