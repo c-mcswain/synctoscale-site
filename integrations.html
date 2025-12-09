@@ -4,9 +4,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Integrations | SyncToScale</title>
+  <title>Integrations Library | SyncToScale</title>
 
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Nova Botpress Webchat -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
+  <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
 </head>
 
 <body>
@@ -15,90 +19,194 @@
   <header class="site-header">
     <div class="container header-inner">
 
-      <a href="index.html" class="logo">SyncToScale</a>
+      <div class="logo">
+        <a href="index.html" class="logo-link">SyncToScale</a>
+      </div>
 
- <nav class="nav">
-  <a href="index.html">Home</a>
-  <a href="features.html">Features</a>
-  <a href="pricing.html">Pricing</a>
-  <a href="about.html">About</a>
-  <a href="faq.html">FAQ</a>
-  <a href="resources.html">Resources</a>
-</nav>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="faq.html">FAQ</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
 
     </div>
   </header>
 
-  <!-- PAGE HEADER -->
-  <section class="integrations-header container">
-    <h1>Integrations Directory</h1>
-    <p class="integrations-intro">
-      Connect your favorite tools to automate processes across HR, Sales, IT, Support, and RevOps.
-      SyncToScale provides realistic, conceptual integrations modeled after real-world SaaS platforms.
+  <!-- HERO -->
+  <section class="page-hero">
+    <h1>Integrations Library</h1>
+    <p>
+      SyncToScale connects with HRIS, CRM, communication tools, databases, ticketing systems,
+      and custom APIs. Every integration supports triggers, actions, field mapping, and structured logging.
     </p>
   </section>
 
-  <!-- INTEGRATIONS GRID -->
-  <section class="integrations-grid container">
+  <!-- PAGE CONTENT -->
+  <section class="container section">
 
-    <!-- Slack -->
-    <div class="integration-card">
-      <h3>Slack</h3>
-      <p>Send automated notifications, create channels, and post alerts based on workflow events.</p>
-      <span class="integration-link">Learn More →</span>
+    <h2>HR / People Platforms</h2>
+    <div class="resources-grid">
+      
+      <div class="resource-card">
+        <div class="icon-placeholder">👤</div>
+        <h3>BambooHR</h3>
+        <p>Employee events, directory sync, PTO, and onboarding workflows.</p>
+      </div>
+
+      <div class="resource-card">
+        <div class="icon-placeholder">🧾</div>
+        <h3>Gusto</h3>
+        <p>Employee provisioning, payroll events, compensation updates.</p>
+      </div>
+
+      <div class="resource-card">
+        <div class="icon-placeholder">📁</div>
+        <h3>Zenefits</h3>
+        <p>HRIS updates, job changes, user provisioning sync.</p>
+      </div>
+
+      <div class="resource-card">
+        <div class="icon-placeholder">🏢</div>
+        <h3>Rippling</h3>
+        <p>Employee lifecycle events, role updates, IT provisioning.</p>
+      </div>
+
     </div>
 
-    <!-- Salesforce -->
-    <div class="integration-card">
-      <h3>Salesforce</h3>
-      <p>Sync leads, accounts, and activities. Trigger automations when records are updated.</p>
-      <span class="integration-link">Learn More →</span>
+    <hr />
+
+    <h2>CRM / Sales Platforms</h2>
+    <div class="resources-grid">
+
+      <div class="resource-card">
+        <div class="icon-placeholder">📇</div>
+        <h3>HubSpot</h3>
+        <p>Contacts, deals, company sync, activity ingestion.</p>
+      </div>
+
+      <div class="resource-card">
+        <div class="icon-placeholder">📞</div>
+        <h3>Salesforce</h3>
+        <p>Leads, accounts, opportunities, and workflow automation.</p>
+      </div>
+
+      <div class="resource-card">
+        <div class="icon-placeholder">💬</div>
+        <h3>Intercom</h3>
+        <p>User sync, conversation events, lead enrichment.</p>
+      </div>
+
     </div>
 
-    <!-- HubSpot -->
-    <div class="integration-card">
-      <h3>HubSpot</h3>
-      <p>Automate lifecycle updates, route contacts, and trigger follow-ups in Sales and Marketing hubs.</p>
-      <span class="integration-link">Learn More →</span>
+    <hr />
+
+    <h2>Communication & Collaboration</h2>
+    <div class="resources-grid">
+
+      <div class="resource-card">
+        <div class="icon-placeholder">💬</div>
+        <h3>Slack</h3>
+        <p>Channel notifications, user lookup, automated messaging.</p>
+      </div>
+
+      <div class="resource-card">
+        <div class="icon-placeholder">📧</div>
+        <h3>Google Workspace</h3>
+        <p>User provisioning, groups, directory sync.</p>
+      </div>
+
+      <div class="resource-card">
+        <div class="icon-placeholder">🏢</div>
+        <h3>Microsoft 365</h3>
+        <p>Users, groups, shared mailbox automation.</p>
+      </div>
+
     </div>
 
-    <!-- Jira -->
-    <div class="integration-card">
-      <h3>Jira</h3>
-      <p>Create tickets, route issues, apply labels, and escalate items automatically.</p>
-      <span class="integration-link">Learn More →</span>
+    <hr />
+
+    <h2>Support & Ticketing</h2>
+    <div class="resources-grid">
+
+      <div class="resource-card">
+        <div class="icon-placeholder">🎫</div>
+        <h3>Zendesk</h3>
+        <p>Tickets, comments, requester sync, SLA routing logic.</p>
+      </div>
+
+      <div class="resource-card">
+        <div class="icon-placeholder">🛠️</div>
+        <h3>Jira</h3>
+        <p>Issues, projects, workflows, custom fields.</p>
+      </div>
+
+      <div class="resource-card">
+        <div class="icon-placeholder">📂</div>
+        <h3>Freshdesk</h3>
+        <p>Ticket creation, updates, and contact sync.</p>
+      </div>
+
     </div>
 
-    <!-- Google Workspace -->
-    <div class="integration-card">
-      <h3>Google Workspace</h3>
-      <p>Create accounts, manage groups, and sync user attributes through workflow events.</p>
-      <span class="integration-link">Learn More →</span>
+    <hr />
+
+    <h2>Finance & Time Tools</h2>
+    <div class="resources-grid">
+
+      <div class="resource-card">
+        <div class="icon-placeholder">💵</div>
+        <h3>QuickBooks</h3>
+        <p>Invoices, customers, time entries, expenses.</p>
+      </div>
+
+      <div class="resource-card">
+        <div class="icon-placeholder">⏱️</div>
+        <h3>TSheets</h3>
+        <p>Time tracking, approvals, sync into payroll systems.</p>
+      </div>
+
+      <div class="resource-card">
+        <div class="icon-placeholder">📊</div>
+        <h3>ADP</h3>
+        <p>Payroll batches, employee events, onboarding.</p>
+      </div>
+
     </div>
 
-    <!-- Notion -->
-    <div class="integration-card">
-      <h3>Notion</h3>
-      <p>Create pages, update databases, and build documentation workflows with custom triggers.</p>
-      <span class="integration-link">Learn More →</span>
-    </div>
+    <hr />
 
-    <!-- Asana -->
-    <div class="integration-card">
-      <h3>Asana</h3>
-      <p>Create tasks, automate project workflows, and notify teams across collaboration workspaces.</p>
-      <span class="integration-link">Learn More →</span>
-    </div>
+    <h2>Developer & Custom Integrations</h2>
+    <p>
+      Use webhooks, custom API actions, and Nova-powered transformation logic  
+      to integrate with any system that exposes a REST API.
+    </p>
 
-    <!-- BambooHR -->
-    <div class="integration-card">
-      <h3>BambooHR</h3>
-      <p>Trigger onboarding, offboarding, and employee lifecycle automations from HRIS events.</p>
-      <span class="integration-link">Learn More →</span>
+    <div class="resources-grid">
+
+      <div class="resource-card">
+        <div class="icon-placeholder">🧩</div>
+        <h3>Custom REST API</h3>
+        <p>Define triggers, actions, schemas, and mapping rules.</p>
+      </div>
+
+      <div class="resource-card">
+        <div class="icon-placeholder">🔔</div>
+        <h3>Inbound Webhooks</h3>
+        <p>Trigger workflows from your internal systems.</p>
+      </div>
+
+      <div class="resource-card">
+        <div class="icon-placeholder">⚡</div>
+        <h3>Outgoing Webhooks</h3>
+        <p>Send structured events to partner or internal apps.</p>
+      </div>
+
     </div>
 
   </section>
 
-  <script src="scripts.js" defer></script>
 </body>
 </html>
