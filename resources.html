@@ -1,129 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
+/* ----------------------------------------
+   RESOURCES PAGE
+---------------------------------------- */
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Resources | SyncToScale</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
+.resources-hero {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(180deg, #eefdfb 0%, #ffffff 90%);
+  border-bottom: 1px solid #e2e8f0;
+}
 
-<body>
+.resources-hero h1 {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
 
-<!-- NAVBAR (MATCHES INDEX EXACTLY) -->
-<header>
-  <div class="container">
-    <a href="index.html" class="logo">SyncToScale</a>
+.resources-hero p {
+  font-size: 17px;
+  color: #475569;
+  max-width: 540px;
+  margin: 0 auto 20px;
+}
 
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="features.html">Features</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="about.html">About</a>
-      <a href="faq.html">FAQ</a>
-      <a href="resources.html" class="active">Resources</a>
-    </nav>
-  </div>
-</header>
+.cta-btn {
+  display: inline-block;
+  background: linear-gradient(90deg, #41d1ff, #21e19f);
+  padding: 12px 26px;
+  border-radius: 10px;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
 
+.cta-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
 
-<!-- HERO (NOVA ACCENT) -->
-<section class="resources-hero">
-  <div class="container">
-    <h1>Resources</h1>
-    <p>Your hub for documentation, templates, developer tools, and platform knowledge.</p>
-  </div>
-</section>
+/* GRID */
+.resources-grid {
+  padding: 60px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+}
 
+.resource-card {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 14px;
+  text-decoration: none;
+  color: #1e293b;
+  border: 1px solid #e2e8f0;
+  transition: 0.25s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+}
 
-<!-- RIGHT-ALIGNED CTA -->
-<div class="container">
-  <div class="resources-cta">
-    <a href="about.html" class="resources-cta-btn">About This Project</a>
-  </div>
-</div>
+.resource-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  border-color: #41d1ff;
+}
 
-
-<!-- CARD GRID -->
-<section class="resources-grid-section">
-  <div class="container resources-grid">
-
-    <a href="#" class="resource-card">
-      <h3>Documentation</h3>
-      <p>Setup guides, onboarding workflows, and platform fundamentals.</p>
-    </a>
-
-    <a href="#" class="resource-card">
-      <h3>Templates</h3>
-      <p>Downloadable assets for workflows, automations, and client playbooks.</p>
-    </a>
-
-    <a href="#" class="resource-card">
-      <h3>API Reference</h3>
-      <p>Endpoints, authentication, webhooks, and developer integration examples.</p>
-    </a>
-
-    <a href="#" class="resource-card">
-      <h3>Security</h3>
-      <p>Data protection standards, compliance, encryption, and safeguard details.</p>
-    </a>
-
-  </div>
-</section>
-
-
-<!-- DETAILS SECTIONS -->
-<section class="resources-sections">
-  <div class="container">
-
-    <div class="resource-section">
-      <h2>Documentation</h2>
-      <ul>
-        <li>Getting Started with SyncToScale</li>
-        <li>Workspace Setup & User Roles</li>
-        <li>Automation Overview</li>
-        <li>Implementation Best Practices</li>
-      </ul>
-    </div>
-
-    <div class="resource-section">
-      <h2>Templates</h2>
-      <ul>
-        <li>Customer Onboarding Checklist</li>
-        <li>Implementation Timeline Template</li>
-        <li>Automation Mapping Blueprint</li>
-        <li>Issue Triage & RCA Template</li>
-      </ul>
-    </div>
-
-    <div class="resource-section">
-      <h2>API Reference</h2>
-      <ul>
-        <li>API Keys & Authentication</li>
-        <li>Events & Webhooks</li>
-        <li>SyncToScale Core Endpoints</li>
-        <li>Error Codes & Troubleshooting</li>
-      </ul>
-    </div>
-
-    <div class="resource-section">
-      <h2>Security</h2>
-      <ul>
-        <li>Data Encryption Standards</li>
-        <li>Compliance & Audit Overview</li>
-        <li>Access Logging & Monitoring</li>
-        <li>Incident Response Workflow</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- FOOTER (MATCHES INDEX) -->
-<footer>
-  <p>SyncToScale — Portfolio Project by Christy</p>
-</footer>
-
-</body>
-</html>
+.icon-placeholder {
+  font-size: 32px;
+  margin-bottom: 14px;
+}
