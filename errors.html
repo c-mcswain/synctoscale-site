@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Error Handling | SyncToScale Docs</title>
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Nova Botpress Webchat -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
+  <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <div class="logo">
+        <a href="index.html" class="logo-link">SyncToScale</a>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="faq.html">FAQ</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <h1>Error Handling</h1>
+    <p>
+      SyncToScale identifies, classifies, retries, and surfaces workflow errors
+      to ensure stable automation across systems. Nova assists with diagnosing
+      root causes and recommending fixes.
+    </p>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="doc-container">
+
+    <h2>Overview</h2>
+    <p>
+      Errors can occur at any stage of a workflow: authentication, mapping, provider calls,
+      rate limits, or internal validations. SyncToScale uses structured error handling to
+      minimize disruption and provide clear visibility into what went wrong.
+    </p>
+
+    <hr />
+
+    <h2>Common Error Types</h2>
+
+    <h3>400 – Bad Request</h3>
+    <p>
+      Triggered when the outgoing action payload is invalid or missing required fields.
+    </p>
+<pre>
+{
+  "error": "invalid_payload",
+  "details": "Missing required field: last_name"
+}
+</pre>
+
+    <h3>401 – Unauthorized</h3>
+    <p>
+      Occurs when a connection token is expired or revoked.
+    </p>
+
+    <h3>403 – Forbidden</h3>
+    <p>
+      The connection lacks the necessary scopes/permissions for the operation.
+    </p>
+
+    <h3>404 – Not Found</h3>
+    <p>
+      The target record does not exist in the destination system.
+    </p>
+
+    <h3>409 – Conflict</h3>
+    <p>
+      Indicates duplicates, version conflicts, or concurrency issues.
+    </p>
+
+    <h3>429 – Rate Limited</h3>
+    <p>
+      Provider has throttled requests. SyncToScale applies exponential backoff and retry logic.
+    </p>
+
+    <h3>500 / 503 – Provider Outage</h3>
+    <p>
+      Remote system is unstable or unavailable. Automatic retries and alerts are triggered.
+    </p>
+
+    <hr />
+
+    <h2>Retry Logic</h2>
+    <p>
+      SyncToScale retries certain transient failures automatically:
+    </p>
+
+    <ul>
+      <li>Rate limits</li>
+      <li>Network instability</li>
+      <li>Provider 500/503 errors</li>
+      <li>Temporary throttling</li>
+    </ul>
+
+<pre>
+{
+  "retry_strategy": {
+    "max_attempts": 5,
+    "backoff": "exponential",
+    "initial_delay_ms": 2000
+  }
+}
+</pre>
+
+    <p>
+      Non-retryable errors (invalid mappings, permission issues, missing fields)
+      fail immediately with actionable details.
+    </p>
+
+    <hr />
+
+    <h2>Mapping & Payload Failures</h2>
+    <p>
+      Many workflow failures are caused by incorrect or incomplete mappings.
+    </p>
+
+    <ul>
+      <li>Missing required destination fields</li>
+      <li>Incorrect data types (string vs number vs date)</li>
+      <li>Invalid enum values</li>
+      <li>Null values where the provider requires non-null</li>
+      <li>Unnormalized schemas</li>
+    </ul>
+
+<pre>
+{
+  "error": "mapping_error",
+  "field": "start_date",
+  "expected": "YYYY-MM-DD",
+  "received": "12/01/2025"
+}
+</pre>
+
+    <p>
+      Nova provides suggested corrections for mapping issues.
+    </p>
+
+    <hr />
+
+    <h2>Nova-Assisted Error Classification</h2>
+    <p>
+      Nova analyzes payloads, connection states, provider responses, and mapping structures to:
+    </p>
+
+    <ul>
+      <li>Identify the root cause</li>
+      <li>Group similar failures</li>
+      <li>Recommend mapping or schema changes</li>
+      <li>Highlight missing permissions/scopes</li>
+      <li>Detect provider outages or rate limits early</li>
+    </ul>
+
+<pre>
+Nova Insight:
+{
+  "likely_cause": "Insufficient Permission",
+  "missing_scope": "users.write",
+  "recommended_fix": "Re-authenticate with required scope"
+}
+</pre>
+
+    <hr />
+
+    <h2>Error State Representation</h2>
+    <p>
+      SyncToScale uses structured error states to make troubleshooting easier.
+    </p>
+
+    <ul>
+      <li><strong>Transient Failure</strong> – Retry automatically.</li>
+      <li><strong>Permanent Failure</strong> – Requires user action.</li>
+      <li><strong>Authentication Failure</strong> – Connection invalid.</li>
+      <li><strong>Mapping Failure</strong> – Requires field correction.</li>
+      <li><strong>Provider Outage</strong> – Wait until system recovers.</li>
+    </ul>
+
+<pre>
+{
+  "status": "permanent_failure",
+  "error_code": "invalid_permission",
+  "message": "User lacks write access to Tickets"
+}
+</pre>
+
+    <hr />
+
+    <h2>Workflow Failure Example</h2>
+
+<pre>
+{
+  "workflow": "new-hire-sync",
+  "step": "create_user",
+  "provider": "google_workspace",
+  "attempts": 3,
+  "status": "failed",
+  "error": "rate_limit_exceeded",
+  "next_retry": "2025-01-20T15:41:00Z"
+}
+</pre>
+
+    <p>
+      The error log shows backoff behavior and next retry timestamp.
+    </p>
+
+  </section>
+
+</body>
+</html>
