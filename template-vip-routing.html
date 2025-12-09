@@ -1,1 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Template: VIP Customer Routing | SyncToScale</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Nova / Botpress -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
+  <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
+</head>
+
+<body>
+  <!-- SITE HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">S</span>
+        <span class="logo-text">SyncToScale</span>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="docs.html">Docs</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+    <div class="container template-layout">
+      <!-- BREADCRUMB -->
+      <nav class="doc-breadcrumb">
+        <a href="templates.html">Templates</a>
+        <span>›</span>
+        <span>VIP Customer Routing</span>
+      </nav>
+
+      <!-- PAGE HEADER -->
+      <header class="page-header">
+        <div class="page-header-top">
+          <h1>VIP Customer Routing</h1>
+          <span class="badge badge-nova">Template</span>
+        </div>
+        <p class="page-subtitle">
+          Automatically route tickets from your highest-value accounts to the right team, channel, and owner —
+          before they wait in the general queue.
+        </p>
+
+        <div class="page-meta-row">
+          <span class="pill pill-soft">Category: Support &amp; Success</span>
+          <span class="pill pill-soft">Difficulty: Beginner</span>
+          <span class="pill pill-soft">Trigger: New support ticket</span>
+          <span class="pill pill-soft">Systems: Helpdesk · CRM · Slack</span>
+        </div>
+      </header>
+
+      <!-- MAIN GRID -->
+      <section class="template-main-grid">
+        <!-- LEFT COLUMN -->
+        <article class="template-main">
+          <!-- OVERVIEW -->
+          <section id="overview" class="doc-section">
+            <h2>Overview</h2>
+            <p>
+              The <strong>VIP Customer Routing</strong> template watches for new tickets in your helpdesk
+              (Zendesk, Intercom, Help Scout, etc.), looks up account context in your CRM, and routes VIP traffic
+              to a dedicated queue and Slack channel. Nova adds extra context like ARR, plan type, and recent NPS
+              so your team has full situational awareness from the first reply.
+            </p>
+
+            <div class="info-grid">
+              <div class="info-card">
+                <h3>When to use this template</h3>
+                <ul>
+                  <li>You have an internal or contracted SLA for strategic / VIP accounts.</li>
+                  <li>VIP contacts are sometimes missed or picked up too slowly.</li>
+                  <li>Your CSMs want to be looped in when their accounts file tickets.</li>
+                  <li>You want a simple, explainable routing rule set with Nova catching edge cases.</li>
+                </ul>
+              </div>
+
+              <div class="info-card">
+                <h3>What this template automates</h3>
+                <ul>
+                  <li>Detects if the requester belongs to a VIP account in your CRM.</li>
+                  <li>Applies high-priority and “VIP” tags to the ticket.</li>
+                  <li>Routes the ticket to a specific group / inbox (e.g., <em>Tier 2 – VIP</em>).</li>
+                  <li>Posts a rich summary to a dedicated Slack channel.</li>
+                  <li>Notifies the owning CSM or AE with direct mentions.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- HOW IT WORKS -->
+          <section id="how-it-works" class="doc-section">
+            <h2>How it works</h2>
+            <ol class="step-list">
+              <li>A ticket is created in the helpdesk.</li>
+              <li>SyncToScale matches the requester email to a contact in the CRM.</li>
+              <li>Nova classifies the account as VIP, Strategic, Standard, or Low-touch.</li>
+              <li>VIP tickets are re-routed to the VIP queue and tagged accordingly.</li>
+              <li>A Slack notification goes to <code>#vip-support</code> with account and ticket details.</li>
+              <li>The owning CSM is @-mentioned if one exists in the CRM.</li>
+            </ol>
+          </section>
+
+          <!-- WORKFLOW STEPS -->
+          <section id="workflow-steps" class="doc-section">
+            <h2>Workflow steps</h2>
+
+            <ol class="step-list step-list-detailed">
+              <li>
+                <h3>Step 1 — Trigger: New ticket in helpdesk</h3>
+                <p>
+                  Triggered from your helpdesk connector on <code>ticket.created</code>. The raw payload includes
+                  requester email, subject, body, and base metadata.
+                </p>
+              </li>
+
+              <li>
+                <h3>Step 2 — Contact &amp; account lookup</h3>
+                <p>
+                  SyncToScale queries the CRM (Salesforce, HubSpot, etc.) using the requester’s email and fetches
+                  account-level fields like ARR, plan, segment, and lifecycle stage.
+                </p>
+                <div class="nova-callout">
+                  <h4>Behind the scenes — Nova enrichment</h4>
+                  <ul>
+                    <li>Resolves email aliases (e.g., <code>support@vip.com</code>) to the correct account.</li>
+                    <li>Highlights if the account has multiple records with the same domain.</li>
+                    <li>Suggests which account to treat as canonical when duplicates exist.</li>
+                  </ul>
+                </div>
+              </li>
+
+              <li>
+                <h3>Step 3 — VIP classification</h3>
+                <p>
+                  A simple rule-based classifier labels the ticket as VIP when any of the following are true:
+                </p>
+                <ul>
+                  <li><code>arr &gt;= 50000</code> (or your configured threshold)</li>
+                  <li><code>segment IN ["VIP", "Strategic", "Enterprise"]</code></li>
+                  <li><code>planTier = "Enterprise"</code></li>
+                </ul>
+              </li>
+
+              <li>
+                <h3>Step 4 — Priority &amp; queue update</h3>
+                <p>
+                  VIP tickets are set to <strong>High</strong> or <strong>Urgent</strong> priority, tagged as
+                  <code>vip</code>, and routed to your chosen group (e.g., <code>group_id = 123456</code> in Zendesk).
+                </p>
+              </li>
+
+              <li>
+                <h3>Step 5 — Slack &amp; CSM notification</h3>
+                <p>
+                  SyncToScale posts to a central <code>#vip-support</code> Slack channel with a contextual summary.
+                  If an owning CSM is present in the CRM and mapped to Slack, they’re @-mentioned directly.
+                </p>
+              </li>
+            </ol>
+          </section>
+
+          <!-- MAPPINGS -->
+          <section id="data-mapping" class="doc-section">
+            <h2>Field mappings</h2>
+
+            <h3>Helpdesk → CRM lookup</h3>
+            <div class="table-wrapper">
+              <table class="mapping-table">
+                <thead>
+                  <tr>
+                    <th>Source (Helpdesk)</th>
+                    <th>Transform</th>
+                    <th>Target (CRM)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>ticket.requester.email</code></td>
+                    <td>Normalize to lowercase</td>
+                    <td><code>Contact.Email</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>ticket.requester.domain</code></td>
+                    <td>Strip subdomains (e.g., <code>eu.vip.com → vip.com</code>)</td>
+                    <td><code>Account.Website</code> / <code>Account.Domain__c</code></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3>CRM → Helpdesk updates</h3>
+            <div class="table-wrapper">
+              <table class="mapping-table">
+                <thead>
+                  <tr>
+                    <th>Source (CRM)</th>
+                    <th>Transform</th>
+                    <th>Target (Helpdesk)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>Account.AnnualRecurringRevenue__c</code></td>
+                    <td>Format as currency for Nova summary</td>
+                    <td><code>ticket.custom_fields.arr</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>Account.Segment__c</code></td>
+                    <td>Uppercase</td>
+                    <td><code>ticket.tags += ["segment-{{Segment__c}}"]</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>Account.Owner__r.Email</code></td>
+                    <td>Map to Slack user (via SyncToScale directory)</td>
+                    <td>Used in Slack @ mention</td>
+                  </tr>
+                  <tr>
+                    <td><code>Account.Plan_Tier__c</code></td>
+                    <td>None</td>
+                    <td><code>ticket.custom_fields.plan_tier</code></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- SAMPLE JSON -->
+          <section id="sample-payloads" class="doc-section">
+            <h2>Sample JSON payloads</h2>
+
+            <h3>Trigger event — New VIP ticket</h3>
+            <pre class="code-block"><code>{
+  "eventId": "evt_01J2P0VIP",
+  "eventType": "ticket.created",
+  "source": "zendesk",
+  "payload": {
+    "ticket": {
+      "id": 48291,
+      "subject": "Invoice discrepancy for Q2 renewal",
+      "priority": "normal",
+      "status": "new",
+      "url": "https://demo.zendesk.com/agent/tickets/48291",
+      "requester": {
+        "id": 9911,
+        "name": "Alex Martinez",
+        "email": "alex.martinez@vipinc.com"
+      }
+    }
+  }
+}</code></pre>
+
+            <h3>Enriched account context from CRM</h3>
+            <pre class="code-block"><code>{
+  "account": {
+    "id": "0015g00000ABC123",
+    "name": "VIP Inc.",
+    "segment": "Strategic",
+    "arr": 320000,
+    "planTier": "Enterprise",
+    "npsLast90Days": 76,
+    "successOwner": {
+      "name": "Taylor Chen",
+      "email": "taylor.chen@demo-company.com",
+      "slackUserId": "U02VIPCSM"
+    }
+  }
+}</code></pre>
+
+            <h3>Routing decision (simplified)</h3>
+            <pre class="code-block"><code>{
+  "isVip": true,
+  "reason": [
+    "segment = Strategic",
+    "planTier = Enterprise",
+    "arr = 320000"
+  ],
+  "helpdeskUpdate": {
+    "priority": "urgent",
+    "groupId": 123456,
+    "tagsToAdd": ["vip", "segment-strategic", "enterprise"],
+    "customFields": {
+      "arr": "$320,000",
+      "plan_tier": "Enterprise"
+    }
+  }
+}</code></pre>
+          </section>
+
+          <!-- ERROR HANDLING -->
+          <section id="error-handling" class="doc-section">
+            <h2>Error handling</h2>
+            <p>
+              Common error scenarios for this template include CRM lookup failures, ambiguous domain matches,
+              and Slack user mapping issues.
+            </p>
+
+            <ul>
+              <li>CRM lookup failures downgrade to standard routing and log a Nova warning.</li>
+              <li>Ambiguous matches (multiple accounts for one domain) go to a safe fallback queue.</li>
+              <li>Slack user mapping failures fall back to posting without direct @ mention.</li>
+            </ul>
+
+            <h3>Sample Nova diagnostic</h3>
+            <pre class="code-block"><code>{
+  "runId": "run_01J2P0VIP",
+  "status": "completed_with_warnings",
+  "warnings": [
+    {
+      "type": "account_domain_ambiguous",
+      "message": "Multiple accounts found for domain vip.com. Selected VIP Inc. based on highest ARR.",
+      "candidates": [
+        { "name": "VIP Inc.", "arr": 320000 },
+        { "name": "VIP Sandbox", "arr": 0 }
+      ]
+    }
+  ]
+}</code></pre>
+          </section>
+
+          <!-- NOVA INSIGHTS -->
+          <section id="nova-insights" class="doc-section">
+            <h2>Nova insights for this template</h2>
+            <ul>
+              <li>Shows distribution of VIP vs. non-VIP tickets over time.</li>
+              <li>Highlights VIP tickets that breached SLA even with routing in place.</li>
+              <li>Surfaces accounts filing unusually high ticket volumes for their ARR.</li>
+              <li>Recommends segment / SLA tweaks based on real-world patterns.</li>
+            </ul>
+          </section>
+
+          <!-- SETUP -->
+          <section id="setup" class="doc-section">
+            <h2>Set up this template in SyncToScale</h2>
+            <ol class="step-list">
+              <li>Go to <strong>Templates &gt; Library</strong> and select <strong>VIP Customer Routing</strong>.</li>
+              <li>Connect your helpdesk (Zendesk, Intercom, etc.) and CRM (Salesforce, HubSpot, etc.).</li>
+              <li>Configure your VIP rules (ARR threshold, segments, plan tiers).</li>
+              <li>Map helpdesk groups and queues to the “VIP queue” slot in the template.</li>
+              <li>Connect Slack and configure the destination channel and CSM mapping.</li>
+              <li>Test with a non-production account, then enable the template in <strong>Active</strong> mode.</li>
+            </ol>
+          </section>
+        </article>
+
+        <!-- RIGHT COLUMN -->
+        <aside class="template-sidebar">
+          <div class="card">
+            <h3>Template summary</h3>
+            <ul class="key-facts-list">
+              <li><strong>Primary trigger:</strong> New ticket created</li>
+              <li><strong>Runtime:</strong> Real-time (seconds)</li>
+              <li><strong>Best for:</strong> B2B SaaS, support &amp; CS teams</li>
+              <li><strong>Owner:</strong> Support Ops · RevOps</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Best practice defaults</h3>
+            <ul>
+              <li>ARR threshold: $50k+ per year.</li>
+              <li>Segments: “VIP”, “Strategic”, “Enterprise”.</li>
+              <li>Single VIP Slack channel per region or product line.</li>
+              <li>Regular Nova reviews of mis-routed tickets.</li>
+            </ul>
+          </div>
+
+          <div class="card nova-callout">
+            <h3>Nova will help you…</h3>
+            <ul>
+              <li>Spot accounts that should be VIP but aren’t configured as such.</li>
+              <li>Understand which VIPs generate the most urgent tickets.</li>
+              <li>Summarize VIP ticket patterns before renewals or QBRs.</li>
+            </ul>
+          </div>
+        </aside>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
 
