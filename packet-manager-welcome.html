@@ -8,7 +8,7 @@
 
   <style>
     /* =========================================
-       PRINT-READY PACKET (HTML → PDF)
+       PAGE WRAPPER
     ========================================= */
 
     .packet-wrap {
@@ -16,6 +16,41 @@
       margin: 32px auto 64px;
       padding: 0 20px;
     }
+
+    /* =========================================
+       CONTEXT HEADER (NOT PART OF PDF)
+    ========================================= */
+
+    .packet-context-header {
+      background: linear-gradient(
+        180deg,
+        #e6fffa 0%,
+        #f0fdfa 70%
+      );
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 18px 22px;
+      margin-bottom: 28px;
+    }
+
+    .packet-context-header h2 {
+      margin: 0 0 6px;
+      font-size: 18px;
+      font-weight: 700;
+      color: #0f766e;
+    }
+
+    .packet-context-header p {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.6;
+      color: #475569;
+      max-width: 760px;
+    }
+
+    /* =========================================
+       EXPORTABLE DOCUMENT
+    ========================================= */
 
     .packet-sheet {
       background: #ffffff;
@@ -27,17 +62,6 @@
         0 2px 6px rgba(0,0,0,0.04);
     }
 
-    .packet-badge {
-      display: inline-block;
-      font-size: 12.5px;
-      font-weight: 600;
-      color: #0f766e;
-      background: #ccfbf1;
-      border-radius: 999px;
-      padding: 7px 14px;
-      margin-bottom: 14px;
-    }
-
     .packet-title {
       font-size: 34px;
       font-weight: 750;
@@ -46,18 +70,10 @@
       color: #0f172a;
     }
 
-    .packet-context {
-      font-size: 15.5px;
-      line-height: 1.7;
-      color: #475569;
-      max-width: 760px;
-      margin-bottom: 18px;
-    }
-
     .packet-actions {
       display: flex;
       gap: 10px;
-      margin-bottom: 32px;
+      margin: 6px 0 28px;
     }
 
     .packet-btn {
@@ -75,7 +91,7 @@
       background: #f1f5f9;
     }
 
-    /* ---------- DOCUMENT CONTENT ---------- */
+    /* ---------- Document content ---------- */
 
     .packet-grid {
       display: grid;
@@ -88,33 +104,30 @@
       border: 1px solid #e2e8f0;
       border-radius: 16px;
       padding: 16px;
-      background: #ffffff;
     }
 
     .packet-card h3 {
       margin: 0 0 10px;
       font-size: 15px;
       font-weight: 700;
-      color: #0f172a;
     }
 
     .kv {
       display: grid;
       grid-template-columns: 120px 1fr;
-      row-gap: 8px;
-      column-gap: 10px;
+      gap: 8px 10px;
       font-size: 14px;
       color: #475569;
     }
 
     .kv .k {
-      color: #64748b;
       font-weight: 600;
+      color: #64748b;
     }
 
     .callout {
       background: linear-gradient(180deg, #e6fffa 0%, #ffffff 90%);
-      border: 1px solid #99f6e4;
+      border-color: #99f6e4;
     }
 
     .section {
@@ -127,7 +140,6 @@
       font-size: 18px;
       font-weight: 750;
       margin-bottom: 10px;
-      color: #0f172a;
     }
 
     .bullets {
@@ -148,7 +160,6 @@
       border: 1px solid #e2e8f0;
       border-radius: 14px;
       padding: 14px;
-      background: #ffffff;
     }
 
     .mini h3 {
@@ -163,16 +174,22 @@
       color: #64748b;
     }
 
-    /* ---------- PRINT ---------- */
+    /* =========================================
+       PRINT RULES
+    ========================================= */
+
     @media print {
       .site-header,
+      .packet-context-header,
       .packet-actions {
         display: none !important;
       }
+
       .packet-wrap {
         margin: 0;
         padding: 0;
       }
+
       .packet-sheet {
         border: none;
         border-radius: 0;
@@ -208,20 +225,23 @@
   </header>
 
   <div class="packet-wrap">
-    <div class="packet-sheet">
 
-      <!-- HEADER -->
-      <span class="packet-badge">Manager Welcome Packet</span>
+    <!-- CONTEXT (NOT EXPORTED) -->
+    <div class="packet-context-header">
+      <h2>Manager Welcome Packet</h2>
+      <p>
+        This packet is generated when a new hire is created. It gives managers
+        a clear, practical guide to expectations, first-week setup, and a simple
+        30 / 60 / 90 structure.
+      </p>
+    </div>
+
+    <!-- EXPORTABLE DOCUMENT -->
+    <div class="packet-sheet">
 
       <h1 class="packet-title">
         Welcome — here’s what to prep before day one
       </h1>
-
-      <p class="packet-context">
-        This packet is generated when a new hire is created.
-        It gives you a clear, manager-friendly guide to expectations,
-        first-week setup, and a simple 30/60/90 structure.
-      </p>
 
       <div class="packet-actions">
         <a href="template-manager-welcome.html" class="packet-btn">
@@ -232,7 +252,7 @@
         </a>
       </div>
 
-      <!-- PREVIEW / REAL DOCUMENT -->
+      <!-- DOCUMENT CONTENT -->
       <div class="packet-grid">
         <div class="packet-card">
           <h3>New Hire Overview</h3>
@@ -248,8 +268,7 @@
           <h3>Nova Insights</h3>
           <p>
             Nova checks onboarding readiness and flags missing access,
-            scheduling gaps, or manager workload risk. You’ll be notified
-            if attention is needed.
+            scheduling gaps, or manager workload risk.
           </p>
         </div>
       </div>
