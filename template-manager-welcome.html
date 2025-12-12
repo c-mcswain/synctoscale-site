@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Template: Manager Welcome Packet | SyncToScale</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Nova / Botpress -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
+  <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
+</head>
+
+<body>
+
+<!-- SITE HEADER (LOCKED) -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">SyncToScale</a>
+
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="about.html">About</a>
+      <a href="faq.html">FAQ</a>
+      <a href="resources.html">Resources</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page-wrap">
+  <div class="container template-layout">
+
+    <!-- BREADCRUMB -->
+    <nav class="doc-breadcrumb">
+      <a href="templates.html">Templates</a>
+      <span>›</span>
+      <span>Manager Welcome Packet</span>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <header class="page-header">
+      <div class="page-header-top">
+        <h1>Manager Welcome Packet</h1>
+        <span class="badge badge-nova">Template</span>
+      </div>
+
+      <p class="page-subtitle">
+        Automatically send hiring managers a structured welcome packet when a new hire is created in the HRIS.
+        Includes actionable checklists, key dates, onboarding expectations, and Nova insights to prepare them
+        before day one.
+      </p>
+
+      <div class="page-meta-row">
+        <span class="pill pill-soft">Category: Employee Onboarding</span>
+        <span class="pill pill-soft">Difficulty: Beginner</span>
+        <span class="pill pill-soft">Trigger: New hire created</span>
+        <span class="pill pill-soft">Systems: HRIS · Email · Slack</span>
+      </div>
+    </header>
+
+    <!-- MAIN GRID -->
+    <section class="template-main-grid">
+
+      <!-- LEFT COLUMN -->
+      <article class="template-main">
+
+        <!-- OVERVIEW -->
+        <section id="overview" class="doc-section">
+          <h2>Overview</h2>
+          <p>
+            The <strong>Manager Welcome Packet</strong> template ensures hiring managers have everything they need
+            to support a new employee's first days. Triggered when a new hire is created in the HRIS, SyncToScale
+            generates a personalized packet including required tasks, important dates, onboarding expectations,
+            and Nova-driven insights.
+          </p>
+        </section>
+
+        <!-- HOW IT WORKS -->
+        <section id="how-it-works" class="doc-section">
+          <h2>How it works</h2>
+          <ol class="step-list">
+            <li>A new hire is created in the HRIS.</li>
+            <li>SyncToScale enriches the profile with role, department, location, and manager info.</li>
+            <li>Nova checks for common onboarding issues.</li>
+            <li>A personalized Manager Welcome Packet is generated.</li>
+            <li>The packet is delivered via Slack DM or email.</li>
+            <li>A summary record is logged for People Ops.</li>
+          </ol>
+        </section>
+
+        <!-- WORKFLOW STEPS -->
+        <section id="workflow-steps" class="doc-section">
+          <h2>Workflow steps</h2>
+
+          <ol class="step-list step-list-detailed">
+            <li>
+              <h3>Step 1 — Trigger: New hire created</h3>
+              <p>Runs when an HRIS hire event is detected.</p>
+            </li>
+
+            <li>
+              <h3>Step 2 — Build onboarding profile</h3>
+              <p>Constructs a structured onboarding profile for the new hire.</p>
+            </li>
+
+            <li>
+              <h3>Step 3 — Nova validation</h3>
+              <p>Nova flags missing hardware, dates, or conflicts.</p>
+            </li>
+
+            <li>
+              <h3>Step 4 — Generate welcome packet</h3>
+              <p>Creates a structured packet customized for the manager.</p>
+            </li>
+
+            <li>
+              <h3>Step 5 — Deliver packet</h3>
+              <p>Sends via Slack or email.</p>
+            </li>
+
+            <li>
+              <h3>Step 6 — Log completion</h3>
+              <p>Records onboarding readiness for People Ops.</p>
+            </li>
+          </ol>
+        </section>
+
+        <!-- SETUP -->
+        <section id="setup" class="doc-section">
+          <h2>Set up this template</h2>
+          <ol class="step-list">
+            <li>Select <strong>Manager Welcome Packet</strong> in Templates.</li>
+            <li>Connect HRIS and Slack/Email systems.</li>
+            <li>Customize checklist items.</li>
+            <li>Enable Nova validations.</li>
+            <li>Activate the workflow.</li>
+          </ol>
+        </section>
+
+      </article>
+
+      <!-- RIGHT COLUMN -->
+      <aside class="template-sidebar">
+        <div class="card">
+          <h3>Template summary</h3>
+          <ul class="key-facts-list">
+            <li><strong>Trigger:</strong> New hire created</li>
+            <li><strong>Runtime:</strong> Immediate</li>
+            <li><strong>Owner:</strong> People Ops</li>
+            <li><strong>Systems:</strong> HRIS · Slack · Email</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Best practice defaults</h3>
+          <ul>
+            <li>Always set first-week expectations.</li>
+            <li>Include 30/60/90 guidance.</li>
+            <li>Use Nova insights to prioritize tasks.</li>
+          </ul>
+        </div>
+
+        <div class="card nova-callout">
+          <h3>Nova will help you…</h3>
+          <ul>
+            <li>Flag onboarding readiness issues.</li>
+            <li>Predict manager workload bottlenecks.</li>
+            <li>Standardize onboarding experiences.</li>
+          </ul>
+        </div>
+      </aside>
+
+    </section>
+  </div>
+</main>
+
+</body>
+</html>
