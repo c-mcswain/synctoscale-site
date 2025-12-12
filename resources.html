@@ -11,16 +11,16 @@
   <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
   <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
 
-  <!-- PAGE-ONLY STYLES (NO NAVBAR STYLES) -->
+  <!-- PAGE-ONLY STYLES (SAFE — NO NAV OVERRIDES) -->
   <style>
     .resources-hero {
-      padding: 52px 0 34px;
+      padding: 56px 0 36px;
       background: linear-gradient(180deg, #eefdfb 0%, #ffffff 85%);
       border-bottom: 1px solid #e2e8f0;
     }
 
     .resources-hero h1 {
-      margin: 0 0 10px;
+      margin: 0 0 12px;
       font-size: 42px;
       color: #0b3d3d;
       letter-spacing: -0.02em;
@@ -34,15 +34,37 @@
       color: #475569;
     }
 
+    .recruiter-cta {
+      margin-top: 22px;
+    }
+
+    .recruiter-cta a {
+      display: inline-block;
+      background: linear-gradient(135deg, #41d1ff, #21e19f);
+      color: #053c3c;
+      font-weight: 600;
+      font-size: 14.5px;
+      padding: 10px 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      box-shadow: 0 6px 18px rgba(33, 225, 159, 0.35);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .recruiter-cta a:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 26px rgba(33, 225, 159, 0.45);
+    }
+
     .resources-wrap {
-      padding: 34px 0 10px;
+      padding: 36px 0 16px;
     }
 
     .resources-grid {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
       gap: 22px;
-      margin-top: 18px;
+      margin-top: 8px;
     }
 
     .resource-card {
@@ -50,7 +72,7 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
-      min-height: 210px;
+      min-height: 215px;
     }
 
     .resource-card h3 {
@@ -77,7 +99,6 @@
     }
 
     .pill-mini {
-      display: inline-block;
       font-size: 12px;
       font-weight: 600;
       color: #0b3d3d;
@@ -104,45 +125,11 @@
       color: #14b8a6;
     }
 
-    .resources-split {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 22px;
-      margin-top: 22px;
-    }
-
-    .callout {
-      border: 1px solid #e2e8f0;
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 22px;
-      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
-    }
-
-    .callout h3 {
-      margin: 0 0 8px;
-      color: #0b3d3d;
-      font-size: 18px;
-    }
-
-    .callout p, .callout li {
-      margin: 0;
-      color: #475569;
-      line-height: 1.6;
-      font-size: 15.5px;
-    }
-
-    .callout ul {
-      margin: 10px 0 0 18px;
-    }
-
     @media (max-width: 980px) {
       .resource-card { grid-column: span 6; }
-      .resources-split { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 640px) {
-      .resources-hero { padding: 40px 0 26px; }
       .resources-hero h1 { font-size: 34px; }
       .resource-card { grid-column: span 12; }
     }
@@ -151,11 +138,10 @@
 
 <body>
 
-  <!-- ✅ STANDARD NAVBAR (USE THIS EVERYWHERE) -->
+  <!-- ✅ STANDARD NAVBAR (LOCKED PATTERN) -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="logo">SyncToScale</a>
-
       <nav class="nav">
         <a href="index.html">Home</a>
         <a href="features.html">Features</a>
@@ -172,9 +158,14 @@
     <div class="container">
       <h1>Resources</h1>
       <p>
-        Everything that supports the SyncToScale platform story — docs, templates, integrations, and security.
-        Built as a recruiter-ready SaaS portfolio with a real “platform” feel.
+        Documentation, templates, and platform references that support how SyncToScale
+        connects systems, orchestrates workflows, and keeps teams aligned.
       </p>
+
+      <!-- 👋 Recruiter CTA (soft, optional, intentional) -->
+      <div class="recruiter-cta">
+        <a href="about.html">👋 New here? See what SyncToScale represents →</a>
+      </div>
     </div>
   </section>
 
@@ -182,92 +173,66 @@
   <section class="resources-wrap">
     <div class="container">
 
-      <!-- GRID: THE “REFERENCE” LOOK -->
       <div class="resources-grid">
 
         <div class="card resource-card">
-          <h3>Templates Library</h3>
-          <p>Pre-built automations for onboarding, offboarding, compliance, alerts, and custom workflows.</p>
+          <h3>📦 Templates Library</h3>
+          <p>Pre-built workflows for onboarding, offboarding, compliance, alerts, and operational handoffs.</p>
           <div class="resource-meta">
-            <span class="pill-mini">Most popular</span>
-            <a class="resource-link" href="templates.html">Open →</a>
+            <span class="pill-mini">Popular</span>
+            <a class="resource-link" href="templates.html">Browse →</a>
           </div>
         </div>
 
         <div class="card resource-card">
-          <h3>Developer Docs</h3>
-          <p>Core concepts, triggers/actions, mapping, error handling, and platform behavior patterns.</p>
+          <h3>📘 Developer Docs</h3>
+          <p>Core concepts, triggers, actions, mappings, error handling, and workflow behavior.</p>
           <div class="resource-meta">
             <span class="pill-mini">Platform</span>
-            <a class="resource-link" href="docs.html">Open →</a>
+            <a class="resource-link" href="docs.html">Read →</a>
           </div>
         </div>
 
         <div class="card resource-card">
-          <h3>API Reference</h3>
-          <p>Endpoints, auth, rate limits, and example payloads for automation + integration flows.</p>
+          <h3>🔌 API Reference</h3>
+          <p>Authentication, endpoints, rate limits, and example payloads for integrations.</p>
           <div class="resource-meta">
             <span class="pill-mini">Technical</span>
-            <a class="resource-link" href="api.html">Open →</a>
+            <a class="resource-link" href="api.html">View →</a>
           </div>
         </div>
 
         <div class="card resource-card">
-          <h3>Integrations Library</h3>
-          <p>Browse supported tools and how SyncToScale connects HR, IT, RevOps, and comms systems.</p>
+          <h3>🧩 Integrations</h3>
+          <p>Supported tools and how SyncToScale connects HR, IT, Payroll, and communication systems.</p>
           <div class="resource-meta">
             <span class="pill-mini">Ecosystem</span>
-            <a class="resource-link" href="integrations.html">Open →</a>
+            <a class="resource-link" href="integrations.html">Explore →</a>
           </div>
         </div>
 
         <div class="card resource-card">
-          <h3>Security</h3>
-          <p>Audit trails, access controls, data handling, and compliance-ready workflow patterns.</p>
+          <h3>🔐 Security</h3>
+          <p>Audit trails, access controls, data handling, and compliance-ready patterns.</p>
           <div class="resource-meta">
             <span class="pill-mini">Trust</span>
-            <a class="resource-link" href="security.html">Open →</a>
+            <a class="resource-link" href="security.html">Review →</a>
           </div>
         </div>
 
         <div class="card resource-card">
-          <h3>About This Project</h3>
-          <p>Why SyncToScale exists, what it demonstrates, and how Nova supports the platform experience.</p>
+          <h3>🤖 Nova</h3>
+          <p>How Nova assists with validation, pattern detection, and workflow guidance.</p>
           <div class="resource-meta">
-            <span class="pill-mini">Recruiters</span>
-            <a class="resource-link" href="about.html">Open →</a>
+            <span class="pill-mini">AI Assist</span>
+            <a class="resource-link" href="faq.html">Learn →</a>
           </div>
-        </div>
-
-      </div>
-
-      <!-- LOWER “POLISH” ROW -->
-      <div class="resources-split">
-
-        <div class="callout">
-          <h3>Suggested starting points</h3>
-          <ul>
-            <li><strong>Want the “wow”:</strong> open <a class="resource-link" href="templates.html">Templates</a> and click any detail page.</li>
-            <li><strong>Want platform depth:</strong> go to <a class="resource-link" href="docs.html">Docs</a> + <a class="resource-link" href="api.html">API</a>.</li>
-            <li><strong>Want credibility:</strong> review <a class="resource-link" href="security.html">Security</a> and audit-style patterns.</li>
-          </ul>
-        </div>
-
-        <div class="callout" style="border-color: rgba(20,184,166,0.35);">
-          <h3>Ask Nova</h3>
-          <p>
-            Nova can explain templates, workflows, integrations, and why specific design choices were made across the site.
-          </p>
         </div>
 
       </div>
 
     </div>
   </section>
-
-  <footer>
-    <p>SyncToScale — Portfolio Project by Christy</p>
-  </footer>
 
 </body>
 </html>
