@@ -27,7 +27,7 @@
       );
       border: 1px solid rgba(148,163,184,0.35);
       box-shadow: 0 10px 22px rgba(15,23,42,0.06);
-      margin-bottom: 26px;
+      margin-bottom: 18px;
     }
 
     .templates-hero h1 {
@@ -43,6 +43,45 @@
       font-size: 16px;
       color: #475569;
       line-height: 1.55;
+    }
+
+    /* LEGEND */
+    .templates-legend {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      margin: 14px 0 26px;
+    }
+
+    .legend-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.45);
+      background: rgba(255,255,255,0.85);
+      color: #0f172a;
+      font-size: 13px;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(71,85,105,0.55);
+    }
+
+    .legend-dot.artifact {
+      background: linear-gradient(135deg, #41d1ff, #21e19f);
+    }
+
+    .legend-dot.progress {
+      background: rgba(148,163,184,0.9);
     }
 
     /* GRID */
@@ -84,12 +123,22 @@
       justify-content: space-between;
       gap: 10px;
       margin-bottom: 8px;
+      align-items: flex-start;
     }
 
     .t-title {
       font-size: 16px;
       margin: 0;
       color: #0f172a;
+      line-height: 1.3;
+    }
+
+    .t-badges {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      align-items: flex-end;
+      flex-shrink: 0;
     }
 
     .badge {
@@ -100,6 +149,16 @@
       background: #f8fafc;
       color: #0f172a;
       white-space: nowrap;
+    }
+
+    .badge.artifact {
+      border-color: rgba(33,225,159,0.55);
+      background: rgba(33,225,159,0.10);
+    }
+
+    .badge.progress {
+      color: #475569;
+      background: rgba(148,163,184,0.12);
     }
 
     .t-desc {
@@ -156,19 +215,25 @@
     <section class="templates-hero">
       <h1>Workflow Templates</h1>
       <p>
-        Practical, real-world automation workflows for onboarding,
-        People Ops, Customer Success, RevOps, and integrations.
-        Every template is clickable — some are still being filled in.
+        Practical, real-world automation workflows for onboarding, People Ops,
+        Customer Success, RevOps, and integrations. Every template is clickable.
       </p>
     </section>
 
+    <div class="templates-legend">
+      <span class="legend-pill"><span class="legend-dot artifact"></span>Produces artifact</span>
+      <span class="legend-pill"><span class="legend-dot progress"></span>In progress</span>
+    </div>
+
     <section class="templates-grid">
 
-      <!-- HR / PEOPLE OPS -->
+      <!-- ACTIVE / BUILT -->
       <a class="t-card" href="template-offboarding.html">
         <div class="t-head">
           <h3 class="t-title">Employee Offboarding</h3>
-          <span class="badge">Workflow</span>
+          <div class="t-badges">
+            <span class="badge">Workflow</span>
+          </div>
         </div>
         <p class="t-desc">Role-based offboarding covering access, equipment, payroll, and comms.</p>
         <div class="t-meta">
@@ -179,10 +244,13 @@
 
       <a class="t-card" href="template-manager-welcome.html">
         <div class="t-head">
-          <h3 class="t-title">Manager Welcome Packet</h3>
-          <span class="badge">Workflow</span>
+          <h3 class="t-title">Manager Welcome Packet Workflow</h3>
+          <div class="t-badges">
+            <span class="badge artifact">Produces artifact</span>
+            <span class="badge">Workflow</span>
+          </div>
         </div>
-        <p class="t-desc">Generates a manager-facing onboarding packet when a new hire is created.</p>
+        <p class="t-desc">Generates a manager-facing prep packet when a new hire is created.</p>
         <div class="t-meta">
           <span class="chip">Onboarding</span><span class="chip">Managers</span><span class="chip">Easy</span>
         </div>
@@ -192,7 +260,10 @@
       <a class="t-card" href="template-prestart-checklist.html">
         <div class="t-head">
           <h3 class="t-title">Pre-Start Checklist</h3>
-          <span class="badge">Workflow</span>
+          <div class="t-badges">
+            <span class="badge progress">In progress</span>
+            <span class="badge">Workflow</span>
+          </div>
         </div>
         <p class="t-desc">Ensures access, equipment, payroll, and meetings are ready before day one.</p>
         <div class="t-meta">
@@ -204,33 +275,41 @@
       <a class="t-card" href="template-policy-ack.html">
         <div class="t-head">
           <h3 class="t-title">Policy Acknowledgement Tracking</h3>
-          <span class="badge">Workflow</span>
+          <div class="t-badges">
+            <span class="badge artifact">Produces artifact</span>
+            <span class="badge">Workflow</span>
+          </div>
         </div>
-        <p class="t-desc">Tracks employee policy acknowledgements with audit-ready records.</p>
+        <p class="t-desc">Tracks policy acknowledgements and generates audit-ready confirmations.</p>
         <div class="t-meta">
           <span class="chip">Compliance</span><span class="chip">Audit</span><span class="chip">Easy</span>
         </div>
         <div class="t-footer"><span>Template details</span><span>→</span></div>
       </a>
 
-      <!-- CS / IMPLEMENTATION -->
+      <!-- CLICKABLE / IN PROGRESS (STILL ACTIVE) -->
       <a class="t-card" href="template-contract-handoff.html">
         <div class="t-head">
           <h3 class="t-title">Contract → Implementation Handoff</h3>
-          <span class="badge">Workflow</span>
+          <div class="t-badges">
+            <span class="badge progress">In progress</span>
+            <span class="badge">Workflow</span>
+          </div>
         </div>
-        <p class="t-desc">Standardizes Sales → CS handoff with timelines and risk context.</p>
+        <p class="t-desc">Standardizes Sales → CS handoff with timelines, scope, and risk flags.</p>
         <div class="t-meta">
           <span class="chip">CS</span><span class="chip">Implementation</span><span class="chip">Medium</span>
         </div>
         <div class="t-footer"><span>Template details</span><span>→</span></div>
       </a>
 
-      <!-- REVOPS -->
       <a class="t-card" href="template-title-comp-change-alerts.html">
         <div class="t-head">
           <h3 class="t-title">Title & Compensation Change Alerts</h3>
-          <span class="badge">Workflow</span>
+          <div class="t-badges">
+            <span class="badge progress">In progress</span>
+            <span class="badge">Workflow</span>
+          </div>
         </div>
         <p class="t-desc">Routes approvals and notifications when role or pay changes occur.</p>
         <div class="t-meta">
@@ -239,13 +318,14 @@
         <div class="t-footer"><span>Template details</span><span>→</span></div>
       </a>
 
-      <!-- ENGINEERING -->
       <a class="t-card" href="template-custom-webhook-workflow.html">
         <div class="t-head">
           <h3 class="t-title">Custom Webhook Workflow</h3>
-          <span class="badge">Workflow</span>
+          <div class="t-badges">
+            <span class="badge">Workflow</span>
+          </div>
         </div>
-        <p class="t-desc">Triggers automation from signed webhook payloads.</p>
+        <p class="t-desc">Triggers automations from signed webhook payloads.</p>
         <div class="t-meta">
           <span class="chip">Engineering</span><span class="chip">API</span><span class="chip">Advanced</span>
         </div>
