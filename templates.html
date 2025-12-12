@@ -15,19 +15,18 @@
       padding: 24px 18px 56px;
     }
 
-    /* Slim header */
+    /* Header */
     .templates-hero {
       text-align: center;
       padding: 26px 18px;
       border-radius: 16px;
       background: linear-gradient(
         180deg,
-        rgba(33,225,159,0.14) 0%,
-        rgba(65,209,255,0.12) 55%,
-        #ffffff 100%
+        rgba(33,225,159,0.14),
+        rgba(65,209,255,0.12),
+        #ffffff
       );
       border: 1px solid rgba(148,163,184,0.35);
-      box-shadow: 0 10px 22px rgba(15,23,42,0.06);
     }
 
     .templates-hero h1 {
@@ -43,69 +42,23 @@
       color: #475569;
     }
 
-    /* Toolbar */
-    .templates-toolbar {
-      margin: 18px 0 14px;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
+    /* Section headers */
+    .template-section {
+      margin-top: 48px;
     }
 
-    .legend {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      font-size: 13px;
-      border: 1px solid rgba(148,163,184,0.45);
-      background: rgba(255,255,255,0.85);
-    }
-
-    .pill .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #94a3b8;
-    }
-
-    .pill.artifact .dot {
-      background: linear-gradient(135deg, #41d1ff, #21e19f);
-    }
-
-    .pill.soon .dot {
-      background: rgba(148,163,184,0.75);
-    }
-
-    .search {
-      padding: 10px 12px;
-      border-radius: 12px;
-      border: 1px solid rgba(148,163,184,0.55);
-      font-size: 14px;
-      width: min(420px, 100%);
+    .template-section h2 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #0b3d3d;
     }
 
     /* Grid */
     .templates-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
-      gap: 14px;
-      margin-top: 12px;
-    }
-
-    @media (max-width: 980px) {
-      .templates-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 640px) {
-      .templates-grid { grid-template-columns: 1fr; }
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
     }
 
     /* Card */
@@ -114,8 +67,7 @@
       text-decoration: none;
       border-radius: 16px;
       border: 1px solid rgba(148,163,184,0.45);
-      background: rgba(255,255,255,0.92);
-      box-shadow: 0 10px 22px rgba(15,23,42,0.06);
+      background: rgba(255,255,255,0.95);
       padding: 16px;
       color: inherit;
       transition: transform .12s ease, box-shadow .12s ease;
@@ -123,14 +75,14 @@
 
     .t-card:hover {
       transform: translateY(-2px);
-      box-shadow: 0 14px 26px rgba(15,23,42,0.09);
+      box-shadow: 0 14px 26px rgba(15,23,42,0.08);
     }
 
     .t-head {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      gap: 10px;
+      gap: 12px;
       margin-bottom: 10px;
     }
 
@@ -138,6 +90,15 @@
       margin: 0;
       font-size: 16px;
       line-height: 1.3;
+    }
+
+    /* STACKED BADGES */
+    .t-badges {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      align-items: flex-end;
+      flex-shrink: 0;
     }
 
     .badge {
@@ -156,7 +117,7 @@
 
     .badge.soon {
       color: #475569;
-      background: rgba(148,163,184,0.10);
+      background: rgba(148,163,184,0.12);
     }
 
     .t-desc {
@@ -181,9 +142,8 @@
       color: #475569;
     }
 
-    /* Disabled */
     .t-card.is-disabled {
-      opacity: 0.72;
+      opacity: 0.7;
       pointer-events: none;
     }
   </style>
@@ -211,103 +171,84 @@
     <section class="templates-hero">
       <h1>Workflow Templates</h1>
       <p>
-        Practical, manager-friendly workflows for People Ops, IT onboarding/offboarding, and cross-team handoffs.
-        Some workflows generate real outputs as print-ready artifacts.
+        Practical, manager-friendly workflows for People Ops, Customer Success,
+        RevOps, and automation engineering. Some workflows generate real artifacts.
       </p>
     </section>
 
-    <div class="templates-toolbar">
-      <div class="legend">
-        <span class="pill artifact"><span class="dot"></span>Produces artifact</span>
-        <span class="pill soon"><span class="dot"></span>Coming soon</span>
+    <!-- HR & PEOPLE OPS -->
+    <section class="template-section">
+      <h2>HR & People Operations</h2>
+      <div class="templates-grid">
+
+        <a class="t-card" href="template-offboarding.html">
+          <div class="t-head">
+            <h3 class="t-title">Employee Offboarding</h3>
+          </div>
+          <p class="t-desc">Automate access removal, notifications, and HRIS updates.</p>
+          <div class="t-meta">
+            <span class="chip">People Ops</span>
+            <span class="chip">IT</span>
+            <span class="chip">Medium</span>
+          </div>
+        </a>
+
+        <a class="t-card" href="template-manager-welcome.html">
+          <div class="t-head">
+            <h3 class="t-title">Manager Welcome Packet</h3>
+            <div class="t-badges">
+              <span class="badge artifact">Produces artifact</span>
+            </div>
+          </div>
+          <p class="t-desc">Generate a manager-facing prep packet for new hires.</p>
+          <div class="t-meta">
+            <span class="chip">Onboarding</span>
+            <span class="chip">Easy</span>
+          </div>
+        </a>
+
+        <a class="t-card is-disabled" href="#">
+          <div class="t-head">
+            <h3 class="t-title">Compliance Acknowledgment Confirmation</h3>
+            <div class="t-badges">
+              <span class="badge artifact">Produces artifact</span>
+              <span class="badge soon">Coming soon</span>
+            </div>
+          </div>
+          <p class="t-desc">Capture policy sign-offs and generate audit-ready confirmation.</p>
+          <div class="t-meta">
+            <span class="chip">Compliance</span>
+            <span class="chip">Audit</span>
+            <span class="chip">Easy</span>
+          </div>
+        </a>
+
       </div>
+    </section>
 
-      <input id="templateSearch" class="search" type="search"
-        placeholder="Search templates (e.g., offboarding, welcome, compliance)…" />
-    </div>
+    <!-- CUSTOMER SUCCESS -->
+    <section class="template-section">
+      <h2>Customer Success & Implementation</h2>
+      <div class="templates-grid">
 
-    <section class="templates-grid" id="templatesGrid">
+        <a class="t-card is-disabled" href="#">
+          <div class="t-head">
+            <h3 class="t-title">Contract → Implementation Handoff</h3>
+            <div class="t-badges">
+              <span class="badge soon">Coming soon</span>
+            </div>
+          </div>
+          <p class="t-desc">Standardize Sales-to-CS handoff with full context.</p>
+          <div class="t-meta">
+            <span class="chip">Implementation</span>
+            <span class="chip">Medium</span>
+          </div>
+        </a>
 
-      <a class="t-card" href="template-offboarding.html" data-title="offboarding workflow">
-        <div class="t-head">
-          <h3 class="t-title">Employee Offboarding</h3>
-        </div>
-        <p class="t-desc">
-          A clean, role-based offboarding workflow covering systems access, equipment recovery, payroll status, and internal comms.
-        </p>
-        <div class="t-meta">
-          <span class="chip">People Ops</span>
-          <span class="chip">IT</span>
-          <span class="chip">Security</span>
-          <span class="chip">Medium</span>
-        </div>
-      </a>
-
-      <a class="t-card" href="template-manager-welcome.html" data-title="manager welcome packet onboarding">
-        <div class="t-head">
-          <h3 class="t-title">Manager Welcome Packet Workflow</h3>
-          <span class="badge artifact">Produces artifact</span>
-        </div>
-        <p class="t-desc">
-          Generates a manager-friendly prep packet when a new hire is created—first-week setup, expectations, and a simple 30/60/90 structure.
-        </p>
-        <div class="t-meta">
-          <span class="chip">Onboarding</span>
-          <span class="chip">Managers</span>
-          <span class="chip">Easy</span>
-        </div>
-      </a>
-
-      <a class="t-card is-disabled" href="#">
-        <div class="t-head">
-          <h3 class="t-title">Title & Compensation Change Alerts</h3>
-          <span class="badge soon">Coming soon</span>
-        </div>
-        <p class="t-desc">
-          Controlled approvals and downstream notifications when title or compensation changes occur.
-        </p>
-        <div class="t-meta">
-          <span class="chip">Comp</span>
-          <span class="chip">Approvals</span>
-          <span class="chip">Medium</span>
-        </div>
-      </a>
-
-      <a class="t-card is-disabled" href="#">
-        <div class="t-head">
-          <h3 class="t-title">Contract → Implementation Handoff</h3>
-          <span class="badge soon">Coming soon</span>
-        </div>
-        <p class="t-desc">
-          Standardized handoff from Sales and Legal into Implementation with required context and timelines.
-        </p>
-        <div class="t-meta">
-          <span class="chip">Implementation</span>
-          <span class="chip">Handoff</span>
-          <span class="chip">Medium</span>
-        </div>
-      </a>
-
-      <a class="t-card is-disabled" href="#">
-        <div class="t-head">
-          <h3 class="t-title">Compliance Acknowledgment Confirmation</h3>
-          <span class="badge artifact">Produces artifact</span>
-          <span class="badge soon">Coming soon</span>
-        </div>
-        <p class="t-desc">
-          Captures policy acknowledgment and generates a print-ready confirmation for audit readiness.
-        </p>
-        <div class="t-meta">
-          <span class="chip">Compliance</span>
-          <span class="chip">Audit</span>
-          <span class="chip">Easy</span>
-        </div>
-      </a>
-
+      </div>
     </section>
 
   </main>
 
 </body>
 </html>
-
