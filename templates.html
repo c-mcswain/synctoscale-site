@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,254 +7,447 @@
 
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- Botpress Webchat -->
-  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
-  <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
-
   <style>
-    /* -----------------------------------------
-       NAVBAR — EXACT COPY FROM INDEX
-    ----------------------------------------- */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
-    }
-
-    header .container {
+    /* Page container */
+    .page-wrap {
       max-width: 1100px;
-      margin: auto;
-      padding: 18px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: #0b3d3d;
-      text-decoration: none;
-    }
-
-    .nav a {
-      color: #0b3d3d;
-      margin-left: 26px;
-      text-decoration: none;
-      font-size: 1rem;
-      font-weight: 500;
-      padding-bottom: 4px;
-      transition: color .2s ease, border-bottom .2s ease;
-      border-bottom: 2px solid transparent;
-    }
-
-    .nav a:hover {
-      color: #14b8a6;
-      border-bottom: 2px solid #14b8a6;
-    }
-
-    /* -----------------------------------------
-       TEMPLATE PAGE STYLES
-    ----------------------------------------- */
-    .template-section h2 {
-      font-size: 26px;
-      font-weight: 700;
-      margin-bottom: 16px;
-      background: linear-gradient(90deg, #1d6f7a, #14645d);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .template-section {
-      margin: 60px auto;
-      max-width: 1100px;
-      padding: 0 20px;
-    }
-
-    .template-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-    }
-
-    .template-card {
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 20px 20px 18px;
-      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
-      border: 1px solid #e2e8f0;
-      transition: all 0.22s ease;
-      text-decoration: none;
-      color: #1e293b;
-      display: block;
-    }
-
-    .template-card:hover {
-      box-shadow: 0 6px 18px rgba(33, 225, 159, 0.28);
-      transform: translateY(-3px);
-      border-color: #21e19f;
-    }
-
-    .template-card h3 {
-      font-size: 17px;
-      margin-bottom: 6px;
-      font-weight: 600;
-    }
-
-    .template-card p {
-      font-size: 14px;
-      color: #475569;
-      line-height: 1.45;
-    }
-
-    .page-hero {
-      text-align: center;
-      padding: 56px 20px 40px;
-    }
-
-    .page-hero h1 {
-      font-size: 36px;
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: #0b3d3d;
-    }
-
-    .page-hero p {
-      font-size: 16px;
-      color: #475569;
-      max-width: 640px;
       margin: 0 auto;
+      padding: 24px 18px 56px;
     }
 
-    @media (max-width: 640px) {
-      .page-hero {
-        padding: 40px 16px 28px;
-      }
+    /* Slim, Resources-inspired header */
+    .templates-hero {
+      text-align: center;
+      padding: 26px 18px;
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(33,225,159,0.14) 0%, rgba(65,209,255,0.12) 55%, rgba(255,255,255,1) 100%);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.06);
+    }
 
-      .page-hero h1 {
-        font-size: 28px;
-      }
+    .templates-hero h1 {
+      margin: 0 0 6px;
+      font-size: 34px;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: #0f172a;
+    }
+
+    .templates-hero p {
+      margin: 0;
+      color: #475569;
+      font-size: 16px;
+      line-height: 1.55;
+      max-width: 820px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Filters / legend row */
+    .templates-toolbar {
+      margin: 18px 0 14px;
+      display: flex;
+      gap: 10px;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .legend {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.45);
+      background: rgba(255,255,255,0.85);
+      color: #0f172a;
+      font-size: 13px;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .pill .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(71,85,105,0.55);
+    }
+
+    .pill.artifact .dot {
+      background: linear-gradient(135deg, #41d1ff, #21e19f);
+    }
+
+    .pill.soon .dot {
+      background: rgba(148,163,184,0.75);
+    }
+
+    .search-wrap {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .search {
+      width: min(420px, 100%);
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(148,163,184,0.55);
+      background: rgba(255,255,255,0.9);
+      outline: none;
+      font-size: 14px;
+      color: #0f172a;
+    }
+
+    .search:focus {
+      border-color: rgba(33,225,159,0.75);
+      box-shadow: 0 0 0 4px rgba(33,225,159,0.18);
+    }
+
+    /* Grid */
+    .templates-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 980px) {
+      .templates-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 640px) {
+      .templates-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Card */
+    .t-card {
+      display: block;
+      text-decoration: none;
+      border-radius: 16px;
+      border: 1px solid rgba(148,163,184,0.45);
+      background: rgba(255,255,255,0.92);
+      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.06);
+      padding: 16px 16px 14px;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+      color: inherit;
+    }
+
+    .t-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 26px rgba(15, 23, 42, 0.09);
+      border-color: rgba(33,225,159,0.55);
+    }
+
+    .t-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .t-title {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.3;
+      color: #0f172a;
+      letter-spacing: -0.01em;
+    }
+
+    .t-badges {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      line-height: 1;
+      border: 1px solid rgba(148,163,184,0.45);
+      background: rgba(248,250,252,0.9);
+      color: #0f172a;
+      white-space: nowrap;
+    }
+
+    .badge.artifact {
+      border-color: rgba(33,225,159,0.55);
+      background: rgba(33,225,159,0.10);
+    }
+
+    .badge.soon {
+      color: #475569;
+      background: rgba(148,163,184,0.10);
+    }
+
+    .t-desc {
+      margin: 0 0 12px;
+      color: #475569;
+      font-size: 13.5px;
+      line-height: 1.55;
+    }
+
+    .t-meta {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.35);
+      background: rgba(255,255,255,0.65);
+      color: #475569;
+      font-size: 12px;
+      line-height: 1;
+    }
+
+    .t-footer {
+      margin-top: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      color: #475569;
+      font-size: 12.5px;
+    }
+
+    .mini-link {
+      text-decoration: none;
+      color: #0f172a;
+      font-weight: 600;
+      border-bottom: 1px solid rgba(15,23,42,0.25);
+      padding-bottom: 1px;
+    }
+    .mini-link:hover { border-bottom-color: rgba(33,225,159,0.9); }
+
+    /* Coming-soon cards disabled */
+    .t-card.is-disabled {
+      opacity: 0.72;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    /* “No results” */
+    .no-results {
+      display: none;
+      margin-top: 18px;
+      text-align: center;
+      color: #475569;
+      font-size: 14px;
+      padding: 18px 12px;
+      border-radius: 14px;
+      border: 1px dashed rgba(148,163,184,0.6);
+      background: rgba(255,255,255,0.75);
     }
   </style>
 </head>
 
 <body>
 
-  <!-- NAVBAR FROM INDEX -->
+  <!-- LOCKED NAVBAR (DO NOT EDIT) -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="logo">SyncToScale</a>
-
       <nav class="nav">
         <a href="index.html">Home</a>
         <a href="features.html">Features</a>
         <a href="pricing.html">Pricing</a>
-        <a href="about.html">About</a>
-        <a href="faq.html">FAQ</a>
+        <a href="docs.html">Docs</a>
         <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
       </nav>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="page-hero">
-    <h1>Workflow Templates</h1>
-    <p>
-      Jump-start your automations with prebuilt blueprints for onboarding,
-      RevOps, alerts, and data hygiene—powered by SyncToScale and Nova.
-    </p>
-  </section>
+  <main class="page-wrap">
 
-  <!-- HR & PEOPLE OPS -->
-  <section class="template-section">
-    <h2>HR & People Operations</h2>
+    <!-- Slim Header -->
+    <section class="templates-hero">
+      <h1>Workflow Templates</h1>
+      <p>
+        Practical, manager-friendly workflows for People Ops, IT onboarding/offboarding, and cross-team handoffs.
+        Some workflows generate real outputs (packets, summaries, confirmations) as print-ready artifact pages.
+      </p>
+    </section>
 
-    <div class="template-grid">
-      <a class="template-card" href="template-offboarding.html">
-        <h3>Offboarding Workflow</h3>
-        <p>Automate access removal, notifications, and HRIS updates.</p>
-      </a>
+    <!-- Toolbar -->
+    <div class="templates-toolbar">
+      <div class="legend">
+        <span class="pill artifact"><span class="dot"></span>Produces artifact</span>
+        <span class="pill soon"><span class="dot"></span>Coming soon</span>
+      </div>
 
-      <a class="template-card" href="template-manager-welcome.html">
-        <h3>Manager Welcome Packet</h3>
-        <p>Send structured onboarding resources to new managers.</p>
-      </a>
-
-      <a class="template-card" href="template-prestart-checklist.html">
-        <h3>Pre-Start Checklist</h3>
-        <p>Ensure devices, access, and documentation are ready before Day 1.</p>
-      </a>
-
-      <a class="template-card" href="template-policy-ack.html">
-        <h3>Policy Acknowledgement Tracking</h3>
-        <p>Track and remind employees of required policy sign-offs.</p>
-      </a>
-
-      <a class="template-card" href="template-title-comp-change-alerts.html">
-        <h3>Title / Compensation Change Alerts</h3>
-        <p>Notify stakeholders when HR data changes occur.</p>
-      </a>
+      <div class="search-wrap">
+        <input id="templateSearch" class="search" type="search" placeholder="Search templates (e.g., offboarding, welcome, compliance)..." />
+      </div>
     </div>
-  </section>
 
-  <!-- CS & IMPLEMENTATION -->
-  <section class="template-section">
-    <h2>Customer Success & Implementation</h2>
+    <!-- Grid -->
+    <section class="templates-grid" id="templatesGrid">
 
-    <div class="template-grid">
-      <a class="template-card" href="template-contract-handoff.html">
-        <h3>Contract Handoff</h3>
-        <p>Standardize the Sales → CS handoff with complete context.</p>
+      <!-- EXISTS: template-offboarding.html -->
+      <a class="t-card" href="template-offboarding.html" data-title="Offboarding workflow access revoke equipment payroll">
+        <div class="t-head">
+          <h3 class="t-title">Employee Offboarding</h3>
+          <div class="t-badges">
+            <span class="badge">Workflow</span>
+          </div>
+        </div>
+        <p class="t-desc">
+          A clean, role-based offboarding workflow covering systems access, equipment recovery, payroll status, and internal comms.
+        </p>
+        <div class="t-meta">
+          <span class="chip">People Ops</span>
+          <span class="chip">IT</span>
+          <span class="chip">Security</span>
+          <span class="chip">Medium</span>
+        </div>
+        <div class="t-footer">
+          <span>Template details</span>
+          <span>→</span>
+        </div>
       </a>
 
-      <a class="template-card" href="template-post-implementation-checkin.html">
-        <h3>Post-Implementation Check-In</h3>
-        <p>Trigger automated follow-ups after go-live milestones.</p>
+      <!-- EXISTS: template-manager-welcome.html + packet-manager-welcome.html -->
+      <a class="t-card" href="template-manager-welcome.html" data-title="Manager welcome onboarding packet day one 30 60 90">
+        <div class="t-head">
+          <h3 class="t-title">Manager Welcome Packet Workflow</h3>
+          <div class="t-badges">
+            <span class="badge artifact">Produces artifact</span>
+          </div>
+        </div>
+        <p class="t-desc">
+          Generates a manager-friendly prep packet when a new hire is created—first-week setup, expectations, and a simple 30/60/90 structure.
+        </p>
+        <div class="t-meta">
+          <span class="chip">Onboarding</span>
+          <span class="chip">Managers</span>
+          <span class="chip">Easy</span>
+        </div>
+        <div class="t-footer">
+          <span>Template details</span>
+          <span>
+            <a class="mini-link" href="packet-manager-welcome.html" onclick="event.stopPropagation();">View output</a>
+          </span>
+        </div>
       </a>
+
+      <!-- COMING SOON (disabled) -->
+      <a class="t-card is-disabled" href="#" aria-disabled="true" data-title="Title change compensation alert compensation band approvals">
+        <div class="t-head">
+          <h3 class="t-title">Title & Compensation Change Alerts</h3>
+          <div class="t-badges">
+            <span class="badge soon">Coming soon</span>
+          </div>
+        </div>
+        <p class="t-desc">
+          A controlled workflow for approvals and downstream notifications when title or compensation changes occur.
+        </p>
+        <div class="t-meta">
+          <span class="chip">Comp</span>
+          <span class="chip">Approvals</span>
+          <span class="chip">Medium</span>
+        </div>
+        <div class="t-footer">
+          <span>Drafting</span>
+          <span>—</span>
+        </div>
+      </a>
+
+      <!-- COMING SOON (disabled) -->
+      <a class="t-card is-disabled" href="#" aria-disabled="true" data-title="Contract handoff legal sales kickoff implementation">
+        <div class="t-head">
+          <h3 class="t-title">Contract → Implementation Handoff</h3>
+          <div class="t-badges">
+            <span class="badge soon">Coming soon</span>
+          </div>
+        </div>
+        <p class="t-desc">
+          Standardizes the handoff from Sales/Legal into Implementation with required context, timelines, and risk flags.
+        </p>
+        <div class="t-meta">
+          <span class="chip">Implementation</span>
+          <span class="chip">Handoff</span>
+          <span class="chip">Medium</span>
+        </div>
+        <div class="t-footer">
+          <span>Drafting</span>
+          <span>—</span>
+        </div>
+      </a>
+
+      <!-- COMING SOON (disabled) -->
+      <a class="t-card is-disabled" href="#" aria-disabled="true" data-title="Compliance confirmation policy acknowledgement audit">
+        <div class="t-head">
+          <h3 class="t-title">Compliance Acknowledgment Confirmation</h3>
+          <div class="t-badges">
+            <span class="badge artifact">Produces artifact</span>
+            <span class="badge soon">Coming soon</span>
+          </div>
+        </div>
+        <p class="t-desc">
+          Captures policy acknowledgment and generates a print-ready confirmation for audit readiness.
+        </p>
+        <div class="t-meta">
+          <span class="chip">Compliance</span>
+          <span class="chip">Audit</span>
+          <span class="chip">Easy</span>
+        </div>
+        <div class="t-footer">
+          <span>Drafting</span>
+          <span>—</span>
+        </div>
+      </a>
+
+    </section>
+
+    <div class="no-results" id="noResults">
+      No templates match that search.
     </div>
-  </section>
 
-  <!-- REVOPS -->
-  <section class="template-section">
-    <h2>RevOps & Sales Automation</h2>
+  </main>
 
-    <div class="template-grid">
-      <a class="template-card" href="template-lead-contact-account-sync.html">
-        <h3>Lead → Contact → Account Sync</h3>
-        <p>Normalize CRM lifecycles and reduce duplicates across GTM systems.</p>
-      </a>
+  <script>
+    // Lightweight search (client-side)
+    const input = document.getElementById('templateSearch');
+    const grid = document.getElementById('templatesGrid');
+    const cards = Array.from(grid.querySelectorAll('.t-card'));
+    const noResults = document.getElementById('noResults');
 
-      <a class="template-card" href="template-stale-opportunities-digest.html">
-        <h3>Stale Opportunities Digest</h3>
-        <p>Send automated Slack/email digests of inactive opportunities.</p>
-      </a>
-    </div>
-  </section>
+    function applySearch() {
+      const q = (input.value || '').trim().toLowerCase();
+      let shown = 0;
 
-  <!-- ENGINEERING -->
-  <section class="template-section">
-    <h2>Integrations & Automation Engineering</h2>
+      cards.forEach(card => {
+        const hay = (card.getAttribute('data-title') || '').toLowerCase();
+        const isMatch = !q || hay.includes(q);
+        card.style.display = isMatch ? 'block' : 'none';
+        if (isMatch) shown++;
+      });
 
-    <div class="template-grid">
-      <a class="template-card" href="template-custom-webhook-workflow.html">
-        <h3>Custom Webhook Workflow</h3>
-        <p>Trigger automation using signed webhook payloads.</p>
-      </a>
+      noResults.style.display = shown === 0 ? 'block' : 'none';
+    }
 
-      <a class="template-card" href="template-api-bulk-sync.html">
-        <h3>API-Driven Bulk Sync</h3>
-        <p>Batch-sync or migrate large datasets between platforms.</p>
-      </a>
-
-      <a class="template-card" href="template-nova-assisted-cleanup.html">
-        <h3>Nova-Assisted Cleanup</h3>
-        <p>Use AI to detect inconsistencies and recommend cleanup actions.</p>
-      </a>
-    </div>
-  </section>
+    input.addEventListener('input', applySearch);
+  </script>
 
 </body>
 </html>
