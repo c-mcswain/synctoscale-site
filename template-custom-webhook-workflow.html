@@ -8,120 +8,46 @@
 
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- Nova / Botpress -->
-  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
-  <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
-
   <style>
-    /* ===============================
-       NAVBAR — matches index.html
-    =============================== */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    /* =======================
+       TEMPLATE DETAIL AESTHETIC
+       (RESOURCE PAGE MATCH)
+    ======================= */
+
+    .template-detail-section {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 32px;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+      border: 1px solid #e2e8f0;
     }
 
-    header .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 18px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      font-size: 1.6rem;
+    .template-detail-section h2 {
+      font-size: 26px;
       font-weight: 700;
+      margin-bottom: 14px;
       color: #0b3d3d;
-      text-decoration: none;
     }
 
-    .nav a {
-      color: #0b3d3d;
-      margin-left: 26px;
-      text-decoration: none;
-      font-size: 1rem;
-      font-weight: 500;
-      padding-bottom: 4px;
-      border-bottom: 2px solid transparent;
-      transition: color .2s ease, border-bottom .2s ease;
+    .template-detail-section p,
+    .template-detail-section li {
+      color: #475569;
+      font-size: 16px;
+      line-height: 1.6;
     }
 
-    .nav a:hover {
-      color: #14b8a6;
-      border-bottom-color: #14b8a6;
-    }
-
-    /* ===============================
-       CRITICAL FIX — sticky nav offset
-    =============================== */
-    :root {
-      --nav-offset: 90px;
-    }
-
-    h1, h2, h3, .doc-section {
-      scroll-margin-top: var(--nav-offset);
-    }
-
-    /* ===============================
-       COLLAPSIBLE SECTIONS
-    =============================== */
-    .collapsible-header {
-      all: unset;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-      cursor: pointer;
-      padding: 6px 0;
-    }
-
-    .collapsible-header h2 {
-      margin: 0;
-    }
-
-    .collapsible-content {
-      overflow: hidden;
-      transition: max-height 0.3s ease, opacity 0.2s ease;
-    }
-
-    .collapsible:not(.open) .collapsible-content {
-      max-height: 0;
-      opacity: 0;
-    }
-
-    .collapsible.open .collapsible-content {
-      max-height: 4000px;
-      opacity: 1;
-    }
-
-    .chevron {
-      font-size: 18px;
-      transition: transform 0.2s ease;
-    }
-
-    .collapsible.open .chevron {
-      transform: rotate(180deg);
-    }
-
-    /* Flatten header card */
-    .page-header {
-      background: transparent !important;
-      box-shadow: none !important;
-      padding: 0 !important;
-      margin-bottom: 24px;
+    .template-detail-section ul,
+    .template-detail-section ol {
+      margin-left: 20px;
     }
   </style>
+
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
+  <!-- NAVBAR (unchanged) -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="logo">SyncToScale</a>
@@ -137,7 +63,7 @@
   </header>
 
   <main class="page-wrap">
-    <div class="container template-layout">
+    <div class="container">
 
       <!-- BREADCRUMB -->
       <nav class="doc-breadcrumb">
@@ -146,63 +72,53 @@
         <span>Custom Webhook → Workflow</span>
       </nav>
 
-      <!-- HEADER -->
+      <!-- TITLE -->
       <header class="page-header">
         <h1>Custom Webhook → Workflow</h1>
         <p class="page-subtitle">
           Connect any system that can send HTTP requests to SyncToScale. Define a custom webhook endpoint,
-          map incoming JSON, and orchestrate downstream actions — with Nova assisting throughout.
+          map incoming JSON, and orchestrate downstream actions.
         </p>
       </header>
 
-      <!-- GRID -->
-      <section class="template-main-grid">
+      <!-- OVERVIEW -->
+      <section class="template-detail-section">
+        <h2>Overview</h2>
+        <p>
+          The <strong>Custom Webhook → Workflow</strong> template lets you integrate tools that don’t have a
+          native connector. SyncToScale receives HTTPS events, maps JSON payloads, and routes actions —
+          with Nova assisting throughout.
+        </p>
+      </section>
 
-        <!-- MAIN -->
-        <article class="template-main">
+      <!-- HOW IT WORKS -->
+      <section class="template-detail-section">
+        <h2>How it works</h2>
+        <ol>
+          <li>SyncToScale generates an HTTPS webhook URL.</li>
+          <li>Your system POSTs JSON events.</li>
+          <li>Nova analyzes payload structure and suggests mappings.</li>
+          <li>Mapped fields route into workflow actions.</li>
+          <li>Runs include logs + diagnostics.</li>
+        </ol>
+      </section>
 
-          <!-- HOW IT WORKS -->
-          <section class="doc-section collapsible open">
-            <button class="collapsible-header" type="button">
-              <h2>How it works</h2>
-              <span class="chevron">⌄</span>
-            </button>
-            <div class="collapsible-content">
-              <ol class="step-list">
-                <li>SyncToScale generates an HTTPS webhook URL.</li>
-                <li>Your system POSTs JSON events.</li>
-                <li>Nova analyzes payload structure.</li>
-                <li>Mapped fields route into workflow actions.</li>
-                <li>Runs include logs and diagnostics.</li>
-              </ol>
-            </div>
-          </section>
+      <!-- WORKFLOW STEPS -->
+      <section class="template-detail-section">
+        <h2>Workflow steps</h2>
+        <ol>
+          <li><strong>Incoming webhook</strong> — JSON POST received.</li>
+          <li><strong>Validate & parse</strong> — Schema and signatures checked.</li>
+          <li><strong>Transform</strong> — Fields mapped to workflow objects.</li>
+          <li><strong>Route</strong> — Conditional downstream actions.</li>
+          <li><strong>Respond</strong> — Success or error returned.</li>
+        </ol>
+      </section>
 
-          <!-- WORKFLOW STEPS -->
-          <section class="doc-section collapsible open">
-            <button class="collapsible-header" type="button">
-              <h2>Workflow steps</h2>
-              <span class="chevron">⌄</span>
-            </button>
-            <div class="collapsible-content">
-              <ol class="step-list step-list-detailed">
-                <li><strong>Incoming webhook</strong> — JSON POST received.</li>
-                <li><strong>Validate & parse</strong> — Schema and signatures checked.</li>
-                <li><strong>Transform</strong> — Fields mapped to workflow objects.</li>
-                <li><strong>Route</strong> — Conditional downstream actions.</li>
-                <li><strong>Respond</strong> — Success or error returned.</li>
-              </ol>
-            </div>
-          </section>
-
-          <!-- SAMPLE JSON -->
-          <section class="doc-section collapsible">
-            <button class="collapsible-header" type="button">
-              <h2>Sample JSON payload</h2>
-              <span class="chevron">⌄</span>
-            </button>
-            <div class="collapsible-content">
-              <pre class="code-block"><code>{
+      <!-- SAMPLE JSON -->
+      <section class="template-detail-section">
+        <h2>Sample JSON payload</h2>
+        <pre class="code-block"><code>{
   "event_type": "ticket.created",
   "source_system": "internal_tool",
   "timestamp": "2025-04-03T16:20:00Z",
@@ -212,38 +128,33 @@
     "user": { "email": "morgan@example.com" }
   }
 }</code></pre>
-            </div>
-          </section>
-
-        </article>
-
-        <!-- SIDEBAR -->
-        <aside class="template-sidebar">
-          <div class="card">
-            <h3>Template summary</h3>
-            <ul>
-              <li><strong>Trigger:</strong> Webhook</li>
-              <li><strong>Runtime:</strong> Real-time</li>
-              <li><strong>Owner:</strong> Dev / Ops</li>
-              <li><strong>Systems:</strong> Any HTTP sender</li>
-            </ul>
-          </div>
-        </aside>
-
       </section>
+
+      <!-- SIDEBAR — MATCH RESOURCES AESTHETIC -->
+      <aside class="template-sidebar">
+        <div class="card">
+          <h3>Template summary</h3>
+          <ul>
+            <li><strong>Trigger:</strong> Webhook</li>
+            <li><strong>Runtime:</strong> Real-time</li>
+            <li><strong>Owner:</strong> Dev / Ops</li>
+            <li><strong>Systems:</strong> Any HTTP sender</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Best practices</h3>
+          <ul>
+            <li>Enable HMAC validation</li>
+            <li>Use Nova schema lock-in</li>
+            <li>Return 202 for async flows</li>
+          </ul>
+        </div>
+      </aside>
+
     </div>
   </main>
 
-  <!-- COLLAPSIBLE JS -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      document.querySelectorAll(".collapsible-header").forEach(btn => {
-        btn.addEventListener("click", () => {
-          btn.closest(".collapsible").classList.toggle("open");
-        });
-      });
-    });
-  </script>
-
 </body>
+
 </html>
