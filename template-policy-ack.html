@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <title>Template: Policy Acknowledgement Tracking | SyncToScale</title>
@@ -15,122 +14,286 @@
 
 <body>
 
-<!-- 🔒 LOCKED STANDARD NAVBAR -->
-<header class="site-header">
-  <div class="container header-inner">
-    <a href="index.html" class="logo">SyncToScale</a>
+  <!-- 🔒 LOCKED STANDARD NAVBAR (VERBATIM) -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">SyncToScale</a>
 
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="features.html">Features</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="about.html">About</a>
-      <a href="faq.html">FAQ</a>
-      <a href="resources.html">Resources</a>
-    </nav>
-  </div>
-</header>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="resources.html">Resources</a>
+      </nav>
+    </div>
+  </header>
 
-<!-- ✅ REQUIRED SPACER FOR STICKY NAV -->
-<div style="height: 86px;"></div>
+  <main class="page-wrap">
+    <div class="container template-layout">
 
-<main class="page-wrap">
-  <div class="container template-layout">
+      <!-- BREADCRUMB -->
+      <nav class="doc-breadcrumb">
+        <a href="templates.html">Templates</a>
+        <span>›</span>
+        <span>Policy Acknowledgement Tracking</span>
+      </nav>
 
-    <!-- BREADCRUMB -->
-    <nav class="doc-breadcrumb">
-      <a href="templates.html">Templates</a>
-      <span>›</span>
-      <span>Policy Acknowledgement Tracking</span>
-    </nav>
-
-    <!-- PAGE HEADER -->
-    <header class="page-header">
-      <div class="page-header-top">
-        <h1>Policy Acknowledgement Tracking</h1>
-        <span class="badge badge-nova">Template</span>
-      </div>
-
-      <p class="page-subtitle">
-        Automate policy distribution and employee acknowledgement tracking across HRIS, Slack/Email, and compliance
-        systems. Nova identifies overdue acknowledgements, risk segments, and engagement gaps.
-      </p>
-
-      <div class="page-meta-row">
-        <span class="pill pill-soft">Category: People Ops & Compliance</span>
-        <span class="pill pill-soft">Difficulty: Beginner</span>
-        <span class="pill pill-soft">Trigger: Policy updates / scheduled reminders</span>
-        <span class="pill pill-soft">Systems: HRIS · Slack · Email · Compliance Platform</span>
-      </div>
-    </header>
-
-    <!-- MAIN GRID -->
-    <section class="template-main-grid">
-
-      <!-- LEFT COLUMN -->
-      <article class="template-main">
-
-        <section class="doc-section">
-          <h2>Overview</h2>
-          <p>
-            The <strong>Policy Acknowledgement Tracking</strong> template automates policy delivery, acknowledgement
-            tracking, reminder workflows, and audit-ready compliance reporting with Nova insights.
-          </p>
-        </section>
-
-        <section class="doc-section">
-          <h2>How it works</h2>
-          <ol class="step-list">
-            <li>A policy is published or updated.</li>
-            <li>SyncToScale builds an acknowledgement roster from the HRIS.</li>
-            <li>Employees receive acknowledgement requests via Slack or email.</li>
-            <li>Responses are tracked in real time.</li>
-            <li>Nova highlights overdue acknowledgements and risk patterns.</li>
-            <li>Managers and Compliance receive rollups.</li>
-          </ol>
-        </section>
-
-        <section class="doc-section">
-          <h2>Set up this workflow</h2>
-          <ol class="step-list">
-            <li>Connect your HRIS and Slack/Email systems.</li>
-            <li>Upload or link the policy documents.</li>
-            <li>Define acknowledgement requirements.</li>
-            <li>Configure reminder cadence and escalation rules.</li>
-            <li>Enable Nova compliance scoring.</li>
-            <li>Activate the workflow.</li>
-          </ol>
-        </section>
-
-      </article>
-
-      <!-- RIGHT COLUMN -->
-      <aside class="template-sidebar">
-
-        <div class="card">
-          <h3>Template summary</h3>
-          <ul class="key-facts-list">
-            <li><strong>Trigger:</strong> Policy published or reminders</li>
-            <li><strong>Runtime:</strong> Real-time + scheduled</li>
-            <li><strong>Owner:</strong> People Ops · Compliance</li>
-            <li><strong>Systems:</strong> HRIS · Slack · Email</li>
-          </ul>
+      <!-- ✅ IMPORTANT: THIS MUST NOT BE A <header> TAG (your global CSS targets ALL header elements) -->
+      <section class="page-header">
+        <div class="page-header-top">
+          <h1>Policy Acknowledgement Tracking</h1>
+          <span class="badge badge-nova">Template</span>
         </div>
 
-        <div class="card nova-callout">
-          <h3>Nova will help you…</h3>
-          <ul>
-            <li>Identify overdue risk segments.</li>
-            <li>Reduce audit preparation time.</li>
-            <li>Understand acknowledgement trends.</li>
-          </ul>
+        <p class="page-subtitle">
+          Automate policy distribution and employee acknowledgement tracking across HRIS, Slack/Email, and compliance
+          systems. Nova identifies overdue acknowledgements, risk segments, and engagement gaps.
+        </p>
+
+        <div class="page-meta-row">
+          <span class="pill pill-soft">Category: People Ops &amp; Compliance</span>
+          <span class="pill pill-soft">Difficulty: Beginner</span>
+          <span class="pill pill-soft">Trigger: Policy updates / scheduled reminders</span>
+          <span class="pill pill-soft">Systems: HRIS · Slack · Email · Compliance Platform</span>
         </div>
+      </section>
 
-      </aside>
+      <!-- MAIN GRID -->
+      <section class="template-main-grid">
 
-    </section>
-  </div>
-</main>
+        <!-- LEFT COLUMN -->
+        <article class="template-main">
+
+          <section class="doc-section" id="overview">
+            <h2>Overview</h2>
+            <p>
+              The <strong>Policy Acknowledgement Tracking</strong> template automatically distributes new or updated
+              policies to employees, tracks who has acknowledged them, sends reminders to those who haven’t, and
+              surfaces compliance risks with Nova’s pattern detection. Useful for handbooks, security policies,
+              code of conduct acknowledgements, and compliance training requirements.
+            </p>
+
+            <div class="info-grid">
+              <div class="info-card">
+                <h3>When to use this template</h3>
+                <ul>
+                  <li>You release updated policies and need employees to confirm review.</li>
+                  <li>Tracking acknowledgements manually is slow or inconsistent.</li>
+                  <li>Audits require documentation of who signed and when.</li>
+                  <li>You want Nova to identify at-risk segments or overdue employees.</li>
+                </ul>
+              </div>
+
+              <div class="info-card">
+                <h3>What this template automates</h3>
+                <ul>
+                  <li>Policy distribution via Slack, email, or HRIS inbox task.</li>
+                  <li>Tracking acknowledgement timestamps.</li>
+                  <li>Automatic reminders to overdue employees.</li>
+                  <li>Manager rollups for follow-up.</li>
+                  <li>Nova risk scoring for compliance gaps.</li>
+                  <li>End-to-end audit trail logs.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section class="doc-section" id="how-it-works">
+            <h2>How it works</h2>
+            <ol class="step-list">
+              <li>A new policy is published, or an existing one is updated.</li>
+              <li>SyncToScale gathers the target employee list from the HRIS.</li>
+              <li>Employees receive a message with a link to review and acknowledge.</li>
+              <li>Responses are tracked in real-time.</li>
+              <li>Nova identifies overdue acknowledgements or compliance risk clusters.</li>
+              <li>Managers receive team-level summaries.</li>
+              <li>Compliance receives audit-ready logs.</li>
+            </ol>
+          </section>
+
+          <section class="doc-section" id="workflow-steps">
+            <h2>Workflow steps</h2>
+            <ol class="step-list step-list-detailed">
+              <li>
+                <h3>Step 1 — Trigger: Policy published or updated</h3>
+                <p>
+                  Triggered via manual publish, HRIS event, or integration with compliance platforms (e.g., Drata,
+                  Vanta, SharePoint, or an internal policy portal).
+                </p>
+              </li>
+
+              <li>
+                <h3>Step 2 — Build acknowledgement roster</h3>
+                <p>Collects:</p>
+                <ul>
+                  <li>Employee name, email</li>
+                  <li>Manager</li>
+                  <li>Department</li>
+                  <li>Location / timezone</li>
+                  <li>Employment status</li>
+                </ul>
+              </li>
+
+              <li>
+                <h3>Step 3 — Send acknowledgement request</h3>
+                <p>Delivery options include Slack DM, Email, or HRIS inbox task.</p>
+                <div class="nova-callout">
+                  <p><strong>Request includes:</strong></p>
+                  <ul>
+                    <li>Policy title + version</li>
+                    <li>Summary of updates</li>
+                    <li>Link to read full policy</li>
+                    <li>Acknowledgement action</li>
+                  </ul>
+                </div>
+              </li>
+
+              <li>
+                <h3>Step 4 — Track acknowledgements</h3>
+                <p>SyncToScale logs acknowledgement timestamps per employee.</p>
+              </li>
+
+              <li>
+                <h3>Step 5 — Remind overdue employees</h3>
+                <p>Scheduled reminders continue until acknowledgement is completed.</p>
+              </li>
+
+              <li>
+                <h3>Step 6 — Send manager rollups</h3>
+                <p>Summaries show which employees on each team have not yet acknowledged.</p>
+              </li>
+
+              <li>
+                <h3>Step 7 — Compliance reporting</h3>
+                <p>Audit-friendly records are generated for compliance teams.</p>
+              </li>
+            </ol>
+          </section>
+
+          <section class="doc-section" id="data-mapping">
+            <h2>Field mappings</h2>
+
+            <h3>HRIS → Acknowledgement roster</h3>
+            <div class="table-wrapper">
+              <table class="mapping-table">
+                <thead>
+                  <tr>
+                    <th>HRIS Field</th>
+                    <th>Transform</th>
+                    <th>Mapped Field</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>firstName</code>, <code>lastName</code></td>
+                    <td>Combine &amp; title-case</td>
+                    <td>Employee Name</td>
+                  </tr>
+                  <tr>
+                    <td><code>email</code></td>
+                    <td>Lowercase validation</td>
+                    <td>Delivery Address</td>
+                  </tr>
+                  <tr>
+                    <td><code>managerEmail</code></td>
+                    <td>Lookup manager record</td>
+                    <td>Manager Contact</td>
+                  </tr>
+                  <tr>
+                    <td><code>department</code></td>
+                    <td>Normalize</td>
+                    <td>Org Grouping</td>
+                  </tr>
+                  <tr>
+                    <td><code>employmentStatus</code></td>
+                    <td>Filter out inactive</td>
+                    <td>Active User Flag</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="doc-section" id="sample-payloads">
+            <h2>Sample JSON payloads</h2>
+
+            <h3>Trigger event — Policy published</h3>
+            <pre class="code-block"><code>{
+  "eventId": "evt_01J2POLICY",
+  "eventType": "policy.published",
+  "payload": {
+    "policyId": "POL-2025-HB",
+    "title": "Employee Handbook – 2025 Update",
+    "version": "2025.1",
+    "summary": "Updated remote work guidelines and PTO rollover rules."
+  }
+}</code></pre>
+
+            <h3>Acknowledgement event</h3>
+            <pre class="code-block"><code>{
+  "eventType": "policy.acknowledged",
+  "payload": {
+    "employeeId": "EMP-8821",
+    "policyId": "POL-2025-HB",
+    "policyVersion": "2025.1",
+    "timestamp": "2025-05-10T14:22:11Z",
+    "channel": "Slack"
+  }
+}</code></pre>
+          </section>
+
+          <section class="doc-section" id="setup">
+            <h2>Set up this workflow</h2>
+            <ol class="step-list">
+              <li>Connect your HRIS and Slack/Email systems.</li>
+              <li>Upload or link the policy documents to be acknowledged.</li>
+              <li>Define policy versions and acknowledgement requirements.</li>
+              <li>Configure reminder cadence and escalation rules.</li>
+              <li>Enable Nova compliance scoring and risk insights.</li>
+              <li>Activate the workflow.</li>
+            </ol>
+          </section>
+
+        </article>
+
+        <!-- RIGHT COLUMN -->
+        <aside class="template-sidebar">
+
+          <div class="card">
+            <h3>Template summary</h3>
+            <ul class="key-facts-list">
+              <li><strong>Trigger:</strong> Policy published or scheduled reminders</li>
+              <li><strong>Runtime:</strong> Real-time + scheduled</li>
+              <li><strong>Owner:</strong> People Ops · Compliance</li>
+              <li><strong>Systems:</strong> HRIS · Slack/Email · Compliance platform</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Best practice defaults</h3>
+            <ul>
+              <li>Send reminders every 3 days until acknowledged.</li>
+              <li>Include a brief summary in all employee messages.</li>
+              <li>Send manager rollups weekly.</li>
+            </ul>
+          </div>
+
+          <div class="card nova-callout">
+            <h3>Nova will help you…</h3>
+            <ul>
+              <li>Identify overdue risk segments early.</li>
+              <li>Improve compliance audit readiness.</li>
+              <li>Analyze acknowledgement patterns across departments.</li>
+            </ul>
+          </div>
+
+        </aside>
+
+      </section>
+    </div>
+  </main>
 
 </body>
 </html>
