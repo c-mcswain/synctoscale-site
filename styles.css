@@ -284,3 +284,43 @@ pre {
     bottom: 0 !important;
   }
 }
+/* =========================================
+   Collapsible sections
+   ========================================= */
+
+.collapsible-header {
+  all: unset;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+}
+
+.collapsible-header h2 {
+  margin: 0;
+}
+
+.collapsible-content {
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.2s ease;
+}
+
+.collapsible:not(.open) .collapsible-content {
+  max-height: 0;
+  opacity: 0;
+}
+
+.collapsible.open .collapsible-content {
+  max-height: 3000px; /* large enough */
+  opacity: 1;
+}
+
+.chevron {
+  font-size: 18px;
+  transition: transform 0.2s ease;
+}
+
+.collapsible.open .chevron {
+  transform: rotate(180deg);
+}
