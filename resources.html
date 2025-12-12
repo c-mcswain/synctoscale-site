@@ -11,7 +11,7 @@
   <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
   <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
 
-  <!-- PAGE-ONLY STYLES (SAFE) -->
+  <!-- PAGE-ONLY SAFE STYLES -->
   <style>
     .resources-hero {
       padding: 64px 0 40px;
@@ -67,12 +67,25 @@
       gap: 22px;
     }
 
-    .resource-card {
+    /* CLICKABLE CARD WRAPPER */
+    .resource-card-link {
       grid-column: span 4;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .resource-card {
       display: flex;
       flex-direction: column;
       gap: 10px;
       min-height: 215px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      cursor: pointer;
+    }
+
+    .resource-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
     }
 
     .resource-card h3 {
@@ -107,28 +120,13 @@
       border-radius: 999px;
     }
 
-    .resource-link {
-      font-size: 14px;
-      font-weight: 600;
-      color: #0b3d3d;
-      text-decoration: none;
-      padding: 7px 10px;
-      border-radius: 10px;
-      transition: background 0.2s ease, color 0.2s ease;
-    }
-
-    .resource-link:hover {
-      background: #eefdfb;
-      color: #14b8a6;
-    }
-
     @media (max-width: 980px) {
-      .resource-card { grid-column: span 6; }
+      .resource-card-link { grid-column: span 6; }
     }
 
     @media (max-width: 640px) {
       .resources-hero h1 { font-size: 34px; }
-      .resource-card { grid-column: span 12; }
+      .resource-card-link { grid-column: span 12; }
     }
   </style>
 </head>
@@ -159,11 +157,8 @@
         connects systems, orchestrates workflows, and keeps teams aligned.
       </p>
 
-      <!-- 🎯 Recruiter / Hiring Manager CTA -->
       <div class="recruiter-cta">
-        <a href="about.html">
-          👋 Recruiter or hiring manager? See what this project represents →
-        </a>
+        <a href="about.html">👋 Recruiter or hiring manager? See what this project represents →</a>
       </div>
     </div>
   </section>
@@ -174,59 +169,65 @@
 
       <div class="resources-grid">
 
-        <div class="card resource-card">
-          <h3>📦 Templates Library</h3>
-          <p>Pre-built workflows for onboarding, offboarding, compliance, alerts, and operational handoffs.</p>
-          <div class="resource-meta">
-            <span class="pill-mini">Popular</span>
-            <a class="resource-link" href="templates.html">Browse →</a>
+        <a href="templates.html" class="resource-card-link">
+          <div class="card resource-card">
+            <h3>📦 Templates Library</h3>
+            <p>Pre-built workflows for onboarding, offboarding, compliance, alerts, and operational handoffs.</p>
+            <div class="resource-meta">
+              <span class="pill-mini">Popular</span>
+            </div>
           </div>
-        </div>
+        </a>
 
-        <div class="card resource-card">
-          <h3>📘 Developer Docs</h3>
-          <p>Core concepts, triggers, actions, mappings, error handling, and workflow behavior.</p>
-          <div class="resource-meta">
-            <span class="pill-mini">Platform</span>
-            <a class="resource-link" href="docs.html">Read →</a>
+        <a href="docs.html" class="resource-card-link">
+          <div class="card resource-card">
+            <h3>📘 Developer Docs</h3>
+            <p>Core concepts, triggers, actions, mappings, error handling, and workflow behavior.</p>
+            <div class="resource-meta">
+              <span class="pill-mini">Platform</span>
+            </div>
           </div>
-        </div>
+        </a>
 
-        <div class="card resource-card">
-          <h3>🔌 API Reference</h3>
-          <p>Authentication, endpoints, rate limits, and example payloads for integrations.</p>
-          <div class="resource-meta">
-            <span class="pill-mini">Technical</span>
-            <a class="resource-link" href="api.html">View →</a>
+        <a href="api.html" class="resource-card-link">
+          <div class="card resource-card">
+            <h3>🔌 API Reference</h3>
+            <p>Authentication, endpoints, rate limits, and example payloads for integrations.</p>
+            <div class="resource-meta">
+              <span class="pill-mini">Technical</span>
+            </div>
           </div>
-        </div>
+        </a>
 
-        <div class="card resource-card">
-          <h3>🧩 Integrations</h3>
-          <p>Supported tools and how SyncToScale connects HR, IT, Payroll, and communication systems.</p>
-          <div class="resource-meta">
-            <span class="pill-mini">Ecosystem</span>
-            <a class="resource-link" href="integrations.html">Explore →</a>
+        <a href="integrations.html" class="resource-card-link">
+          <div class="card resource-card">
+            <h3>🧩 Integrations</h3>
+            <p>Supported tools and how SyncToScale connects HR, IT, Payroll, and communication systems.</p>
+            <div class="resource-meta">
+              <span class="pill-mini">Ecosystem</span>
+            </div>
           </div>
-        </div>
+        </a>
 
-        <div class="card resource-card">
-          <h3>🔐 Security</h3>
-          <p>Audit trails, access controls, data handling, and compliance-ready patterns.</p>
-          <div class="resource-meta">
-            <span class="pill-mini">Trust</span>
-            <a class="resource-link" href="security.html">Review →</a>
+        <a href="security.html" class="resource-card-link">
+          <div class="card resource-card">
+            <h3>🔐 Security</h3>
+            <p>Audit trails, access controls, data handling, and compliance-ready patterns.</p>
+            <div class="resource-meta">
+              <span class="pill-mini">Trust</span>
+            </div>
           </div>
-        </div>
+        </a>
 
-        <div class="card resource-card">
-          <h3>🤖 Nova</h3>
-          <p>How Nova assists with validation, pattern detection, and workflow guidance.</p>
-          <div class="resource-meta">
-            <span class="pill-mini">AI Assist</span>
-            <a class="resource-link" href="faq.html">Learn →</a>
+        <a href="faq.html" class="resource-card-link">
+          <div class="card resource-card">
+            <h3>🤖 Nova</h3>
+            <p>How Nova assists with validation, pattern detection, and workflow guidance.</p>
+            <div class="resource-meta">
+              <span class="pill-mini">AI Assist</span>
+            </div>
           </div>
-        </div>
+        </a>
 
       </div>
 
