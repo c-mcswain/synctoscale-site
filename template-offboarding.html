@@ -8,110 +8,199 @@
   <link rel="stylesheet" href="styles.css" />
 
   <!-- Nova / Botpress -->
-  <script src="https://cdn.botpress.cloud/webchat/v3.4/inject.js" defer></script>
+  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
   <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
 
-  <!-- 🔒 NAV SPACER SAFETY (HTML-ONLY FIX) -->
+  <!-- TEMPLATE-ONLY STYLES (SAFE) -->
   <style>
-    .nav-spacer {
-      height: 86px; /* must match site-header height */
+    .template-header {
+      margin: 32px 0 40px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .template-header h1 {
+      font-size: 42px;
+      font-weight: 700;
+      color: #0b3d3d;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .template-header-subtitle {
+      max-width: 720px;
+      font-size: 18px;
+      line-height: 1.6;
+      color: #475569;
+      margin-bottom: 20px;
+    }
+
+    .template-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .template-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
     }
   </style>
 </head>
 
 <body>
 
-<!-- 🔒 LOCKED NAV BAR -->
-<header class="site-header">
-  <div class="container header-inner">
-    <a href="index.html" class="logo">SyncToScale</a>
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="features.html">Features</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="docs.html">Docs</a>
-      <a href="resources.html">Resources</a>
-      <a href="about.html">About</a>
-    </nav>
-  </div>
-</header>
+  <!-- ✅ APPROVED NAV BAR — DO NOT CHANGE -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">S</span>
+        <span class="logo-text">SyncToScale</span>
+      </a>
 
-<!-- ✅ REQUIRED SPACER -->
-<div class="nav-spacer"></div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="docs.html">Docs</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
 
-<main class="page-wrap">
-  <div class="container template-layout">
+  <!-- PAGE CONTENT -->
+  <main class="page-wrap">
+    <div class="container template-layout">
 
-    <!-- Breadcrumb -->
-    <nav class="doc-breadcrumb">
-      <a href="templates.html">Templates</a>
-      <span>›</span>
-      <span>Employee Offboarding</span>
-    </nav>
+      <!-- Breadcrumb -->
+      <nav class="doc-breadcrumb">
+        <a href="templates.html">Templates</a>
+        <span>›</span>
+        <span>Employee Offboarding</span>
+      </nav>
 
-    <!-- Page Header -->
-    <section class="page-header">
-      <div class="page-header-top">
-        <h1>Employee Offboarding</h1>
-        <span class="badge badge-nova">Template</span>
-      </div>
+      <!-- 🌿 REFINED TEMPLATE HEADER -->
+      <section class="template-header">
+        <h1>
+          Employee Offboarding
+          <span class="badge badge-nova">Template</span>
+        </h1>
 
-      <p class="page-subtitle">
-        Standardize secure employee offboarding across HR, IT, and Security.
-        Automatically revoke access, notify stakeholders, and maintain an auditable trail —
-        with Nova surfacing gaps or risk signals.
-      </p>
+        <p class="template-header-subtitle">
+          Standardize secure employee offboarding across HR, IT, and Security.
+          Automatically revoke access, notify stakeholders, and maintain a complete audit trail —
+          with Nova surfacing gaps or risk signals.
+        </p>
 
-      <div class="page-meta-row">
-        <span class="pill pill-soft">Category: HR &amp; IT Security</span>
-        <span class="pill pill-soft">Difficulty: Intermediate</span>
-        <span class="pill pill-soft">Trigger: Termination event</span>
-        <span class="pill pill-soft">Systems: HRIS · Identity · Ticketing · Slack</span>
-      </div>
-    </section>
+        <div class="template-meta">
+          <div class="template-meta-row">
+            <span class="pill pill-soft">HR &amp; IT Security</span>
+            <span class="pill pill-soft">Intermediate</span>
+            <span class="pill pill-soft">Termination Trigger</span>
+          </div>
 
-    <!-- Main Grid -->
-    <section class="template-main-grid">
-
-      <article class="template-main">
-
-        <section class="doc-section">
-          <h2>Overview</h2>
-          <p>
-            The <strong>Employee Offboarding</strong> template coordinates secure deprovisioning
-            when an employee leaves the organization. Once a termination is recorded,
-            SyncToScale disables identity access, revokes application permissions,
-            and logs every action for audit visibility.
-          </p>
-        </section>
-
-        <section class="doc-section">
-          <h2>How it works</h2>
-          <ol class="step-list">
-            <li>Termination recorded in HRIS.</li>
-            <li>Nova validates timing and fields.</li>
-            <li>Identity and SSO access revoked.</li>
-            <li>IT and Security tasks created.</li>
-            <li>Notifications sent to stakeholders.</li>
-          </ol>
-        </section>
-
-      </article>
-
-      <aside class="template-sidebar">
-        <div class="card">
-          <h3>Template summary</h3>
-          <ul class="key-facts-list">
-            <li><strong>Trigger:</strong> HRIS termination</li>
-            <li><strong>Runtime:</strong> Near real-time</li>
-            <li><strong>Owner:</strong> IT · Security · People Ops</li>
-          </ul>
+          <div class="template-meta-row">
+            <span class="pill pill-outline">HRIS</span>
+            <span class="pill pill-outline">Identity</span>
+            <span class="pill pill-outline">Ticketing</span>
+            <span class="pill pill-outline">Slack</span>
+          </div>
         </div>
-      </aside>
+      </section>
 
-    </section>
-  </div>
-</main>
+      <!-- MAIN GRID -->
+      <section class="template-main-grid">
+
+        <!-- LEFT COLUMN -->
+        <article class="template-main">
+
+          <!-- OVERVIEW -->
+          <section class="doc-section">
+            <h2>Overview</h2>
+            <p>
+              The <strong>Employee Offboarding</strong> template coordinates secure deprovisioning when an employee leaves
+              the organization. Once a termination event is recorded, SyncToScale revokes system access, triggers
+              operational tasks, and logs every action for audit visibility.
+            </p>
+          </section>
+
+          <!-- HOW IT WORKS -->
+          <section class="doc-section">
+            <h2>How it works</h2>
+            <ol class="step-list">
+              <li>Termination is recorded in the HRIS.</li>
+              <li>SyncToScale detects the event and builds an offboarding profile.</li>
+              <li>Nova validates timing, approvals, and required fields.</li>
+              <li>Identity and application access is revoked.</li>
+              <li>IT and Security tasks are created automatically.</li>
+              <li>Stakeholders are notified and actions are logged.</li>
+            </ol>
+          </section>
+
+          <!-- WORKFLOW STEPS -->
+          <section class="doc-section">
+            <h2>Workflow steps</h2>
+
+            <ol class="step-list step-list-detailed">
+              <li>
+                <h3>Step 1 — Trigger: HRIS termination event</h3>
+                <p>Fires when an employee status changes to terminated or inactive.</p>
+              </li>
+
+              <li>
+                <h3>Step 2 — Nova validation</h3>
+                <p>Nova checks termination timing, manager assignment, and effective dates.</p>
+              </li>
+
+              <li>
+                <h3>Step 3 — Access revocation</h3>
+                <p>Identity, SSO, and application permissions are disabled.</p>
+              </li>
+
+              <li>
+                <h3>Step 4 — Task creation</h3>
+                <p>IT and Security tasks are created in ticketing systems.</p>
+              </li>
+
+              <li>
+                <h3>Step 5 — Notifications & audit logging</h3>
+                <p>All actions are logged and key teams are notified.</p>
+              </li>
+            </ol>
+          </section>
+
+          <!-- NOVA INSIGHTS -->
+          <section class="doc-section">
+            <h2>Nova insights for this template</h2>
+            <ul>
+              <li>Flags late or retroactive termination entries.</li>
+              <li>Identifies access gaps across identity providers.</li>
+              <li>Detects repeat delays by department or manager.</li>
+              <li>Supports audit readiness and compliance reviews.</li>
+            </ul>
+          </section>
+
+        </article>
+
+        <!-- RIGHT SIDEBAR -->
+        <aside class="template-sidebar">
+          <div class="card">
+            <h3>Template summary</h3>
+            <ul class="key-facts-list">
+              <li><strong>Trigger:</strong> HRIS termination</li>
+              <li><strong>Runtime:</strong> Near real-time</li>
+              <li><strong>Owner:</strong> IT · Security · People Ops</li>
+            </ul>
+          </div>
+        </aside>
+
+      </section>
+    </div>
+  </main>
 
 </body>
 </html>
