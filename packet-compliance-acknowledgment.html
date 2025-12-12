@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Policy Acknowledgment Confirmation | SyncToScale</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* Page wrap */
+    .page-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 24px 18px 64px;
+    }
+
+    /* ---------- CONTEXT HEADER (NOT PART OF PDF) ---------- */
+    .artifact-context {
+      margin-bottom: 24px;
+      padding: 18px 20px;
+      border-radius: 14px;
+      background: linear-gradient(
+        180deg,
+        rgba(33,225,159,0.14),
+        rgba(65,209,255,0.10),
+        #ffffff
+      );
+      border: 1px solid rgba(148,163,184,0.35);
+    }
+
+    .artifact-context h2 {
+      margin: 0 0 6px;
+      font-size: 20px;
+      color: #0f172a;
+    }
+
+    .artifact-context p {
+      margin: 0;
+      font-size: 14.5px;
+      color: #475569;
+      line-height: 1.5;
+    }
+
+    /* ---------- EXPORTABLE DOCUMENT ---------- */
+    .artifact-doc {
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid rgba(148,163,184,0.35);
+      padding: 36px 36px 42px;
+      box-shadow: 0 12px 26px rgba(15,23,42,0.06);
+    }
+
+    .doc-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 28px;
+    }
+
+    .doc-actions a,
+    .doc-actions button {
+      font-size: 14px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(148,163,184,0.45);
+      background: rgba(255,255,255,0.9);
+      color: #0f172a;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .doc-actions button:hover,
+    .doc-actions a:hover {
+      border-color: rgba(33,225,159,0.8);
+    }
+
+    .doc-title {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .doc-title h1 {
+      font-size: 28px;
+      margin-bottom: 6px;
+      color: #0f172a;
+    }
+
+    .doc-title p {
+      font-size: 14.5px;
+      color: #475569;
+    }
+
+    .doc-section {
+      margin-bottom: 26px;
+    }
+
+    .doc-section h3 {
+      font-size: 16px;
+      margin-bottom: 8px;
+      color: #0f172a;
+    }
+
+    .doc-section p,
+    .doc-section li {
+      font-size: 14.5px;
+      color: #475569;
+      line-height: 1.55;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .info-box {
+      border: 1px solid rgba(148,163,184,0.35);
+      border-radius: 12px;
+      padding: 14px;
+      background: rgba(248,250,252,0.8);
+    }
+
+    .info-box strong {
+      display: block;
+      font-size: 13.5px;
+      margin-bottom: 4px;
+      color: #0f172a;
+    }
+
+    .signature-block {
+      margin-top: 36px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .signature-line {
+      border-top: 1px solid rgba(148,163,184,0.6);
+      padding-top: 6px;
+      font-size: 13.5px;
+      color: #475569;
+    }
+
+    .footer-note {
+      margin-top: 28px;
+      font-size: 13px;
+      color: #64748b;
+      text-align: center;
+    }
+
+    /* ---------- PRINT RULES ---------- */
+    @media print {
+      header,
+      .artifact-context,
+      .doc-actions {
+        display: none !important;
+      }
+
+      body {
+        background: #ffffff;
+      }
+
+      .artifact-doc {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 🔒 LOCKED NAV BAR -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">SyncToScale</a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="docs.html">Docs</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+
+    <!-- CONTEXT HEADER -->
+    <section class="artifact-context">
+      <h2>Policy Acknowledgment Confirmation</h2>
+      <p>
+        This confirmation is generated when an employee reviews and acknowledges
+        a required company policy. It provides an audit-ready record for compliance,
+        HR, and legal review.
+      </p>
+    </section>
+
+    <!-- EXPORTABLE DOCUMENT -->
+    <section class="artifact-doc">
+
+      <div class="doc-actions">
+        <a href="template-policy-ack.html">← Back to template</a>
+        <button onclick="window.print()">Print / Save PDF</button>
+      </div>
+
+      <div class="doc-title">
+        <h1>Policy Acknowledgment Confirmation</h1>
+        <p>Official record of employee policy review and acknowledgment</p>
+      </div>
+
+      <section class="doc-section">
+        <h3>Employee details</h3>
+        <div class="info-grid">
+          <div class="info-box">
+            <strong>Employee name</strong>
+            Jane Doe
+          </div>
+          <div class="info-box">
+            <strong>Employee ID</strong>
+            EMP-48291
+          </div>
+          <div class="info-box">
+            <strong>Department</strong>
+            Customer Success
+          </div>
+          <div class="info-box">
+            <strong>Manager</strong>
+            Alex Martinez
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section">
+        <h3>Policy information</h3>
+        <div class="info-grid">
+          <div class="info-box">
+            <strong>Policy title</strong>
+            Employee Handbook
+          </div>
+          <div class="info-box">
+            <strong>Policy version</strong>
+            2025.1
+          </div>
+          <div class="info-box">
+            <strong>Date published</strong>
+            May 1, 2025
+          </div>
+          <div class="info-box">
+            <strong>Acknowledged on</strong>
+            May 10, 2025 — 14:22 UTC
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section">
+        <h3>Acknowledgment statement</h3>
+        <p>
+          I confirm that I have received, reviewed, and understand the policy listed above.
+          I acknowledge my responsibility to comply with its contents and understand that
+          failure to do so may result in corrective action.
+        </p>
+      </section>
+
+      <section class="doc-section">
+        <h3>Verification</h3>
+        <div class="info-grid">
+          <div class="info-box">
+            <strong>Acknowledgment method</strong>
+            Slack secure action
+          </div>
+          <div class="info-box">
+            <strong>Recorded by</strong>
+            SyncToScale Automation
+          </div>
+          <div class="info-box">
+            <strong>Reference ID</strong>
+            ACK-2025-05-10-8821
+          </div>
+          <div class="info-box">
+            <strong>Status</strong>
+            Completed
+          </div>
+        </div>
+      </section>
+
+      <section class="signature-block">
+        <div class="signature-line">
+          Employee signature (digital)
+        </div>
+        <div class="signature-line">
+          Date
+        </div>
+      </section>
+
+      <div class="footer-note">
+        This document was generated automatically by SyncToScale for compliance
+        and audit purposes.
+      </div>
+
+    </section>
+
+  </main>
+
+</body>
+</html>
