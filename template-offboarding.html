@@ -10,11 +10,18 @@
   <!-- Nova / Botpress -->
   <script src="https://cdn.botpress.cloud/webchat/v3.4/inject.js" defer></script>
   <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
+
+  <!-- 🔒 NAV SPACER SAFETY (HTML-ONLY FIX) -->
+  <style>
+    .nav-spacer {
+      height: 86px; /* must match site-header height */
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- ✅ LOCKED NAV BAR — DO NOT MODIFY -->
+<!-- 🔒 LOCKED NAV BAR -->
 <header class="site-header">
   <div class="container header-inner">
     <a href="index.html" class="logo">SyncToScale</a>
@@ -29,6 +36,9 @@
   </div>
 </header>
 
+<!-- ✅ REQUIRED SPACER -->
+<div class="nav-spacer"></div>
+
 <main class="page-wrap">
   <div class="container template-layout">
 
@@ -40,7 +50,7 @@
     </nav>
 
     <!-- Page Header -->
-    <header class="page-header">
+    <section class="page-header">
       <div class="page-header-top">
         <h1>Employee Offboarding</h1>
         <span class="badge badge-nova">Template</span>
@@ -48,8 +58,8 @@
 
       <p class="page-subtitle">
         Standardize secure employee offboarding across HR, IT, and Security.
-        Automatically disable access, notify stakeholders, and maintain a complete audit trail —
-        with Nova identifying gaps or risk signals.
+        Automatically revoke access, notify stakeholders, and maintain an auditable trail —
+        with Nova surfacing gaps or risk signals.
       </p>
 
       <div class="page-meta-row">
@@ -58,108 +68,45 @@
         <span class="pill pill-soft">Trigger: Termination event</span>
         <span class="pill pill-soft">Systems: HRIS · Identity · Ticketing · Slack</span>
       </div>
-    </header>
+    </section>
 
     <!-- Main Grid -->
     <section class="template-main-grid">
 
-      <!-- Left Column -->
       <article class="template-main">
 
         <section class="doc-section">
           <h2>Overview</h2>
           <p>
             The <strong>Employee Offboarding</strong> template coordinates secure deprovisioning
-            when an employee leaves the organization. Once a termination is recorded in the HRIS,
-            SyncToScale disables identity access, revokes app permissions, creates IT and Security
-            tasks, and logs every action for audit visibility.
+            when an employee leaves the organization. Once a termination is recorded,
+            SyncToScale disables identity access, revokes application permissions,
+            and logs every action for audit visibility.
           </p>
         </section>
 
         <section class="doc-section">
           <h2>How it works</h2>
           <ol class="step-list">
-            <li>Termination status is updated in the HRIS.</li>
-            <li>SyncToScale receives or detects the change.</li>
-            <li>Nova validates termination data and timing.</li>
-            <li>Identity and SSO access are disabled.</li>
-            <li>IT and Security tickets are created automatically.</li>
-            <li>Notifications summarize completed and pending actions.</li>
+            <li>Termination recorded in HRIS.</li>
+            <li>Nova validates timing and fields.</li>
+            <li>Identity and SSO access revoked.</li>
+            <li>IT and Security tasks created.</li>
+            <li>Notifications sent to stakeholders.</li>
           </ol>
-        </section>
-
-        <section class="doc-section">
-          <h2>Workflow steps</h2>
-          <ol class="step-list step-list-detailed">
-            <li>
-              <h3>Trigger — HRIS termination event</h3>
-              <p>Runs when employment status changes to a configured termination value.</p>
-            </li>
-            <li>
-              <h3>Validate termination details</h3>
-              <p>Nova checks last working day, manager, and location consistency.</p>
-            </li>
-            <li>
-              <h3>Disable identity &amp; SSO</h3>
-              <p>Google Workspace, Microsoft 365, and SSO groups are revoked.</p>
-            </li>
-            <li>
-              <h3>Revoke application access</h3>
-              <p>All assigned SaaS tools are deprovisioned.</p>
-            </li>
-            <li>
-              <h3>Create IT &amp; Security tickets</h3>
-              <p>Hardware return, data handling, and review tasks are logged.</p>
-            </li>
-            <li>
-              <h3>Notify stakeholders</h3>
-              <p>Slack or email summaries highlight actions taken and remaining steps.</p>
-            </li>
-          </ol>
-        </section>
-
-        <section class="doc-section">
-          <h2>Error handling</h2>
-          <ul>
-            <li>Identity disable failures create high-priority security alerts.</li>
-            <li>Missing termination data pauses execution and flags HR.</li>
-            <li>All failures are logged with Nova diagnostic context.</li>
-          </ul>
-        </section>
-
-        <section class="doc-section">
-          <h2>Nova insights</h2>
-          <ul>
-            <li>Detects lingering access across systems.</li>
-            <li>Identifies repeat offboarding delays by team or department.</li>
-            <li>Provides time-to-offboard metrics for audits.</li>
-          </ul>
         </section>
 
       </article>
 
-      <!-- Right Sidebar -->
       <aside class="template-sidebar">
-
         <div class="card">
           <h3>Template summary</h3>
           <ul class="key-facts-list">
             <li><strong>Trigger:</strong> HRIS termination</li>
             <li><strong>Runtime:</strong> Near real-time</li>
             <li><strong>Owner:</strong> IT · Security · People Ops</li>
-            <li><strong>Systems:</strong> HRIS · Identity · Ticketing</li>
           </ul>
         </div>
-
-        <div class="card">
-          <h3>Best practices</h3>
-          <ul>
-            <li>Offboard on last working day, not notice date.</li>
-            <li>Prioritize high-risk applications first.</li>
-            <li>Review exception logs monthly.</li>
-          </ul>
-        </div>
-
       </aside>
 
     </section>
