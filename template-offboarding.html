@@ -9,75 +9,64 @@
   <!-- TEMPLATE HEADER ONLY -->
   <style>
     /* ----------------------------------------
-       TEMPLATE HEADER — POLISHED + CUTE
+       TEMPLATE HEADER — RESOURCES-INSPIRED
     ---------------------------------------- */
-    .template-header-wrap {
+    .template-header {
+      text-align: center;
+      padding: 64px 20px 48px;
       background: linear-gradient(
         180deg,
         #f0fdfa 0%,
-        #ffffff 65%
+        #ffffff 70%
       );
-      padding: 48px 20px 40px;
+      border-bottom: 1px solid #e2e8f0;
     }
 
-    .template-header {
-      max-width: 880px;
+    .template-header-inner {
+      max-width: 760px;
       margin: 0 auto;
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 18px;
-      padding: 32px 34px;
-      box-shadow:
-        0 10px 24px rgba(15, 118, 110, 0.08),
-        0 2px 6px rgba(0, 0, 0, 0.04);
     }
 
     .template-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 12px;
+      display: inline-block;
+      font-size: 13px;
       font-weight: 600;
       color: #0f766e;
-      background: #ecfeff;
+      background: #e6fffa;
       border-radius: 999px;
-      padding: 6px 14px;
-      margin-bottom: 12px;
-    }
-
-    .template-eyebrow span {
-      font-size: 14px;
+      padding: 6px 16px;
+      margin-bottom: 18px;
     }
 
     .template-header h1 {
-      font-size: 30px;
-      font-weight: 650;
-      line-height: 1.25;
-      margin-bottom: 10px;
+      font-size: 38px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
       color: #0f172a;
-      letter-spacing: -0.01em;
     }
 
     .template-description {
-      font-size: 15.5px;
+      font-size: 17px;
+      line-height: 1.65;
       color: #475569;
-      max-width: 720px;
-      margin-bottom: 18px;
+      margin-bottom: 26px;
     }
 
     .template-meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      justify-content: center;
+      gap: 12px;
     }
 
     .template-meta-pill {
-      font-size: 12.5px;
-      color: #334155;
+      font-size: 13px;
+      color: #0f172a;
       background: #f8fafc;
       border: 1px solid #e2e8f0;
       border-radius: 999px;
-      padding: 6px 12px;
+      padding: 8px 14px;
       white-space: nowrap;
     }
 
@@ -86,24 +75,23 @@
     ---------------------------------------- */
     .template-content {
       max-width: 880px;
-      margin: 48px auto 72px;
+      margin: 64px auto 80px;
       padding: 0 20px;
     }
 
     .template-section {
-      margin-bottom: 46px;
+      margin-bottom: 48px;
     }
 
     .template-section h2 {
-      font-size: 21px;
+      font-size: 22px;
       font-weight: 600;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       color: #0f172a;
-      letter-spacing: -0.01em;
     }
 
     .template-section p {
-      font-size: 15px;
+      font-size: 15.5px;
       color: #475569;
       line-height: 1.7;
       margin-bottom: 12px;
@@ -140,26 +128,23 @@
   </header>
 
   <!-- TEMPLATE HEADER -->
-  <section class="template-header-wrap">
-    <div class="template-header">
+  <section class="template-header">
+    <div class="template-header-inner">
 
-      <div class="template-eyebrow">
-        <span>✨</span>
-        Workflow Template
-      </div>
+      <div class="template-eyebrow">Workflow Template</div>
 
-      <h1>Employee Offboarding Automation</h1>
+      <h1>Employee Offboarding</h1>
 
       <p class="template-description">
-        A thoughtfully designed offboarding workflow that keeps HR, IT, and payroll
-        in quiet sync — ensuring secure access removal, clean handoffs, and accurate
-        final pay without unnecessary friction.
+        A calm, dependable offboarding workflow that helps teams
+        wrap up employment cleanly — coordinating HR, IT, payroll,
+        and internal tools without dropped steps or last-minute chaos.
       </p>
 
       <div class="template-meta">
         <span class="template-meta-pill">HR Operations</span>
         <span class="template-meta-pill">Intermediate</span>
-        <span class="template-meta-pill">Termination Event</span>
+        <span class="template-meta-pill">Termination Trigger</span>
         <span class="template-meta-pill">HRIS · Payroll · IT · Slack</span>
       </div>
 
@@ -172,13 +157,13 @@
     <section class="template-section">
       <h2>Overview</h2>
       <p>
-        Offboarding is one of the most sensitive operational moments inside an
-        organization. This workflow ensures employee exits are handled consistently,
-        securely, and without relying on memory or manual checklists.
+        Offboarding is one of the most sensitive operational moments
+        inside an organization. This template ensures employee exits
+        are handled consistently, securely, and with full visibility.
       </p>
       <p>
-        Once a termination is recorded, the workflow coordinates actions across
-        people systems and internal tooling while maintaining visibility and control.
+        Once a termination is recorded, the workflow quietly coordinates
+        actions across systems while maintaining an audit-friendly trail.
       </p>
     </section>
 
@@ -198,26 +183,25 @@
         <li>Notify IT and security teams automatically</li>
         <li>Trigger final payroll processing</li>
         <li>Reassign owned documents and responsibilities</li>
-        <li>Log offboarding completion for audit visibility</li>
+        <li>Log completion for audit and compliance tracking</li>
       </ul>
     </section>
 
     <section class="template-section">
       <h2>Common Integrations</h2>
       <ul>
-        <li>HRIS platforms for employee status changes</li>
-        <li>Payroll systems for final compensation</li>
+        <li>HRIS platforms</li>
+        <li>Payroll systems</li>
         <li>Identity and access management tools</li>
-        <li>Slack or email for internal notifications</li>
+        <li>Slack or email notifications</li>
       </ul>
     </section>
 
     <section class="template-section">
       <h2>Operational Notes</h2>
       <p>
-        This workflow minimizes manual follow-ups while still allowing teams to
-        review, pause, or audit individual steps. Completion tracking is recommended
-        for compliance and reporting.
+        This workflow reduces manual follow-ups while still allowing
+        teams to review or pause individual steps when needed.
       </p>
     </section>
 
