@@ -6,64 +6,88 @@
   <title>Template: Custom Webhook → Workflow | SyncToScale</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- Global Styles -->
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- Nova / Botpress -->
-  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
+  <!-- Botpress / Nova -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.4/inject.js"></script>
   <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
 
+  <!-- Template-Scoped Styles -->
   <style>
-    /* ===========================
-       INDEX-STYLE NAVBAR (scoped)
-       =========================== */
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    /* Ensure sticky navbar behaves correctly */
+    .page-wrap {
+      overflow: visible;
     }
 
-    header .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 18px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    /* Back link */
+    .template-nav-row {
+      margin: 12px 0 24px;
     }
 
-    .logo {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: #0b3d3d;
-      text-decoration: none;
-    }
-
-    .nav a {
-      color: #0b3d3d;
-      margin-left: 26px;
-      text-decoration: none;
-      font-size: 1rem;
+    .back-link {
+      display: inline-block;
+      font-size: 14px;
       font-weight: 500;
-      padding-bottom: 4px;
-      transition: color .2s ease, border-bottom .2s ease;
-      border-bottom: 2px solid transparent;
+      color: #0b3d3d;
+      text-decoration: none;
+      padding: 6px 10px;
+      border-radius: 8px;
+      transition: background 0.2s ease, color 0.2s ease;
     }
 
-    .nav a:hover {
+    .back-link:hover {
+      background: #eefdfb;
       color: #14b8a6;
-      border-bottom: 2px solid #14b8a6;
+    }
+
+    /* Resource-style sections */
+    .template-detail-section {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 32px;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+      border: 1px solid #e2e8f0;
+    }
+
+    .template-detail-section h2 {
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: #0b3d3d;
+    }
+
+    .template-detail-section p,
+    .template-detail-section li {
+      color: #475569;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .template-detail-section ul,
+    .template-detail-section ol {
+      margin-left: 20px;
+    }
+
+    /* Layout */
+    .template-main-grid {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 32px;
+    }
+
+    @media (max-width: 900px) {
+      .template-main-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
-
 </head>
 
 <body>
 
-  <!-- NAVBAR (MATCHES INDEX.HTML) -->
+  <!-- NAVBAR (MATCHES INDEX.HTML EXACTLY) -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="logo">SyncToScale</a>
@@ -80,65 +104,59 @@
   </header>
 
   <main class="page-wrap">
-    <div class="container template-layout">
+    <div class="container">
 
-      <!-- BREADCRUMB -->
-      <nav class="doc-breadcrumb">
-        <a href="templates.html">Templates</a>
-        <span>›</span>
-        <span>Custom Webhook → Workflow</span>
-      </nav>
+      <!-- Back to Templates -->
+      <div class="template-nav-row">
+        <a href="templates.html" class="back-link">← Back to Templates</a>
+      </div>
 
-      <!-- PAGE HEADER -->
+      <!-- Page Header -->
       <header class="page-header">
         <h1>Custom Webhook → Workflow</h1>
         <p class="page-subtitle">
           Connect any system that can send HTTP requests to SyncToScale. Define a custom webhook endpoint,
-          map incoming JSON, and orchestrate downstream actions — with Nova assisting throughout.
+          map incoming JSON, and orchestrate downstream actions with Nova assisting throughout.
         </p>
       </header>
 
-      <!-- MAIN CONTENT -->
+      <!-- Main Grid -->
       <section class="template-main-grid">
 
-        <!-- LEFT COLUMN -->
-        <article class="template-main">
+        <!-- Left Column -->
+        <article>
 
-          <!-- Overview -->
           <section class="template-detail-section">
             <h2>Overview</h2>
             <p>
-              The <strong>Custom Webhook → Workflow</strong> template lets you integrate tools that don’t have a
-              native connector. SyncToScale receives HTTPS events, maps JSON payloads, and routes actions —
-              with Nova assisting throughout.
+              This template enables integrations for systems without native connectors by receiving
+              secure HTTPS webhook events, validating payloads, and routing structured data into
+              SyncToScale workflows.
             </p>
           </section>
 
-          <!-- How it works -->
           <section class="template-detail-section">
             <h2>How it works</h2>
             <ol>
-              <li>SyncToScale generates an HTTPS webhook URL.</li>
-              <li>Your system POSTs JSON events.</li>
+              <li>SyncToScale generates a unique webhook URL.</li>
+              <li>Your system sends JSON via HTTP POST.</li>
               <li>Nova analyzes payload structure and suggests mappings.</li>
-              <li>Mapped fields route into workflow actions.</li>
-              <li>Runs include logs + diagnostics.</li>
+              <li>Mapped data routes into workflow actions.</li>
+              <li>Execution logs and diagnostics are recorded.</li>
             </ol>
           </section>
 
-          <!-- Workflow steps -->
           <section class="template-detail-section">
             <h2>Workflow steps</h2>
             <ol>
-              <li><strong>Incoming webhook</strong> — JSON POST received.</li>
-              <li><strong>Validate & parse</strong> — Schema and signatures checked.</li>
-              <li><strong>Transform</strong> — Fields mapped to workflow objects.</li>
+              <li><strong>Receive webhook</strong> — Incoming event accepted.</li>
+              <li><strong>Validate</strong> — Schema and authentication checks.</li>
+              <li><strong>Transform</strong> — Normalize payload fields.</li>
               <li><strong>Route</strong> — Conditional downstream actions.</li>
-              <li><strong>Respond</strong> — Success or error returned.</li>
+              <li><strong>Respond</strong> — Status returned to sender.</li>
             </ol>
           </section>
 
-          <!-- Sample JSON -->
           <section class="template-detail-section">
             <h2>Sample JSON payload</h2>
             <pre class="code-block"><code>{
@@ -148,15 +166,17 @@
   "payload": {
     "ticket_id": "TCK-10291",
     "priority": "high",
-    "user": { "email": "morgan@example.com" }
+    "user": {
+      "email": "morgan@example.com"
+    }
   }
 }</code></pre>
           </section>
 
         </article>
 
-        <!-- RIGHT SIDEBAR -->
-        <aside class="template-sidebar">
+        <!-- Sidebar -->
+        <aside>
 
           <div class="card">
             <h3>Template summary</h3>
@@ -171,9 +191,9 @@
           <div class="card">
             <h3>Best practices</h3>
             <ul>
-              <li>Enable HMAC validation</li>
-              <li>Use Nova schema lock-in</li>
-              <li>Return 202 for async flows</li>
+              <li>Enable HMAC or token authentication</li>
+              <li>Lock schemas using Nova suggestions</li>
+              <li>Return 202 for async workflows</li>
             </ul>
           </div>
 
