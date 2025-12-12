@@ -1,97 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Resources | SyncToScale</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- GLOBAL STYLES -->
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- NOVA / BOTPRESS -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
+  <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
 </head>
 
 <body>
-  <!-- NAVBAR -->
+
+  <!-- 🔒 LOCKED NAV BAR (ROOT-RELATIVE LINKS) -->
   <header class="site-header">
     <div class="container header-inner">
- <div class="logo">
-  <a href="index.html" class="logo-link">SyncToScale</a>
-</div>
-
+      <a href="/index.html" class="logo">SyncToScale</a>
 
       <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="features.html">Features</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="faq.html">FAQ</a>
-        <a href="resources.html" class="active">Resources</a>
-        <a href="about.html">About</a>
+        <a href="/index.html">Home</a>
+        <a href="/features.html">Features</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/about.html">About</a>
+        <a href="/faq.html">FAQ</a>
+        <a href="/resources.html">Resources</a>
       </nav>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="resources-hero">
+  <!-- PAGE CONTENT -->
+  <main class="page-wrap">
     <div class="container">
-      <h1>Resources</h1>
-      <p>
-        Your central hub for developer docs, API references, templates, and security details that make SyncToScale feel like a real platform.
-      </p>
 
-      <a href="about.html" class="cta-btn">
-        For Recruiters: Learn About This Project
-      </a>
+      <!-- PAGE HEADER -->
+      <section class="page-header">
+        <h1>Resources</h1>
+        <p class="page-subtitle">
+          Explore documentation, templates, and guides designed to showcase how SyncToScale simplifies
+          automation, onboarding, and operational workflows.
+        </p>
+      </section>
+
+      <!-- RESOURCE GRID -->
+      <section class="template-main-grid">
+
+        <!-- LEFT COLUMN -->
+        <article>
+
+          <div class="card">
+            <h3>Templates Library</h3>
+            <p>
+              Pre-built workflow templates for onboarding, offboarding, compliance,
+              alerts, and automation use cases.
+            </p>
+            <a href="/templates.html" class="back-link">View Templates →</a>
+          </div>
+
+          <div class="card">
+            <h3>Developer Docs</h3>
+            <p>
+              API references, webhook examples, and integration patterns
+              for building custom workflows.
+            </p>
+            <a href="/docs.html" class="back-link">View Docs →</a>
+          </div>
+
+          <div class="card">
+            <h3>Security & Compliance</h3>
+            <p>
+              Learn how SyncToScale approaches audit trails,
+              access reviews, and policy automation.
+            </p>
+            <a href="/security.html" class="back-link">View Security →</a>
+          </div>
+
+        </article>
+
+        <!-- RIGHT COLUMN -->
+        <aside>
+
+          <div class="card">
+            <h3>About This Project</h3>
+            <p>
+              SyncToScale is a portfolio SaaS project demonstrating how modern
+              Technical Account Managers and Implementation Managers design
+              scalable, automation-first solutions.
+            </p>
+            <a href="/about.html" class="back-link">Learn More →</a>
+          </div>
+
+          <div class="card nova-callout">
+            <h3>Ask Nova</h3>
+            <p>
+              Have questions about templates, integrations, or workflows?
+              Nova can explain how each part of the platform works.
+            </p>
+          </div>
+
+        </aside>
+
+      </section>
     </div>
-  </section>
+  </main>
 
-  <!-- RESOURCES GRID -->
-  <section class="resources-grid container">
-    <a class="resource-card" href="docs.html">
-      <div class="icon-placeholder">📘</div>
-      <h3>Developer Docs</h3>
-      <p>
-        Concept overviews, guides, and examples that explain how SyncToScale works under the hood.
-      </p>
-    </a>
-
-    <a class="resource-card" href="api.html">
-      <div class="icon-placeholder">🔌</div>
-      <h3>API Reference</h3>
-      <p>
-        REST API endpoints, authentication patterns, request/response examples, and error handling.
-      </p>
-    </a>
-
-    <a class="resource-card" href="integrations.html">
-      <div class="icon-placeholder">🔗</div>
-      <h3>Integrations</h3>
-      <p>
-        A library of supported tools like Salesforce, HubSpot, Slack, Jira, and Google Workspace.
-      </p>
-    </a>
-
-    <a class="resource-card" href="templates.html">
-      <div class="icon-placeholder">📂</div>
-      <h3>Workflow Templates</h3>
-      <p>
-        Pre-built automation blueprints for onboarding, support routing, CRM syncs, and more.
-      </p>
-    </a>
-
-    <a class="resource-card" href="security.html">
-      <div class="icon-placeholder">🛡️</div>
-      <h3>Security & Compliance</h3>
-      <p>
-        SOC 2-style controls, encryption, SSO/SSO, RBAC, and data retention practices.
-      </p>
-    </a>
-
-    <a class="resource-card" href="changelog.html">
-      <div class="icon-placeholder">📝</div>
-      <h3>Changelog</h3>
-      <p>
-        Release notes and platform updates that make SyncToScale feel like it’s actively shipping.
-      </p>
-    </a>
-  </section>
 </body>
 </html>
