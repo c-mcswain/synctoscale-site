@@ -54,12 +54,49 @@
       color: #14b8a6;
       border-bottom: 2px solid #14b8a6;
     }
+
+    /* FLATTEN THE BIG HEADER CARD */
+    .page-header {
+      background: transparent !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      padding: 0 !important;
+      margin-bottom: 24px;
+    }
+
+    .page-header-top {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .page-header-top h1 {
+      margin: 0 0 4px;
+      font-size: 32px;
+      font-weight: 700;
+      color: #0b3d3d;
+    }
+
+    .badge.badge-nova {
+      display: inline-block;
+      margin-top: 4px;
+    }
+
+    .page-subtitle {
+      margin: 0 0 10px;
+      font-size: 16px;
+      color: #475569;
+      max-width: 720px;
+    }
+
+    .page-meta-row {
+      margin-top: 8px;
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- SITE HEADER (markup now matches index.html) -->
+  <!-- SITE HEADER -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="logo">SyncToScale</a>
@@ -106,7 +143,7 @@
         </div>
       </header>
 
-      <!-- MAIN GRID (layout handled by styles.css) -->
+      <!-- MAIN GRID (layout + cards handled by styles.css) -->
       <section class="template-main-grid">
 
         <!-- LEFT COLUMN -->
