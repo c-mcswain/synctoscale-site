@@ -1,25 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <title>Template: Manager Welcome Packet | SyncToScale</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- GLOBAL STYLES -->
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- Nova / Botpress -->
-  <script src="https://cdn.botpress.cloud/webchat/v3.4/inject.js" defer></script>
+  <!-- BOTPRESS / NOVA -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.4/inject.js"></script>
   <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
+
+  <!-- TEMPLATE-ONLY STYLES (MATCH WEBHOOK) -->
+  <style>
+    .template-hero {
+      background: #ffffff;
+      padding: 40px 0 32px;
+      margin-bottom: 32px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .template-hero h1 {
+      font-size: 42px;
+      font-weight: 700;
+      margin: 0 0 12px;
+      color: #0b3d3d;
+    }
+
+    .template-hero .page-subtitle {
+      max-width: 720px;
+      font-size: 18px;
+      line-height: 1.6;
+      color: #475569;
+    }
+
+    .template-nav-row {
+      margin-bottom: 20px;
+    }
+
+    .back-link {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 500;
+      color: #0b3d3d;
+      text-decoration: none;
+      padding: 6px 10px;
+      border-radius: 8px;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .back-link:hover {
+      background: #eefdfb;
+      color: #14b8a6;
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- SITE HEADER (LOCKED) -->
+<!-- NAVBAR -->
 <header class="site-header">
   <div class="container header-inner">
     <a href="index.html" class="logo">SyncToScale</a>
-
     <nav class="nav">
       <a href="index.html">Home</a>
       <a href="features.html">Features</a>
@@ -31,59 +74,47 @@
   </div>
 </header>
 
-<!-- 🔒 HEADER SPACER — SAME FIX AS WEBHOOKS -->
-<div style="height: 86px;"></div>
+<!-- HERO HEADER (KEY FIX) -->
+<section class="template-hero">
+  <div class="container">
 
-<main class="page-wrap">
-  <div class="container template-layout">
+    <div class="template-nav-row">
+      <a href="templates.html" class="back-link">← Back to Templates</a>
+    </div>
 
-    <!-- BREADCRUMB -->
-    <nav class="doc-breadcrumb">
-      <a href="templates.html">Templates</a>
-      <span>›</span>
-      <span>Manager Welcome Packet</span>
-    </nav>
+    <h1>Manager Welcome Packet</h1>
 
-    <!-- PAGE HEADER -->
-    <header class="page-header">
-      <div class="page-header-top">
-        <h1>Manager Welcome Packet</h1>
-        <span class="badge badge-nova">Template</span>
-      </div>
+    <p class="page-subtitle">
+      Automatically send hiring managers a structured welcome packet when a new hire is created in the HRIS.
+      Includes actionable checklists, key dates, onboarding expectations, and Nova insights to prepare them
+      before day one.
+    </p>
 
-      <p class="page-subtitle">
-        Automatically send hiring managers a structured welcome packet when a new hire is created in the HRIS.
-        Includes actionable checklists, key dates, onboarding expectations, and Nova insights to prepare them
-        before day one.
-      </p>
+  </div>
+</section>
 
-      <div class="page-meta-row">
-        <span class="pill pill-soft">Category: Employee Onboarding</span>
-        <span class="pill pill-soft">Difficulty: Beginner</span>
-        <span class="pill pill-soft">Trigger: New hire created</span>
-        <span class="pill pill-soft">Systems: HRIS · Email · Slack</span>
-      </div>
-    </header>
+<!-- MAIN CONTENT -->
+<main>
+  <div class="container">
 
-    <!-- MAIN GRID -->
     <section class="template-main-grid">
 
       <!-- LEFT COLUMN -->
-      <article class="template-main">
+      <article>
 
-        <section class="doc-section">
+        <section class="template-detail-section">
           <h2>Overview</h2>
           <p>
             The <strong>Manager Welcome Packet</strong> template ensures hiring managers have everything they need
-            to support a new employee's first days. Triggered when a new hire is created in the HRIS, SyncToScale
-            generates a personalized packet including required tasks, important dates, onboarding expectations,
-            and Nova-driven insights.
+            to support a new employee’s first days. Triggered when a new hire is created in the HRIS, SyncToScale
+            generates a personalized packet with required tasks, key dates, onboarding expectations, and
+            Nova-driven insights.
           </p>
         </section>
 
-        <section class="doc-section">
+        <section class="template-detail-section">
           <h2>How it works</h2>
-          <ol class="step-list">
+          <ol>
             <li>New hire is created in the HRIS.</li>
             <li>Profile is enriched with role, team, and manager data.</li>
             <li>Nova checks for missing onboarding prerequisites.</li>
@@ -93,9 +124,9 @@
           </ol>
         </section>
 
-        <section class="doc-section">
+        <section class="template-detail-section">
           <h2>Set up this template</h2>
-          <ol class="step-list">
+          <ol>
             <li>Select <strong>Manager Welcome Packet</strong> from Templates.</li>
             <li>Connect HRIS and Slack/Email systems.</li>
             <li>Customize checklist items.</li>
@@ -106,12 +137,12 @@
 
       </article>
 
-      <!-- RIGHT COLUMN -->
-      <aside class="template-sidebar">
+      <!-- RIGHT SIDEBAR -->
+      <aside>
 
         <div class="card">
           <h3>Template summary</h3>
-          <ul class="key-facts-list">
+          <ul>
             <li><strong>Trigger:</strong> New hire created</li>
             <li><strong>Runtime:</strong> Immediate</li>
             <li><strong>Owner:</strong> People Ops</li>
