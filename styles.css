@@ -97,6 +97,11 @@ header.site-header .container {
   color: #14b8a6;
   border-bottom-color: #14b8a6;
 }
+/* Normalize header links */
+header a {
+  text-decoration: none;
+  color: inherit;
+}
 
 /* ------------------------------
    HERO (INDEX)
