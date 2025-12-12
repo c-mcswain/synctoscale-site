@@ -48,46 +48,73 @@
       font-size: 1rem;
       font-weight: 500;
       padding-bottom: 4px;
-      transition: color .2s ease, border-bottom .2s ease;
       border-bottom: 2px solid transparent;
+      transition: color .2s ease, border-bottom .2s ease;
     }
 
     .nav a:hover {
       color: #14b8a6;
-      border-bottom: 2px solid #14b8a6;
+      border-bottom-color: #14b8a6;
     }
 
     /* ===============================
-       FIX: Prevent content hiding
-       behind sticky navbar
+       CRITICAL FIX — sticky nav offset
     =============================== */
-    .page-wrap {
-      padding-top: 90px; /* matches navbar height */
+    :root {
+      --nav-offset: 90px;
     }
 
-    /* Optional small spacing tweak */
-    .doc-breadcrumb {
-      margin-top: 6px;
+    h1, h2, h3, .doc-section {
+      scroll-margin-top: var(--nav-offset);
     }
 
-    /* Flatten header card look */
+    /* ===============================
+       COLLAPSIBLE SECTIONS
+    =============================== */
+    .collapsible-header {
+      all: unset;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      cursor: pointer;
+      padding: 6px 0;
+    }
+
+    .collapsible-header h2 {
+      margin: 0;
+    }
+
+    .collapsible-content {
+      overflow: hidden;
+      transition: max-height 0.3s ease, opacity 0.2s ease;
+    }
+
+    .collapsible:not(.open) .collapsible-content {
+      max-height: 0;
+      opacity: 0;
+    }
+
+    .collapsible.open .collapsible-content {
+      max-height: 4000px;
+      opacity: 1;
+    }
+
+    .chevron {
+      font-size: 18px;
+      transition: transform 0.2s ease;
+    }
+
+    .collapsible.open .chevron {
+      transform: rotate(180deg);
+    }
+
+    /* Flatten header card */
     .page-header {
       background: transparent !important;
       box-shadow: none !important;
       padding: 0 !important;
       margin-bottom: 24px;
-    }
-
-    .page-header-top h1 {
-      margin: 0 0 6px;
-      font-size: 32px;
-      font-weight: 700;
-      color: #0b3d3d;
-    }
-
-    .page-subtitle {
-      margin: 0 0 12px;
-      max-width: 720px;
     }
   </style>
 </head>
@@ -98,7 +125,6 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="logo">SyncToScale</a>
-
       <nav class="nav">
         <a href="index.html">Home</a>
         <a href="features.html">Features</a>
@@ -120,73 +146,63 @@
         <span>Custom Webhook → Workflow</span>
       </nav>
 
-      <!-- PAGE HEADER -->
+      <!-- HEADER -->
       <header class="page-header">
-        <div class="page-header-top">
-          <h1>Custom Webhook → Workflow</h1>
-          <span class="badge badge-nova">Template</span>
-        </div>
-
+        <h1>Custom Webhook → Workflow</h1>
         <p class="page-subtitle">
           Connect any system that can send HTTP requests to SyncToScale. Define a custom webhook endpoint,
-          map incoming JSON, and orchestrate downstream actions — with Nova helping validate payloads and
-          suggest mappings.
+          map incoming JSON, and orchestrate downstream actions — with Nova assisting throughout.
         </p>
-
-        <div class="page-meta-row">
-          <span class="pill pill-soft">Category: Developer &amp; Custom</span>
-          <span class="pill pill-soft">Difficulty: Advanced</span>
-          <span class="pill pill-soft">Trigger: Incoming webhook</span>
-          <span class="pill pill-soft">Systems: Any system · SyncToScale · Nova</span>
-        </div>
       </header>
 
-      <!-- MAIN GRID -->
+      <!-- GRID -->
       <section class="template-main-grid">
 
-        <!-- LEFT COLUMN -->
+        <!-- MAIN -->
         <article class="template-main">
 
-          <!-- OVERVIEW -->
-          <section class="doc-section">
-            <h2>Overview</h2>
-            <p>
-              The <strong>Custom Webhook → Workflow</strong> template lets you integrate tools that don’t have
-              native connectors. SyncToScale receives HTTPS events, maps JSON payloads, and routes actions —
-              with Nova assisting throughout.
-            </p>
-          </section>
-
           <!-- HOW IT WORKS -->
-          <section class="doc-section">
-            <h2>How it works</h2>
-            <ol class="step-list">
-              <li>SyncToScale generates an HTTPS webhook URL.</li>
-              <li>Your system POSTs JSON events.</li>
-              <li>Nova analyzes payload structure and suggests mappings.</li>
-              <li>Mapped fields route into workflow actions.</li>
-              <li>Runs include logs + diagnostics.</li>
-            </ol>
+          <section class="doc-section collapsible open">
+            <button class="collapsible-header" type="button">
+              <h2>How it works</h2>
+              <span class="chevron">⌄</span>
+            </button>
+            <div class="collapsible-content">
+              <ol class="step-list">
+                <li>SyncToScale generates an HTTPS webhook URL.</li>
+                <li>Your system POSTs JSON events.</li>
+                <li>Nova analyzes payload structure.</li>
+                <li>Mapped fields route into workflow actions.</li>
+                <li>Runs include logs and diagnostics.</li>
+              </ol>
+            </div>
           </section>
 
           <!-- WORKFLOW STEPS -->
-          <section class="doc-section">
-            <h2>Workflow steps</h2>
-
-            <ol class="step-list step-list-detailed">
-              <li><strong>Incoming webhook</strong> — JSON POST received.</li>
-              <li><strong>Validate & parse</strong> — Schema + signatures checked.</li>
-              <li><strong>Transform</strong> — Fields mapped to workflow objects.</li>
-              <li><strong>Route</strong> — Conditional downstream actions.</li>
-              <li><strong>Respond</strong> — Success or error returned.</li>
-            </ol>
+          <section class="doc-section collapsible open">
+            <button class="collapsible-header" type="button">
+              <h2>Workflow steps</h2>
+              <span class="chevron">⌄</span>
+            </button>
+            <div class="collapsible-content">
+              <ol class="step-list step-list-detailed">
+                <li><strong>Incoming webhook</strong> — JSON POST received.</li>
+                <li><strong>Validate & parse</strong> — Schema and signatures checked.</li>
+                <li><strong>Transform</strong> — Fields mapped to workflow objects.</li>
+                <li><strong>Route</strong> — Conditional downstream actions.</li>
+                <li><strong>Respond</strong> — Success or error returned.</li>
+              </ol>
+            </div>
           </section>
 
           <!-- SAMPLE JSON -->
-          <section class="doc-section">
-            <h2>Sample JSON payload</h2>
-
-            <pre class="code-block"><code>{
+          <section class="doc-section collapsible">
+            <button class="collapsible-header" type="button">
+              <h2>Sample JSON payload</h2>
+              <span class="chevron">⌄</span>
+            </button>
+            <div class="collapsible-content">
+              <pre class="code-block"><code>{
   "event_type": "ticket.created",
   "source_system": "internal_tool",
   "timestamp": "2025-04-03T16:20:00Z",
@@ -196,13 +212,13 @@
     "user": { "email": "morgan@example.com" }
   }
 }</code></pre>
+            </div>
           </section>
 
         </article>
 
-        <!-- RIGHT COLUMN -->
+        <!-- SIDEBAR -->
         <aside class="template-sidebar">
-
           <div class="card">
             <h3>Template summary</h3>
             <ul>
@@ -212,30 +228,22 @@
               <li><strong>Systems:</strong> Any HTTP sender</li>
             </ul>
           </div>
-
-          <div class="card">
-            <h3>Best practices</h3>
-            <ul>
-              <li>Enable HMAC validation</li>
-              <li>Use Nova schema lock-in</li>
-              <li>Return 202 for async flows</li>
-            </ul>
-          </div>
-
-          <div class="card nova-callout">
-            <h3>Nova assists with…</h3>
-            <ul>
-              <li>Schema generation</li>
-              <li>Error detection</li>
-              <li>Mapping suggestions</li>
-            </ul>
-          </div>
-
         </aside>
 
       </section>
     </div>
   </main>
+
+  <!-- COLLAPSIBLE JS -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll(".collapsible-header").forEach(btn => {
+        btn.addEventListener("click", () => {
+          btn.closest(".collapsible").classList.toggle("open");
+        });
+      });
+    });
+  </script>
 
 </body>
 </html>
