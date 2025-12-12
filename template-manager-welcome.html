@@ -5,16 +5,17 @@
   <title>Manager Welcome Packet | SyncToScale</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- GLOBAL STYLES -->
   <link rel="stylesheet" href="styles.css" />
 
   <!-- BOTPRESS / NOVA -->
   <script src="https://cdn.botpress.cloud/webchat/v3.4/inject.js"></script>
   <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
 
-  <!-- TEMPLATE HEADER ONLY -->
+  <!-- TEMPLATE HEADER + PAGE-ONLY STYLES -->
   <style>
     /* ----------------------------------------
-       TEMPLATE HEADER — STANDARD
+       TEMPLATE HEADER — STANDARD (LOCKED)
     ---------------------------------------- */
     .template-header {
       text-align: center;
@@ -43,6 +44,7 @@
       padding: 6px 16px;
       margin-bottom: 14px;
       text-decoration: none;
+      transition: background 0.2s ease, transform 0.1s ease;
     }
 
     .template-eyebrow:hover {
@@ -53,6 +55,7 @@
     .template-header h1 {
       font-size: 36px;
       font-weight: 700;
+      letter-spacing: -0.02em;
       margin-bottom: 12px;
       color: #0f172a;
     }
@@ -73,17 +76,19 @@
 
     .template-meta-pill {
       font-size: 13px;
+      color: #0f172a;
       background: #f8fafc;
       border: 1px solid #e2e8f0;
       border-radius: 999px;
       padding: 7px 14px;
+      white-space: nowrap;
     }
 
     /* ----------------------------------------
        TEMPLATE CONTENT
     ---------------------------------------- */
     .template-content {
-      max-width: 880px;
+      max-width: 900px;
       margin: 48px auto 72px;
       padding: 0 20px;
     }
@@ -94,7 +99,9 @@
 
     .template-section h2 {
       font-size: 22px;
+      font-weight: 600;
       margin-bottom: 10px;
+      color: #0f172a;
     }
 
     .template-section p,
@@ -104,33 +111,35 @@
       line-height: 1.7;
     }
 
-    .template-section ol,
-    .template-section ul {
+    .template-section ul,
+    .template-section ol {
       margin-left: 18px;
     }
 
     /* Packet Preview */
     .packet-preview {
-      background: #ffffff;
       border: 1px solid #e2e8f0;
       border-radius: 16px;
-      padding: 24px;
+      padding: 22px;
+      background: #ffffff;
     }
 
     .packet-preview h3 {
       font-size: 18px;
+      font-weight: 600;
       margin-bottom: 12px;
+      color: #0f172a;
     }
 
-    .packet-preview ul li {
-      margin-bottom: 6px;
+    .packet-preview li {
+      margin-bottom: 8px;
     }
 
     .packet-link {
       display: inline-block;
       margin-top: 12px;
       font-size: 14px;
-      font-weight: 500;
+      font-weight: 600;
       color: #0f766e;
       text-decoration: none;
     }
@@ -143,99 +152,105 @@
 
 <body>
 
-<!-- NAVBAR (LOCKED) -->
-<header class="site-header">
-  <div class="container header-inner">
-    <a href="index.html" class="logo">SyncToScale</a>
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="features.html">Features</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="docs.html">Docs</a>
-      <a href="resources.html">Resources</a>
-      <a href="about.html">About</a>
-    </nav>
-  </div>
-</header>
+  <!-- NAVBAR (LOCKED — DO NOT MODIFY) -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">SyncToScale</a>
 
-<!-- HEADER -->
-<section class="template-header">
-  <div class="template-header-inner">
-
-    <a href="templates.html" class="template-eyebrow">Workflow Template</a>
-
-    <h1>Manager Welcome Packet</h1>
-
-    <p class="template-description">
-      Automatically generate a structured welcome packet for hiring managers
-      when a new hire is created — setting expectations, surfacing key dates,
-      and preparing managers before day one.
-    </p>
-
-    <div class="template-meta">
-      <span class="template-meta-pill">Onboarding</span>
-      <span class="template-meta-pill">Beginner–Intermediate</span>
-      <span class="template-meta-pill">New Hire Trigger</span>
-      <span class="template-meta-pill">HRIS · Slack · Email</span>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="docs.html">Docs</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
     </div>
+  </header>
 
-  </div>
-</section>
+  <!-- TEMPLATE HEADER -->
+  <section class="template-header">
+    <div class="template-header-inner">
 
-<!-- CONTENT -->
-<main class="template-content">
-
-  <section class="template-section">
-    <h2>Overview</h2>
-    <p>
-      This workflow generates a Manager Welcome Packet automatically
-      when a new hire is created in the HRIS. The packet helps managers
-      prepare ahead of time by outlining responsibilities, timelines,
-      and onboarding expectations.
-    </p>
-  </section>
-
-  <section class="template-section">
-    <h2>How it works</h2>
-    <ol>
-      <li>New hire is created in the HRIS.</li>
-      <li>Manager and role data are enriched.</li>
-      <li>Nova checks onboarding readiness.</li>
-      <li>A personalized Manager Welcome Packet is generated.</li>
-      <li>Packet is delivered via Slack or email.</li>
-    </ol>
-  </section>
-
-  <section class="template-section">
-    <h2>Set up this workflow</h2>
-    <ol>
-      <li>Connect HRIS and Slack or Email systems.</li>
-      <li>Review and customize the default packet structure below.</li>
-      <li>Enable Nova validations.</li>
-      <li>Activate the workflow.</li>
-    </ol>
-  </section>
-
-  <section class="template-section" id="packet">
-    <h2>Default Manager Welcome Packet</h2>
-
-    <div class="packet-preview">
-      <h3>What managers receive</h3>
-      <ul>
-        <li>New hire overview (role, start date, team)</li>
-        <li>First-week expectations and priorities</li>
-        <li>30 / 60 / 90-day guidance</li>
-        <li>Key meetings and milestones</li>
-        <li>Onboarding checklist and resources</li>
-      </ul>
-
-      <a href="#" class="packet-link">
-        View sample packet structure →
+      <a href="templates.html"
+         class="template-eyebrow"
+         title="Back to Templates">
+        Workflow Template
       </a>
+
+      <h1>Manager Welcome Packet</h1>
+
+      <p class="template-description">
+        Automatically generate a structured welcome packet for hiring managers
+        when a new hire is created — setting expectations, surfacing key dates,
+        and preparing managers before day one.
+      </p>
+
+      <div class="template-meta">
+        <span class="template-meta-pill">Onboarding</span>
+        <span class="template-meta-pill">Beginner–Intermediate</span>
+        <span class="template-meta-pill">New Hire Trigger</span>
+        <span class="template-meta-pill">HRIS · Slack · Email</span>
+      </div>
+
     </div>
   </section>
 
-</main>
+  <!-- TEMPLATE CONTENT -->
+  <main class="template-content">
+
+    <section class="template-section">
+      <h2>Overview</h2>
+      <p>
+        This workflow generates a Manager Welcome Packet automatically when a new
+        hire is created in the HRIS. The packet helps managers prepare ahead of time
+        by outlining responsibilities, timelines, and onboarding expectations.
+      </p>
+    </section>
+
+    <section class="template-section">
+      <h2>How it works</h2>
+      <ol>
+        <li>New hire is created in the HRIS.</li>
+        <li>Manager and role data are enriched.</li>
+        <li>Nova checks onboarding readiness.</li>
+        <li>A Manager Welcome Packet is generated.</li>
+        <li>The packet is delivered via Slack or email.</li>
+      </ol>
+    </section>
+
+    <section class="template-section">
+      <h2>Set up this workflow</h2>
+      <ol>
+        <li>Connect HRIS and Slack or Email systems.</li>
+        <li>Review the default packet structure below.</li>
+        <li>Customize checklist items if needed.</li>
+        <li>Enable Nova validations.</li>
+        <li>Activate the workflow.</li>
+      </ol>
+    </section>
+
+    <section class="template-section" id="packet-preview">
+      <h2>Default Manager Welcome Packet</h2>
+
+      <div class="packet-preview">
+        <h3>What managers receive</h3>
+        <ul>
+          <li><strong>New hire overview</strong> — role, start date, team</li>
+          <li><strong>First-week priorities</strong></li>
+          <li><strong>30 / 60 / 90-day guidance</strong></li>
+          <li><strong>Key meetings & milestones</strong></li>
+          <li><strong>Checklist & onboarding resources</strong></li>
+        </ul>
+
+        <a href="packet-manager-welcome.html"
+           class="packet-link">
+          Open packet (export to PDF) →
+        </a>
+      </div>
+    </section>
+
+  </main>
 
 </body>
 </html>
