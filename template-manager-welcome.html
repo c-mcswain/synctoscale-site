@@ -5,7 +5,6 @@
   <title>Manager Welcome Packet | SyncToScale</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- GLOBAL STYLES -->
   <link rel="stylesheet" href="styles.css" />
 
   <!-- BOTPRESS / NOVA -->
@@ -15,15 +14,16 @@
   <!-- TEMPLATE HEADER ONLY -->
   <style>
     /* ----------------------------------------
-       TEMPLATE HEADER — RESOURCES-INSPIRED
+       TEMPLATE HEADER — STANDARD
     ---------------------------------------- */
     .template-header {
       text-align: center;
-      padding: 64px 20px 48px;
+      padding: 48px 20px 36px;
       background: linear-gradient(
         180deg,
-        #f0fdfa 0%,
-        #ffffff 70%
+        #e6fffa 0%,
+        #f0fdfa 45%,
+        #ffffff 85%
       );
       border-bottom: 1px solid #e2e8f0;
     }
@@ -38,81 +38,63 @@
       font-size: 13px;
       font-weight: 600;
       color: #0f766e;
-      background: #e6fffa;
+      background: #ccfbf1;
       border-radius: 999px;
       padding: 6px 16px;
-      margin-bottom: 18px;
+      margin-bottom: 14px;
       text-decoration: none;
-      transition: background 0.2s ease, transform 0.1s ease;
     }
 
     .template-eyebrow:hover {
-      background: #ccfbf1;
+      background: #99f6e4;
       transform: translateY(-1px);
     }
 
     .template-header h1 {
-      font-size: 38px;
+      font-size: 36px;
       font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
       color: #0f172a;
     }
 
     .template-description {
-      font-size: 17px;
-      line-height: 1.65;
+      font-size: 16.5px;
+      line-height: 1.6;
       color: #475569;
-      margin-bottom: 26px;
+      margin-bottom: 20px;
     }
 
     .template-meta {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 12px;
+      gap: 10px;
     }
 
     .template-meta-pill {
       font-size: 13px;
-      color: #0f172a;
       background: #f8fafc;
       border: 1px solid #e2e8f0;
       border-radius: 999px;
-      padding: 8px 14px;
-      white-space: nowrap;
+      padding: 7px 14px;
     }
 
     /* ----------------------------------------
        TEMPLATE CONTENT
     ---------------------------------------- */
     .template-content {
-      max-width: 1100px;
-      margin: 64px auto 80px;
+      max-width: 880px;
+      margin: 48px auto 72px;
       padding: 0 20px;
     }
 
-    .template-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 40px;
-    }
-
-    @media (max-width: 900px) {
-      .template-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
     .template-section {
-      margin-bottom: 48px;
+      margin-bottom: 44px;
     }
 
     .template-section h2 {
       font-size: 22px;
-      font-weight: 600;
-      margin-bottom: 12px;
-      color: #0f172a;
+      margin-bottom: 10px;
     }
 
     .template-section p,
@@ -127,157 +109,133 @@
       margin-left: 18px;
     }
 
-    /* Sidebar cards */
-    .template-card {
+    /* Packet Preview */
+    .packet-preview {
       background: #ffffff;
       border: 1px solid #e2e8f0;
       border-radius: 16px;
-      padding: 20px 22px;
-      margin-bottom: 20px;
+      padding: 24px;
     }
 
-    .template-card h3 {
-      font-size: 16px;
-      font-weight: 600;
+    .packet-preview h3 {
+      font-size: 18px;
       margin-bottom: 12px;
-      color: #0f172a;
     }
 
-    .template-card li {
-      margin-bottom: 8px;
+    .packet-preview ul li {
+      margin-bottom: 6px;
     }
 
-    .nova-callout {
-      background: #f0fdfa;
-      border-color: #99f6e4;
+    .packet-link {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #0f766e;
+      text-decoration: none;
+    }
+
+    .packet-link:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- NAVBAR (LOCKED — DO NOT MODIFY) -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="logo">SyncToScale</a>
+<!-- NAVBAR (LOCKED) -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">SyncToScale</a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="docs.html">Docs</a>
+      <a href="resources.html">Resources</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</header>
 
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="features.html">Features</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="docs.html">Docs</a>
-        <a href="resources.html">Resources</a>
-        <a href="about.html">About</a>
-      </nav>
+<!-- HEADER -->
+<section class="template-header">
+  <div class="template-header-inner">
+
+    <a href="templates.html" class="template-eyebrow">Workflow Template</a>
+
+    <h1>Manager Welcome Packet</h1>
+
+    <p class="template-description">
+      Automatically generate a structured welcome packet for hiring managers
+      when a new hire is created — setting expectations, surfacing key dates,
+      and preparing managers before day one.
+    </p>
+
+    <div class="template-meta">
+      <span class="template-meta-pill">Onboarding</span>
+      <span class="template-meta-pill">Beginner–Intermediate</span>
+      <span class="template-meta-pill">New Hire Trigger</span>
+      <span class="template-meta-pill">HRIS · Slack · Email</span>
     </div>
-  </header>
 
-  <!-- TEMPLATE HEADER -->
-  <section class="template-header">
-    <div class="template-header-inner">
+  </div>
+</section>
 
-      <a href="templates.html" class="template-eyebrow" title="Back to Templates">
-        Workflow Template
+<!-- CONTENT -->
+<main class="template-content">
+
+  <section class="template-section">
+    <h2>Overview</h2>
+    <p>
+      This workflow generates a Manager Welcome Packet automatically
+      when a new hire is created in the HRIS. The packet helps managers
+      prepare ahead of time by outlining responsibilities, timelines,
+      and onboarding expectations.
+    </p>
+  </section>
+
+  <section class="template-section">
+    <h2>How it works</h2>
+    <ol>
+      <li>New hire is created in the HRIS.</li>
+      <li>Manager and role data are enriched.</li>
+      <li>Nova checks onboarding readiness.</li>
+      <li>A personalized Manager Welcome Packet is generated.</li>
+      <li>Packet is delivered via Slack or email.</li>
+    </ol>
+  </section>
+
+  <section class="template-section">
+    <h2>Set up this workflow</h2>
+    <ol>
+      <li>Connect HRIS and Slack or Email systems.</li>
+      <li>Review and customize the default packet structure below.</li>
+      <li>Enable Nova validations.</li>
+      <li>Activate the workflow.</li>
+    </ol>
+  </section>
+
+  <section class="template-section" id="packet">
+    <h2>Default Manager Welcome Packet</h2>
+
+    <div class="packet-preview">
+      <h3>What managers receive</h3>
+      <ul>
+        <li>New hire overview (role, start date, team)</li>
+        <li>First-week expectations and priorities</li>
+        <li>30 / 60 / 90-day guidance</li>
+        <li>Key meetings and milestones</li>
+        <li>Onboarding checklist and resources</li>
+      </ul>
+
+      <a href="#" class="packet-link">
+        View sample packet structure →
       </a>
-
-      <h1>Manager Welcome Packet</h1>
-
-      <p class="template-description">
-        Automatically equip hiring managers with a clear, structured welcome packet
-        when a new hire is created — including key dates, onboarding expectations,
-        and Nova-powered insights before day one.
-      </p>
-
-      <div class="template-meta">
-        <span class="template-meta-pill">Onboarding</span>
-        <span class="template-meta-pill">Beginner–Intermediate</span>
-        <span class="template-meta-pill">New Hire Trigger</span>
-        <span class="template-meta-pill">HRIS · Slack · Email</span>
-      </div>
-
     </div>
   </section>
 
-  <!-- TEMPLATE CONTENT -->
-  <main class="template-content">
-
-    <section class="template-grid">
-
-      <!-- MAIN COLUMN -->
-      <article>
-
-        <section class="template-section">
-          <h2>Overview</h2>
-          <p>
-            The <strong>Manager Welcome Packet</strong> template ensures managers
-            are prepared and aligned before a new employee’s first day.
-            When a new hire is created in the HRIS, SyncToScale generates
-            a personalized packet with required tasks, expectations,
-            and Nova-driven insights.
-          </p>
-        </section>
-
-        <section class="template-section">
-          <h2>How it works</h2>
-          <ol>
-            <li>New hire is created in the HRIS.</li>
-            <li>Role, team, and manager data is enriched.</li>
-            <li>Nova checks onboarding readiness and dependencies.</li>
-            <li>A personalized manager packet is generated.</li>
-            <li>Packet is delivered via Slack or email.</li>
-            <li>Activity is logged for People Ops visibility.</li>
-          </ol>
-        </section>
-
-        <section class="template-section">
-          <h2>Set up this template</h2>
-          <ol>
-            <li>Select <strong>Manager Welcome Packet</strong> from Templates.</li>
-            <li>Connect HRIS and Slack or Email systems.</li>
-            <li>Customize checklist and guidance content.</li>
-            <li>Enable Nova validations.</li>
-            <li>Activate the workflow.</li>
-          </ol>
-        </section>
-
-      </article>
-
-      <!-- SIDEBAR -->
-      <aside>
-
-        <div class="template-card">
-          <h3>Template summary</h3>
-          <ul>
-            <li><strong>Trigger:</strong> New hire created</li>
-            <li><strong>Runtime:</strong> Immediate</li>
-            <li><strong>Owner:</strong> People Ops</li>
-            <li><strong>Systems:</strong> HRIS · Slack · Email</li>
-          </ul>
-        </div>
-
-        <div class="template-card">
-          <h3>Best practice defaults</h3>
-          <ul>
-            <li>Set expectations before day one.</li>
-            <li>Include 30 / 60 / 90 guidance.</li>
-            <li>Standardize manager readiness.</li>
-          </ul>
-        </div>
-
-        <div class="template-card nova-callout">
-          <h3>Nova will help you…</h3>
-          <ul>
-            <li>Flag onboarding readiness gaps.</li>
-            <li>Predict manager workload bottlenecks.</li>
-            <li>Create consistent onboarding experiences.</li>
-          </ul>
-        </div>
-
-      </aside>
-
-    </section>
-
-  </main>
+</main>
 
 </body>
 </html>
