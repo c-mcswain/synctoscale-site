@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="styles.css" />
 
   <style>
-    /* Page container */
     .page-wrap {
       max-width: 1100px;
       margin: 0 auto;
@@ -42,9 +41,9 @@
       color: #475569;
     }
 
-    /* Section headers */
+    /* Sections */
     .template-section {
-      margin-top: 48px;
+      margin-top: 52px;
     }
 
     .template-section h2 {
@@ -78,6 +77,11 @@
       box-shadow: 0 14px 26px rgba(15,23,42,0.08);
     }
 
+    .t-card.is-disabled {
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
     .t-head {
       display: flex;
       justify-content: space-between;
@@ -92,7 +96,7 @@
       line-height: 1.3;
     }
 
-    /* STACKED BADGES */
+    /* Stacked badges */
     .t-badges {
       display: flex;
       flex-direction: column;
@@ -141,11 +145,6 @@
       background: rgba(255,255,255,0.7);
       color: #475569;
     }
-
-    .t-card.is-disabled {
-      opacity: 0.7;
-      pointer-events: none;
-    }
   </style>
 </head>
 
@@ -171,8 +170,8 @@
     <section class="templates-hero">
       <h1>Workflow Templates</h1>
       <p>
-        Practical, manager-friendly workflows for People Ops, Customer Success,
-        RevOps, and automation engineering. Some workflows generate real artifacts.
+        Practical workflows across People Ops, Customer Success, RevOps,
+        and automation engineering. Some workflows generate real artifacts.
       </p>
     </section>
 
@@ -182,45 +181,39 @@
       <div class="templates-grid">
 
         <a class="t-card" href="template-offboarding.html">
-          <div class="t-head">
-            <h3 class="t-title">Employee Offboarding</h3>
-          </div>
+          <div class="t-head"><h3 class="t-title">Offboarding Workflow</h3></div>
           <p class="t-desc">Automate access removal, notifications, and HRIS updates.</p>
-          <div class="t-meta">
-            <span class="chip">People Ops</span>
-            <span class="chip">IT</span>
-            <span class="chip">Medium</span>
-          </div>
+          <div class="t-meta"><span class="chip">HR</span></div>
         </a>
 
         <a class="t-card" href="template-manager-welcome.html">
           <div class="t-head">
             <h3 class="t-title">Manager Welcome Packet</h3>
-            <div class="t-badges">
-              <span class="badge artifact">Produces artifact</span>
-            </div>
+            <div class="t-badges"><span class="badge artifact">Produces artifact</span></div>
           </div>
-          <p class="t-desc">Generate a manager-facing prep packet for new hires.</p>
-          <div class="t-meta">
-            <span class="chip">Onboarding</span>
-            <span class="chip">Easy</span>
-          </div>
+          <p class="t-desc">Send structured onboarding resources to managers.</p>
+          <div class="t-meta"><span class="chip">Onboarding</span></div>
+        </a>
+
+        <a class="t-card is-disabled" href="#">
+          <div class="t-head"><h3 class="t-title">Pre-Start Checklist</h3><div class="t-badges"><span class="badge soon">Coming soon</span></div></div>
+          <p class="t-desc">Ensure devices, access, and docs are ready before Day 1.</p>
         </a>
 
         <a class="t-card is-disabled" href="#">
           <div class="t-head">
-            <h3 class="t-title">Compliance Acknowledgment Confirmation</h3>
+            <h3 class="t-title">Policy Acknowledgement Tracking</h3>
             <div class="t-badges">
               <span class="badge artifact">Produces artifact</span>
               <span class="badge soon">Coming soon</span>
             </div>
           </div>
-          <p class="t-desc">Capture policy sign-offs and generate audit-ready confirmation.</p>
-          <div class="t-meta">
-            <span class="chip">Compliance</span>
-            <span class="chip">Audit</span>
-            <span class="chip">Easy</span>
-          </div>
+          <p class="t-desc">Track and remind employees of required policy sign-offs.</p>
+        </a>
+
+        <a class="t-card is-disabled" href="#">
+          <div class="t-head"><h3 class="t-title">Title / Compensation Change Alerts</h3><div class="t-badges"><span class="badge soon">Coming soon</span></div></div>
+          <p class="t-desc">Notify stakeholders when HR data changes occur.</p>
         </a>
 
       </div>
@@ -232,17 +225,54 @@
       <div class="templates-grid">
 
         <a class="t-card is-disabled" href="#">
-          <div class="t-head">
-            <h3 class="t-title">Contract → Implementation Handoff</h3>
-            <div class="t-badges">
-              <span class="badge soon">Coming soon</span>
-            </div>
-          </div>
-          <p class="t-desc">Standardize Sales-to-CS handoff with full context.</p>
-          <div class="t-meta">
-            <span class="chip">Implementation</span>
-            <span class="chip">Medium</span>
-          </div>
+          <div class="t-head"><h3 class="t-title">Contract Handoff</h3><div class="t-badges"><span class="badge soon">Coming soon</span></div></div>
+          <p class="t-desc">Standardize the Sales → CS handoff with full context.</p>
+        </a>
+
+        <a class="t-card is-disabled" href="#">
+          <div class="t-head"><h3 class="t-title">Post-Implementation Check-In</h3><div class="t-badges"><span class="badge soon">Coming soon</span></div></div>
+          <p class="t-desc">Trigger automated follow-ups after go-live milestones.</p>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- REVOPS -->
+    <section class="template-section">
+      <h2>RevOps & Sales Automation</h2>
+      <div class="templates-grid">
+
+        <a class="t-card is-disabled" href="#">
+          <div class="t-head"><h3 class="t-title">Lead → Contact → Account Sync</h3><div class="t-badges"><span class="badge soon">Coming soon</span></div></div>
+          <p class="t-desc">Normalize CRM lifecycles and reduce duplicates.</p>
+        </a>
+
+        <a class="t-card is-disabled" href="#">
+          <div class="t-head"><h3 class="t-title">Stale Opportunities Digest</h3><div class="t-badges"><span class="badge soon">Coming soon</span></div></div>
+          <p class="t-desc">Automated Slack/email digests for inactive deals.</p>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ENGINEERING -->
+    <section class="template-section">
+      <h2>Integrations & Automation Engineering</h2>
+      <div class="templates-grid">
+
+        <a class="t-card is-disabled" href="#">
+          <div class="t-head"><h3 class="t-title">Custom Webhook Workflow</h3><div class="t-badges"><span class="badge soon">Coming soon</span></div></div>
+          <p class="t-desc">Trigger automation using signed webhook payloads.</p>
+        </a>
+
+        <a class="t-card is-disabled" href="#">
+          <div class="t-head"><h3 class="t-title">API-Driven Bulk Sync</h3><div class="t-badges"><span class="badge soon">Coming soon</span></div></div>
+          <p class="t-desc">Batch-sync or migrate large datasets.</p>
+        </a>
+
+        <a class="t-card is-disabled" href="#">
+          <div class="t-head"><h3 class="t-title">Nova-Assisted Cleanup</h3><div class="t-badges"><span class="badge soon">Coming soon</span></div></div>
+          <p class="t-desc">Use AI to detect inconsistencies and recommend cleanup actions.</p>
         </a>
 
       </div>
