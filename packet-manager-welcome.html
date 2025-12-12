@@ -9,7 +9,7 @@
   <style>
     /* =========================================
        PRINT-READY PACKET (HTML → PDF)
-       ========================================= */
+    ========================================= */
 
     .packet-wrap {
       max-width: 900px;
@@ -51,13 +51,13 @@
       line-height: 1.7;
       color: #475569;
       max-width: 760px;
-      margin-bottom: 22px;
+      margin-bottom: 18px;
     }
 
     .packet-actions {
       display: flex;
       gap: 10px;
-      margin-bottom: 28px;
+      margin-bottom: 32px;
     }
 
     .packet-btn {
@@ -75,11 +75,13 @@
       background: #f1f5f9;
     }
 
+    /* ---------- DOCUMENT CONTENT ---------- */
+
     .packet-grid {
       display: grid;
       grid-template-columns: 1.2fr 0.8fr;
       gap: 18px;
-      margin-bottom: 28px;
+      margin-bottom: 32px;
     }
 
     .packet-card {
@@ -156,11 +158,12 @@
     }
 
     .footer-note {
-      margin-top: 24px;
+      margin-top: 28px;
       font-size: 12.5px;
       color: #64748b;
     }
 
+    /* ---------- PRINT ---------- */
     @media print {
       .site-header,
       .packet-actions {
@@ -171,9 +174,9 @@
         padding: 0;
       }
       .packet-sheet {
-        box-shadow: none;
         border: none;
         border-radius: 0;
+        box-shadow: none;
         padding: 0;
       }
     }
@@ -207,6 +210,7 @@
   <div class="packet-wrap">
     <div class="packet-sheet">
 
+      <!-- HEADER -->
       <span class="packet-badge">Manager Welcome Packet</span>
 
       <h1 class="packet-title">
@@ -228,4 +232,96 @@
         </a>
       </div>
 
-      <!-- CONTENT CONTINUES UNCHANGED -->
+      <!-- PREVIEW / REAL DOCUMENT -->
+      <div class="packet-grid">
+        <div class="packet-card">
+          <h3>New Hire Overview</h3>
+          <div class="kv">
+            <div class="k">Role</div><div>(auto-filled)</div>
+            <div class="k">Start Date</div><div>(auto-filled)</div>
+            <div class="k">Team</div><div>(auto-filled)</div>
+            <div class="k">Manager</div><div>(auto-filled)</div>
+          </div>
+        </div>
+
+        <div class="packet-card callout">
+          <h3>Nova Insights</h3>
+          <p>
+            Nova checks onboarding readiness and flags missing access,
+            scheduling gaps, or manager workload risk. You’ll be notified
+            if attention is needed.
+          </p>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Your Focus Before Day One</h2>
+        <ul class="bullets">
+          <li>Confirm systems and tools are accessible</li>
+          <li>Schedule first-week meetings</li>
+          <li>Clarify role expectations</li>
+          <li>Align priorities with team goals</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>30 / 60 / 90-Day Guidance</h2>
+        <div class="two-col">
+          <div class="mini">
+            <h3>First 30 Days</h3>
+            <ul class="bullets">
+              <li>Learn systems and workflows</li>
+              <li>Complete onboarding tasks</li>
+              <li>Establish 1:1 cadence</li>
+            </ul>
+          </div>
+
+          <div class="mini">
+            <h3>60 Days</h3>
+            <ul class="bullets">
+              <li>Contribute independently</li>
+              <li>Build cross-functional relationships</li>
+              <li>Review performance goals</li>
+            </ul>
+          </div>
+
+          <div class="mini">
+            <h3>90 Days</h3>
+            <ul class="bullets">
+              <li>Own responsibilities</li>
+              <li>Evaluate progress</li>
+              <li>Identify growth opportunities</li>
+            </ul>
+          </div>
+
+          <div class="mini">
+            <h3>Key Milestones</h3>
+            <ul class="bullets">
+              <li>Day 1 welcome</li>
+              <li>Weekly check-ins</li>
+              <li>30 / 60 / 90-day reviews</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Manager Checklist</h2>
+        <ul class="bullets">
+          <li>[ ] Review onboarding checklist</li>
+          <li>[ ] Confirm system access</li>
+          <li>[ ] Schedule check-ins</li>
+          <li>[ ] Share documentation</li>
+          <li>[ ] Provide early feedback</li>
+        </ul>
+      </div>
+
+      <div class="footer-note">
+        © SyncToScale — Generated artifact. Export via Print / Save PDF.
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
