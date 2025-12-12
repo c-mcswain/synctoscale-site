@@ -284,3 +284,20 @@ pre {
     bottom: 0 !important;
   }
 }
+/* =========================================
+   GLOBAL FIXED NAVBAR (FINAL)
+   ========================================= */
+
+header.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 88px;
+  z-index: 1000;
+}
+
+/* Reserve space so content never slides under nav */
+body {
+  padding-top: 88px;
+}
