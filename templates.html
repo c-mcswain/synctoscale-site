@@ -8,24 +8,26 @@
   <link rel="stylesheet" href="styles.css" />
 
   <style>
+    /* Page container */
     .page-wrap {
       max-width: 1100px;
       margin: 0 auto;
       padding: 24px 18px 56px;
     }
 
-    /* Header */
+    /* Slim header */
     .templates-hero {
       text-align: center;
       padding: 26px 18px;
       border-radius: 16px;
       background: linear-gradient(
         180deg,
-        rgba(33,225,159,0.14),
-        rgba(65,209,255,0.12),
-        #ffffff
+        rgba(33,225,159,0.14) 0%,
+        rgba(65,209,255,0.12) 55%,
+        #ffffff 100%
       );
       border: 1px solid rgba(148,163,184,0.35);
+      box-shadow: 0 10px 22px rgba(15,23,42,0.06);
     }
 
     .templates-hero h1 {
@@ -50,6 +52,13 @@
       gap: 12px;
     }
 
+    .legend {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
     .pill {
       display: inline-flex;
       align-items: center;
@@ -72,6 +81,10 @@
       background: linear-gradient(135deg, #41d1ff, #21e19f);
     }
 
+    .pill.soon .dot {
+      background: rgba(148,163,184,0.75);
+    }
+
     .search {
       padding: 10px 12px;
       border-radius: 12px;
@@ -83,12 +96,12 @@
     /* Grid */
     .templates-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0,1fr));
       gap: 14px;
       margin-top: 12px;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 980px) {
       .templates-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 640px) {
@@ -100,16 +113,17 @@
       display: block;
       text-decoration: none;
       border-radius: 16px;
-      padding: 16px;
       border: 1px solid rgba(148,163,184,0.45);
-      background: rgba(255,255,255,0.95);
+      background: rgba(255,255,255,0.92);
+      box-shadow: 0 10px 22px rgba(15,23,42,0.06);
+      padding: 16px;
       color: inherit;
       transition: transform .12s ease, box-shadow .12s ease;
     }
 
     .t-card:hover {
       transform: translateY(-2px);
-      box-shadow: 0 14px 26px rgba(15,23,42,0.08);
+      box-shadow: 0 14px 26px rgba(15,23,42,0.09);
     }
 
     .t-head {
@@ -126,13 +140,23 @@
       line-height: 1.3;
     }
 
-    .badge.artifact {
+    .badge {
       padding: 6px 10px;
       border-radius: 999px;
       font-size: 12px;
-      border: 1px solid rgba(33,225,159,0.55);
-      background: rgba(33,225,159,0.10);
+      border: 1px solid rgba(148,163,184,0.45);
+      background: rgba(248,250,252,0.9);
       white-space: nowrap;
+    }
+
+    .badge.artifact {
+      border-color: rgba(33,225,159,0.55);
+      background: rgba(33,225,159,0.10);
+    }
+
+    .badge.soon {
+      color: #475569;
+      background: rgba(148,163,184,0.10);
     }
 
     .t-desc {
@@ -157,10 +181,10 @@
       color: #475569;
     }
 
-    /* Defensive: artifact badge ONLY on cards */
-    .t-footer .badge.artifact,
-    .actions .badge.artifact {
-      display: none !important;
+    /* Disabled */
+    .t-card.is-disabled {
+      opacity: 0.72;
+      pointer-events: none;
     }
   </style>
 </head>
@@ -184,39 +208,49 @@
 
   <main class="page-wrap">
 
-    <!-- Header -->
     <section class="templates-hero">
       <h1>Workflow Templates</h1>
       <p>
-        Practical workflows for People Ops, IT, and cross-team handoffs.
-        Some workflows generate real, print-ready outputs.
+        Practical, manager-friendly workflows for People Ops, IT onboarding/offboarding, and cross-team handoffs.
+        Some workflows generate real outputs as print-ready artifacts.
       </p>
     </section>
 
-    <!-- Toolbar -->
     <div class="templates-toolbar">
-      <span class="pill artifact">
-        <span class="dot"></span>
-        Produces artifact
-      </span>
+      <div class="legend">
+        <span class="pill artifact"><span class="dot"></span>Produces artifact</span>
+        <span class="pill soon"><span class="dot"></span>Coming soon</span>
+      </div>
 
-      <input class="search" type="search" placeholder="Search templates…" />
+      <input id="templateSearch" class="search" type="search"
+        placeholder="Search templates (e.g., offboarding, welcome, compliance)…" />
     </div>
 
-    <!-- Grid -->
-    <section class="templates-grid">
+    <section class="templates-grid" id="templatesGrid">
 
-      <!-- Manager Welcome -->
-      <a class="t-card" href="template-manager-welcome.html">
+      <a class="t-card" href="template-offboarding.html" data-title="offboarding workflow">
+        <div class="t-head">
+          <h3 class="t-title">Employee Offboarding</h3>
+        </div>
+        <p class="t-desc">
+          A clean, role-based offboarding workflow covering systems access, equipment recovery, payroll status, and internal comms.
+        </p>
+        <div class="t-meta">
+          <span class="chip">People Ops</span>
+          <span class="chip">IT</span>
+          <span class="chip">Security</span>
+          <span class="chip">Medium</span>
+        </div>
+      </a>
+
+      <a class="t-card" href="template-manager-welcome.html" data-title="manager welcome packet onboarding">
         <div class="t-head">
           <h3 class="t-title">Manager Welcome Packet Workflow</h3>
           <span class="badge artifact">Produces artifact</span>
         </div>
-
         <p class="t-desc">
           Generates a manager-friendly prep packet when a new hire is created—first-week setup, expectations, and a simple 30/60/90 structure.
         </p>
-
         <div class="t-meta">
           <span class="chip">Onboarding</span>
           <span class="chip">Managers</span>
@@ -224,20 +258,49 @@
         </div>
       </a>
 
-      <!-- Offboarding -->
-      <a class="t-card" href="template-offboarding.html">
+      <a class="t-card is-disabled" href="#">
         <div class="t-head">
-          <h3 class="t-title">Employee Offboarding</h3>
+          <h3 class="t-title">Title & Compensation Change Alerts</h3>
+          <span class="badge soon">Coming soon</span>
         </div>
-
         <p class="t-desc">
-          Structured offboarding workflow covering system access, payroll status, equipment recovery, and internal notifications.
+          Controlled approvals and downstream notifications when title or compensation changes occur.
         </p>
-
         <div class="t-meta">
-          <span class="chip">People Ops</span>
-          <span class="chip">IT</span>
+          <span class="chip">Comp</span>
+          <span class="chip">Approvals</span>
           <span class="chip">Medium</span>
+        </div>
+      </a>
+
+      <a class="t-card is-disabled" href="#">
+        <div class="t-head">
+          <h3 class="t-title">Contract → Implementation Handoff</h3>
+          <span class="badge soon">Coming soon</span>
+        </div>
+        <p class="t-desc">
+          Standardized handoff from Sales and Legal into Implementation with required context and timelines.
+        </p>
+        <div class="t-meta">
+          <span class="chip">Implementation</span>
+          <span class="chip">Handoff</span>
+          <span class="chip">Medium</span>
+        </div>
+      </a>
+
+      <a class="t-card is-disabled" href="#">
+        <div class="t-head">
+          <h3 class="t-title">Compliance Acknowledgment Confirmation</h3>
+          <span class="badge artifact">Produces artifact</span>
+          <span class="badge soon">Coming soon</span>
+        </div>
+        <p class="t-desc">
+          Captures policy acknowledgment and generates a print-ready confirmation for audit readiness.
+        </p>
+        <div class="t-meta">
+          <span class="chip">Compliance</span>
+          <span class="chip">Audit</span>
+          <span class="chip">Easy</span>
         </div>
       </a>
 
@@ -247,3 +310,4 @@
 
 </body>
 </html>
+
