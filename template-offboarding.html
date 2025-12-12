@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <title>Template: Employee Offboarding | SyncToScale</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- GLOBAL STYLES -->
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- Nova / Botpress -->
+  <!-- NOVA / BOTPRESS -->
   <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
   <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
 </head>
 
 <body>
 
-<!-- SITE HEADER (LOCKED) -->
+<!-- LOCKED NAV BAR (DO NOT MODIFY) -->
 <header class="site-header">
   <div class="container header-inner">
-    <a href="index.html" class="logo">SyncToScale</a>
+    <a href="index.html" class="logo">
+      <span class="logo-mark">S</span>
+      <span class="logo-text">SyncToScale</span>
+    </a>
 
     <nav class="nav">
       <a href="index.html">Home</a>
       <a href="features.html">Features</a>
       <a href="pricing.html">Pricing</a>
-      <a href="about.html">About</a>
-      <a href="faq.html">FAQ</a>
+      <a href="docs.html">Docs</a>
       <a href="resources.html">Resources</a>
+      <a href="about.html">About</a>
     </nav>
   </div>
 </header>
@@ -42,56 +45,127 @@
     </nav>
 
     <!-- PAGE HEADER -->
-    <header class="page-header">
+    <section class="page-header">
       <div class="page-header-top">
         <h1>Employee Offboarding</h1>
         <span class="badge badge-nova">Template</span>
       </div>
 
       <p class="page-subtitle">
-        Standardize employee offboarding across HR, IT, and security. Automatically disable access,
-        collect assets, and log an auditable trail whenever someone leaves your company.
+        Standardize secure offboarding across HR, IT, and Security. Automatically disable access,
+        collect assets, notify stakeholders, and maintain an auditable trail — with Nova monitoring
+        for lingering risks.
       </p>
 
       <div class="page-meta-row">
-        <span class="pill pill-soft">Category: HR &amp; IT Security</span>
+        <span class="pill pill-soft">Category: HR & IT Security</span>
         <span class="pill pill-soft">Difficulty: Intermediate</span>
         <span class="pill pill-soft">Trigger: Termination event</span>
         <span class="pill pill-soft">Systems: HRIS · Identity · Ticketing · Slack</span>
       </div>
-    </header>
+    </section>
 
     <!-- MAIN GRID -->
     <section class="template-main-grid">
 
-      <!-- LEFT COLUMN -->
+      <!-- MAIN CONTENT -->
       <article class="template-main">
-        <!-- (CONTENT BELOW IS UNCHANGED) -->
-        <!-- OVERVIEW -->
-        <section id="overview" class="doc-section">
+
+        <section class="doc-section">
           <h2>Overview</h2>
           <p>
-            The <strong>Employee Offboarding</strong> template coordinates secure offboarding whenever an
-            employee is terminated or leaves the organization...
+            The <strong>Employee Offboarding</strong> template coordinates secure deprovisioning whenever
+            an employee leaves the organization. When a termination is recorded in the HRIS, SyncToScale
+            disables access, creates follow-up tickets, notifies stakeholders, and logs all actions for audit
+            purposes — while Nova flags any gaps or anomalies.
           </p>
         </section>
 
-        <!-- ALL REMAINING CONTENT UNCHANGED -->
-        <!-- (kept exactly as you provided) -->
+        <section class="doc-section">
+          <h2>How it works</h2>
+          <ol class="step-list">
+            <li>Termination is recorded in the HRIS.</li>
+            <li>SyncToScale validates termination details.</li>
+            <li>Identity and SSO access are revoked.</li>
+            <li>IT and Security tickets are created.</li>
+            <li>Notifications are sent to managers and People Ops.</li>
+            <li>All actions are logged for compliance.</li>
+          </ol>
+        </section>
+
+        <section class="doc-section">
+          <h2>Workflow steps</h2>
+          <ol class="step-list step-list-detailed">
+            <li>
+              <h3>Trigger: Termination event</h3>
+              <p>Runs when an employee’s status changes to a configured termination state.</p>
+            </li>
+            <li>
+              <h3>Validate termination data</h3>
+              <p>Nova checks last day, manager, location, and employment type.</p>
+            </li>
+            <li>
+              <h3>Disable identity & SSO</h3>
+              <p>Google Workspace / M365 and SSO sessions are disabled.</p>
+            </li>
+            <li>
+              <h3>Revoke application access</h3>
+              <p>High-risk systems are prioritized.</p>
+            </li>
+            <li>
+              <h3>Create IT & Security tickets</h3>
+              <p>Ensures equipment return and final access reviews.</p>
+            </li>
+            <li>
+              <h3>Notify stakeholders</h3>
+              <p>Slack or email summaries are sent.</p>
+            </li>
+          </ol>
+        </section>
+
+        <section class="doc-section">
+          <h2>Nova insights</h2>
+          <ul>
+            <li>Flags lingering access after termination.</li>
+            <li>Identifies departments with frequent exceptions.</li>
+            <li>Tracks average time-to-offboard.</li>
+            <li>Supports audit and access review reporting.</li>
+          </ul>
+        </section>
 
       </article>
 
-      <!-- RIGHT COLUMN -->
+      <!-- SIDEBAR -->
       <aside class="template-sidebar">
+
         <div class="card">
           <h3>Template summary</h3>
           <ul class="key-facts-list">
-            <li><strong>Primary trigger:</strong> Termination event in HRIS</li>
+            <li><strong>Trigger:</strong> Termination in HRIS</li>
             <li><strong>Runtime:</strong> Near real-time</li>
-            <li><strong>Best for:</strong> Compliance-focused orgs</li>
             <li><strong>Owner:</strong> IT · Security · People Ops</li>
+            <li><strong>Best for:</strong> Compliance-sensitive orgs</li>
           </ul>
         </div>
+
+        <div class="card">
+          <h3>Best practice defaults</h3>
+          <ul>
+            <li>Offboard on last working day.</li>
+            <li>Prioritize admin and finance tools.</li>
+            <li>Review exceptions monthly.</li>
+          </ul>
+        </div>
+
+        <div class="card nova-callout">
+          <h3>Nova helps you…</h3>
+          <ul>
+            <li>Catch missed access removals.</li>
+            <li>Explain offboarding actions to auditors.</li>
+            <li>Improve offboarding SLAs.</li>
+          </ul>
+        </div>
+
       </aside>
 
     </section>
