@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Manager Welcome Packet | SyncToScale</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* =========================================
+       PRINT-READY PACKET (HTML → PDF)
+       - Looks great on screen
+       - Exports cleanly via Print → Save as PDF
+    ========================================= */
+
+    .packet-wrap {
+      max-width: 900px;
+      margin: 36px auto 64px;
+      padding: 0 20px;
+    }
+
+    .packet-sheet {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 18px;
+      padding: 34px 34px;
+      box-shadow: 0 10px 24px rgba(15, 118, 110, 0.08),
+                  0 2px 6px rgba(0,0,0,0.04);
+    }
+
+    .packet-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+
+    .packet-badge {
+      display: inline-block;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #0f766e;
+      background: #ccfbf1;
+      border-radius: 999px;
+      padding: 7px 14px;
+      white-space: nowrap;
+    }
+
+    .packet-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .packet-btn {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      color: #0f172a;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 999px;
+      padding: 8px 14px;
+    }
+
+    .packet-btn:hover {
+      background: #f1f5f9;
+    }
+
+    .packet-title {
+      font-size: 34px;
+      font-weight: 750;
+      letter-spacing: -0.02em;
+      margin: 0 0 8px;
+      color: #0f172a;
+    }
+
+    .packet-subtitle {
+      font-size: 16px;
+      color: #475569;
+      line-height: 1.6;
+      margin: 0 0 22px;
+      max-width: 760px;
+    }
+
+    .packet-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      margin: 18px 0 26px;
+    }
+
+    .packet-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 16px 16px;
+      background: #ffffff;
+    }
+
+    .packet-card h3 {
+      margin: 0 0 10px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .kv {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      row-gap: 8px;
+      column-gap: 10px;
+      font-size: 14px;
+      color: #475569;
+    }
+
+    .kv .k {
+      color: #64748b;
+      font-weight: 600;
+    }
+
+    .callout {
+      background: linear-gradient(180deg, #e6fffa 0%, #ffffff 90%);
+      border: 1px solid #99f6e4;
+    }
+
+    .callout p {
+      margin: 0;
+      color: #0f172a;
+      font-size: 14.5px;
+      line-height: 1.6;
+    }
+
+    .section {
+      margin: 22px 0;
+      padding-top: 18px;
+      border-top: 1px solid #f1f5f9;
+    }
+
+    .section h2 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      font-weight: 750;
+      color: #0f172a;
+      letter-spacing: -0.01em;
+    }
+
+    .section p {
+      margin: 0 0 10px;
+      font-size: 14.8px;
+      color: #475569;
+      line-height: 1.7;
+    }
+
+    .bullets {
+      margin: 0;
+      padding-left: 18px;
+      color: #475569;
+      font-size: 14.8px;
+      line-height: 1.7;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .mini {
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 14px 14px;
+      background: #ffffff;
+    }
+
+    .mini h3 {
+      margin: 0 0 8px;
+      font-size: 14.5px;
+      font-weight: 750;
+      color: #0f172a;
+    }
+
+    .checklist li {
+      margin-bottom: 6px;
+    }
+
+    .footer-note {
+      margin-top: 18px;
+      font-size: 12.5px;
+      color: #64748b;
+    }
+
+    /* ---------- Print rules ---------- */
+    @media print {
+      .site-header { display: none !important; }
+      .packet-wrap { margin: 0; padding: 0; }
+      .packet-sheet {
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 0;
+      }
+      .packet-actions { display: none !important; }
+    }
+
+    @media (max-width: 820px) {
+      .packet-grid { grid-template-columns: 1fr; }
+      .two-col { grid-template-columns: 1fr; }
+      .kv { grid-template-columns: 110px 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR (LOCKED — DO NOT MODIFY) -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">SyncToScale</a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="docs.html">Docs</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="packet-wrap">
+    <div class="packet-sheet">
+
+      <div class="packet-topbar">
+        <span class="packet-badge">Manager Welcome Packet</span>
+
+        <div class="packet-actions">
+          <a class="packet-btn" href="template-manager-welcome.html">Back to Template</a>
+          <a class="packet-btn" href="#" onclick="window.print(); return false;">Print / Save PDF</a>
+        </div>
+      </div>
+
+      <h1 class="packet-title">Welcome — here’s what to prep before day one</h1>
+      <p class="packet-subtitle">
+        This packet is generated when a new hire is created. It gives you a clear, manager-friendly
+        guide to expectations, first-week setup, and a simple 30/60/90 structure.
+      </p>
+
+      <div class="packet-grid">
+        <div class="packet-card">
+          <h3>New Hire Overview</h3>
+          <div class="kv">
+            <div class="k">Role</div><div>(auto-filled from HRIS)</div>
+            <div class="k">Start Date</div><div>(auto-filled)</div>
+            <div class="k">Team</div><div>(auto-filled)</div>
+            <div class="k">Manager</div><div>(auto-filled)</div>
+          </div>
+        </div>
+
+        <div class="packet-card callout">
+          <h3>Nova Insights</h3>
+          <p>
+            Nova checks onboarding readiness and flags gaps (missing access, scheduling gaps,
+            and manager workload risk). If anything needs attention, you’ll be notified automatically.
+          </p>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Your Focus Before Day One</h2>
+        <ul class="bullets">
+          <li>Confirm required systems and tools are accessible</li>
+          <li>Schedule first-week meetings and introductions</li>
+          <li>Clarify role expectations and success signals</li>
+          <li>Align initial priorities with team goals</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>30 / 60 / 90-Day Guidance</h2>
+
+        <div class="two-col">
+          <div class="mini">
+            <h3>First 30 Days — Foundations</h3>
+            <ul class="bullets">
+              <li>Learn systems, workflows, and team norms</li>
+              <li>Complete required onboarding tasks</li>
+              <li>Establish a consistent 1:1 cadence</li>
+            </ul>
+          </div>
+
+          <div class="mini">
+            <h3>60 Days — Momentum</h3>
+            <ul class="bullets">
+              <li>Begin contributing independently</li>
+              <li>Build cross-functional relationships</li>
+              <li>Review performance goals and expectations</li>
+            </ul>
+          </div>
+
+          <div class="mini">
+            <h3>90 Days — Ownership</h3>
+            <ul class="bullets">
+              <li>Own responsibilities confidently</li>
+              <li>Evaluate progress against role expectations</li>
+              <li>Identify growth and development opportunities</li>
+            </ul>
+          </div>
+
+          <div class="mini">
+            <h3>Key Meetings & Milestones</h3>
+            <ul class="bullets">
+              <li>Day 1 welcome and team introduction</li>
+              <li>End-of-week check-in</li>
+              <li>30-day review</li>
+              <li>60-day progress discussion</li>
+              <li>90-day milestone review</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Manager Checklist</h2>
+        <ul class="bullets checklist">
+          <li>[ ] Review onboarding checklist</li>
+          <li>[ ] Confirm access to required systems</li>
+          <li>[ ] Schedule recurring check-ins</li>
+          <li>[ ] Share relevant documentation and resources</li>
+          <li>[ ] Provide feedback and guidance</li>
+        </ul>
+      </div>
+
+      <div class="footer-note">
+        © SyncToScale — Internal Use. Export this page via <strong>Print / Save PDF</strong>.
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
