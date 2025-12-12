@@ -1,11 +1,12 @@
 /* ======================================================
-   SYNC-TO-SCALE — UNIFIED DESIGN SYSTEM (FINAL)
-   Modern Light SaaS UI
+   SYNC-TO-SCALE — FINAL UNIFIED DESIGN SYSTEM
+   Modern Light SaaS (Design Style A)
 ====================================================== */
 
-/* ------------------------------
+/* ------------------------------------------------------
    BASE TOKENS
------------------------------- */
+------------------------------------------------------ */
+
 :root {
   --bg-light: #f8fafc;
   --bg-white: #ffffff;
@@ -13,24 +14,19 @@
   --text-dark: #1e293b;
   --text-medium: #475569;
 
+  --primary: #0ea5e9;
+  --primary-hover: #0284c7;
+
+  --nova-start: #41d1ff;
+  --nova-end: #21e19f;
+
+  --radius: 14px;
   --border-light: #e2e8f0;
 
-  --nova-teal: #21e19f;
-  --nova-blue: #41d1ff;
-  --deep-teal: #0b3d3d;
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.04);
+  --shadow-md: 0 6px 14px rgba(0,0,0,0.08);
 
-  --nav-height: 90px;
-}
-
-/* ------------------------------
-   GLOBAL RESET
------------------------------- */
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
+  --max-width: 1100px;
 }
 
 body {
@@ -40,223 +36,251 @@ body {
   color: var(--text-dark);
 }
 
-/* ------------------------------
-   STICKY NAV FIX (CRITICAL)
------------------------------- */
-h1,
-h2,
-h3,
-.doc-section {
-  scroll-margin-top: var(--nav-height);
-}
+/* ------------------------------------------------------
+   CONTAINERS
+------------------------------------------------------ */
 
-/* ------------------------------
-   LAYOUT
------------------------------- */
 .container {
-  max-width: 1100px;
-  margin: auto;
+  max-width: var(--max-width);
+  margin: 0 auto;
   padding: 0 20px;
 }
 
-.page-wrap {
-  padding-top: var(--nav-height);
+.section {
+  padding: 60px 0;
 }
 
-/* ------------------------------
-   NAVBAR (MATCHES INDEX)
------------------------------- */
+/* ------------------------------------------------------
+   NAVBAR
+------------------------------------------------------ */
+
 header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-light);
 }
 
-header .container {
+header .header-inner {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 18px 24px;
+  align-items: center;
+  height: 60px;
 }
 
-.logo {
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: var(--deep-teal);
+.logo-link {
+  color: var(--text-dark);
   text-decoration: none;
+  font-weight: 700;
+  font-size: 20px;
 }
 
 .nav a {
-  margin-left: 26px;
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--deep-teal);
+  margin-left: 20px;
   text-decoration: none;
-  border-bottom: 2px solid transparent;
-  padding-bottom: 4px;
-  transition: color .2s, border-bottom .2s;
-}
-
-.nav a:hover {
-  color: var(--nova-teal);
-  border-bottom-color: var(--nova-teal);
-}
-
-/* ------------------------------
-   BREADCRUMB
------------------------------- */
-.doc-breadcrumb {
-  font-size: 14px;
-  margin: 10px 0 24px;
-}
-
-.doc-breadcrumb a {
-  color: #6d28d9;
-  text-decoration: underline;
-}
-
-/* ------------------------------
-   PAGE HEADER
------------------------------- */
-.page-header {
-  margin-bottom: 32px;
-}
-
-.page-header h1 {
-  font-size: 36px;
-  margin-bottom: 8px;
-  color: var(--deep-teal);
-}
-
-.page-subtitle {
-  max-width: 720px;
   color: var(--text-medium);
+  font-weight: 500;
 }
 
-/* ------------------------------
-   TEMPLATE GRID
------------------------------- */
-.template-main-grid {
-  display: grid;
-  grid-template-columns: 1fr 320px;
-  gap: 32px;
+.nav a:hover,
+.nav .active {
+  color: var(--primary);
 }
 
-@media (max-width: 900px) {
-  .template-main-grid {
-    grid-template-columns: 1fr;
-  }
-}
+/* ------------------------------------------------------
+   HERO SECTIONS (shared)
+------------------------------------------------------ */
 
-/* ------------------------------
-   SIDEBAR CARDS
------------------------------- */
-.card {
-  background: var(--bg-white);
-  border-radius: 14px;
-  padding: 20px;
-  box-shadow: 0 4px 14px rgba(15,23,42,0.06);
-  margin-bottom: 20px;
-}
-
-/* ------------------------------
-   DOC SECTIONS
------------------------------- */
-.doc-section {
-  margin-bottom: 24px;
-}
-
-/* ------------------------------
-   ACCORDION / COLLAPSIBLE
------------------------------- */
-.collapsible-header {
-  all: unset;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  cursor: pointer;
-
-  background: var(--bg-light);
-  border: 1px solid var(--border-light);
-  border-radius: 12px;
-  padding: 16px 18px;
-  margin-bottom: 8px;
-
-  transition: background .2s, border-color .2s;
-}
-
-.collapsible-header:hover {
-  background: #eefdfb;
-  border-color: var(--nova-teal);
-}
-
-.collapsible-title h2 {
-  margin: 0;
-  font-size: 22px;
-}
-
-.hint {
-  font-size: 12px;
-  color: #64748b;
-  margin-top: 2px;
-}
-
-.collapsible.open .hint {
-  display: none;
-}
-
-.chevron {
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--deep-teal);
-  transition: transform .25s ease;
-}
-
-.collapsible.open .chevron {
-  transform: rotate(180deg);
-}
-
-.collapsible-content {
-  overflow: hidden;
-  padding: 0 18px 8px;
-  transition: max-height .3s ease, opacity .2s ease;
-}
-
-.collapsible:not(.open) .collapsible-content {
-  max-height: 0;
-  opacity: 0;
-}
-
-.collapsible.open .collapsible-content {
-  max-height: 4000px;
-  opacity: 1;
-}
-
-/* ------------------------------
-   LISTS & CODE
------------------------------- */
-.step-list li {
-  margin-bottom: 8px;
-}
-
-.code-block {
-  background: #f1f5f9;
-  border-radius: 12px;
-  padding: 16px;
-  overflow-x: auto;
-}
-
-/* ------------------------------
-   FOOTER
------------------------------- */
-footer {
-  margin-top: 60px;
-  background: var(--deep-teal);
-  color: #cbd5e1;
-  padding: 40px 20px;
+.page-hero {
+  padding: 60px 20px;
   text-align: center;
+  background: linear-gradient(180deg, #eefdfb 0%, #ffffff 90%);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.page-hero h1 {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.page-hero p {
+  font-size: 17px;
+  color: var(--text-medium);
+  max-width: 650px;
+  margin: 0 auto 20px;
+}
+
+/* CTA Button */
+.cta-btn {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--nova-start), var(--nova-end));
+  padding: 12px 26px;
+  border-radius: 10px;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.cta-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+/* ------------------------------------------------------
+   UNIVERSAL CARDS
+------------------------------------------------------ */
+
+.card,
+.resource-card,
+.doc-card,
+.template-card,
+.api-card {
+  background: var(--bg-white);
+  border-radius: var(--radius);
+  border: 1px solid var(--border-light);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  transition: 0.2s ease;
+  text-decoration: none;
+  color: var(--text-dark);
+}
+
+.card:hover,
+.resource-card:hover,
+.doc-card:hover,
+.template-card:hover,
+.api-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary);
+}
+
+.card h3,
+.resource-card h3,
+.doc-card h3,
+.template-card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* ------------------------------------------------------
+   GRID SYSTEMS
+------------------------------------------------------ */
+
+.resources-grid,
+.docs-grid,
+.template-grid,
+.api-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+/* ------------------------------------------------------
+   RESOURCES PAGE
+------------------------------------------------------ */
+
+.resources-hero {
+  padding: 60px 20px;
+  text-align: center;
+  background: linear-gradient(180deg, #eefdfb 0%, #ffffff 90%);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.resources-hero h1 {
+  font-size: 40px;
+  margin-bottom: 6px;
+}
+
+.resources-hero p {
+  font-size: 17px;
+  max-width: 600px;
+  margin: 0 auto 20px;
+}
+
+.icon-placeholder {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+/* ------------------------------------------------------
+   DOCS HOMEPAGE (Automation Style)
+------------------------------------------------------ */
+
+.docs-grid {
+  margin-top: 40px;
+}
+
+.doc-card p {
+  color: var(--text-medium);
+  font-size: 15px;
+}
+
+/* Code Blocks */
+pre {
+  background: #f1f5f9;
+  padding: 18px;
+  border-radius: 8px;
+  border: 1px solid var(--border-light);
+  overflow-x: auto;
+  font-size: 14px;
+}
+
+/* ------------------------------------------------------
+   FAQ (cleaned + minimal)
+------------------------------------------------------ */
+
+.faq-card {
+  border-radius: 14px;
+  box-shadow: var(--shadow-sm);
+  padding: 24px;
+}
+
+.faq-header {
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.faq-body {
+  display: none;
+  margin-top: 14px;
+  color: var(--text-medium);
+  font-size: 16px;
+}
+
+/* ------------------------------------------------------
+   BOTPRESS NOVA WIDGET
+------------------------------------------------------ */
+
+#bp-web-widget {
+  transform: scale(0.8);
+  transform-origin: bottom right;
+  right: 16px !important;
+  bottom: 16px !important;
+}
+
+#bp-web-widget .bpw-widget-container {
+  border-radius: 22px !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35) !important;
+  overflow: hidden !important;
+}
+
+#bp-web-widget iframe {
+  border-radius: 22px !important;
+}
+
+/* Full size on mobile */
+@media (max-width: 600px) {
+  #bp-web-widget {
+    transform: scale(1);
+    right: 0 !important;
+    bottom: 0 !important;
+  }
 }
