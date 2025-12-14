@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>How SyncToScale Works</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How SyncToScale Works | SyncToScale</title>
 
   <link rel="stylesheet" href="styles.css" />
 
@@ -13,197 +13,337 @@
 
   <style>
     .page-wrap {
-      max-width: 980px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 28px 18px 72px;
+      padding: 28px 18px 70px;
     }
 
-    .hero {
-      text-align: center;
-      padding: 44px 22px 40px;
-      border-radius: 18px;
+    /* HERO (Quickstart-aligned) */
+    .how-hero {
+      position: relative;
+      padding: 40px 22px 34px;
+      border-radius: 16px;
       background: linear-gradient(
         180deg,
-        rgba(65,209,255,0.14),
-        rgba(33,225,159,0.14),
-        #ffffff
+        rgba(33,225,159,0.14) 0%,
+        rgba(65,209,255,0.12) 60%,
+        #ffffff 100%
       );
       border: 1px solid #e2e8f0;
-      margin-bottom: 40px;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+      margin-top: 10px;
+      text-align: center;
     }
 
-    .hero h1 {
+    .hero-title {
       margin: 0 0 10px;
-      font-size: 36px;
+      font-size: 32px;
       color: #0f172a;
+      letter-spacing: -0.02em;
     }
 
-    .hero p {
-      max-width: 720px;
-      margin: 0 auto;
-      font-size: 16.5px;
+    .hero-sub {
+      max-width: 78ch;
+      font-size: 16px;
       color: #475569;
       line-height: 1.65;
+      margin: 0 auto;
     }
 
+    /* IMPLEMENTATION BANNER (under hero) */
+    .impl-banner {
+      max-width: 920px;
+      margin: 14px auto 0;
+      padding: 0 8px;
+    }
+
+    .impl-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 16px 16px;
+      border-radius: 16px;
+      background: linear-gradient(
+        180deg,
+        rgba(33,225,159,0.12) 0%,
+        rgba(255,255,255,0.98) 85%
+      );
+      border: 1px solid rgba(20,184,166,0.22);
+      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
+    }
+
+    .impl-card h2 {
+      margin: 0 0 4px;
+      font-size: 16.5px;
+      color: #0b3d3d;
+      letter-spacing: -0.01em;
+    }
+
+    .impl-card p {
+      margin: 0;
+      font-size: 14.5px;
+      color: #475569;
+      line-height: 1.5;
+      max-width: 62ch;
+    }
+
+    .impl-cta {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #053c3c;
+      text-decoration: none;
+      background: linear-gradient(135deg, #41d1ff, #21e19f);
+      box-shadow: 0 4px 14px rgba(33,225,159,0.35);
+      white-space: nowrap;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .impl-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(33,225,159,0.45);
+    }
+
+    /* SECTIONS */
     .section {
-      margin-bottom: 42px;
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+      background: #ffffff;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
     }
 
-    .section h2 {
-      margin-bottom: 10px;
-      font-size: 22px;
+    .section.soft {
+      background: linear-gradient(
+        180deg,
+        rgba(65,209,255,0.10) 0%,
+        rgba(255,255,255,0.98) 80%
+      );
+    }
+
+    .section.mint {
+      background: linear-gradient(
+        180deg,
+        rgba(33,225,159,0.12) 0%,
+        rgba(255,255,255,0.98) 85%
+      );
+    }
+
+    .section h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
       color: #0f172a;
     }
 
     .section p {
-      font-size: 15.5px;
+      margin: 0 0 10px;
       color: #475569;
-      line-height: 1.7;
-      margin-bottom: 10px;
+      font-size: 15px;
+      line-height: 1.6;
     }
 
-    .flow {
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .card {
+      grid-column: span 6;
+      background: rgba(255,255,255,0.95);
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 14px;
+    }
+
+    .card.full { grid-column: span 12; }
+
+    .card h4 {
+      margin: 0 0 6px;
+      font-size: 14.5px;
+      color: #0f172a;
+    }
+
+    .card p, .card li {
+      font-size: 14px;
+      color: #475569;
+      line-height: 1.55;
+    }
+
+    .card ul {
+      margin: 8px 0 0;
       padding-left: 18px;
-      font-size: 15.5px;
-      color: #475569;
-      line-height: 1.7;
     }
 
-    .flow li {
-      margin-bottom: 8px;
-    }
-
-    .impl-banner {
-      margin-top: 30px;
-      padding: 18px 20px;
-      border-radius: 16px;
-      background: linear-gradient(
-        180deg,
-        rgba(33,225,159,0.12),
-        rgba(255,255,255,0.98)
-      );
-      border: 1px solid rgba(20,184,166,0.22);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
-    .impl-banner h3 {
-      margin: 0 0 4px;
-      font-size: 18px;
-      color: #0b3d3d;
-    }
-
-    .impl-banner p {
+    .steps {
       margin: 0;
+      padding-left: 18px;
       font-size: 14.5px;
       color: #475569;
-      max-width: 60ch;
+      line-height: 1.6;
     }
 
-    .impl-banner a {
-      padding: 10px 16px;
-      font-size: 14px;
-      font-weight: 700;
-      color: #053c3c;
-      background: linear-gradient(135deg, #41d1ff, #21e19f);
-      border-radius: 12px;
-      text-decoration: none;
-      white-space: nowrap;
-    }
+    .steps li { margin-bottom: 8px; }
 
-    @media (max-width: 820px) {
-      .impl-banner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .impl-banner a {
-        width: 100%;
-        text-align: center;
-      }
+    @media (max-width: 860px) {
+      .card { grid-column: span 12; }
+      .hero-title { font-size: 26px; }
+      .impl-card { flex-direction: column; align-items: flex-start; }
+      .impl-cta { width: 100%; }
     }
   </style>
 </head>
 
 <body>
 
-<header class="site-header">
-  <div class="container header-inner">
-    <a href="index.html" class="logo">SyncToScale</a>
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="features.html">Features</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="docs.html">Docs</a>
-      <a href="resources.html">Resources</a>
-      <a href="about.html">About</a>
-    </nav>
-  </div>
-</header>
-
-<main class="page-wrap">
-
-  <section class="hero">
-    <h1>How SyncToScale Works</h1>
-    <p>
-      SyncToScale coordinates workflows across existing systems without replacing
-      sources of truth. It listens for events, validates data, orchestrates actions,
-      and produces human-ready outcomes.
-    </p>
-  </section>
-
-  <section class="section">
-    <h2>Event-driven orchestration</h2>
-    <p>
-      Everything in SyncToScale begins with an event — a record update, a lifecycle
-      change, or a system signal. Events trigger workflows that define what should
-      happen next and where.
-    </p>
-  </section>
-
-  <section class="section">
-    <h2>Sources of truth stay where they are</h2>
-    <p>
-      SyncToScale does not replace HR systems, CRMs, or ticketing tools. Each system
-      remains authoritative for the data it owns, reducing drift and conflict.
-    </p>
-  </section>
-
-  <section class="section">
-    <h2>What happens when an event occurs</h2>
-    <ul class="flow">
-      <li>An event is received from a connected system</li>
-      <li>Required fields and conditions are validated</li>
-      <li>Workflow logic determines next actions</li>
-      <li>Actions execute across connected tools</li>
-      <li>Human-ready artifacts or notifications are produced</li>
-    </ul>
-  </section>
-
-  <section class="section">
-    <h2>Where Nova fits</h2>
-    <p>
-      Nova assists by interpreting context, highlighting risk, and suggesting actions
-      — without taking control away from teams. Automation remains transparent and
-      reviewable.
-    </p>
-  </section>
-
-  <div class="impl-banner">
-    <div>
-      <h3>From setup to rollout</h3>
-      <p>
-        Learn what implementation looks like — including configuration, validation,
-        rollout, and ongoing ownership.
-      </p>
+  <!-- NAVBAR (LOCKED) -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">SyncToScale</a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="resources.html">Resources</a>
+      </nav>
     </div>
-    <a href="implementation.html">View implementation guide →</a>
-  </div>
+  </header>
 
-</main>
+  <main class="page-wrap">
+
+    <!-- HERO -->
+    <section class="how-hero">
+      <h1 class="hero-title">How SyncToScale Works</h1>
+      <p class="hero-sub">
+        SyncToScale coordinates workflows across the systems teams already use.
+        It listens for events, validates data, orchestrates actions, and produces
+        human-ready outcomes — without replacing your sources of truth.
+      </p>
+    </section>
+
+    <!-- IMPLEMENTATION CTA (directly under hero) -->
+    <div class="impl-banner">
+      <div class="impl-card">
+        <div>
+          <h2>From setup to rollout</h2>
+          <p>See what implementation looks like — configuration, validation, rollout, and ongoing ownership.</p>
+        </div>
+        <a class="impl-cta" href="implementation.html">View implementation guide →</a>
+      </div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <section class="section soft">
+      <h3>1) Events start everything</h3>
+      <p>
+        Workflows begin when a connected system emits an event — a record is created,
+        updated, or reaches a specific lifecycle state. SyncToScale uses that event
+        as the starting point for deterministic workflow logic.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h4>Common triggers</h4>
+          <ul>
+            <li>New hire created in HR/payroll</li>
+            <li>Deal stage changes in CRM</li>
+            <li>Ticket escalates or meets criteria</li>
+            <li>Form submission / internal request</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Why it matters</h4>
+          <p>
+            Events keep automation aligned to real operational changes — not manual
+            checklists or tribal knowledge.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section class="section mint">
+      <h3>2) Sources of truth stay where they are</h3>
+      <p>
+        SyncToScale does not replace your HRIS, CRM, ticketing system, or project tools.
+        Each system remains authoritative for the data it owns. Workflows are built to
+        respect ownership boundaries and reduce data drift.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h4>Practical outcome</h4>
+          <p>Fewer conflicts, fewer “double edits,” and clearer accountability.</p>
+        </div>
+
+        <div class="card">
+          <h4>Workflow design principle</h4>
+          <p>Validate before writing, and write only where the system is intended to be updated.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section class="section">
+      <h3>3) The execution flow</h3>
+      <p>
+        When an event occurs, SyncToScale follows a consistent execution pattern so teams
+        can predict outcomes and troubleshoot quickly.
+      </p>
+
+      <div class="grid">
+        <div class="card full">
+          <h4>Standard run sequence</h4>
+          <ol class="steps">
+            <li>Receive event from an integration</li>
+            <li>Validate required fields and conditions</li>
+            <li>Apply mapping rules and transformations</li>
+            <li>Execute actions across connected tools</li>
+            <li>Publish notifications and/or generate artifacts</li>
+            <li>Log results for auditing and operational visibility</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section class="section soft">
+      <h3>4) Where Nova fits</h3>
+      <p>
+        Nova supports teams by interpreting context and recommending next steps while keeping
+        workflows transparent. Nova can assist with classification, summaries, and decision
+        support — without claiming “live access” to external data.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h4>Examples</h4>
+          <ul>
+            <li>Summarize ticket context for routing</li>
+            <li>Highlight risk signals based on defined rules</li>
+            <li>Suggest workflow templates from plain-language intent</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Guardrail</h4>
+          <p>Automation remains reviewable. Human approvals can be inserted for high-impact actions.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
 </body>
 </html>
-
