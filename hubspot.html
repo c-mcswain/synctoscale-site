@@ -1,1 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>HubSpot Integration | SyncToScale</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Nova / Botpress -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
+  <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
+</head>
+
+<body>
+
+  <!-- LOCKED NAV BAR (reuse exact structure site-wide) -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">S</span>
+        <span class="logo-text">SyncToScale</span>
+      </a>
+
+      <nav class="nav">
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="docs.html">Docs</a>
+        <a href="integrations.html" class="active">Integrations</a>
+        <a href="templates.html">Templates</a>
+        <a href="resources.html">Resources</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+
+    <!-- QUICKSTART-STYLE HEADER -->
+    <section class="docs-hero">
+      <a href="integrations.html" class="back-pill">← Back to integrations</a>
+
+      <div class="integration-header">
+        <img
+          src="assets/synctoscale-icons/hubspot.svg"
+          onerror="this.src='assets/synctoscale-icons/hubspot.png'"
+          alt="HubSpot logo"
+          class="integration-logo"
+        />
+
+        <h1>HubSpot</h1>
+        <p>
+          Sync customer, deal, and lifecycle data between HubSpot and your
+          internal systems to keep sales, support, and operations aligned.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="docs-section">
+      <h2>What this integration is typically used for</h2>
+      <p>
+        The HubSpot integration is commonly used to connect CRM activity with
+        downstream tools such as ticketing systems, internal dashboards,
+        onboarding workflows, or billing platforms.
+      </p>
+      <p>
+        It allows teams to react to changes in deal stage, lifecycle status,
+        or contact ownership without relying on manual exports or ad-hoc reports.
+      </p>
+    </section>
+
+    <section class="docs-section">
+      <h2>Typical workflow patterns</h2>
+      <ul>
+        <li>Create or update internal records when a deal moves to a new stage</li>
+        <li>Sync new or updated contacts into downstream tools</li>
+        <li>Trigger onboarding workflows when a deal is marked “Closed Won”</li>
+        <li>Notify internal teams when lifecycle stages change</li>
+        <li>Maintain a source-of-truth CRM while syncing key fields elsewhere</li>
+      </ul>
+    </section>
+
+    <section class="docs-section">
+      <h2>Troubleshooting tips</h2>
+      <ul>
+        <li>Confirm the connected HubSpot account has access to required objects</li>
+        <li>Verify field mappings match expected data types</li>
+        <li>Check workflow triggers align with HubSpot pipeline stages</li>
+        <li>Ensure rate limits are respected during bulk updates</li>
+        <li>Review logs for skipped records caused by validation errors</li>
+      </ul>
+    </section>
+
+    <!-- FOOTER BACK PILL -->
+    <div class="docs-footer">
+      <a href="integrations.html" class="back-pill">← Back to integrations</a>
+    </div>
+
+  </main>
+
+</body>
+</html>
 
