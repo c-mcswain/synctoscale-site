@@ -90,7 +90,6 @@
       display: grid;
       place-items: center;
       box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);
-      overflow: hidden;
     }
 
     .int-logo img {
@@ -209,7 +208,7 @@
 
 <body>
 
-  <!-- NAVBAR (LOCKED — DO NOT MODIFY) -->
+  <!-- NAVBAR (LOCKED) -->
   <header>
     <div class="container">
       <a href="index.html" class="logo">SyncToScale</a>
@@ -229,21 +228,14 @@
     <!-- HERO -->
     <section class="int-hero">
       <div class="hero-pill-row">
-        <a class="pill" href="integrations.html">
-          <span class="dot"></span>
-          Back to Integrations
-        </a>
-        <span class="pill">
-          <span class="dot"></span>
-          Integration Detail
-        </span>
+        <a class="pill" href="integrations.html"><span class="dot"></span>Back to Integrations</a>
+        <span class="pill"><span class="dot"></span>Integration Detail</span>
       </div>
 
       <div class="hero-center">
         <div class="hero-title">
           <div class="int-logo">
             <img src="assets/synctoscale-icons/slack.svg"
-                 alt=""
                  onerror="this.onerror=null;this.src='assets/synctoscale-icons/slack.png';" />
           </div>
           <h1>Slack</h1>
@@ -258,8 +250,49 @@
       </div>
     </section>
 
-    <!-- CONTENT SECTIONS REMAIN UNCHANGED -->
-    <!-- (What Slack is used for, patterns, auth, mapping, troubleshooting, scope) -->
+    <!-- WHAT SLACK IS USED FOR -->
+    <section class="section soft">
+      <h2>What Slack is typically used for</h2>
+      <p>
+        Slack often serves as the final destination for operational signals — turning system changes
+        into messages, alerts, and coordination points.
+      </p>
+
+      <div class="grid">
+        <div class="card"><h3>Operational notifications</h3><p>Alerts for key events like hires, tickets, or workflow failures.</p></div>
+        <div class="card"><h3>Onboarding coordination</h3><p>Welcome messages and task routing to relevant teams.</p></div>
+        <div class="card"><h3>Workflow visibility</h3><p>Status updates to reduce automation blind spots.</p></div>
+      </div>
+    </section>
+
+    <!-- TYPICAL PATTERNS -->
+    <section class="section mint">
+      <h2>Typical workflow patterns</h2>
+      <div class="grid">
+        <div class="card"><h3>HR → Slack</h3><p>New hire notifications and onboarding reminders.</p></div>
+        <div class="card"><h3>Support → Slack</h3><p>Escalation alerts and incident updates.</p></div>
+        <div class="card full"><h3>Workflow health alerts</h3><p>Notifications when workflows pause or fail.</p></div>
+      </div>
+    </section>
+
+    <!-- TROUBLESHOOTING -->
+    <section class="section">
+      <h2>Troubleshooting tips</h2>
+      <ul class="checklist">
+        <li>Verify the Slack workspace and token.</li>
+        <li>Confirm the app has permission to post to the channel.</li>
+        <li>Check mapped fields used in messages.</li>
+        <li>Review audit logs for error context.</li>
+      </ul>
+    </section>
+
+    <!-- FOOTER -->
+    <section class="section">
+      <div class="footer-links">
+        <a class="pill" href="integrations.html"><span class="dot"></span>Back to Integrations</a>
+        <a class="pill" href="resources.html"><span class="dot"></span>Resources</a>
+      </div>
+    </section>
 
   </main>
 </body>
