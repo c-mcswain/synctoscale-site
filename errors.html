@@ -1,230 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Error Handling | SyncToScale Docs</title>
+  <title>Errors | SyncToScale Docs</title>
 
   <link rel="stylesheet" href="styles.css" />
 
   <!-- Nova Botpress Webchat -->
   <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
   <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
+
+  <style>
+    .page-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 18px 64px;
+    }
+
+    /* HERO */
+    .docs-hero {
+      position: relative;
+      text-align: center;
+      padding: 40px 20px 28px;
+      border-radius: 16px;
+      background: linear-gradient(
+        180deg,
+        rgba(33,225,159,0.14) 0%,
+        rgba(65,209,255,0.12) 60%,
+        #ffffff 100%
+      );
+      border: 1px solid rgba(148,163,184,0.35);
+      box-shadow: 0 10px 22px rgba(15,23,42,0.06);
+      margin-bottom: 26px;
+    }
+
+    .back-pill {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 500;
+      border-radius: 999px;
+      text-decoration: none;
+      color: #0f172a;
+      background: linear-gradient(135deg, #41d1ff, #21e19f);
+      box-shadow: 0 4px 10px rgba(15,23,42,0.12);
+    }
+
+    .docs-hero h1 {
+      margin: 0 0 8px;
+      font-size: 34px;
+      color: #0f172a;
+    }
+
+    .docs-hero p {
+      margin: 0 auto;
+      max-width: 820px;
+      font-size: 16px;
+      color: #475569;
+      line-height: 1.55;
+    }
+
+    /* METHOD PILLS (HEADER) */
+    .method-legend {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 14px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: #475569;
+      background: rgba(255,255,255,0.85);
+      border: 1px solid rgba(148,163,184,0.35);
+      border-radius: 999px;
+      padding: 6px 12px;
+    }
+
+    .pill {
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      color: #0f172a;
+      white-space: nowrap;
+    }
+
+    .pill.get {
+      background: linear-gradient(
+        135deg,
+        rgba(65,209,255,0.9),
+        rgba(148,197,255,0.9)
+      );
+    }
+
+    /* CONTENT */
+    .section {
+      margin-top: 24px;
+      padding: 20px;
+      border-radius: 16px;
+      background: #ffffff;
+      border: 1px solid rgba(148,163,184,0.35);
+    }
+
+    .section h2 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      color: #0f172a;
+    }
+
+    .section p,
+    .section li {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #475569;
+    }
+
+    .section ul {
+      margin: 10px 0 0 18px;
+    }
+
+    /* CODE BLOCK */
+    .code-block {
+      position: relative;
+      margin-top: 12px;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 12px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      background:
+        linear-gradient(#ffffff, #ffffff) padding-box,
+        linear-gradient(135deg, #41d1ff, #21e19f) border-box;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    pre {
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(148,163,184,0.35);
+      background: rgba(248,250,252,0.95);
+      overflow-x: auto;
+      font-size: 13px;
+      line-height: 1.55;
+      color: #0f172a;
+    }
+
+    code {
+      background: rgba(148,163,184,0.15);
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-size: 13px;
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
+  <!-- 🔒 LOCKED NAV BAR -->
   <header class="site-header">
     <div class="container header-inner">
-
-      <div class="logo">
-        <a href="index.html" class="logo-link">SyncToScale</a>
-      </div>
-
+      <a href="index.html" class="logo">SyncToScale</a>
       <nav class="nav">
         <a href="index.html">Home</a>
         <a href="features.html">Features</a>
         <a href="pricing.html">Pricing</a>
-        <a href="faq.html">FAQ</a>
+        <a href="docs.html">Docs</a>
         <a href="resources.html">Resources</a>
         <a href="about.html">About</a>
       </nav>
-
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="page-hero">
-    <h1>Error Handling</h1>
-    <p>
-      SyncToScale identifies, classifies, retries, and surfaces workflow errors
-      to ensure stable automation across systems. Nova assists with diagnosing
-      root causes and recommending fixes.
-    </p>
-  </section>
+  <main class="page-wrap">
 
-  <!-- CONTENT -->
-  <section class="doc-container">
+    <!-- HERO -->
+    <section class="docs-hero">
+      <a href="docs.html" class="back-pill">← Back to docs</a>
+      <h1>Errors</h1>
+      <p>
+        When workflows fail or requests cannot be processed, SyncToScale
+        returns structured error responses you can inspect and act on.
+      </p>
 
-    <h2>Overview</h2>
-    <p>
-      Errors can occur at any stage of a workflow: authentication, mapping, provider calls,
-      rate limits, or internal validations. SyncToScale uses structured error handling to
-      minimize disruption and provide clear visibility into what went wrong.
-    </p>
+      <div class="method-legend">
+        <div class="legend-item">
+          <span class="pill get">GET</span>
+          Retrieve error details for a run
+        </div>
+      </div>
+    </section>
 
-    <hr />
+    <!-- CONTENT -->
+    <section class="section">
+      <h2>Error responses</h2>
+      <p>
+        Errors are returned with a consistent structure so they can be logged,
+        surfaced to users, or routed for retry and remediation.
+      </p>
 
-    <h2>Common Error Types</h2>
-
-    <h3>400 – Bad Request</h3>
-    <p>
-      Triggered when the outgoing action payload is invalid or missing required fields.
-    </p>
-<pre>
-{
-  "error": "invalid_payload",
-  "details": "Missing required field: last_name"
-}
-</pre>
-
-    <h3>401 – Unauthorized</h3>
-    <p>
-      Occurs when a connection token is expired or revoked.
-    </p>
-
-    <h3>403 – Forbidden</h3>
-    <p>
-      The connection lacks the necessary scopes/permissions for the operation.
-    </p>
-
-    <h3>404 – Not Found</h3>
-    <p>
-      The target record does not exist in the destination system.
-    </p>
-
-    <h3>409 – Conflict</h3>
-    <p>
-      Indicates duplicates, version conflicts, or concurrency issues.
-    </p>
-
-    <h3>429 – Rate Limited</h3>
-    <p>
-      Provider has throttled requests. SyncToScale applies exponential backoff and retry logic.
-    </p>
-
-    <h3>500 / 503 – Provider Outage</h3>
-    <p>
-      Remote system is unstable or unavailable. Automatic retries and alerts are triggered.
-    </p>
-
-    <hr />
-
-    <h2>Retry Logic</h2>
-    <p>
-      SyncToScale retries certain transient failures automatically:
-    </p>
-
-    <ul>
-      <li>Rate limits</li>
-      <li>Network instability</li>
-      <li>Provider 500/503 errors</li>
-      <li>Temporary throttling</li>
-    </ul>
-
-<pre>
-{
-  "retry_strategy": {
-    "max_attempts": 5,
-    "backoff": "exponential",
-    "initial_delay_ms": 2000
-  }
-}
-</pre>
-
-    <p>
-      Non-retryable errors (invalid mappings, permission issues, missing fields)
-      fail immediately with actionable details.
-    </p>
-
-    <hr />
-
-    <h2>Mapping & Payload Failures</h2>
-    <p>
-      Many workflow failures are caused by incorrect or incomplete mappings.
-    </p>
-
-    <ul>
-      <li>Missing required destination fields</li>
-      <li>Incorrect data types (string vs number vs date)</li>
-      <li>Invalid enum values</li>
-      <li>Null values where the provider requires non-null</li>
-      <li>Unnormalized schemas</li>
-    </ul>
-
-<pre>
-{
-  "error": "mapping_error",
-  "field": "start_date",
-  "expected": "YYYY-MM-DD",
-  "received": "12/01/2025"
-}
-</pre>
-
-    <p>
-      Nova provides suggested corrections for mapping issues.
-    </p>
-
-    <hr />
-
-    <h2>Nova-Assisted Error Classification</h2>
-    <p>
-      Nova analyzes payloads, connection states, provider responses, and mapping structures to:
-    </p>
-
-    <ul>
-      <li>Identify the root cause</li>
-      <li>Group similar failures</li>
-      <li>Recommend mapping or schema changes</li>
-      <li>Highlight missing permissions/scopes</li>
-      <li>Detect provider outages or rate limits early</li>
-    </ul>
-
-<pre>
-Nova Insight:
-{
-  "likely_cause": "Insufficient Permission",
-  "missing_scope": "users.write",
-  "recommended_fix": "Re-authenticate with required scope"
-}
-</pre>
-
-    <hr />
-
-    <h2>Error State Representation</h2>
-    <p>
-      SyncToScale uses structured error states to make troubleshooting easier.
-    </p>
-
-    <ul>
-      <li><strong>Transient Failure</strong> – Retry automatically.</li>
-      <li><strong>Permanent Failure</strong> – Requires user action.</li>
-      <li><strong>Authentication Failure</strong> – Connection invalid.</li>
-      <li><strong>Mapping Failure</strong> – Requires field correction.</li>
-      <li><strong>Provider Outage</strong> – Wait until system recovers.</li>
-    </ul>
-
-<pre>
-{
-  "status": "permanent_failure",
-  "error_code": "invalid_permission",
-  "message": "User lacks write access to Tickets"
-}
-</pre>
-
-    <hr />
-
-    <h2>Workflow Failure Example</h2>
-
-<pre>
-{
-  "workflow": "new-hire-sync",
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+<pre>{
+  "run_id": "run_456",
   "step": "create_user",
-  "provider": "google_workspace",
-  "attempts": 3,
-  "status": "failed",
-  "error": "rate_limit_exceeded",
-  "next_retry": "2025-01-20T15:41:00Z"
-}
-</pre>
+  "error_code": "invalid_permission",
+  "message": "User lacks write access to directory"
+}</pre>
+      </div>
+    </section>
 
-    <p>
-      The error log shows backoff behavior and next retry timestamp.
-    </p>
+    <section class="section">
+      <h2>Looking up errors by run</h2>
+      <p>
+        Use the run identifier to fetch detailed error information
+        after a workflow has completed or failed.
+      </p>
 
-  </section>
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+<pre>GET /errors/{run_id}</pre>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Common error categories</h2>
+      <ul>
+        <li><strong>authentication_failed</strong> — credentials are missing or invalid</li>
+        <li><strong>invalid_permission</strong> — connection lacks required scopes</li>
+        <li><strong>mapping_error</strong> — payload does not match expected schema</li>
+        <li><strong>rate_limited</strong> — request exceeded allowed limits</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <script>
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const code = btn.nextElementSibling.innerText;
+        navigator.clipboard.writeText(code);
+        btn.textContent = 'Copied ✓';
+        setTimeout(() => btn.textContent = 'Copy', 1500);
+      });
+    });
+  </script>
 
 </body>
 </html>
