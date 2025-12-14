@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Changelog | SyncToScale</title>
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Nova Botpress Webchat -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
+  <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
+
+  <style>
+    .page-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 18px 72px;
+    }
+
+    /* HERO */
+    .changelog-hero {
+      position: relative;
+      text-align: center;
+      padding: 36px 22px 34px;
+      border-radius: 16px;
+      background: linear-gradient(
+        180deg,
+        rgba(65,209,255,0.14) 0%,
+        rgba(33,225,159,0.14) 60%,
+        #ffffff 100%
+      );
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 10px 22px rgba(15,23,42,0.06);
+      margin-bottom: 32px;
+    }
+
+    .back-pill {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 500;
+      border-radius: 999px;
+      text-decoration: none;
+      color: #0f172a;
+      background: linear-gradient(135deg, #41d1ff, #21e19f);
+      box-shadow: 0 4px 10px rgba(15,23,42,0.12);
+    }
+
+    .changelog-hero h1 {
+      margin: 0 0 8px;
+      font-size: 36px;
+      color: #0f172a;
+    }
+
+    .changelog-hero p {
+      margin: 0 auto;
+      max-width: 760px;
+      font-size: 16px;
+      color: #475569;
+      line-height: 1.6;
+    }
+
+    /* CONTENT */
+    .log-entry {
+      max-width: 900px;
+      margin: 0 auto 36px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .log-entry:last-child {
+      border-bottom: none;
+    }
+
+    .log-date {
+      font-size: 14px;
+      font-weight: 600;
+      color: #334155;
+      margin-bottom: 6px;
+    }
+
+    .log-version {
+      font-size: 13px;
+      color: #64748b;
+      margin-bottom: 12px;
+    }
+
+    .log-section {
+      margin-bottom: 10px;
+    }
+
+    .log-section h3 {
+      font-size: 15px;
+      margin: 14px 0 6px;
+      color: #0f172a;
+    }
+
+    .log-section ul {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 14.5px;
+      color: #475569;
+      line-height: 1.6;
+    }
+
+    .log-section li {
+      margin-bottom: 6px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 🔒 LOCKED NAV BAR -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">SyncToScale</a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="docs.html">Docs</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+
+    <!-- HERO -->
+    <section class="changelog-hero">
+      <a href="resources.html" class="back-pill">← Back to resources</a>
+      <h1>Changelog</h1>
+      <p>
+        A running record of notable changes, improvements, and fixes made to the
+        SyncToScale platform.
+      </p>
+    </section>
+
+    <!-- ENTRY -->
+    <section class="log-entry">
+      <div class="log-date">January 2025</div>
+      <div class="log-version">v0.9.0</div>
+
+      <div class="log-section">
+        <h3>Added</h3>
+        <ul>
+          <li>Integration detail pages for HubSpot, Salesforce, Notion, Asana, and Google Workspace.</li>
+          <li>Dedicated Webhooks integration documentation outlining validation and retry patterns.</li>
+          <li>Expanded Security page covering access control, incident response, and shared responsibility.</li>
+        </ul>
+      </div>
+
+      <div class="log-section">
+        <h3>Improved</h3>
+        <ul>
+          <li>Standardized integration page layout to align with Docs / Quickstart patterns.</li>
+          <li>Clarified troubleshooting guidance across integration detail pages.</li>
+          <li>Navigation consistency across Resources, Docs, and Integrations.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ENTRY -->
+    <section class="log-entry">
+      <div class="log-date">December 2024</div>
+      <div class="log-version">v0.8.2</div>
+
+      <div class="log-section">
+        <h3>Added</h3>
+        <ul>
+          <li>Initial Integrations library with Slack, Jira, BambooHR, and Gusto.</li>
+          <li>Workflow Templates library with printable, recruiter-friendly artifacts.</li>
+        </ul>
+      </div>
+
+      <div class="log-section">
+        <h3>Improved</h3>
+        <ul>
+          <li>Refined Resources page structure to separate Docs, Templates, and Integrations.</li>
+          <li>Improved Nova Botpress widget styling and placement.</li>
+        </ul>
+      </div>
+
+      <div class="log-section">
+        <h3>Fixed</h3>
+        <ul>
+          <li>Navigation overlap issues on mobile viewports.</li>
+          <li>Inconsistent spacing across template detail pages.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ENTRY -->
+    <section class="log-entry">
+      <div class="log-date">November 2024</div>
+      <div class="log-version">v0.7.0</div>
+
+      <div class="log-section">
+        <h3>Added</h3>
+        <ul>
+          <li>Initial SyncToScale site structure and design system.</li>
+          <li>Core Docs sections covering authentication, triggers, actions, and mappings.</li>
+        </ul>
+      </div>
+
+      <div class="log-section">
+        <h3>Improved</h3>
+        <ul>
+          <li>Base styles.css tokens for a consistent light SaaS UI.</li>
+          <li>Global navigation and layout responsiveness.</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>
