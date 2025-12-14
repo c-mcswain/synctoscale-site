@@ -80,10 +80,6 @@
       background: linear-gradient(135deg, #41d1ff, #21e19f);
     }
 
-    .legend-dot.progress {
-      background: rgba(148,163,184,0.9);
-    }
-
     /* GRID */
     .templates-grid {
       display: grid;
@@ -156,11 +152,6 @@
       background: rgba(33,225,159,0.10);
     }
 
-    .badge.progress {
-      color: #475569;
-      background: rgba(148,163,184,0.12);
-    }
-
     .t-desc {
       font-size: 13.5px;
       color: #475569;
@@ -221,13 +212,14 @@
     </section>
 
     <div class="templates-legend">
-      <span class="legend-pill"><span class="legend-dot artifact"></span>Produces artifact</span>
-      <span class="legend-pill"><span class="legend-dot progress"></span>In progress</span>
+      <span class="legend-pill">
+        <span class="legend-dot artifact"></span>
+        Produces artifact
+      </span>
     </div>
 
     <section class="templates-grid">
 
-      <!-- ACTIVE / BUILT -->
       <a class="t-card" href="template-offboarding.html">
         <div class="t-head">
           <h3 class="t-title">Employee Offboarding</h3>
@@ -261,7 +253,6 @@
         <div class="t-head">
           <h3 class="t-title">Pre-Start Checklist</h3>
           <div class="t-badges">
-            <span class="badge progress">In progress</span>
             <span class="badge">Workflow</span>
           </div>
         </div>
@@ -287,12 +278,10 @@
         <div class="t-footer"><span>Template details</span><span>→</span></div>
       </a>
 
-      <!-- CLICKABLE / IN PROGRESS (STILL ACTIVE) -->
       <a class="t-card" href="template-contract-handoff.html">
         <div class="t-head">
           <h3 class="t-title">Contract → Implementation Handoff</h3>
           <div class="t-badges">
-            <span class="badge progress">In progress</span>
             <span class="badge">Workflow</span>
           </div>
         </div>
@@ -307,7 +296,6 @@
         <div class="t-head">
           <h3 class="t-title">Title & Compensation Change Alerts</h3>
           <div class="t-badges">
-            <span class="badge progress">In progress</span>
             <span class="badge">Workflow</span>
           </div>
         </div>
