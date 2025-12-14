@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nova AI Assistant | SyncToScale</title>
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Nova Botpress Webchat -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
+  <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
+
+  <style>
+    .page-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 18px 72px;
+    }
+
+    /* HERO */
+    .nova-hero {
+      position: relative;
+      text-align: center;
+      padding: 38px 22px 36px;
+      border-radius: 16px;
+      background: linear-gradient(
+        180deg,
+        rgba(65,209,255,0.16) 0%,
+        rgba(33,225,159,0.14) 60%,
+        #ffffff 100%
+      );
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 10px 22px rgba(15,23,42,0.06);
+      margin-bottom: 36px;
+    }
+
+    .back-pill {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 500;
+      border-radius: 999px;
+      text-decoration: none;
+      color: #0f172a;
+      background: linear-gradient(135deg, #41d1ff, #21e19f);
+      box-shadow: 0 4px 10px rgba(15,23,42,0.12);
+    }
+
+    .nova-hero h1 {
+      margin: 0 0 10px;
+      font-size: 36px;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+    }
+
+    .nova-hero p {
+      margin: 0 auto;
+      max-width: 820px;
+      font-size: 16px;
+      color: #475569;
+      line-height: 1.6;
+    }
+
+    /* CONTENT */
+    .nova-section {
+      max-width: 900px;
+      margin: 0 auto 42px;
+    }
+
+    .nova-section h2 {
+      margin: 36px 0 10px;
+      font-size: 22px;
+      color: #0f172a;
+    }
+
+    .nova-section p {
+      margin: 0 0 14px;
+      font-size: 15px;
+      color: #475569;
+      line-height: 1.65;
+    }
+
+    .nova-list {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      font-size: 15px;
+      color: #475569;
+      line-height: 1.65;
+    }
+
+    .nova-list li {
+      margin-bottom: 8px;
+    }
+
+    .callout {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: 14px;
+      background: rgba(148,163,184,0.12);
+      color: #334155;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .capabilities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .capability-card {
+      padding: 18px;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+      background: #ffffff;
+    }
+
+    .capability-card h3 {
+      margin: 0 0 6px;
+      font-size: 16px;
+      color: #0f172a;
+    }
+
+    .capability-card p {
+      font-size: 14px;
+      color: #475569;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 🔒 LOCKED NAV BAR -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">SyncToScale</a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="docs.html">Docs</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+
+    <!-- HERO -->
+    <section class="nova-hero">
+      <a href="resources.html" class="back-pill">← Back to resources</a>
+      <h1>Nova AI Assistant</h1>
+      <p>
+        Nova is SyncToScale’s embedded AI assistant, designed to support teams
+        as they build, debug, and operate automated workflows across tools.
+      </p>
+    </section>
+
+    <!-- OVERVIEW -->
+    <section class="nova-section">
+      <h2>What Nova Does</h2>
+      <p>
+        Nova acts as an intelligent support layer within the platform — helping
+        users understand workflows, resolve errors, and make informed decisions
+        without leaving their context.
+      </p>
+    </section>
+
+    <!-- CAPABILITIES -->
+    <section class="nova-section">
+      <h2>Core Capabilities</h2>
+
+      <div class="capabilities-grid">
+        <div class="capability-card">
+          <h3>Workflow Guidance</h3>
+          <p>
+            Explains workflow steps, triggers, and actions in plain language
+            to reduce setup time and confusion.
+          </p>
+        </div>
+
+        <div class="capability-card">
+          <h3>Error Interpretation</h3>
+          <p>
+            Translates technical errors into actionable explanations with
+            suggested fixes.
+          </p>
+        </div>
+
+        <div class="capability-card">
+          <h3>Mapping Suggestions</h3>
+          <p>
+            Assists with data mapping by suggesting field alignments
+            across systems.
+          </p>
+        </div>
+
+        <div class="capability-card">
+          <h3>Operational Support</h3>
+          <p>
+            Helps teams understand execution logs, retries, and system
+            behavior during incidents.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- KNOWLEDGE -->
+    <section class="nova-section">
+      <h2>Knowledge & Context</h2>
+      <p>
+        Nova’s responses are grounded in platform documentation, workflow
+        metadata, and integration context. As the knowledge library expands,
+        Nova becomes increasingly tailored to real operational scenarios.
+      </p>
+
+      <div class="callout">
+        The knowledge library powering Nova is designed to be continuously
+        updated as workflows, integrations, and best practices evolve.
+      </div>
+    </section>
+
+    <!-- SAFETY -->
+    <section class="nova-section">
+      <h2>Safety & Boundaries</h2>
+      <ul class="nova-list">
+        <li>Nova does not execute workflows or make changes without user action.</li>
+        <li>Responses are scoped to available permissions and context.</li>
+        <li>Sensitive data is not surfaced beyond authorized views.</li>
+      </ul>
+    </section>
+
+  </main>
+
+</body>
+</html>
