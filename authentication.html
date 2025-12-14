@@ -32,7 +32,7 @@
       );
       border: 1px solid rgba(148,163,184,0.35);
       box-shadow: 0 10px 22px rgba(15,23,42,0.06);
-      margin-bottom: 18px;
+      margin-bottom: 26px;
     }
 
     .back-pill {
@@ -63,36 +63,25 @@
       line-height: 1.55;
     }
 
-    /* METHOD LEGEND */
+    /* METHOD PILLS (HEADER) */
     .method-legend {
-      max-width: 980px;
-      margin: 0 auto 28px;
-      padding: 16px 18px;
-      border-radius: 14px;
-      border: 1px solid rgba(148,163,184,0.35);
-      background: rgba(248,250,252,0.85);
-    }
-
-    .method-legend h3 {
-      margin: 0 0 10px;
-      font-size: 14px;
-      color: #0f172a;
-      font-weight: 600;
-    }
-
-    .method-pills {
       display: flex;
-      gap: 16px;
+      gap: 12px;
       flex-wrap: wrap;
-      margin-bottom: 8px;
+      justify-content: center;
+      margin-top: 14px;
     }
 
-    .method-item {
+    .legend-item {
       display: flex;
       align-items: center;
       gap: 8px;
       font-size: 14px;
       color: #475569;
+      background: rgba(255,255,255,0.85);
+      border: 1px solid rgba(148,163,184,0.35);
+      border-radius: 999px;
+      padding: 6px 12px;
     }
 
     .pill {
@@ -105,55 +94,51 @@
     }
 
     .pill.post {
-      background: linear-gradient(135deg, rgba(33,225,159,0.9), rgba(65,209,255,0.9));
+      background: linear-gradient(
+        135deg,
+        rgba(33,225,159,0.9),
+        rgba(65,209,255,0.9)
+      );
     }
 
     .pill.get {
-      background: linear-gradient(135deg, rgba(65,209,255,0.9), rgba(99,102,241,0.9));
-    }
-
-    .method-note {
-      font-size: 13px;
-      color: #64748b;
-      margin: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(65,209,255,0.9),
+        rgba(148,197,255,0.9)
+      );
     }
 
     /* CONTENT */
-    .doc-section {
-      max-width: 980px;
-      margin: 0 auto;
+    .section {
+      margin-top: 24px;
+      padding: 20px;
+      border-radius: 16px;
+      background: #ffffff;
+      border: 1px solid rgba(148,163,184,0.35);
     }
 
-    .doc-section h2 {
-      margin: 34px 0 10px;
+    .section h2 {
+      margin: 0 0 10px;
       font-size: 22px;
       color: #0f172a;
-      display: flex;
-      align-items: center;
-      gap: 10px;
     }
 
-    .doc-section p,
-    .doc-section li {
-      color: #475569;
+    .section p,
+    .section li {
       font-size: 15px;
-      line-height: 1.65;
+      line-height: 1.6;
+      color: #475569;
     }
 
-    ul {
-      padding-left: 20px;
-    }
-
-    hr {
-      border: none;
-      border-top: 1px solid rgba(148,163,184,0.35);
-      margin: 28px 0;
+    .section ul {
+      margin: 10px 0 0 18px;
     }
 
     /* CODE BLOCK */
     .code-block {
       position: relative;
-      margin: 12px 0 14px;
+      margin-top: 12px;
     }
 
     .copy-btn {
@@ -167,12 +152,8 @@
       background:
         linear-gradient(#ffffff, #ffffff) padding-box,
         linear-gradient(135deg, #41d1ff, #21e19f) border-box;
-      font-weight: 600;
       cursor: pointer;
-    }
-
-    .copy-btn.copied {
-      background: linear-gradient(135deg, #41d1ff, #21e19f);
+      font-weight: 600;
     }
 
     pre {
@@ -212,128 +193,60 @@
       <a href="docs.html" class="back-pill">← Back to docs</a>
       <h1>Authentication</h1>
       <p>
-        SyncToScale supports OAuth 2.0, API key authentication, and scoped access.
-        This guide explains how connections are created, refreshed, validated, and monitored.
+        All SyncToScale API requests require authentication using a project API key.
+        Keys identify your workspace and control access to workflows and integrations.
       </p>
-    </section>
 
-    <!-- METHOD LEGEND -->
-    <section class="method-legend">
-      <h3>HTTP Methods at a Glance</h3>
-      <div class="method-pills">
-        <div class="method-item">
+      <div class="method-legend">
+        <div class="legend-item">
           <span class="pill post">POST</span>
-          <span>Sends data to create, run, or process something</span>
+          Authenticated requests
         </div>
-        <div class="method-item">
+        <div class="legend-item">
           <span class="pill get">GET</span>
-          <span>Retrieves information without changing anything</span>
+          Authorized data access
         </div>
       </div>
-      <p class="method-note">
-        Most examples below show how SyncToScale receives data or manages authentication programmatically.
-      </p>
     </section>
 
     <!-- CONTENT -->
-    <section class="doc-section">
-
-      <h2>Overview</h2>
+    <section class="section">
+      <h2>Using your API key</h2>
       <p>
-        Every integration in SyncToScale begins with a secure, validated connection.
-        Once authenticated, SyncToScale performs automated health checks, token refresh logic,
-        and permission validation to ensure every workflow run has access to required resources.
-      </p>
-
-      <hr />
-
-      <h2><span class="pill post">POST</span> OAuth 2.0 (Recommended)</h2>
-      <p>
-        Most modern applications use OAuth 2.0, allowing users to grant and revoke access
-        without sharing passwords.
+        Send your API key as a bearer token in the <code>Authorization</code> header
+        with every request. Keys should be kept server-side and rotated regularly.
       </p>
 
       <div class="code-block">
         <button class="copy-btn">Copy</button>
-<pre>POST /auth/oauth/start
-{
-  "provider": "google",
-  "redirect_url": "https://synctoscale.me/oauth/callback"
-}</pre>
+<pre>Authorization: Bearer &lt;project_token&gt;
+Content-Type: application/json</pre>
       </div>
+    </section>
 
-      <h3>Token Response</h3>
+    <section class="section">
+      <h2>Invalid or missing credentials</h2>
+      <p>
+        Requests with missing, expired, or invalid tokens will return a
+        <code>401 Unauthorized</code> response.
+      </p>
 
       <div class="code-block">
         <button class="copy-btn">Copy</button>
 <pre>{
-  "access_token": "ya29.a0AW...",
-  "refresh_token": "1//0gH3...",
-  "expires_in": 3600,
-  "scope": "users.read calendar.readonly"
+  "error": "unauthorized",
+  "message": "Invalid or missing API token"
 }</pre>
       </div>
+    </section>
 
-      <p>
-        Tokens are encrypted at rest and refreshed automatically.
-        If refresh fails, the connection enters a <strong>Needs Attention</strong> state.
-      </p>
-
-      <hr />
-
-      <h2><span class="pill post">POST</span> API Key Authentication</h2>
-      <p>
-        Some systems use API keys instead of OAuth.
-        SyncToScale validates keys by performing a test request to confirm scope and access.
-      </p>
-
-      <div class="code-block">
-        <button class="copy-btn">Copy</button>
-<pre>POST /auth/api-key
-{
-  "api_key": "sk_live_abc123",
-  "provider": "legacy_crm"
-}</pre>
-      </div>
-
-      <hr />
-
-      <h2><span class="pill get">GET</span> Connection Health Checks</h2>
-      <p>
-        Connections are monitored continuously to prevent workflow failures.
-      </p>
-
-      <div class="code-block">
-        <button class="copy-btn">Copy</button>
-<pre>GET /connections/{id}/health
-{
-  "status": "healthy",
-  "last_checked": "2025-01-18T12:44:00Z",
-  "warnings": []
-}</pre>
-      </div>
-
-      <hr />
-
-      <h2>Error States</h2>
+    <section class="section">
+      <h2>Security best practices</h2>
       <ul>
-        <li><strong>Expired Token</strong> — Refresh failed.</li>
-        <li><strong>Insufficient Permissions</strong> — Required scopes missing.</li>
-        <li><strong>Invalid Credentials</strong> — API key or token revoked.</li>
-        <li><strong>Provider Outage</strong> — Upstream service unavailable.</li>
-        <li><strong>Rate Limit Lockout</strong> — Temporary suspension.</li>
+        <li>Never expose API keys in client-side code</li>
+        <li>Rotate keys if they are accidentally shared</li>
+        <li>Use environment variables to store secrets</li>
       </ul>
-
-      <hr />
-
-      <h2>Best Practices</h2>
-      <ul>
-        <li>Use OAuth whenever possible</li>
-        <li>Grant minimum required scopes</li>
-        <li>Rotate API keys every 90 days</li>
-        <li>Monitor connection warnings via logs</li>
-      </ul>
-
     </section>
 
   </main>
@@ -344,11 +257,7 @@
         const code = btn.nextElementSibling.innerText;
         navigator.clipboard.writeText(code);
         btn.textContent = 'Copied ✓';
-        btn.classList.add('copied');
-        setTimeout(() => {
-          btn.textContent = 'Copy';
-          btn.classList.remove('copied');
-        }, 1500);
+        setTimeout(() => btn.textContent = 'Copy', 1500);
       });
     });
   </script>
