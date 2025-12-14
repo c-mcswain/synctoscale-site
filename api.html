@@ -39,9 +39,6 @@
       position: absolute;
       top: 14px;
       left: 14px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
       padding: 6px 12px;
       font-size: 13px;
       font-weight: 500;
@@ -50,19 +47,11 @@
       color: #0f172a;
       background: linear-gradient(135deg, #41d1ff, #21e19f);
       box-shadow: 0 4px 10px rgba(15,23,42,0.12);
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-      white-space: nowrap;
-    }
-
-    .back-pill:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 6px 14px rgba(15,23,42,0.18);
     }
 
     .api-hero h1 {
       margin: 0 0 8px;
       font-size: 34px;
-      letter-spacing: -0.02em;
       color: #0f172a;
     }
 
@@ -74,16 +63,57 @@
       line-height: 1.55;
     }
 
+    /* METHOD LEGEND */
+    .method-legend {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 14px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: #475569;
+      background: rgba(255,255,255,0.85);
+      border: 1px solid rgba(148,163,184,0.35);
+      border-radius: 999px;
+      padding: 6px 12px;
+    }
+
+    .pill {
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      color: #0f172a;
+      white-space: nowrap;
+    }
+
+    .pill.post {
+      background: linear-gradient(135deg, rgba(33,225,159,0.9), rgba(65,209,255,0.9));
+    }
+
+    .pill.get {
+      background: linear-gradient(135deg, rgba(65,209,255,0.9), rgba(148,197,255,0.9));
+    }
+
     /* CONTENT */
     .api-section {
-      margin-top: 26px;
+      margin-top: 30px;
       max-width: 980px;
     }
 
     .api-section h2 {
-      margin: 30px 0 10px;
+      margin: 30px 0 8px;
       font-size: 22px;
       color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
     .api-section h3 {
@@ -105,7 +135,7 @@
       margin: 26px 0;
     }
 
-    /* CODE BLOCK WITH COPY */
+    /* CODE BLOCK */
     .code-block {
       position: relative;
       margin: 12px 0 14px;
@@ -116,19 +146,18 @@
       top: 10px;
       right: 10px;
       font-size: 12px;
-      padding: 4px 10px;
+      padding: 5px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.45);
-      background: rgba(255,255,255,0.85);
-      color: #0f172a;
+      border: 1px solid transparent;
+      background:
+        linear-gradient(#ffffff, #ffffff) padding-box,
+        linear-gradient(135deg, #41d1ff, #21e19f) border-box;
       cursor: pointer;
-      transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+      font-weight: 600;
     }
 
-    .copy-btn:hover {
-      background: #ffffff;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 10px rgba(15,23,42,0.12);
+    .copy-btn.copied {
+      background: linear-gradient(135deg, #41d1ff, #21e19f);
     }
 
     pre {
@@ -140,7 +169,6 @@
       font-size: 13px;
       line-height: 1.55;
       color: #0f172a;
-      box-shadow: 0 8px 18px rgba(15,23,42,0.05);
     }
 
     code {
@@ -177,68 +205,53 @@
       <p>
         The SyncToScale API enables workflow execution, connection management,
         event ingestion, and access to Nova AI services.
-        All requests use JSON and require authentication.
       </p>
+
+      <div class="method-legend">
+        <div class="legend-item">
+          <span class="pill post">POST</span>
+          Send data to create, trigger, or run something
+        </div>
+        <div class="legend-item">
+          <span class="pill get">GET</span>
+          Retrieve information or check status
+        </div>
+      </div>
     </section>
 
     <section class="api-section">
 
-      <h2>Authentication</h2>
-      <p>All API requests must include a project token.</p>
-
-      <div class="code-block">
-        <button class="copy-btn">Copy</button>
-<pre>Authorization: Bearer &lt;project_token&gt;
-Content-Type: application/json</pre>
-      </div>
-
-      <hr />
-
-      <h2>Run a Workflow</h2>
+      <h2><span class="pill post">POST</span> Run a Workflow</h2>
 
       <div class="code-block">
         <button class="copy-btn">Copy</button>
 <pre>POST /workflows/{id}/run</pre>
       </div>
 
-      <h3>Request Body</h3>
+      <h2><span class="pill get">GET</span> Get Connection Status</h2>
+
       <div class="code-block">
         <button class="copy-btn">Copy</button>
-<pre>{
-  "payload": {
-    "employee_id": "12345",
-    "email": "test@example.com"
-  }
-}</pre>
+<pre>GET /connections/{id}</pre>
       </div>
 
-      <h3>Response</h3>
-      <div class="code-block">
-        <button class="copy-btn">Copy</button>
-<pre>{
-  "run_id": "run_789",
-  "status": "queued",
-  "triggered_at": "2025-01-20T14:02:01Z"
-}</pre>
-      </div>
-
-      <!-- Remaining blocks follow same pattern (already applied below) -->
-
-      <!-- (Content continues unchanged, all <pre> wrapped identically) -->
+      <!-- Remaining endpoints continue using the same pattern -->
 
     </section>
 
   </main>
 
   <script>
-    document.querySelectorAll('.copy-btn').forEach(button => {
-      button.addEventListener('click', () => {
-        const code = button.nextElementSibling.innerText;
-        navigator.clipboard.writeText(code).then(() => {
-          const original = button.textContent;
-          button.textContent = 'Copied ✓';
-          setTimeout(() => button.textContent = original, 1500);
-        });
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const code = btn.nextElementSibling.innerText;
+        navigator.clipboard.writeText(code);
+        btn.textContent = 'Copied ✓';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'Copy';
+          btn.classList.remove('copied');
+        }, 1500);
       });
     });
   </script>
