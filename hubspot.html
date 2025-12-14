@@ -2,32 +2,208 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>HubSpot Integration | SyncToScale</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HubSpot Integration | SyncToScale</title>
 
   <link rel="stylesheet" href="styles.css" />
 
   <!-- Nova / Botpress -->
   <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
   <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
+
+  <style>
+    .page-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 18px 70px;
+    }
+
+    /* HERO (Quickstart-aligned) */
+    .int-hero {
+      position: relative;
+      padding: 36px 22px 34px;
+      border-radius: 16px;
+      background: linear-gradient(
+        180deg,
+        rgba(33,225,159,0.14) 0%,
+        rgba(65,209,255,0.12) 60%,
+        #ffffff 100%
+      );
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .back-pill {
+      position: absolute;
+      top: 22px;
+      left: 22px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #5eead4 0%, #41d1ff 100%);
+      color: #0f172a;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      box-shadow:
+        0 6px 14px rgba(15, 23, 42, 0.12);
+    }
+
+    .hero-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    .hero-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .int-logo {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);
+    }
+
+    .int-logo img {
+      width: 28px;
+      height: 28px;
+    }
+
+    .hero-title h1 {
+      font-size: 30px;
+      margin: 0;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-sub {
+      max-width: 72ch;
+      font-size: 16px;
+      color: #475569;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* CONTENT */
+    .section {
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+      background: #ffffff;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+    }
+
+    .section.soft {
+      background: linear-gradient(
+        180deg,
+        rgba(65,209,255,0.10) 0%,
+        rgba(255,255,255,0.98) 80%
+      );
+    }
+
+    .section.mint {
+      background: linear-gradient(
+        180deg,
+        rgba(33,225,159,0.12) 0%,
+        rgba(255,255,255,0.98) 85%
+      );
+    }
+
+    .section h2 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      color: #0f172a;
+    }
+
+    .section p {
+      margin: 0 0 10px;
+      color: #475569;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .card {
+      grid-column: span 6;
+      background: rgba(255,255,255,0.95);
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 14px;
+    }
+
+    .card.full { grid-column: span 12; }
+
+    .card h3 {
+      margin: 0 0 6px;
+      font-size: 14.5px;
+      color: #0f172a;
+    }
+
+    .card p, .card li {
+      font-size: 14px;
+      color: #475569;
+      line-height: 1.55;
+    }
+
+    .card ul {
+      margin: 8px 0 0;
+      padding-left: 18px;
+    }
+
+    .checklist {
+      padding-left: 18px;
+      font-size: 14px;
+      color: #475569;
+      line-height: 1.6;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      margin-top: 18px;
+    }
+
+    @media (max-width: 860px) {
+      .card { grid-column: span 12; }
+      .hero-title h1 { font-size: 24px; }
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- LOCKED NAV BAR (reuse exact structure site-wide) -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="logo">
-        <span class="logo-mark">S</span>
-        <span class="logo-text">SyncToScale</span>
-      </a>
-
+  <!-- NAVBAR (LOCKED) -->
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo">SyncToScale</a>
       <nav class="nav">
+        <a href="index.html">Home</a>
         <a href="features.html">Features</a>
         <a href="pricing.html">Pricing</a>
-        <a href="docs.html">Docs</a>
-        <a href="integrations.html" class="active">Integrations</a>
-        <a href="templates.html">Templates</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
         <a href="resources.html">Resources</a>
       </nav>
     </div>
@@ -35,69 +211,95 @@
 
   <main class="page-wrap">
 
-    <!-- QUICKSTART-STYLE HEADER -->
-    <section class="docs-hero">
+    <!-- HERO -->
+    <section class="int-hero">
       <a href="integrations.html" class="back-pill">← Back to integrations</a>
 
-      <div class="integration-header">
-        <img
-          src="assets/synctoscale-icons/hubspot.svg"
-          onerror="this.src='assets/synctoscale-icons/hubspot.png'"
-          alt="HubSpot logo"
-          class="integration-logo"
-        />
+      <div class="hero-center">
+        <div class="hero-title">
+          <div class="int-logo">
+            <img src="assets/synctoscale-icons/hubspot.svg"
+                 onerror="this.onerror=null;this.src='assets/synctoscale-icons/hubspot.png';" />
+          </div>
+          <h1>HubSpot</h1>
+        </div>
 
-        <h1>HubSpot</h1>
-        <p>
-          Sync customer, deal, and lifecycle data between HubSpot and your
-          internal systems to keep sales, support, and operations aligned.
+        <p class="hero-sub">
+          The HubSpot integration demonstrates how CRM objects (contacts, companies,
+          deals, and lifecycle stages) can drive downstream workflows. This page
+          outlines common sync patterns, mapping dependencies, and troubleshooting
+          considerations for revenue-adjacent automations.
         </p>
       </div>
     </section>
 
-    <!-- CONTENT -->
-    <section class="docs-section">
-      <h2>What this integration is typically used for</h2>
+    <!-- WHAT IT'S USED FOR -->
+    <section class="section soft">
+      <h2>What HubSpot is typically used for</h2>
       <p>
-        The HubSpot integration is commonly used to connect CRM activity with
-        downstream tools such as ticketing systems, internal dashboards,
-        onboarding workflows, or billing platforms.
+        HubSpot often acts as a customer relationship source of truth for go-to-market teams.
+        Changes here typically trigger updates across support, onboarding, billing, and internal
+        reporting systems.
       </p>
-      <p>
-        It allows teams to react to changes in deal stage, lifecycle status,
-        or contact ownership without relying on manual exports or ad-hoc reports.
-      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Lifecycle & ownership tracking</h3>
+          <p>Keep contact lifecycle stage, owner, and key attributes aligned across tools.</p>
+        </div>
+
+        <div class="card">
+          <h3>Deal stage automation</h3>
+          <p>Trigger internal workflows when a deal progresses (or stalls) in the pipeline.</p>
+        </div>
+
+        <div class="card full">
+          <h3>CRM-to-ops handoffs</h3>
+          <p>Operationalize “Closed Won” transitions by creating onboarding tasks and system records.</p>
+        </div>
+      </div>
     </section>
 
-    <section class="docs-section">
+    <!-- TYPICAL PATTERNS -->
+    <section class="section mint">
       <h2>Typical workflow patterns</h2>
-      <ul>
-        <li>Create or update internal records when a deal moves to a new stage</li>
-        <li>Sync new or updated contacts into downstream tools</li>
-        <li>Trigger onboarding workflows when a deal is marked “Closed Won”</li>
-        <li>Notify internal teams when lifecycle stages change</li>
-        <li>Maintain a source-of-truth CRM while syncing key fields elsewhere</li>
-      </ul>
+
+      <div class="grid">
+        <div class="card">
+          <h3>HubSpot → Project/Onboarding</h3>
+          <p>Create onboarding work items when a deal moves to a launch or kickoff stage.</p>
+        </div>
+
+        <div class="card">
+          <h3>HubSpot → Support tooling</h3>
+          <p>Sync account status and ownership into ticketing so support has current context.</p>
+        </div>
+
+        <div class="card full">
+          <h3>Billing/Provisioning → HubSpot</h3>
+          <p>Write back activation status, plan tier, or key dates so sales and CS share the same view.</p>
+        </div>
+      </div>
     </section>
 
-    <section class="docs-section">
+    <!-- TROUBLESHOOTING -->
+    <section class="section">
       <h2>Troubleshooting tips</h2>
-      <ul>
-        <li>Confirm the connected HubSpot account has access to required objects</li>
-        <li>Verify field mappings match expected data types</li>
-        <li>Check workflow triggers align with HubSpot pipeline stages</li>
-        <li>Ensure rate limits are respected during bulk updates</li>
-        <li>Review logs for skipped records caused by validation errors</li>
+      <ul class="checklist">
+        <li>Confirm object permissions for contacts, companies, and deals in the connected account.</li>
+        <li>Verify field mappings match data types (IDs vs text, single-select vs multi-select).</li>
+        <li>Check pipeline and stage IDs (names can look correct while IDs differ).</li>
+        <li>Review association logic (contact ↔ company ↔ deal) if records are syncing “without context.”</li>
       </ul>
     </section>
 
-    <!-- FOOTER BACK PILL -->
-    <div class="docs-footer">
-      <a href="integrations.html" class="back-pill">← Back to integrations</a>
-    </div>
+    <!-- FOOTER -->
+    <section class="section">
+      <div class="footer-links">
+        <a class="back-pill" href="integrations.html">← Back to integrations</a>
+      </div>
+    </section>
 
   </main>
-
 </body>
 </html>
-
