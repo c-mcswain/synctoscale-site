@@ -1,1 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Google Workspace Integration | SyncToScale</title>
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Nova / Botpress -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
+  <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
+
+  <style>
+    .page-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 18px 70px;
+    }
+
+    /* HERO (Quickstart-aligned) */
+    .int-hero {
+      position: relative;
+      padding: 36px 22px 34px;
+      border-radius: 16px;
+      background: linear-gradient(
+        180deg,
+        rgba(33,225,159,0.14) 0%,
+        rgba(65,209,255,0.12) 60%,
+        #ffffff 100%
+      );
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .back-pill {
+      position: absolute;
+      top: 22px;
+      left: 22px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #5eead4 0%, #41d1ff 100%);
+      color: #0f172a;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      box-shadow: 0 6px 14px rgba(15, 23, 42, 0.12);
+    }
+
+    .hero-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    .hero-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .int-logo {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);
+    }
+
+    .int-logo img {
+      width: 28px;
+      height: 28px;
+    }
+
+    .hero-title h1 {
+      font-size: 30px;
+      margin: 0;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-sub {
+      max-width: 72ch;
+      font-size: 16px;
+      color: #475569;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* CONTENT */
+    .section {
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+      background: #ffffff;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+    }
+
+    .section.soft {
+      background: linear-gradient(
+        180deg,
+        rgba(65,209,255,0.10) 0%,
+        rgba(255,255,255,0.98) 80%
+      );
+    }
+
+    .section.mint {
+      background: linear-gradient(
+        180deg,
+        rgba(33,225,159,0.12) 0%,
+        rgba(255,255,255,0.98) 85%
+      );
+    }
+
+    .section h2 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      color: #0f172a;
+    }
+
+    .section p {
+      margin: 0 0 10px;
+      color: #475569;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .card {
+      grid-column: span 6;
+      background: rgba(255,255,255,0.95);
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 14px;
+    }
+
+    .card.full { grid-column: span 12; }
+
+    .card h3 {
+      margin: 0 0 6px;
+      font-size: 14.5px;
+      color: #0f172a;
+    }
+
+    .card p, .card li {
+      font-size: 14px;
+      color: #475569;
+      line-height: 1.55;
+    }
+
+    .checklist {
+      padding-left: 18px;
+      font-size: 14px;
+      color: #475569;
+      line-height: 1.6;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      margin-top: 18px;
+    }
+
+    @media (max-width: 860px) {
+      .card { grid-column: span 12; }
+      .hero-title h1 { font-size: 24px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR (LOCKED) -->
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo">SyncToScale</a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="resources.html">Resources</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+
+    <!-- HERO -->
+    <section class="int-hero">
+      <a href="integrations.html" class="back-pill">← Back to integrations</a>
+
+      <div class="hero-center">
+        <div class="hero-title">
+          <div class="int-logo">
+            <img src="assets/synctoscale-icons/google-workspace.svg"
+                 onerror="this.onerror=null;this.src='assets/synctoscale-icons/google-workspace.png';" />
+          </div>
+          <h1>Google Workspace</h1>
+        </div>
+
+        <p class="hero-sub">
+          The Google Workspace integration demonstrates how identity, access, and
+          collaboration artifacts (users, groups, Drive files, and calendars)
+          can be automated from upstream systems. This page outlines common
+          provisioning patterns and operational troubleshooting considerations.
+        </p>
+      </div>
+    </section>
+
+    <!-- WHAT IT'S USED FOR -->
+    <section class="section soft">
+      <h2>What Google Workspace is typically used for</h2>
+      <p>
+        Google Workspace often acts as the collaboration layer for a company’s day-to-day work:
+        email, groups, file sharing, and calendars. In workflow automation, it’s commonly used
+        for provisioning users, managing group membership, and creating or organizing shared
+        Drive content tied to onboarding and project lifecycles.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>User provisioning</h3>
+          <p>Create new users and assign basic settings when HR or IT triggers onboarding.</p>
+        </div>
+
+        <div class="card">
+          <h3>Group access management</h3>
+          <p>Maintain group membership so the right people have the right access at the right time.</p>
+        </div>
+
+        <div class="card full">
+          <h3>Shared Drive organization</h3>
+          <p>Standardize folder structures and sharing rules for teams, clients, or projects.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TYPICAL PATTERNS -->
+    <section class="section mint">
+      <h2>Typical workflow patterns</h2>
+
+      <div class="grid">
+        <div class="card">
+          <h3>HRIS → Workspace</h3>
+          <p>Create users, set org units, and add group memberships for new hires.</p>
+        </div>
+
+        <div class="card">
+          <h3>Workspace → Ticketing / Audits</h3>
+          <p>Log membership or sharing changes for access reviews and compliance workflows.</p>
+        </div>
+
+        <div class="card full">
+          <h3>Workspace → Onboarding assets</h3>
+          <p>Generate shared folders, templates, or calendar events to standardize day-one setup.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TROUBLESHOOTING -->
+    <section class="section">
+      <h2>Troubleshooting tips</h2>
+      <ul class="checklist">
+        <li>Confirm the connected admin account has the required directory and group permissions.</li>
+        <li>Verify org unit paths and group email addresses are correct (small typos can block provisioning).</li>
+        <li>Check sharing policies if Drive folder creation succeeds but sharing updates fail.</li>
+        <li>Review audit logs for “insufficient permissions” or policy-based restrictions.</li>
+      </ul>
+    </section>
+
+    <!-- FOOTER -->
+    <section class="section">
+      <div class="footer-links">
+        <a class="back-pill" href="integrations.html">← Back to integrations</a>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>
 
