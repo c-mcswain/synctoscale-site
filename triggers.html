@@ -63,7 +63,27 @@
       line-height: 1.55;
     }
 
-    /* METHOD PILLS */
+    /* METHOD PILLS (HEADER) */
+    .method-legend {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 14px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: #475569;
+      background: rgba(255,255,255,0.85);
+      border: 1px solid rgba(148,163,184,0.35);
+      border-radius: 999px;
+      padding: 6px 12px;
+    }
+
     .pill {
       font-size: 12px;
       font-weight: 700;
@@ -74,49 +94,43 @@
     }
 
     .pill.post {
-      background: linear-gradient(135deg, rgba(33,225,159,0.9), rgba(65,209,255,0.9));
-    }
-
-    .pill.get {
-      background: linear-gradient(135deg, rgba(65,209,255,0.9), rgba(148,197,255,0.9));
+      background: linear-gradient(
+        135deg,
+        rgba(33,225,159,0.9),
+        rgba(65,209,255,0.9)
+      );
     }
 
     /* CONTENT */
-    .doc-section {
-      max-width: 980px;
-      margin-top: 28px;
+    .section {
+      margin-top: 24px;
+      padding: 20px;
+      border-radius: 16px;
+      background: #ffffff;
+      border: 1px solid rgba(148,163,184,0.35);
     }
 
-    .doc-section h2 {
-      margin: 34px 0 10px;
+    .section h2 {
+      margin: 0 0 10px;
       font-size: 22px;
       color: #0f172a;
-      display: flex;
-      align-items: center;
-      gap: 10px;
     }
 
-    .doc-section p,
-    .doc-section li {
-      color: #475569;
+    .section p,
+    .section li {
       font-size: 15px;
-      line-height: 1.65;
+      line-height: 1.6;
+      color: #475569;
     }
 
-    ul {
-      padding-left: 20px;
-    }
-
-    hr {
-      border: none;
-      border-top: 1px solid rgba(148,163,184,0.35);
-      margin: 28px 0;
+    .section ul {
+      margin: 10px 0 0 18px;
     }
 
     /* CODE BLOCK */
     .code-block {
       position: relative;
-      margin: 12px 0 14px;
+      margin-top: 12px;
     }
 
     .copy-btn {
@@ -130,12 +144,8 @@
       background:
         linear-gradient(#ffffff, #ffffff) padding-box,
         linear-gradient(135deg, #41d1ff, #21e19f) border-box;
-      font-weight: 600;
       cursor: pointer;
-    }
-
-    .copy-btn.copied {
-      background: linear-gradient(135deg, #41d1ff, #21e19f);
+      font-weight: 600;
     }
 
     pre {
@@ -175,28 +185,24 @@
       <a href="docs.html" class="back-pill">← Back to docs</a>
       <h1>Triggers</h1>
       <p>
-        Triggers determine when a workflow starts.
-        SyncToScale supports event-based, polling, scheduled, and webhook triggers
-        to activate workflows exactly when new data enters your system.
+        Triggers start workflows when events occur in connected systems
+        or when data is sent directly to SyncToScale.
       </p>
+
+      <div class="method-legend">
+        <div class="legend-item">
+          <span class="pill post">POST</span>
+          Send events to trigger workflows
+        </div>
+      </div>
     </section>
 
     <!-- CONTENT -->
-    <section class="doc-section">
-
-      <h2>Overview</h2>
+    <section class="section">
+      <h2>Event-based triggers</h2>
       <p>
-        A trigger is the entry point of a workflow.
-        When a trigger fires, SyncToScale collects the incoming payload,
-        validates the structure, and passes it into the first mapping or action step.
-      </p>
-
-      <hr />
-
-      <h2><span class="pill post">POST</span> Event-Based Triggers (Recommended)</h2>
-      <p>
-        Event-based triggers activate immediately when the connected system
-        generates an event such as a new employee record or updated deal.
+        Event triggers allow external systems to notify SyncToScale when
+        something happens, such as a new hire being created or a record updated.
       </p>
 
       <div class="code-block">
@@ -206,124 +212,37 @@
   "provider": "bamboohr",
   "event_type": "employee.created",
   "payload": {
-    "id": "98765",
-    "first_name": "Jordan",
-    "email": "jordan@example.com"
+    "id": "9981",
+    "email": "newhire@example.com"
   }
 }</pre>
       </div>
+    </section>
 
+    <section class="section">
+      <h2>Trigger responses</h2>
       <p>
-        These triggers are the most reliable and are recommended
-        for real-time automations.
+        Successful trigger requests return a queued response indicating
+        that a workflow run has been created.
       </p>
-
-      <hr />
-
-      <h2><span class="pill get">GET</span> Polling Triggers</h2>
-      <p>
-        For systems without native events, SyncToScale can poll an endpoint
-        at a configurable interval to detect new or changed records.
-      </p>
-
-      <div class="code-block">
-        <button class="copy-btn">Copy</button>
-<pre>GET /polling
-{
-  "provider": "legacy_hris",
-  "last_checked": "2025-01-20T12:00:00Z"
-}</pre>
-      </div>
-
-      <ul>
-        <li>Delta detection (created/updated since last run)</li>
-        <li>Deduplication safeguards</li>
-        <li>Backoff handling when provider is throttled</li>
-        <li>Recovery from missed runs due to outages</li>
-      </ul>
-
-      <hr />
-
-      <h2><span class="pill post">POST</span> Scheduled Triggers</h2>
-      <p>
-        Scheduled triggers run workflows on a fixed cadence
-        (hourly, daily, weekly) using validated cron expressions.
-      </p>
-
-      <div class="code-block">
-        <button class="copy-btn">Copy</button>
-<pre>POST /triggers/schedule
-{
-  "cron": "0 * * * *",
-  "timezone": "UTC"
-}</pre>
-      </div>
-
-      <p>
-        SyncToScale prevents overlapping runs
-        and enforces safe execution windows.
-      </p>
-
-      <hr />
-
-      <h2><span class="pill post">POST</span> Webhook Triggers</h2>
-      <p>
-        Custom applications can send data directly into a workflow
-        using secure, signed inbound webhooks.
-      </p>
-
-      <div class="code-block">
-        <button class="copy-btn">Copy</button>
-<pre>POST /webhooks/inbound
-Headers:
-  X-Signature: sha256=fc1db1...
-
-Body:
-{
-  "type": "employee.updated",
-  "data": {
-    "id": "12345",
-    "email": "new@example.com"
-  }
-}</pre>
-      </div>
-
-      <p>
-        SyncToScale verifies signatures, timestamps,
-        and replay protection before accepting a webhook.
-      </p>
-
-      <hr />
-
-      <h2>Troubleshooting Triggers</h2>
-      <ul>
-        <li><strong>Duplicate Events</strong> — Upstream retries.</li>
-        <li><strong>Missing Events</strong> — Provider outage or misconfiguration.</li>
-        <li><strong>Invalid Payloads</strong> — Schema mismatch.</li>
-        <li><strong>Timezone Drift</strong> — Incorrect schedule configuration.</li>
-        <li><strong>Polling Overload</strong> — Rate limits exceeded.</li>
-      </ul>
-
-      <p>
-        Nova can analyze trigger behavior
-        and recommend configuration improvements automatically.
-      </p>
-
-      <hr />
-
-      <h2>Example Trigger Execution</h2>
 
       <div class="code-block">
         <button class="copy-btn">Copy</button>
 <pre>{
-  "trigger": "employee.created",
-  "source": "bamboohr",
-  "workflow": "new-hire-provisioning",
-  "received_at": "2025-01-20T14:12:00Z",
-  "status": "queued"
+  "status": "queued",
+  "workflow": "sync_to_hr",
+  "triggered_at": "2025-01-20T14:12:00Z"
 }</pre>
       </div>
+    </section>
 
+    <section class="section">
+      <h2>Idempotency</h2>
+      <p>
+        To prevent duplicate runs, triggers can be sent with a consistent
+        external identifier. SyncToScale will ignore repeat events with
+        the same identifier.
+      </p>
     </section>
 
   </main>
@@ -334,11 +253,7 @@ Body:
         const code = btn.nextElementSibling.innerText;
         navigator.clipboard.writeText(code);
         btn.textContent = 'Copied ✓';
-        btn.classList.add('copied');
-        setTimeout(() => {
-          btn.textContent = 'Copy';
-          btn.classList.remove('copied');
-        }, 1500);
+        setTimeout(() => btn.textContent = 'Copy', 1500);
       });
     });
   </script>
