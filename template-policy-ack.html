@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,6 +22,7 @@
 
     /* Template header */
     .template-hero {
+      position: relative; /* REQUIRED for back pill */
       text-align: center;
       padding: 28px 20px;
       border-radius: 16px;
@@ -33,6 +35,28 @@
       border: 1px solid rgba(148,163,184,0.35);
       box-shadow: 0 10px 22px rgba(15,23,42,0.06);
       margin-bottom: 26px;
+    }
+
+    /* BACK TO TEMPLATES — CANONICAL */
+    .back-pill {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      color: #0f172a;
+      background: linear-gradient(135deg, #41d1ff 0%, #21e19f 100%);
+      box-shadow: 0 4px 12px rgba(33,225,159,0.35);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .back-pill:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(33,225,159,0.45);
     }
 
     .template-hero h1 {
@@ -225,6 +249,8 @@
 
     <!-- TEMPLATE HEADER -->
     <section class="template-hero">
+      <a href="templates.html" class="back-pill">← Back to templates</a>
+
       <h1>Policy Acknowledgment Confirmation</h1>
       <p>
         Automate policy distribution and employee acknowledgment tracking across HRIS,
@@ -350,3 +376,4 @@
 
 </body>
 </html>
+```
