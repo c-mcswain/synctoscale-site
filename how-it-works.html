@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>How It Works | SyncToScale</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Nova / Botpress -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
+  <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
+
+  <style>
+    .page-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 18px 72px;
+    }
+
+    /* HERO */
+    .how-hero {
+      position: relative;
+      text-align: center;
+      padding: 42px 22px 38px;
+      border-radius: 16px;
+      background: linear-gradient(
+        180deg,
+        rgba(65,209,255,0.14) 0%,
+        rgba(33,225,159,0.14) 60%,
+        #ffffff 100%
+      );
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 10px 22px rgba(15,23,42,0.06);
+      margin-bottom: 36px;
+    }
+
+    .back-pill {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 500;
+      border-radius: 999px;
+      text-decoration: none;
+      color: #0f172a;
+      background: linear-gradient(135deg, #41d1ff, #21e19f);
+      box-shadow: 0 4px 10px rgba(15,23,42,0.12);
+    }
+
+    .how-hero h1 {
+      margin: 0 0 10px;
+      font-size: 38px;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+    }
+
+    .how-hero p {
+      margin: 0 auto;
+      max-width: 780px;
+      font-size: 17px;
+      color: #475569;
+      line-height: 1.65;
+    }
+
+    /* CONTENT */
+    .how-section {
+      max-width: 900px;
+      margin: 0 auto 40px;
+    }
+
+    .how-section h2 {
+      margin: 0 0 10px;
+      font-size: 24px;
+      color: #0f172a;
+    }
+
+    .how-section p {
+      margin: 0 0 12px;
+      font-size: 15.5px;
+      color: #475569;
+      line-height: 1.7;
+    }
+
+    .how-list {
+      margin: 12px 0 0;
+      padding-left: 18px;
+      font-size: 15.5px;
+      color: #475569;
+      line-height: 1.7;
+    }
+
+    .how-list li {
+      margin-bottom: 8px;
+    }
+
+    .callout {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: 14px;
+      background: rgba(20,184,166,0.10);
+      border: 1px solid rgba(20,184,166,0.22);
+      color: #0b3d3d;
+      font-size: 14.5px;
+      line-height: 1.6;
+    }
+
+    .step {
+      margin-top: 22px;
+      padding: 18px;
+      border-radius: 14px;
+      border: 1px solid #e2e8f0;
+      background: #ffffff;
+    }
+
+    .step h3 {
+      margin: 0 0 6px;
+      font-size: 18px;
+      color: #0f172a;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 🔒 LOCKED NAVBAR -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">SyncToScale</a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="docs.html">Docs</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+
+    <!-- HERO -->
+    <section class="how-hero">
+      <a href="resources.html" class="back-pill">← Back to resources</a>
+      <h1>How SyncToScale Works</h1>
+      <p>
+        This page walks through what a typical implementation looks like — from
+        initial setup through steady-state operation — so teams know what to expect
+        when connecting systems and automating workflows.
+      </p>
+    </section>
+
+    <!-- OVERVIEW -->
+    <section class="how-section">
+      <h2>Implementation overview</h2>
+      <p>
+        SyncToScale is designed to sit between existing systems, orchestrating
+        workflows without replacing sources of truth. Implementation focuses on
+        connecting tools safely, defining workflow behavior clearly, and validating
+        outcomes before production use.
+      </p>
+
+      <ul class="how-list">
+        <li>No data migration required</li>
+        <li>Existing tools remain system-of-record</li>
+        <li>Workflows are built incrementally and validated before rollout</li>
+      </ul>
+    </section>
+
+    <!-- STEP 1 -->
+    <section class="how-section">
+      <div class="step">
+        <h3>1. Discovery & scoping</h3>
+        <p>
+          Implementation begins with identifying which systems are involved and
+          what events should trigger automation. This step clarifies ownership,
+          boundaries, and expected outcomes.
+        </p>
+        <ul class="how-list">
+          <li>Identify source-of-truth systems</li>
+          <li>Define trigger events (e.g. hire created, deal closed)</li>
+          <li>Document downstream actions and dependencies</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- STEP 2 -->
+    <section class="how-section">
+      <div class="step">
+        <h3>2. Integration setup</h3>
+        <p>
+          Connections are established using scoped credentials or OAuth, with
+          permissions limited to what workflows require.
+        </p>
+        <ul class="how-list">
+          <li>Connect integrations using service accounts where possible</li>
+          <li>Validate scopes and permissions</li>
+          <li>Confirm connection health before building workflows</li>
+        </ul>
+
+        <div class="callout">
+          Best practice: Use separate credentials for development, staging, and
+          production environments to reduce risk.
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 3 -->
+    <section class="how-section">
+      <div class="step">
+        <h3>3. Workflow design & validation</h3>
+        <p>
+          Workflows are designed step-by-step, focusing on clarity and safe failure
+          modes. Validation ensures data flows as expected before automation is
+          enabled broadly.
+        </p>
+        <ul class="how-list">
+          <li>Map required fields between systems</li>
+          <li>Add validation and guardrails</li>
+          <li>Test with sample or non-production records</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- STEP 4 -->
+    <section class="how-section">
+      <div class="step">
+        <h3>4. Controlled rollout</h3>
+        <p>
+          Once validated, workflows are enabled gradually to reduce risk and allow
+          teams to observe real-world behavior.
+        </p>
+        <ul class="how-list">
+          <li>Enable workflows in limited scope</li>
+          <li>Monitor execution logs and outcomes</li>
+          <li>Adjust mappings or logic as needed</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- STEP 5 -->
+    <section class="how-section">
+      <div class="step">
+        <h3>5. Ongoing operation & iteration</h3>
+        <p>
+          After rollout, workflows are monitored and refined as systems evolve.
+          Changes in upstream tools are expected and managed through iteration.
+        </p>
+        <ul class="how-list">
+          <li>Review logs and alerts regularly</li>
+          <li>Update workflows as schemas or processes change</li>
+          <li>Periodically review integration permissions</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- EXPECTATIONS -->
+    <section class="how-section">
+      <h2>What to expect during implementation</h2>
+      <ul class="how-list">
+        <li>Initial setup is configuration-heavy, not code-heavy</li>
+        <li>Clear ownership between systems prevents conflicts</li>
+        <li>Some iteration is normal as real-world edge cases appear</li>
+        <li>Automation improves consistency but still requires oversight</li>
+      </ul>
+
+      <div class="callout">
+        SyncToScale is most effective when workflows are treated as living
+        operational assets — reviewed, improved, and adapted over time.
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>
