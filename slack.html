@@ -1,1 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Slack Integration | SyncToScale</title>
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Nova / Botpress -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
+  <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
+
+  <style>
+    /* PAGE WRAP */
+    .page-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 18px 70px;
+    }
+
+    /* HERO */
+    .int-hero {
+      padding: 28px 22px;
+      border-radius: 16px;
+      background: linear-gradient(
+        180deg,
+        rgba(33,225,159,0.14) 0%,
+        rgba(65,209,255,0.12) 60%,
+        #ffffff 100%
+      );
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+      margin-top: 10px;
+    }
+
+    .hero-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .hero-pill-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid #e2e8f0;
+      background: rgba(255,255,255,0.9);
+      text-decoration: none;
+      color: #0f172a;
+      font-weight: 600;
+      font-size: 13px;
+      transition: 0.2s ease;
+    }
+
+    .pill:hover {
+      transform: translateY(-1px);
+      border-color: rgba(65,209,255,0.9);
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+    }
+
+    .pill .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #41d1ff, #21e19f);
+      box-shadow: 0 0 10px rgba(33, 225, 159, 0.35);
+    }
+
+    .hero-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .int-logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);
+      overflow: hidden;
+    }
+
+    .int-logo img {
+      width: 28px;
+      height: 28px;
+      display: block;
+    }
+
+    .hero-title h1 {
+      font-size: 28px;
+      line-height: 1.2;
+      margin: 0;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-sub {
+      margin: 8px 0 0;
+      color: #475569;
+      font-size: 15.5px;
+      max-width: 78ch;
+    }
+
+    /* SECTION BACKGROUNDS */
+    .section {
+      margin-top: 18px;
+      padding: 18px 18px;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+      background: #ffffff;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+    }
+
+    .section.soft {
+      background: linear-gradient(180deg, rgba(65,209,255,0.10) 0%, rgba(255,255,255,0.98) 80%);
+    }
+
+    .section.mint {
+      background: linear-gradient(180deg, rgba(33,225,159,0.12) 0%, rgba(255,255,255,0.98) 85%);
+    }
+
+    .section h2 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+      color: #0f172a;
+    }
+
+    .section p {
+      margin: 0 0 10px;
+      color: #475569;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* GRID CARDS */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .card {
+      grid-column: span 6;
+      background: rgba(255,255,255,0.92);
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 14px 14px;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+    }
+
+    .card h3 {
+      margin: 0 0 6px;
+      font-size: 14.5px;
+      color: #0f172a;
+      letter-spacing: -0.01em;
+    }
+
+    .card p, .card li {
+      margin: 0;
+      color: #475569;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .card ul {
+      margin: 8px 0 0;
+      padding-left: 18px;
+    }
+
+    .card.full { grid-column: span 12; }
+    .card.third { grid-column: span 4; }
+
+    /* CALLOUTS */
+    .callout {
+      margin-top: 10px;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(65,209,255,0.35);
+      background: rgba(65,209,255,0.08);
+      color: #0f172a;
+    }
+
+    .callout strong { color: #0f172a; }
+
+    .checklist {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: #475569;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* FOOTER LINKS */
+    .footer-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+      justify-content: center;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 860px) {
+      .card { grid-column: span 12; }
+      .page-wrap { padding-top: 18px; }
+      .hero-title h1 { font-size: 24px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR (LOCKED STRUCTURE — DO NOT MODIFY) -->
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo">SyncToScale</a>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="resources.html">Resources</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+
+    <!-- HERO -->
+    <section class="int-hero">
+      <div class="hero-top">
+        <div class="hero-pill-row">
+          <a class="pill" href="integrations.html">
+            <span class="dot" aria-hidden="true"></span>
+            Back to Integrations
+          </a>
+          <span class="pill" style="cursor: default;">
+            <span class="dot" aria-hidden="true"></span>
+            Integration Detail
+          </span>
+        </div>
+
+        <div class="hero-title">
+          <div class="int-logo" aria-hidden="true">
+            <img
+              src="assets/synctoscale-icons/slack.svg"
+              alt=""
+              onerror="this.onerror=null;this.src='assets/synctoscale-icons/slack.png';"
+            />
+          </div>
+          <h1>Slack</h1>
+        </div>
+      </div>
+
+      <p class="hero-sub">
+        The Slack integration models how teams send notifications, provision access, and keep operational updates flowing to the right channels.
+        This page describes typical patterns, permissions, and troubleshooting steps you’d use in any Slack-connected workflow.
+      </p>
+    </section>
+
+    <!-- WHAT IT'S USED FOR -->
+    <section class="section soft">
+      <h2>What Slack is typically used for</h2>
+      <p>
+        Slack is often the “last mile” of operational automation — where changes in HR, CRM, or project systems turn into messages, alerts, or
+        lightweight approvals in a channel.
+      </p>
+
+      <div class="grid">
+        <div class="card third">
+          <h3>Operational notifications</h3>
+          <p>Post alerts when key events happen (new hire, ticket closed, contract signed, deal stage changed).</p>
+        </div>
+
+        <div class="card third">
+          <h3>Onboarding coordination</h3>
+          <p>Notify IT/Ops channels, create a welcome message, and route tasks to the right owners.</p>
+        </div>
+
+        <div class="card third">
+          <h3>Workflow visibility</h3>
+          <p>Send status updates for workflow runs (success, paused, failed) to reduce “black box” automation.</p>
+        </div>
+      </div>
+
+      <div class="callout">
+        <strong>Good to know:</strong> Slack automations are most reliable when they use stable identifiers (channel IDs, user IDs) and
+        keep message formats consistent.
+      </div>
+    </section>
+
+    <!-- TYPICAL SYNC PATTERNS -->
+    <section class="section mint">
+      <h2>Typical patterns in workflows</h2>
+      <p>
+        Slack is usually an <strong>action destination</strong> (send a message, notify a channel, update a thread). In some setups, Slack can also
+        act as a trigger (a message or reaction kicks off work), but those patterns depend on the app’s event and permission model.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Pattern: HR → Slack (new hire)</h3>
+          <ul>
+            <li><strong>Trigger:</strong> New hire created in HRIS</li>
+            <li><strong>Action:</strong> Post welcome + checklist in #onboarding</li>
+            <li><strong>Mapping focus:</strong> Name, start date, manager, team, location</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Pattern: Ticketing → Slack (incident)</h3>
+          <ul>
+            <li><strong>Trigger:</strong> Ticket priority escalates</li>
+            <li><strong>Action:</strong> Post alert to #support-escalations</li>
+            <li><strong>Mapping focus:</strong> Ticket link, severity, owner, customer impact</li>
+          </ul>
+        </div>
+
+        <div class="card full">
+          <h3>Pattern: Workflow health → Slack (visibility)</h3>
+          <ul>
+            <li><strong>Trigger:</strong> Workflow fails or pauses</li>
+            <li><strong>Action:</strong> Send a structured message with error + next steps</li>
+            <li><strong>Mapping focus:</strong> Workflow name, run ID, timestamp, error code, recommended fix</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- AUTH & PERMISSIONS -->
+    <section class="section">
+      <h2>Authentication & permissions</h2>
+      <p>
+        Most Slack connectivity relies on token-based authorization and workspace-level permissions. If Slack actions fail unexpectedly,
+        start by validating the connected workspace, token status, and whether the app has the scopes required for the action.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Common permission gaps</h3>
+          <ul>
+            <li>App can’t post to a channel (not added, restricted channel, missing scope)</li>
+            <li>App can’t message a user (DM permissions, user not found, workspace restrictions)</li>
+            <li>Channel identifiers changed (renames vs IDs, archived channels)</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Best practice</h3>
+          <ul>
+            <li>Prefer channel IDs / user IDs when available</li>
+            <li>Keep a standard “notifications” channel for workflow health</li>
+            <li>Review app scopes when adding new Slack-based actions</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAPPING & DATA SHAPES -->
+    <section class="section soft">
+      <h2>Mapping considerations</h2>
+      <p>
+        Slack messages are simple, but the data feeding them often is not. The most common mapping issues come from missing fields (like start date),
+        unexpected formats (like timestamps), or not having a stable destination (like a channel).
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Common mapping gotchas</h3>
+          <ul>
+            <li><strong>Dates:</strong> ensure a consistent format (and time zone clarity)</li>
+            <li><strong>Owners:</strong> map to a Slack user identifier, not just a display name</li>
+            <li><strong>Channels:</strong> confirm where the message should land (and that it exists)</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Keep messages readable</h3>
+          <ul>
+            <li>Use short labels: “Who / What / When / Link”</li>
+            <li>Include one clear next step when alerting on failures</li>
+            <li>Avoid dumping raw JSON unless troubleshooting</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TROUBLESHOOTING -->
+    <section class="section mint">
+      <h2>Troubleshooting (TAM-style)</h2>
+      <p>
+        When Slack actions fail, aim to isolate whether this is an <strong>auth issue</strong>, a <strong>destination issue</strong> (channel/user),
+        or a <strong>payload issue</strong> (missing/invalid fields).
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>First checks</h3>
+          <ul>
+            <li>Is the integration connected to the correct Slack workspace?</li>
+            <li>Is the token valid (not expired/revoked)?</li>
+            <li>Does the app have permission to post to the target channel?</li>
+            <li>Is the channel archived or restricted?</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>If it’s intermittent</h3>
+          <ul>
+            <li>Check rate limiting and bursty workflows</li>
+            <li>Confirm the trigger isn’t firing multiple times</li>
+            <li>Review recent mapping changes</li>
+            <li>Compare timestamps across runs in audit logs</li>
+          </ul>
+        </div>
+
+        <div class="card full">
+          <h3>Quick checklist to resolve faster</h3>
+          <ol class="checklist">
+            <li>Identify the workflow step that failed (message vs channel vs user lookup).</li>
+            <li>Confirm destination exists and is accessible (channel/user).</li>
+            <li>Verify token + scopes (auth/permissions).</li>
+            <li>Validate required mapped fields used in the message.</li>
+            <li>Re-run after corrections and confirm audit log outcome.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="callout">
+        <strong>Tip:</strong> If you’re troubleshooting a failure notification workflow, keep a fallback destination (like a default channel)
+        so the alert still lands somewhere even if a specific channel/user mapping is missing.
+      </div>
+    </section>
+
+    <!-- SCOPE & LIMITATIONS -->
+    <section class="section">
+      <h2>Scope & limitations</h2>
+      <p>
+        This integration detail page describes common patterns and troubleshooting steps conceptually. Actual available actions and fields depend on
+        Slack’s API, app scopes, and workspace policies.
+      </p>
+      <ul class="checklist">
+        <li>Field availability and message formatting vary by implementation.</li>
+        <li>Permissions and channel restrictions are a frequent source of failures.</li>
+        <li>This project does not perform live actions or access real workspace data.</li>
+      </ul>
+
+      <div class="footer-links">
+        <a class="pill" href="integrations.html"><span class="dot" aria-hidden="true"></span>Back to Integrations</a>
+        <a class="pill" href="resources.html"><span class="dot" aria-hidden="true"></span>Resources</a>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>
 
