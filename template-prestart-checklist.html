@@ -18,20 +18,46 @@
       padding: 28px 18px 64px;
     }
 
-    /* HERO — SAME SYSTEM */
+    /* HERO — CANONICAL SYSTEM */
     .template-hero {
+      position: relative;
       text-align: center;
-      padding: 28px 20px;
+      padding: 44px 20px 28px;
       border-radius: 16px;
       background: linear-gradient(
         180deg,
-        rgba(33,225,159,0.14) 0%,
-        rgba(65,209,255,0.12) 60%,
+        rgba(33,225,159,0.18) 0%,
+        rgba(65,209,255,0.16) 60%,
         #ffffff 100%
       );
       border: 1px solid rgba(148,163,184,0.35);
       box-shadow: 0 10px 22px rgba(15,23,42,0.06);
       margin-bottom: 32px;
+    }
+
+    /* BACK TO TEMPLATES — VIBRANT TEAL */
+    .back-pill {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      color: #0f172a;
+      background: linear-gradient(
+        135deg,
+        #41d1ff 0%,
+        #21e19f 100%
+      );
+      box-shadow: 0 4px 12px rgba(33,225,159,0.35);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .back-pill:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(33,225,159,0.45);
     }
 
     .template-hero h1 {
@@ -62,7 +88,7 @@
       border-radius: 999px;
       font-size: 13px;
       border: 1px solid rgba(148,163,184,0.45);
-      background: rgba(255,255,255,0.85);
+      background: rgba(255,255,255,0.9);
       color: #0f172a;
     }
 
@@ -162,6 +188,8 @@
 
     <!-- HERO -->
     <section class="template-hero">
+      <a href="templates.html" class="back-pill">← Back to templates</a>
+
       <h1>Pre-Start Checklist Workflow</h1>
       <p>
         Ensure everything is ready before a new hire’s first day — access,
@@ -232,7 +260,6 @@
 
       <!-- RIGHT -->
       <aside class="template-sidebar">
-
         <div class="card">
           <h3>Workflow summary</h3>
           <ul class="key-facts-list">
@@ -241,7 +268,6 @@
             <li><strong>Output:</strong> Task completion status</li>
           </ul>
         </div>
-
       </aside>
 
     </section>
@@ -250,3 +276,4 @@
 
 </body>
 </html>
+
