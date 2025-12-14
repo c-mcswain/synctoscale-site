@@ -19,23 +19,25 @@
       padding: 28px 18px 70px;
     }
 
+    /* DOCUMENT SHELL */
+    .doc {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 18px;
+      box-shadow: 0 10px 28px rgba(15,23,42,0.08);
+      padding: 28px 30px 34px;
+    }
+
     /* DOCUMENT HEADER */
     .doc-header {
-      padding: 24px 22px;
-      border-radius: 16px;
-      border: 1px solid #e2e8f0;
-      background: linear-gradient(
-        180deg,
-        rgba(65,209,255,0.10),
-        rgba(33,225,159,0.08),
-        #ffffff
-      );
-      box-shadow: 0 6px 18px rgba(15,23,42,0.06);
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 18px;
+      margin-bottom: 22px;
     }
 
     .doc-title {
-      font-size: 26px;
       margin: 0;
+      font-size: 26px;
       color: #0f172a;
       letter-spacing: -0.02em;
     }
@@ -45,17 +47,14 @@
       font-size: 15px;
       color: #475569;
       line-height: 1.6;
-      max-width: 70ch;
+      max-width: 72ch;
     }
 
-    .doc-meta {
+    .doc-actions {
       margin-top: 14px;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
     }
 
-    .doc-meta button {
+    .doc-actions button {
       appearance: none;
       border: 1px solid #e2e8f0;
       background: #ffffff;
@@ -68,25 +67,22 @@
       box-shadow: 0 2px 6px rgba(15,23,42,0.06);
     }
 
-    .doc-meta button:hover {
+    .doc-actions button:hover {
       box-shadow: 0 4px 10px rgba(15,23,42,0.10);
     }
 
-    /* CHECKLIST SECTIONS */
-    .check-section {
-      margin-top: 18px;
-      padding: 18px 20px;
-      border-radius: 14px;
-      border: 1px solid #e2e8f0;
-      background: #ffffff;
+    /* SECTION HEADERS */
+    .doc-section {
+      margin-top: 26px;
     }
 
-    .check-section h2 {
-      margin: 0 0 12px;
-      font-size: 17px;
+    .doc-section h2 {
+      margin: 0 0 10px;
+      font-size: 16px;
       color: #0f172a;
     }
 
+    /* CHECKLIST */
     .checklist {
       list-style: none;
       padding: 0;
@@ -97,7 +93,7 @@
       display: flex;
       align-items: flex-start;
       gap: 10px;
-      padding: 8px 0;
+      padding: 6px 0;
       font-size: 14px;
       color: #475569;
       line-height: 1.5;
@@ -111,10 +107,10 @@
       flex-shrink: 0;
     }
 
-    /* PRINT STYLES */
+    /* PRINT */
     @media print {
       header,
-      .doc-meta {
+      .doc-actions {
         display: none !important;
       }
 
@@ -127,9 +123,10 @@
         max-width: 100%;
       }
 
-      .check-section {
+      .doc {
+        border: none;
         box-shadow: none;
-        page-break-inside: avoid;
+        padding: 0;
       }
     }
   </style>
@@ -154,133 +151,78 @@
 
   <main class="page-wrap">
 
-    <!-- DOCUMENT HEADER -->
-    <section class="doc-header">
-      <h1 class="doc-title">Implementation checklist</h1>
-      <p class="doc-subtitle">
-        This checklist is used during SyncToScale implementation to confirm readiness,
-        validate configuration, and support a controlled rollout. It’s designed as a
-        working reference for implementation owners.
-      </p>
+    <article class="doc">
 
-      <div class="doc-meta">
-        <button onclick="window.print()">Print / Save as PDF</button>
-      </div>
-    </section>
+      <!-- HEADER -->
+      <header class="doc-header">
+        <h1 class="doc-title">Implementation checklist</h1>
+        <p class="doc-subtitle">
+          This checklist is used during SyncToScale implementation to confirm readiness,
+          validate configuration, and support a controlled rollout. It is intended as a
+          working reference for implementation owners.
+        </p>
 
-    <!-- BEFORE START -->
-    <section class="check-section">
-      <h2>Before you start</h2>
-      <ul class="checklist">
-        <li>
-          <input type="checkbox" />
-          <span>Systems in scope are confirmed and documented</span>
-        </li>
-        <li>
-          <input type="checkbox" />
-          <span>Sources of truth are clearly identified</span>
-        </li>
-        <li>
-          <input type="checkbox" />
-          <span>Workflow owners and approvers are defined</span>
-        </li>
-      </ul>
-    </section>
+        <div class="doc-actions">
+          <button onclick="window.print()">Print / Save as PDF</button>
+        </div>
+      </header>
 
-    <!-- ACCESS -->
-    <section class="check-section">
-      <h2>Access & credentials</h2>
-      <ul class="checklist">
-        <li>
-          <input type="checkbox" />
-          <span>Service accounts or OAuth access are created</span>
-        </li>
-        <li>
-          <input type="checkbox" />
-          <span>Permissions follow least-privilege principles</span>
-        </li>
-        <li>
-          <input type="checkbox" />
-          <span>Credential ownership and rotation cadence are documented</span>
-        </li>
-      </ul>
-    </section>
+      <!-- CONTENT -->
+      <section class="doc-section">
+        <h2>Before you start</h2>
+        <ul class="checklist">
+          <li><input type="checkbox" /><span>Systems in scope are confirmed and documented</span></li>
+          <li><input type="checkbox" /><span>Sources of truth are clearly identified</span></li>
+          <li><input type="checkbox" /><span>Workflow owners and approvers are defined</span></li>
+        </ul>
+      </section>
 
-    <!-- DATA -->
-    <section class="check-section">
-      <h2>Data & mappings</h2>
-      <ul class="checklist">
-        <li>
-          <input type="checkbox" />
-          <span>Required fields and schemas are reviewed</span>
-        </li>
-        <li>
-          <input type="checkbox" />
-          <span>Field mappings are validated between systems</span>
-        </li>
-        <li>
-          <input type="checkbox" />
-          <span>Guardrails and conditional logic are defined</span>
-        </li>
-      </ul>
-    </section>
+      <section class="doc-section">
+        <h2>Access & credentials</h2>
+        <ul class="checklist">
+          <li><input type="checkbox" /><span>Service accounts or OAuth access are created</span></li>
+          <li><input type="checkbox" /><span>Permissions follow least-privilege principles</span></li>
+          <li><input type="checkbox" /><span>Credential ownership and rotation cadence are documented</span></li>
+        </ul>
+      </section>
 
-    <!-- VALIDATION -->
-    <section class="check-section">
-      <h2>Validation & testing</h2>
-      <ul class="checklist">
-        <li>
-          <input type="checkbox" />
-          <span>Workflows are tested with staging or representative data</span>
-        </li>
-        <li>
-          <input type="checkbox" />
-          <span>Edge cases and failure scenarios are reviewed</span>
-        </li>
-        <li>
-          <input type="checkbox" />
-          <span>Execution logs show expected outcomes</span>
-        </li>
-      </ul>
-    </section>
+      <section class="doc-section">
+        <h2>Data & mappings</h2>
+        <ul class="checklist">
+          <li><input type="checkbox" /><span>Required fields and schemas are reviewed</span></li>
+          <li><input type="checkbox" /><span>Field mappings are validated between systems</span></li>
+          <li><input type="checkbox" /><span>Guardrails and conditional logic are defined</span></li>
+        </ul>
+      </section>
 
-    <!-- LAUNCH -->
-    <section class="check-section">
-      <h2>Launch readiness</h2>
-      <ul class="checklist">
-        <li>
-          <input type="checkbox" />
-          <span>Workflows are enabled incrementally</span>
-        </li>
-        <li>
-          <input type="checkbox" />
-          <span>Monitoring and alerting are in place</span>
-        </li>
-        <li>
-          <input type="checkbox" />
-          <span>Internal stakeholders are informed of rollout timing</span>
-        </li>
-      </ul>
-    </section>
+      <section class="doc-section">
+        <h2>Validation & testing</h2>
+        <ul class="checklist">
+          <li><input type="checkbox" /><span>Workflows are tested with representative data</span></li>
+          <li><input type="checkbox" /><span>Edge cases and failure scenarios are reviewed</span></li>
+          <li><input type="checkbox" /><span>Execution logs reflect expected outcomes</span></li>
+        </ul>
+      </section>
 
-    <!-- POST -->
-    <section class="check-section">
-      <h2>Post-launch hygiene</h2>
-      <ul class="checklist">
-        <li>
-          <input type="checkbox" />
-          <span>Permissions are reviewed periodically</span>
-        </li>
-        <li>
-          <input type="checkbox" />
-          <span>Workflows are revisited after upstream system changes</span>
-        </li>
-        <li>
-          <input type="checkbox" />
-          <span>Ownership and documentation remain up to date</span>
-        </li>
-      </ul>
-    </section>
+      <section class="doc-section">
+        <h2>Launch readiness</h2>
+        <ul class="checklist">
+          <li><input type="checkbox" /><span>Workflows are enabled incrementally</span></li>
+          <li><input type="checkbox" /><span>Monitoring and alerting are confirmed</span></li>
+          <li><input type="checkbox" /><span>Stakeholders are informed of rollout timing</span></li>
+        </ul>
+      </section>
+
+      <section class="doc-section">
+        <h2>Post-launch hygiene</h2>
+        <ul class="checklist">
+          <li><input type="checkbox" /><span>Permissions are reviewed periodically</span></li>
+          <li><input type="checkbox" /><span>Workflows are updated after upstream changes</span></li>
+          <li><input type="checkbox" /><span>Ownership and documentation remain current</span></li>
+        </ul>
+      </section>
+
+    </article>
 
   </main>
 
