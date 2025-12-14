@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,70 +10,203 @@
   <!-- Nova Botpress Webchat -->
   <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
   <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
+
+  <style>
+    .page-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 18px 64px;
+    }
+
+    /* HERO */
+    .docs-hero {
+      position: relative;
+      text-align: center;
+      padding: 40px 20px 28px;
+      border-radius: 16px;
+      background: linear-gradient(
+        180deg,
+        rgba(33,225,159,0.14) 0%,
+        rgba(65,209,255,0.12) 60%,
+        #ffffff 100%
+      );
+      border: 1px solid rgba(148,163,184,0.35);
+      box-shadow: 0 10px 22px rgba(15,23,42,0.06);
+      margin-bottom: 26px;
+    }
+
+    .back-pill {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 500;
+      border-radius: 999px;
+      text-decoration: none;
+      color: #0f172a;
+      background: linear-gradient(135deg, #41d1ff, #21e19f);
+      box-shadow: 0 4px 10px rgba(15,23,42,0.12);
+    }
+
+    .docs-hero h1 {
+      margin: 0 0 8px;
+      font-size: 34px;
+      color: #0f172a;
+    }
+
+    .docs-hero p {
+      margin: 0 auto;
+      max-width: 820px;
+      font-size: 16px;
+      color: #475569;
+      line-height: 1.55;
+    }
+
+    /* METHOD PILLS */
+    .pill {
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      color: #0f172a;
+      white-space: nowrap;
+    }
+
+    .pill.post {
+      background: linear-gradient(135deg, rgba(33,225,159,0.9), rgba(65,209,255,0.9));
+    }
+
+    /* CONTENT */
+    .doc-section {
+      max-width: 980px;
+      margin-top: 28px;
+    }
+
+    .doc-section h2 {
+      margin: 34px 0 10px;
+      font-size: 22px;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .doc-section p,
+    .doc-section li {
+      color: #475569;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid rgba(148,163,184,0.35);
+      margin: 28px 0;
+    }
+
+    /* CODE BLOCK */
+    .code-block {
+      position: relative;
+      margin: 12px 0 14px;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 12px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      background:
+        linear-gradient(#ffffff, #ffffff) padding-box,
+        linear-gradient(135deg, #41d1ff, #21e19f) border-box;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .copy-btn.copied {
+      background: linear-gradient(135deg, #41d1ff, #21e19f);
+    }
+
+    pre {
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(148,163,184,0.35);
+      background: rgba(248,250,252,0.95);
+      overflow-x: auto;
+      font-size: 13px;
+      line-height: 1.55;
+      color: #0f172a;
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
+  <!-- 🔒 LOCKED NAV BAR -->
   <header class="site-header">
     <div class="container header-inner">
-
-      <div class="logo">
-        <a href="index.html" class="logo-link">SyncToScale</a>
-      </div>
-
+      <a href="index.html" class="logo">SyncToScale</a>
       <nav class="nav">
         <a href="index.html">Home</a>
         <a href="features.html">Features</a>
         <a href="pricing.html">Pricing</a>
-        <a href="faq.html">FAQ</a>
+        <a href="docs.html">Docs</a>
         <a href="resources.html">Resources</a>
         <a href="about.html">About</a>
       </nav>
-
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="page-hero">
-    <h1>Actions</h1>
-    <p>
-      Actions define what a workflow does after a trigger fires.
-      SyncToScale supports create/update operations, searches, transformations,
-      and multi-step logic across connected applications.
-    </p>
-  </section>
+  <main class="page-wrap">
 
+    <!-- HERO -->
+    <section class="docs-hero">
+      <a href="docs.html" class="back-pill">← Back to docs</a>
+      <h1>Actions</h1>
+      <p>
+        Actions define what a workflow does after a trigger fires.
+        SyncToScale supports create, update, search, transformation,
+        and multi-step logic across connected applications.
+      </p>
+    </section>
 
-  <!-- PAGE CONTENT -->
-  <section class="doc-container">
+    <!-- CONTENT -->
+    <section class="doc-section">
 
-    <h2>Overview</h2>
-    <p>
-      When a workflow runs, the incoming payload is passed through a sequence of steps called <strong>actions</strong>.
-      Each action uses the authenticated connection to perform an operation in the target system.
-    </p>
+      <h2>Overview</h2>
+      <p>
+        When a workflow runs, the incoming payload is passed through
+        a sequence of steps called <strong>actions</strong>.
+        Each action uses the authenticated connection to perform
+        an operation in the target system.
+      </p>
 
-    <hr />
+      <hr />
 
-    <h2>Common Action Types</h2>
-    <p>SyncToScale supports a wide range of standardized actions across all integrations:</p>
+      <h2>Common Action Types</h2>
+      <ul>
+        <li><strong>Create Record</strong> — Add a new employee, deal, user, ticket, etc.</li>
+        <li><strong>Update Record</strong> — Modify fields on an existing object.</li>
+        <li><strong>Upsert Record</strong> — Create if missing; update if present.</li>
+        <li><strong>Search Record</strong> — Find matching records by email, ID, or criteria.</li>
+        <li><strong>Send Event</strong> — Push structured data to another system.</li>
+        <li><strong>Run Transformation</strong> — Apply formulas or reshape payloads.</li>
+      </ul>
 
-    <ul>
-      <li><strong>Create Record</strong> — Add a new employee, deal, user, ticket, etc.</li>
-      <li><strong>Update Record</strong> — Modify fields on an existing object.</li>
-      <li><strong>Upsert Record</strong> — Create if missing; update if present.</li>
-      <li><strong>Search Record</strong> — Find matching records by email, ID, or custom criteria.</li>
-      <li><strong>Send Event</strong> — Push structured data to another system or platform.</li>
-      <li><strong>Run Transformation</strong> — Apply formulas or reshape payloads for downstream steps.</li>
-    </ul>
+      <hr />
 
-    <hr />
+      <h2><span class="pill post">POST</span> Create / Update Example</h2>
 
-    <h2>Create / Update Example</h2>
-
-<pre>
-POST /actions/run
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+<pre>POST /actions/run
 {
   "provider": "hubspot",
   "action": "create_record",
@@ -84,23 +216,21 @@ POST /actions/run
     "first_name": "Jordan",
     "last_name": "Doe"
   }
-}
-</pre>
+}</pre>
+      </div>
 
-    <p>
-      The action executes using the authenticated HubSpot connection,
-      applying object-specific validations and required fields.
-    </p>
+      <p>
+        The action executes using the authenticated HubSpot connection,
+        applying object-specific validations and required fields.
+      </p>
 
-    <hr />
+      <hr />
 
-    <h2>Upsert Logic</h2>
-    <p>
-      Upserts prevent duplicate records by combining a lookup + create/update in a single step.
-    </p>
+      <h2>Upsert Logic</h2>
 
-<pre>
-{
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+<pre>{
   "provider": "bamboohr",
   "action": "upsert_employee",
   "lookup": { "email": "jordan@example.com" },
@@ -109,95 +239,109 @@ POST /actions/run
     "last_name": "Doe",
     "department": "Engineering"
   }
-}
-</pre>
+}</pre>
+      </div>
 
-    <p>
-      SyncToScale determines whether the employee already exists, then performs the appropriate action.
-    </p>
+      <p>
+        SyncToScale determines whether the employee already exists,
+        then performs the appropriate action.
+      </p>
 
-    <hr />
+      <hr />
 
-    <h2>Search Actions</h2>
-    <p>
-      Searches help locate existing records before performing a write operation.
-      This prevents duplicate users or conflicting updates.
-    </p>
+      <h2>Search Actions</h2>
 
-<pre>
-{
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+<pre>{
   "provider": "google_workspace",
   "action": "search_user",
   "criteria": {
     "email": "jordan@example.com"
   }
-}
-</pre>
+}</pre>
+      </div>
 
-    <p>
-      Search results can be used to drive conditional branching inside the workflow.
-    </p>
+      <p>
+        Search results can be used to drive conditional
+        branching inside the workflow.
+      </p>
 
-    <hr />
+      <hr />
 
-    <h2>Transformation Actions</h2>
-    <p>
-      Transformations modify the incoming payload using formulas or mapping rules.
-      These are often used to normalize data formats between systems.
-    </p>
+      <h2>Transformation Actions</h2>
 
-<pre>
-{
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+<pre>{
   "action": "transform",
   "expression": {
     "full_name": "payload.first_name + ' ' + payload.last_name"
   }
-}
-</pre>
+}</pre>
+      </div>
 
-    <p>
-      Nova AI can optionally infer missing fields or recommend mapping corrections.
-    </p>
+      <p>
+        Nova AI can optionally infer missing fields
+        or recommend mapping corrections.
+      </p>
 
-    <hr />
+      <hr />
 
-    <h2>Error Handling in Actions</h2>
-    <p>
-      Errors in an action step can occur due to invalid data, missing required fields,
-      upstream outages, or insufficient permissions.
-    </p>
+      <h2>Error Handling in Actions</h2>
+      <ul>
+        <li><strong>400</strong> — Invalid object structure or missing fields.</li>
+        <li><strong>401</strong> — Token invalid; connection needs attention.</li>
+        <li><strong>404</strong> — Action attempted on a missing record.</li>
+        <li><strong>409</strong> — Duplicate or version conflict.</li>
+        <li><strong>429</strong> — Rate limited; retry enabled.</li>
+        <li><strong>500/503</strong> — Provider outage.</li>
+      </ul>
 
-    <ul>
-      <li><strong>400 - Bad Request</strong> — Invalid object structure or missing required fields.</li>
-      <li><strong>401 - Unauthorized</strong> — Token invalid; connection in “Needs Attention.”</li>
-      <li><strong>404 - Not Found</strong> — Action attempted on a missing record.</li>
-      <li><strong>409 - Conflict</strong> — Duplicate object or versioning conflict.</li>
-      <li><strong>429 - Rate Limited</strong> — Provider throttled the request; retry enabled.</li>
-      <li><strong>500/503</strong> — Provider outage or temporary instability.</li>
-    </ul>
+      <p>
+        SyncToScale retries certain actions automatically
+        using exponential backoff.
+      </p>
 
-    <p>
-      SyncToScale retries certain actions automatically using exponential backoff.
-    </p>
+      <hr />
 
-    <hr />
+      <h2>Action Execution Flow</h2>
 
-    <h2>Action Execution Flow</h2>
-
-<pre>
-{
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+<pre>{
   "step": "create_record",
   "provider": "slack",
   "object": "user",
   "status": "success",
   "attempts": 1,
   "timestamp": "2025-01-20T14:22:00Z"
-}
-</pre>
+}</pre>
+      </div>
 
-    <p>This log entry shows the executed step and metadata for debugging.</p>
+      <p>
+        This log entry shows the executed step
+        and metadata for debugging.
+      </p>
 
-  </section>
+    </section>
+
+  </main>
+
+  <script>
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const code = btn.nextElementSibling.innerText;
+        navigator.clipboard.writeText(code);
+        btn.textContent = 'Copied ✓';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'Copy';
+          btn.classList.remove('copied');
+        }, 1500);
+      });
+    });
+  </script>
 
 </body>
 </html>
