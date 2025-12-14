@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,61 +7,201 @@
 
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- Botpress Webchat -->
+  <!-- Nova Botpress Webchat -->
   <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
   <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
 
+  <style>
+    .page-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 18px 64px;
+    }
+
+    /* HERO */
+    .docs-hero {
+      position: relative;
+      text-align: center;
+      padding: 40px 20px 28px;
+      border-radius: 16px;
+      background: linear-gradient(
+        180deg,
+        rgba(33,225,159,0.14) 0%,
+        rgba(65,209,255,0.12) 60%,
+        #ffffff 100%
+      );
+      border: 1px solid rgba(148,163,184,0.35);
+      box-shadow: 0 10px 22px rgba(15,23,42,0.06);
+      margin-bottom: 26px;
+    }
+
+    .back-pill {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 500;
+      border-radius: 999px;
+      text-decoration: none;
+      color: #0f172a;
+      background: linear-gradient(135deg, #41d1ff, #21e19f);
+      box-shadow: 0 4px 10px rgba(15,23,42,0.12);
+    }
+
+    .docs-hero h1 {
+      margin: 0 0 8px;
+      font-size: 34px;
+      color: #0f172a;
+    }
+
+    .docs-hero p {
+      margin: 0 auto;
+      max-width: 820px;
+      font-size: 16px;
+      color: #475569;
+      line-height: 1.55;
+    }
+
+    /* METHOD PILLS */
+    .pill {
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      color: #0f172a;
+      white-space: nowrap;
+    }
+
+    .pill.post {
+      background: linear-gradient(135deg, rgba(33,225,159,0.9), rgba(65,209,255,0.9));
+    }
+
+    .pill.get {
+      background: linear-gradient(135deg, rgba(65,209,255,0.9), rgba(148,197,255,0.9));
+    }
+
+    /* CONTENT */
+    .doc-section {
+      max-width: 980px;
+      margin-top: 28px;
+    }
+
+    .doc-section h2 {
+      margin: 34px 0 10px;
+      font-size: 22px;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .doc-section p,
+    .doc-section li {
+      color: #475569;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid rgba(148,163,184,0.35);
+      margin: 28px 0;
+    }
+
+    /* CODE BLOCK */
+    .code-block {
+      position: relative;
+      margin: 12px 0 14px;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 12px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      background:
+        linear-gradient(#ffffff, #ffffff) padding-box,
+        linear-gradient(135deg, #41d1ff, #21e19f) border-box;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .copy-btn.copied {
+      background: linear-gradient(135deg, #41d1ff, #21e19f);
+    }
+
+    pre {
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(148,163,184,0.35);
+      background: rgba(248,250,252,0.95);
+      overflow-x: auto;
+      font-size: 13px;
+      line-height: 1.55;
+      color: #0f172a;
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
+  <!-- 🔒 LOCKED NAV BAR -->
   <header class="site-header">
     <div class="container header-inner">
-      <div class="logo">
-        <a href="index.html" class="logo-link">SyncToScale</a>
-      </div>
-
+      <a href="index.html" class="logo">SyncToScale</a>
       <nav class="nav">
         <a href="index.html">Home</a>
         <a href="features.html">Features</a>
         <a href="pricing.html">Pricing</a>
-        <a href="faq.html">FAQ</a>
+        <a href="docs.html">Docs</a>
         <a href="resources.html">Resources</a>
         <a href="about.html">About</a>
       </nav>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="page-hero">
-    <h1>Triggers</h1>
-    <p>
-      Triggers determine when a workflow starts.  
-      SyncToScale supports event-based, polling, and scheduled triggers, ensuring workflows
-      activate exactly when new data enters your system.
-    </p>
-  </section>
+  <main class="page-wrap">
 
-  <!-- CONTENT -->
-  <section class="doc-container">
+    <!-- HERO -->
+    <section class="docs-hero">
+      <a href="docs.html" class="back-pill">← Back to docs</a>
+      <h1>Triggers</h1>
+      <p>
+        Triggers determine when a workflow starts.
+        SyncToScale supports event-based, polling, scheduled, and webhook triggers
+        to activate workflows exactly when new data enters your system.
+      </p>
+    </section>
 
-    <h2>Overview</h2>
-    <p>
-      A trigger is the entry point of a workflow. When the trigger fires, SyncToScale collects the
-      incoming payload, validates the structure, and passes it into the first mapping/action step.
-    </p>
+    <!-- CONTENT -->
+    <section class="doc-section">
 
-    <hr />
+      <h2>Overview</h2>
+      <p>
+        A trigger is the entry point of a workflow.
+        When a trigger fires, SyncToScale collects the incoming payload,
+        validates the structure, and passes it into the first mapping or action step.
+      </p>
 
-    <h2>Event-Based Triggers (Recommended)</h2>
-    <p>
-      Event-based triggers activate immediately when the connected system generates an event
-      — such as a new employee record, updated deal, or form submission.
-    </p>
+      <hr />
 
-<pre>
-POST /triggers/event
+      <h2><span class="pill post">POST</span> Event-Based Triggers (Recommended)</h2>
+      <p>
+        Event-based triggers activate immediately when the connected system
+        generates an event such as a new employee record or updated deal.
+      </p>
+
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+<pre>POST /triggers/event
 {
   "provider": "bamboohr",
   "event_type": "employee.created",
@@ -71,68 +210,71 @@ POST /triggers/event
     "first_name": "Jordan",
     "email": "jordan@example.com"
   }
-}
-</pre>
+}</pre>
+      </div>
 
-    <p>
-      These triggers are the most reliable and are recommended for real-time automations.
-    </p>
+      <p>
+        These triggers are the most reliable and are recommended
+        for real-time automations.
+      </p>
 
-    <hr />
+      <hr />
 
-    <h2>Polling Triggers</h2>
-    <p>
-      Some systems do not support outgoing event notifications.  
-      SyncToScale can poll an endpoint at a configurable interval (default: every 5 minutes),
-      detecting new or changed records.
-    </p>
+      <h2><span class="pill get">GET</span> Polling Triggers</h2>
+      <p>
+        For systems without native events, SyncToScale can poll an endpoint
+        at a configurable interval to detect new or changed records.
+      </p>
 
-<pre>
-GET /polling
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+<pre>GET /polling
 {
   "provider": "legacy_hris",
   "last_checked": "2025-01-20T12:00:00Z"
-}
-</pre>
+}</pre>
+      </div>
 
-    <p>
-      Polling logic includes:
-    </p>
+      <ul>
+        <li>Delta detection (created/updated since last run)</li>
+        <li>Deduplication safeguards</li>
+        <li>Backoff handling when provider is throttled</li>
+        <li>Recovery from missed runs due to outages</li>
+      </ul>
 
-    <ul>
-      <li>Delta detection (created/updated since last run)</li>
-      <li>Deduplication safeguards</li>
-      <li>Backoff handling when provider is throttled</li>
-      <li>Recovery from missed runs due to outages</li>
-    </ul>
+      <hr />
 
-    <hr />
+      <h2><span class="pill post">POST</span> Scheduled Triggers</h2>
+      <p>
+        Scheduled triggers run workflows on a fixed cadence
+        (hourly, daily, weekly) using validated cron expressions.
+      </p>
 
-    <h2>Scheduled Triggers</h2>
-    <p>
-      These allow workflows to run on a fixed cadence (hourly, daily, weekly).  
-      Useful for reconciliations, audits, batch exports, usage reports, and overnight syncs.
-    </p>
-
-<pre>
-POST /triggers/schedule
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+<pre>POST /triggers/schedule
 {
   "cron": "0 * * * *",
   "timezone": "UTC"
-}
-</pre>
+}</pre>
+      </div>
 
-    <p>SyncToScale uses safe cron validation and prevents overlapping runs.</p>
+      <p>
+        SyncToScale prevents overlapping runs
+        and enforces safe execution windows.
+      </p>
 
-    <hr />
+      <hr />
 
-    <h2>Webhook Triggers</h2>
-    <p>
-      Custom applications can send data directly into a workflow using secure, signed webhooks.
-    </p>
+      <h2><span class="pill post">POST</span> Webhook Triggers</h2>
+      <p>
+        Custom applications can send data directly into a workflow
+        using secure, signed inbound webhooks.
+      </p>
 
-<pre>
-POST /webhooks/inbound
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+<pre>POST /webhooks/inbound
 Headers:
   X-Signature: sha256=fc1db1...
 
@@ -143,43 +285,63 @@ Body:
     "id": "12345",
     "email": "new@example.com"
   }
-}
-</pre>
+}</pre>
+      </div>
 
-    <p>
-      SyncToScale verifies signatures, timestamps, and replay protection before accepting a webhook.
-    </p>
+      <p>
+        SyncToScale verifies signatures, timestamps,
+        and replay protection before accepting a webhook.
+      </p>
 
-    <hr />
+      <hr />
 
-    <h2>Troubleshooting Triggers</h2>
-    <ul>
-      <li><strong>Duplicate Events</strong> — Occurs when upstream systems retry event delivery.</li>
-      <li><strong>Missing Events</strong> — Provider outage or webhook misconfiguration.</li>
-      <li><strong>Invalid Payloads</strong> — Schema mismatch; transformation required.</li>
-      <li><strong>Timezone Drift</strong> — Scheduled triggers running at incorrect hours.</li>
-      <li><strong>Polling Overload</strong> — Provider rate limits exceeded; backoff enabled.</li>
-    </ul>
+      <h2>Troubleshooting Triggers</h2>
+      <ul>
+        <li><strong>Duplicate Events</strong> — Upstream retries.</li>
+        <li><strong>Missing Events</strong> — Provider outage or misconfiguration.</li>
+        <li><strong>Invalid Payloads</strong> — Schema mismatch.</li>
+        <li><strong>Timezone Drift</strong> — Incorrect schedule configuration.</li>
+        <li><strong>Polling Overload</strong> — Rate limits exceeded.</li>
+      </ul>
 
-    <p>
-      Nova can analyze these patterns to provide automatic recommendations.
-    </p>
+      <p>
+        Nova can analyze trigger behavior
+        and recommend configuration improvements automatically.
+      </p>
 
-    <hr />
+      <hr />
 
-    <h2>Example Trigger Workflow Execution</h2>
+      <h2>Example Trigger Execution</h2>
 
-<pre>
-{
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+<pre>{
   "trigger": "employee.created",
   "source": "bamboohr",
   "workflow": "new-hire-provisioning",
   "received_at": "2025-01-20T14:12:00Z",
   "status": "queued"
-}
-</pre>
+}</pre>
+      </div>
 
-  </section>
+    </section>
+
+  </main>
+
+  <script>
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const code = btn.nextElementSibling.innerText;
+        navigator.clipboard.writeText(code);
+        btn.textContent = 'Copied ✓';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'Copy';
+          btn.classList.remove('copied');
+        }, 1500);
+      });
+    });
+  </script>
 
 </body>
 </html>
