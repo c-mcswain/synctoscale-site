@@ -20,16 +20,16 @@
     }
 
     /* -------------------------------
-       DOCS HERO — LIGHT
+       DOCS HERO — CANONICAL
     -------------------------------- */
     .docs-hero {
       position: relative;
-      padding: 30px 22px 28px;
-      border-radius: 16px;
+      padding: 34px 24px 32px;
+      border-radius: 18px;
       background: linear-gradient(
         180deg,
-        rgba(33, 225, 159, 0.12) 0%,
-        rgba(65, 209, 255, 0.10) 60%,
+        rgba(33,225,159,0.14) 0%,
+        rgba(65,209,255,0.14) 55%,
         #ffffff 100%
       );
       border: 1px solid #e2e8f0;
@@ -37,56 +37,115 @@
     }
 
     .docs-hero h1 {
-      margin: 0 0 8px;
-      font-size: 34px;
-      color: #0b3d3d;
+      margin: 0 0 10px;
+      font-size: 36px;
       letter-spacing: -0.02em;
+      color: #0b3d3d;
     }
 
     .docs-hero p {
       margin: 0 auto;
-      max-width: 720px;
-      color: #475569;
-      font-size: 16px;
+      max-width: 760px;
+      font-size: 17px;
       line-height: 1.6;
+      color: #475569;
     }
 
     .back-pill {
       position: absolute;
-      top: 16px;
-      left: 16px;
-      padding: 8px 12px;
+      top: 18px;
+      left: 18px;
+      padding: 10px 16px;
       border-radius: 999px;
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 600;
       text-decoration: none;
       color: #0b3d3d;
-      background: rgba(255,255,255,0.85);
-      border: 1px solid #dbeafe;
+      background: linear-gradient(
+        135deg,
+        rgba(65,209,255,0.25),
+        rgba(33,225,159,0.35)
+      );
+      border: 1px solid rgba(33,225,159,0.35);
     }
 
     /* -------------------------------
-       SECTIONS
+       METHOD PILLS ROW (API STYLE)
+    -------------------------------- */
+    .method-row {
+      margin: 18px auto 0;
+      padding: 14px 18px;
+      border-radius: 999px;
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+    }
+
+    .method-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #334155;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      white-space: nowrap;
+    }
+
+    .method-pill .tag {
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: #0b3d3d;
+      border: 1px solid rgba(2,44,44,0.15);
+    }
+
+    .tag.post {
+      background: linear-gradient(
+        90deg,
+        rgba(65,209,255,0.45),
+        rgba(33,225,159,0.45)
+      );
+    }
+
+    .tag.get {
+      background: linear-gradient(
+        90deg,
+        rgba(65,209,255,0.45),
+        rgba(59,130,246,0.35)
+      );
+    }
+
+    /* -------------------------------
+       CONTENT SECTIONS
     -------------------------------- */
     .section {
-      margin-top: 22px;
-      padding: 18px;
+      margin-top: 24px;
+      padding: 20px;
       border-radius: 16px;
-      border: 1px solid #e2e8f0;
       background: #ffffff;
+      border: 1px solid #e2e8f0;
     }
 
     .section h2 {
-      margin: 0 0 10px;
-      font-size: 20px;
+      margin: 0 0 12px;
+      font-size: 22px;
       color: #0b3d3d;
     }
 
     .section p,
     .section li {
-      color: #475569;
       font-size: 15px;
       line-height: 1.6;
+      color: #475569;
     }
 
     .section ul {
@@ -94,43 +153,11 @@
     }
 
     /* -------------------------------
-       METHOD PILLS (API STYLE)
-    -------------------------------- */
-    .pill {
-      display: inline-block;
-      margin-right: 8px;
-      padding: 3px 10px;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      border-radius: 999px;
-      border: 1px solid rgba(2,44,44,0.15);
-      color: #0b3d3d;
-      vertical-align: middle;
-    }
-
-    .pill.post {
-      background: linear-gradient(
-        90deg,
-        rgba(65,209,255,0.35),
-        rgba(33,225,159,0.35)
-      );
-    }
-
-    .pill.get {
-      background: linear-gradient(
-        90deg,
-        rgba(65,209,255,0.35),
-        rgba(59,130,246,0.25)
-      );
-    }
-
-    /* -------------------------------
        CODE BLOCKS
     -------------------------------- */
     .code-block {
       position: relative;
-      margin-top: 12px;
+      margin-top: 14px;
       border-radius: 14px;
       background: #0b1220;
       border: 1px solid #1e293b;
@@ -139,7 +166,7 @@
 
     .code-block pre {
       margin: 0;
-      padding: 16px;
+      padding: 18px;
       color: #e5e7eb;
       font-size: 13px;
       line-height: 1.55;
@@ -148,9 +175,9 @@
 
     .copy-btn {
       position: absolute;
-      top: 10px;
-      right: 10px;
-      padding: 6px 10px;
+      top: 12px;
+      right: 12px;
+      padding: 6px 12px;
       font-size: 12px;
       font-weight: 600;
       border-radius: 999px;
@@ -163,9 +190,12 @@
     /* -------------------------------
        RESPONSIVE
     -------------------------------- */
-    @media (max-width: 560px) {
+    @media (max-width: 640px) {
       .docs-hero h1 {
-        font-size: 28px;
+        font-size: 30px;
+      }
+      .method-row {
+        border-radius: 16px;
       }
     }
   </style>
@@ -190,15 +220,29 @@
 
   <main class="page-wrap">
 
+    <!-- HERO -->
     <section class="docs-hero">
       <a href="docs.html" class="back-pill">← Back to docs</a>
       <h1>Quickstart</h1>
       <p>
         Get your first SyncToScale workflow running in minutes.
-        This guide shows authentication, triggering a run, and checking results.
+        This guide walks through authentication, triggering a run, and checking results.
       </p>
     </section>
 
+    <!-- METHOD PILLS -->
+    <div class="method-row">
+      <div class="method-pill">
+        <span class="tag post">POST</span>
+        Trigger workflows or send data
+      </div>
+      <div class="method-pill">
+        <span class="tag get">GET</span>
+        Check status or retrieve results
+      </div>
+    </div>
+
+    <!-- CONTENT -->
     <section class="section">
       <h2>What you’ll need</h2>
       <ul>
@@ -210,7 +254,7 @@
 
     <section class="section">
       <h2>Authentication</h2>
-      <p>Send your API key as a bearer token on every request.</p>
+      <p>Send your API key as a bearer token with every request.</p>
 
       <div class="code-block">
         <button class="copy-btn">Copy</button>
@@ -219,7 +263,7 @@
     </section>
 
     <section class="section">
-      <h2><span class="pill post">POST</span> Run a workflow</h2>
+      <h2>Run a workflow</h2>
 
       <div class="code-block">
         <button class="copy-btn">Copy</button>
@@ -237,7 +281,7 @@
     </section>
 
     <section class="section">
-      <h2><span class="pill get">GET</span> Check run status</h2>
+      <h2>Check run status</h2>
 
       <div class="code-block">
         <button class="copy-btn">Copy</button>
@@ -261,4 +305,3 @@
 
 </body>
 </html>
-
