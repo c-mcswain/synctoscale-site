@@ -22,7 +22,7 @@
     /* HERO */
     .impl-hero {
       padding: 36px 22px 34px;
-      border-radius: 16px;
+      border-radius: 18px;
       background: linear-gradient(
         180deg,
         rgba(65,209,255,0.14) 0%,
@@ -43,14 +43,71 @@
 
     .impl-hero p {
       max-width: 78ch;
-      margin: 12px auto 0;
+      margin: 14px auto 0;
       font-size: 16px;
       color: #475569;
       line-height: 1.65;
     }
 
-    .section {
+    /* CALLOUT CARD (matches How It Works style) */
+    .impl-callout {
       margin-top: 18px;
+      padding: 22px 24px;
+      border-radius: 18px;
+      background: linear-gradient(
+        180deg,
+        rgba(65,209,255,0.12),
+        rgba(33,225,159,0.10)
+      );
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 6px 18px rgba(15,23,42,0.06);
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .impl-callout-text h3 {
+      margin: 0 0 6px;
+      font-size: 18px;
+      color: #0f172a;
+    }
+
+    .impl-callout-text p {
+      margin: 0;
+      font-size: 15px;
+      color: #475569;
+      line-height: 1.6;
+      max-width: 64ch;
+    }
+
+    .impl-callout-action {
+      flex-shrink: 0;
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      color: #0f172a;
+
+      background: linear-gradient(
+        90deg,
+        #41d1ff,
+        #21e19f
+      );
+      box-shadow: 0 6px 14px rgba(15,23,42,0.12);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .impl-callout-action:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(15,23,42,0.18);
+    }
+
+    /* SECTIONS */
+    .section {
+      margin-top: 20px;
       padding: 20px;
       border-radius: 16px;
       border: 1px solid #e2e8f0;
@@ -98,23 +155,22 @@
       line-height: 1.55;
     }
 
-    .inline-link {
-      margin-top: 14px;
-      font-size: 14px;
-    }
-
-    .inline-link a {
-      color: #0ea5e9;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
     @media (max-width: 860px) {
       .card {
         grid-column: span 12;
       }
+
       .impl-hero h1 {
         font-size: 28px;
+      }
+
+      .impl-callout {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .impl-callout-action {
+        margin-top: 12px;
       }
     }
   </style>
@@ -139,140 +195,151 @@
 
   <main class="page-wrap">
 
+    <!-- HERO -->
     <section class="impl-hero">
       <h1>What to expect during implementation</h1>
       <p>
         This page outlines what teams typically experience when implementing SyncToScale —
-        from early discovery through rollout and ongoing ownership. It’s designed to set
-        expectations, clarify responsibilities, and reduce surprises during setup.
+        from early discovery through rollout and long-term ownership. It’s designed to set
+        expectations, clarify responsibilities, and reduce surprises.
       </p>
     </section>
 
+    <!-- CALLOUT -->
+    <section class="impl-callout">
+      <div class="impl-callout-text">
+        <h3>From setup to rollout</h3>
+        <p>
+          See what implementation looks like in practice — preparation, validation,
+          rollout, and ongoing ownership.
+        </p>
+      </div>
+
+      <a href="implementation-checklist.html" class="impl-callout-action">
+        View implementation checklist →
+      </a>
+    </section>
+
+    <!-- DISCOVERY -->
     <section class="section">
       <h2>Discovery & alignment</h2>
       <p>
-        Early implementation focuses on shared understanding. Teams align on which systems
-        matter, what events should trigger workflows, and what outcomes define success.
+        Implementation typically begins with alignment. Teams establish which systems
+        matter, what events should trigger workflows, and how success will be measured.
       </p>
 
       <div class="grid">
         <div class="card">
           <h3>System inventory</h3>
           <p>
-            Teams typically review which tools act as sources of truth and where key changes
-            originate (e.g., HR systems, CRMs, ticketing tools).
+            Teams identify sources of truth and where meaningful changes originate
+            across HR, CRM, and operational tools.
           </p>
         </div>
         <div class="card">
           <h3>Ownership clarity</h3>
           <p>
-            Roles and responsibilities are defined early so approvals, changes, and questions
-            have clear owners throughout implementation.
+            Clear ownership is defined early so changes, approvals, and questions
+            have an obvious path.
           </p>
         </div>
       </div>
     </section>
 
+    <!-- SETUP -->
     <section class="section">
       <h2>Integration setup</h2>
       <p>
-        Once scope is clear, integrations are connected using scoped credentials or OAuth.
-        Initial setup emphasizes security, reliability, and visibility into connection health.
+        Once scope is defined, systems are connected using scoped credentials or OAuth.
+        Early validation focuses on security, stability, and visibility.
       </p>
 
       <div class="grid">
         <div class="card">
           <h3>Credential strategy</h3>
           <p>
-            Teams typically use service accounts or limited scopes to reduce risk and
-            simplify future access reviews.
+            Service accounts and least-privilege access help reduce risk and simplify
+            future access reviews.
           </p>
         </div>
         <div class="card">
-          <h3>Early validation</h3>
+          <h3>Connection validation</h3>
           <p>
-            Connections are tested before workflows are enabled to confirm authorization
-            and data access behave as expected.
+            Teams confirm authorization and data access before enabling workflows.
           </p>
         </div>
       </div>
     </section>
 
+    <!-- VALIDATION -->
     <section class="section">
       <h2>Workflow validation</h2>
       <p>
-        Before rollout, workflows are reviewed using representative scenarios to confirm
-        mappings, conditions, and guardrails produce the intended outcomes.
+        Before rollout, workflows are reviewed using realistic scenarios to confirm
+        mappings, conditions, and guardrails behave as expected.
       </p>
 
       <div class="grid">
         <div class="card">
           <h3>Mapping confidence</h3>
           <p>
-            Field mappings and conditions are reviewed to prevent unexpected behavior
-            when real events begin flowing.
+            Field mappings and conditions are verified to prevent unintended outcomes.
           </p>
         </div>
         <div class="card">
           <h3>Scenario testing</h3>
           <p>
-            Teams validate workflows using staging or test data to surface edge cases
-            early.
+            Test data and staged events help surface edge cases early.
           </p>
         </div>
       </div>
     </section>
 
+    <!-- ROLLOUT -->
     <section class="section">
       <h2>Rollout & stabilization</h2>
       <p>
-        Rollout is typically staged. Teams observe early executions, review logs, and make
-        adjustments before expanding coverage.
+        Rollout is usually staged. Teams observe early executions, review logs,
+        and adjust logic before expanding coverage.
       </p>
 
       <div class="grid">
         <div class="card">
           <h3>Gradual enablement</h3>
           <p>
-            Workflows are often enabled for a subset of users or events before broader
-            rollout.
+            Workflows are enabled incrementally to build confidence and limit risk.
           </p>
         </div>
         <div class="card">
           <h3>Observation period</h3>
           <p>
-            Logs and notifications help teams verify behavior and build confidence
-            post-launch.
+            Monitoring and logs help confirm workflows perform as intended post-launch.
           </p>
         </div>
       </div>
     </section>
 
+    <!-- OWNERSHIP -->
     <section class="section">
       <h2>Ongoing ownership</h2>
       <p>
-        After launch, teams maintain workflows by reviewing permissions, adjusting logic
-        as systems evolve, and periodically validating assumptions.
+        After launch, teams maintain workflows by reviewing permissions,
+        adapting to upstream changes, and revisiting assumptions over time.
       </p>
 
       <div class="grid">
         <div class="card">
           <h3>Change management</h3>
           <p>
-            As upstream tools change, workflows may require updates to maintain accuracy.
+            Workflow logic evolves as business needs and systems change.
           </p>
         </div>
         <div class="card">
           <h3>Periodic reviews</h3>
           <p>
-            Regular check-ins help ensure workflows remain aligned with business needs.
+            Regular check-ins help ensure workflows remain aligned and reliable.
           </p>
         </div>
-      </div>
-
-      <div class="inline-link">
-        Looking for a task-level reference?
-        <a href="implementation-checklist.html">View the implementation checklist →</a>
       </div>
     </section>
 
