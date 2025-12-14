@@ -64,14 +64,33 @@
       line-height: 1.6;
     }
 
-    /* CONTENT */
+    /* SECTION WRAPPERS */
     .nova-section {
-      max-width: 900px;
-      margin: 0 auto 42px;
+      max-width: 920px;
+      margin: 0 auto 36px;
+      padding: 28px 28px 30px;
+      border-radius: 18px;
+    }
+
+    .nova-section.light {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+    }
+
+    .nova-section.soft {
+      background: rgba(148,163,184,0.10);
+    }
+
+    .nova-section.aqua {
+      background: linear-gradient(
+        180deg,
+        rgba(65,209,255,0.10),
+        rgba(33,225,159,0.08)
+      );
     }
 
     .nova-section h2 {
-      margin: 36px 0 10px;
+      margin: 0 0 10px;
       font-size: 22px;
       color: #0f172a;
     }
@@ -96,13 +115,14 @@
     }
 
     .callout {
-      margin-top: 18px;
-      padding: 16px 18px;
+      margin-top: 16px;
+      padding: 14px 16px;
       border-radius: 14px;
-      background: rgba(148,163,184,0.12);
+      background: rgba(255,255,255,0.65);
       color: #334155;
       font-size: 14px;
       line-height: 1.6;
+      border: 1px solid rgba(148,163,184,0.25);
     }
 
     .capabilities-grid {
@@ -135,125 +155,110 @@
 
 <body>
 
-  <!-- 🔒 LOCKED NAV BAR -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="logo">SyncToScale</a>
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="features.html">Features</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="docs.html">Docs</a>
-        <a href="resources.html">Resources</a>
-        <a href="about.html">About</a>
-      </nav>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">SyncToScale</a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="docs.html">Docs</a>
+      <a href="resources.html">Resources</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page-wrap">
+
+  <!-- HERO -->
+  <section class="nova-hero">
+    <a href="resources.html" class="back-pill">← Back to resources</a>
+    <h1>Nova AI Assistant</h1>
+    <p>
+      Nova is SyncToScale’s embedded AI assistant, accessible through a
+      conversational interface and designed to support teams operating
+      automated workflows.
+    </p>
+  </section>
+
+  <!-- CHATBOT -->
+  <section class="nova-section aqua">
+    <h2>Nova as a Conversational Chatbot</h2>
+    <p>
+      Nova is accessed through a chat-style interface embedded directly
+      within the SyncToScale platform, allowing users to ask questions and
+      receive guidance without leaving their workflow.
+    </p>
+
+    <ul class="nova-list">
+      <li>Embedded chat interface within the platform</li>
+      <li>Understands natural language questions</li>
+      <li>Provides real-time, contextual explanations</li>
+      <li>Serves as a first point of reference during setup</li>
+    </ul>
+
+    <div class="callout">
+      Nova uses a conversational interface, but it is not a general-purpose chatbot.
+      Responses are grounded in platform-specific context.
     </div>
-  </header>
+  </section>
 
-  <main class="page-wrap">
+  <!-- ASSISTANT -->
+  <section class="nova-section light">
+    <h2>Nova as an Operational Assistant</h2>
+    <p>
+      Beyond conversation, Nova functions as an intelligent assistance layer
+      that supports real operational decision-making while keeping humans
+      in control.
+    </p>
 
-    <!-- HERO -->
-    <section class="nova-hero">
-      <a href="resources.html" class="back-pill">← Back to resources</a>
-      <h1>Nova AI Assistant</h1>
-      <p>
-        Nova is SyncToScale’s embedded AI assistant, available through a conversational
-        interface and designed to support teams operating automated workflows.
-      </p>
-    </section>
-
-    <!-- CHATBOT LAYER -->
-    <section class="nova-section">
-      <h2>Nova as a Conversational Chatbot</h2>
-      <p>
-        Nova is accessed through a chat-style interface embedded directly in the
-        SyncToScale platform. This conversational layer allows users to ask questions,
-        explore concepts, and get immediate guidance without leaving their workflow.
-      </p>
-
-      <ul class="nova-list">
-        <li>Available directly within the SyncToScale UI</li>
-        <li>Understands natural language questions</li>
-        <li>Provides contextual explanations in real time</li>
-        <li>Acts as a first point of reference during setup and troubleshooting</li>
-      </ul>
-
-      <div class="callout">
-        While Nova uses a chat interface, it is not a general-purpose chatbot.
-        Conversations are grounded in platform context and operational intent.
+    <div class="capabilities-grid">
+      <div class="capability-card">
+        <h3>Workflow Guidance</h3>
+        <p>Explains triggers, actions, and flow logic in clear language.</p>
       </div>
-    </section>
-
-    <!-- ASSISTANT LAYER -->
-    <section class="nova-section">
-      <h2>Nova as an Operational Assistant</h2>
-      <p>
-        Beyond conversation, Nova functions as an intelligent assistance layer that
-        supports real operational work. It helps users understand system behavior,
-        interpret signals, and make informed decisions while maintaining human control.
-      </p>
-
-      <div class="capabilities-grid">
-        <div class="capability-card">
-          <h3>Workflow Guidance</h3>
-          <p>
-            Explains workflow steps, triggers, and actions in plain language
-            to reduce setup time and ambiguity.
-          </p>
-        </div>
-
-        <div class="capability-card">
-          <h3>Error Interpretation</h3>
-          <p>
-            Translates technical errors into clear explanations with suggested
-            remediation paths.
-          </p>
-        </div>
-
-        <div class="capability-card">
-          <h3>Mapping Suggestions</h3>
-          <p>
-            Assists with data mapping by suggesting field alignments across
-            connected systems.
-          </p>
-        </div>
-
-        <div class="capability-card">
-          <h3>Operational Context</h3>
-          <p>
-            Helps teams reason about execution logs, retries, and system behavior
-            during incidents.
-          </p>
-        </div>
+      <div class="capability-card">
+        <h3>Error Interpretation</h3>
+        <p>Translates technical errors into actionable explanations.</p>
       </div>
-    </section>
-
-    <!-- KNOWLEDGE -->
-    <section class="nova-section">
-      <h2>Knowledge & Context</h2>
-      <p>
-        Nova’s responses are grounded in platform documentation, workflow metadata,
-        and integration context. As the knowledge library expands, Nova becomes
-        increasingly tailored to real operational scenarios.
-      </p>
-
-      <div class="callout">
-        Nova’s knowledge base is designed to evolve alongside the platform, allowing
-        updates without disrupting existing workflows.
+      <div class="capability-card">
+        <h3>Mapping Suggestions</h3>
+        <p>Suggests field alignments across connected systems.</p>
       </div>
-    </section>
+      <div class="capability-card">
+        <h3>Operational Context</h3>
+        <p>Helps teams reason through logs, retries, and failures.</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- SAFETY -->
-    <section class="nova-section">
-      <h2>Safety & Boundaries</h2>
-      <ul class="nova-list">
-        <li>Nova does not execute workflows or make changes autonomously.</li>
-        <li>All actions require explicit user initiation.</li>
-        <li>Responses respect permissions and data visibility constraints.</li>
-      </ul>
-    </section>
+  <!-- KNOWLEDGE -->
+  <section class="nova-section soft">
+    <h2>Knowledge & Context</h2>
+    <p>
+      Nova’s responses are grounded in platform documentation, workflow metadata,
+      and integration context. As the knowledge library expands, Nova becomes
+      increasingly tailored to operational reality.
+    </p>
 
-  </main>
+    <div class="callout">
+      The knowledge library can be updated independently as workflows,
+      integrations, and best practices evolve.
+    </div>
+  </section>
+
+  <!-- SAFETY -->
+  <section class="nova-section light">
+    <h2>Safety & Boundaries</h2>
+    <ul class="nova-list">
+      <li>Nova does not execute workflows autonomously</li>
+      <li>All changes require explicit user action</li>
+      <li>Responses respect permissions and data visibility</li>
+    </ul>
+  </section>
+
+</main>
 
 </body>
 </html>
