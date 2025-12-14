@@ -70,12 +70,18 @@
       gap: 18px;
     }
 
+    .integration-link {
+      text-decoration: none;
+      color: inherit;
+    }
+
     .integration-card {
       padding: 18px;
       border-radius: 16px;
       border: 1px solid #e2e8f0;
       background: #ffffff;
       transition: transform 0.15s ease, box-shadow 0.15s ease;
+      height: 100%;
     }
 
     .integration-card:hover {
@@ -153,98 +159,118 @@
 
 <section class="integrations-grid">
 
-  <div class="integration-card">
-    <div class="integration-logo">
-      <img src="assets/synctoscale-icons/slack.png" alt="Slack logo">
+  <a href="slack.html" class="integration-link">
+    <div class="integration-card">
+      <div class="integration-logo">
+        <img src="assets/synctoscale-icons/slack.png" alt="Slack logo">
+      </div>
+      <h3>Slack</h3>
+      <p>Send messages, alerts, and workflow updates to Slack channels.</p>
+      <span class="category">Messaging</span>
     </div>
-    <h3>Slack</h3>
-    <p>Send messages, alerts, and workflow updates to Slack channels.</p>
-    <span class="category">Messaging</span>
-  </div>
+  </a>
 
-  <div class="integration-card">
-    <div class="integration-logo">
-      <img src="assets/synctoscale-icons/bamboohr.png" alt="BambooHR logo">
+  <a href="bamboohr.html" class="integration-link">
+    <div class="integration-card">
+      <div class="integration-logo">
+        <img src="assets/synctoscale-icons/bamboohr.png" alt="BambooHR logo">
+      </div>
+      <h3>BambooHR</h3>
+      <p>Trigger workflows from employee lifecycle events.</p>
+      <span class="category">HRIS</span>
     </div>
-    <h3>BambooHR</h3>
-    <p>Trigger workflows from employee lifecycle events.</p>
-    <span class="category">HRIS</span>
-  </div>
+  </a>
 
-  <div class="integration-card">
-    <div class="integration-logo">
-      <img src="assets/synctoscale-icons/gusto.svg" alt="Gusto logo">
+  <a href="gusto.html" class="integration-link">
+    <div class="integration-card">
+      <div class="integration-logo">
+        <img src="assets/synctoscale-icons/gusto.svg" alt="Gusto logo">
+      </div>
+      <h3>Gusto</h3>
+      <p>Sync payroll and onboarding data automatically.</p>
+      <span class="category">Payroll</span>
     </div>
-    <h3>Gusto</h3>
-    <p>Sync payroll and onboarding data automatically.</p>
-    <span class="category">Payroll</span>
-  </div>
+  </a>
 
-  <div class="integration-card">
-    <div class="integration-logo">
-      <img src="assets/synctoscale-icons/jira.svg" alt="Jira logo">
+  <a href="jira.html" class="integration-link">
+    <div class="integration-card">
+      <div class="integration-logo">
+        <img src="assets/synctoscale-icons/jira.svg" alt="Jira logo">
+      </div>
+      <h3>Jira</h3>
+      <p>Create and update issues from workflow steps.</p>
+      <span class="category">Project Management</span>
     </div>
-    <h3>Jira</h3>
-    <p>Create and update issues from workflow steps.</p>
-    <span class="category">Project Management</span>
-  </div>
+  </a>
 
-  <div class="integration-card">
-    <div class="integration-logo">
-      <img src="assets/synctoscale-icons/hubspot.png" alt="HubSpot logo">
+  <a href="hubspot.html" class="integration-link">
+    <div class="integration-card">
+      <div class="integration-logo">
+        <img src="assets/synctoscale-icons/hubspot.png" alt="HubSpot logo">
+      </div>
+      <h3>HubSpot</h3>
+      <p>Create contacts, update deals, and track lifecycle stages.</p>
+      <span class="category">CRM</span>
     </div>
-    <h3>HubSpot</h3>
-    <p>Create contacts, update deals, and track lifecycle stages.</p>
-    <span class="category">CRM</span>
-  </div>
+  </a>
 
-  <div class="integration-card">
-    <div class="integration-logo">
-      <img src="assets/synctoscale-icons/asana.svg" alt="Asana logo">
+  <a href="asana.html" class="integration-link">
+    <div class="integration-card">
+      <div class="integration-logo">
+        <img src="assets/synctoscale-icons/asana.svg" alt="Asana logo">
+      </div>
+      <h3>Asana</h3>
+      <p>Coordinate tasks and projects triggered by workflows.</p>
+      <span class="category">Productivity</span>
     </div>
-    <h3>Asana</h3>
-    <p>Coordinate tasks and projects triggered by workflows.</p>
-    <span class="category">Productivity</span>
-  </div>
+  </a>
 
-  <div class="integration-card">
-    <div class="integration-logo">
-      <img src="assets/synctoscale-icons/googlelogo.png" alt="Google Workspace logo">
+  <a href="google-workspace.html" class="integration-link">
+    <div class="integration-card">
+      <div class="integration-logo">
+        <img src="assets/synctoscale-icons/googlelogo.png" alt="Google Workspace logo">
+      </div>
+      <h3>Google Workspace</h3>
+      <p>Sync users, files, and events across Google tools.</p>
+      <span class="category">Productivity</span>
     </div>
-    <h3>Google Workspace</h3>
-    <p>Sync users, files, and events across Google tools.</p>
-    <span class="category">Productivity</span>
-  </div>
+  </a>
 
-  <div class="integration-card">
-    <div class="integration-logo">
-      <img src="assets/synctoscale-icons/notionlogo.png" alt="Notion logo">
+  <a href="notion.html" class="integration-link">
+    <div class="integration-card">
+      <div class="integration-logo">
+        <img src="assets/synctoscale-icons/notionlogo.png" alt="Notion logo">
+      </div>
+      <h3>Notion</h3>
+      <p>Create and update docs, databases, and onboarding hubs.</p>
+      <span class="category">Knowledge Base</span>
     </div>
-    <h3>Notion</h3>
-    <p>Create and update docs, databases, and onboarding hubs.</p>
-    <span class="category">Knowledge Base</span>
-  </div>
+  </a>
 
-  <div class="integration-card">
-    <div class="integration-logo">
-      <img src="assets/synctoscale-icons/salesforcelogo.png" alt="Salesforce logo">
+  <a href="salesforce.html" class="integration-link">
+    <div class="integration-card">
+      <div class="integration-logo">
+        <img src="assets/synctoscale-icons/salesforcelogo.png" alt="Salesforce logo">
+      </div>
+      <h3>Salesforce</h3>
+      <p>Sync CRM records and trigger workflows from pipeline events.</p>
+      <span class="category">CRM</span>
     </div>
-    <h3>Salesforce</h3>
-    <p>Sync CRM records and trigger workflows from pipeline events.</p>
-    <span class="category">CRM</span>
-  </div>
+  </a>
 
-  <div class="integration-card">
-    <div class="integration-logo">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2">
-        <circle cx="12" cy="12" r="3"/>
-        <path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>
-      </svg>
+  <a href="webhooks.html" class="integration-link">
+    <div class="integration-card">
+      <div class="integration-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>
+        </svg>
+      </div>
+      <h3>Webhooks</h3>
+      <p>Connect any system using custom HTTP endpoints.</p>
+      <span class="category">Custom</span>
     </div>
-    <h3>Webhooks</h3>
-    <p>Connect any system using custom HTTP endpoints.</p>
-    <span class="category">Custom</span>
-  </div>
+  </a>
 
 </section>
 
