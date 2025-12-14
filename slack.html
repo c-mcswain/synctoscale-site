@@ -18,10 +18,10 @@
       padding: 28px 18px 70px;
     }
 
-    /* HERO */
+    /* HERO (Quickstart-aligned) */
     .int-hero {
       position: relative;
-      padding: 36px 22px 32px;
+      padding: 36px 22px 34px;
       border-radius: 16px;
       background: linear-gradient(
         180deg,
@@ -35,43 +35,39 @@
       text-align: center;
     }
 
-    .hero-pill-row {
+    /* Back pill (match docs / quickstart) */
+    .back-pill {
       position: absolute;
       top: 22px;
       left: 22px;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .pill {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 8px 12px;
+      padding: 8px 14px;
       border-radius: 999px;
-      border: 1px solid #e2e8f0;
-      background: rgba(255,255,255,0.9);
-      text-decoration: none;
+      background: linear-gradient(
+        180deg,
+        #5eead4 0%,
+        #41d1ff 100%
+      );
       color: #0f172a;
       font-weight: 600;
-      font-size: 13px;
+      font-size: 14px;
+      text-decoration: none;
+      box-shadow: 0 6px 14px rgba(15, 23, 42, 0.12);
     }
 
-    .pill .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 30% 30%, #41d1ff, #21e19f);
-      box-shadow: 0 0 10px rgba(33, 225, 159, 0.35);
+    .back-pill:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 20px rgba(15, 23, 42, 0.16);
     }
 
     .hero-center {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 12px;
-      margin-top: 10px;
+      gap: 14px;
+      margin-top: 8px;
     }
 
     .hero-title {
@@ -82,9 +78,9 @@
     }
 
     .int-logo {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
       background: #ffffff;
       border: 1px solid #e2e8f0;
       display: grid;
@@ -98,21 +94,21 @@
     }
 
     .hero-title h1 {
-      font-size: 28px;
+      font-size: 30px;
       margin: 0;
       color: #0f172a;
       letter-spacing: -0.02em;
     }
 
     .hero-sub {
-      max-width: 78ch;
-      font-size: 15.5px;
+      max-width: 72ch;
+      font-size: 16px;
       color: #475569;
-      line-height: 1.6;
-      margin: 4px 0 0;
+      line-height: 1.65;
+      margin: 0;
     }
 
-    /* SECTIONS */
+    /* CONTENT SECTIONS */
     .section {
       margin-top: 18px;
       padding: 18px;
@@ -227,10 +223,7 @@
 
     <!-- HERO -->
     <section class="int-hero">
-      <div class="hero-pill-row">
-        <a class="pill" href="integrations.html"><span class="dot"></span>Back to Integrations</a>
-        <span class="pill"><span class="dot"></span>Integration Detail</span>
-      </div>
+      <a href="integrations.html" class="back-pill">← Back to integrations</a>
 
       <div class="hero-center">
         <div class="hero-title">
@@ -289,8 +282,7 @@
     <!-- FOOTER -->
     <section class="section">
       <div class="footer-links">
-        <a class="pill" href="integrations.html"><span class="dot"></span>Back to Integrations</a>
-        <a class="pill" href="resources.html"><span class="dot"></span>Resources</a>
+        <a class="back-pill" href="integrations.html">← Back to integrations</a>
       </div>
     </section>
 
