@@ -1,200 +1,317 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Connections | SyncToScale Docs</title>
 
   <link rel="stylesheet" href="styles.css" />
-  <!-- Nova Botpress Webchat -->
-<script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
-<script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
 
+  <!-- Nova Botpress Webchat -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
+  <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
+
+  <style>
+    .page-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 18px 64px;
+    }
+
+    /* HERO */
+    .docs-hero {
+      position: relative;
+      text-align: center;
+      padding: 40px 20px 28px;
+      border-radius: 16px;
+      background: linear-gradient(
+        180deg,
+        rgba(33,225,159,0.14) 0%,
+        rgba(65,209,255,0.12) 60%,
+        #ffffff 100%
+      );
+      border: 1px solid rgba(148,163,184,0.35);
+      box-shadow: 0 10px 22px rgba(15,23,42,0.06);
+      margin-bottom: 26px;
+    }
+
+    .back-pill {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 500;
+      border-radius: 999px;
+      text-decoration: none;
+      color: #0f172a;
+      background: linear-gradient(135deg, #41d1ff, #21e19f);
+      box-shadow: 0 4px 10px rgba(15,23,42,0.12);
+    }
+
+    .docs-hero h1 {
+      margin: 0 0 8px;
+      font-size: 34px;
+      color: #0f172a;
+    }
+
+    .docs-hero p {
+      margin: 0 auto;
+      max-width: 820px;
+      font-size: 16px;
+      color: #475569;
+      line-height: 1.55;
+    }
+
+    /* METHOD PILLS */
+    .pill {
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      color: #0f172a;
+      white-space: nowrap;
+    }
+
+    .pill.post {
+      background: linear-gradient(135deg, rgba(33,225,159,0.9), rgba(65,209,255,0.9));
+    }
+
+    .pill.get {
+      background: linear-gradient(135deg, rgba(65,209,255,0.9), rgba(148,197,255,0.9));
+    }
+
+    /* CONTENT */
+    .doc-section {
+      max-width: 980px;
+      margin-top: 28px;
+    }
+
+    .doc-section h2 {
+      margin: 34px 0 10px;
+      font-size: 22px;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .doc-section p,
+    .doc-section li {
+      color: #475569;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid rgba(148,163,184,0.35);
+      margin: 28px 0;
+    }
+
+    /* CODE BLOCK */
+    .code-block {
+      position: relative;
+      margin: 12px 0 14px;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 12px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      background:
+        linear-gradient(#ffffff, #ffffff) padding-box,
+        linear-gradient(135deg, #41d1ff, #21e19f) border-box;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .copy-btn.copied {
+      background: linear-gradient(135deg, #41d1ff, #21e19f);
+    }
+
+    pre {
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(148,163,184,0.35);
+      background: rgba(248,250,252,0.95);
+      overflow-x: auto;
+      font-size: 13px;
+      line-height: 1.55;
+      color: #0f172a;
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
+  <!-- 🔒 LOCKED NAV BAR -->
   <header class="site-header">
     <div class="container header-inner">
-      <div class="logo">
-        <a href="index.html" class="logo-link">SyncToScale</a>
-      </div>
-
+      <a href="index.html" class="logo">SyncToScale</a>
       <nav class="nav">
         <a href="index.html">Home</a>
         <a href="features.html">Features</a>
         <a href="pricing.html">Pricing</a>
-        <a href="faq.html">FAQ</a>
+        <a href="docs.html">Docs</a>
         <a href="resources.html">Resources</a>
         <a href="about.html">About</a>
       </nav>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="page-hero">
-    <h1>Connections</h1>
-    <p>
-      Connections link SyncToScale to your external applications.  
-      Each connection is securely stored, validated, monitored, and refreshed 
-      to ensure workflows run smoothly across systems.
-    </p>
-  </section>
+  <main class="page-wrap">
 
-  <!-- CONTENT -->
-  <section class="doc-container">
+    <!-- HERO -->
+    <section class="docs-hero">
+      <a href="docs.html" class="back-pill">← Back to docs</a>
+      <h1>Connections</h1>
+      <p>
+        Connections link SyncToScale to external applications.
+        Each connection is securely stored, validated, monitored,
+        and refreshed to ensure workflows run smoothly across systems.
+      </p>
+    </section>
 
-    <h2>Overview</h2>
-    <p>
-      Connections are the foundation of every workflow.  
-      Whether you're using OAuth 2.0, API keys, or service accounts,
-      SyncToScale ensures each connection remains valid and ready for execution.
-    </p>
+    <!-- CONTENT -->
+    <section class="doc-section">
 
-    <hr>
+      <h2>Overview</h2>
+      <p>
+        Connections are the foundation of every workflow.
+        Whether you're using OAuth 2.0, API keys, or service accounts,
+        SyncToScale ensures each connection remains valid and ready for execution.
+      </p>
 
-    <h2>Creating a Connection</h2>
-    <p>
-      A new connection begins by selecting an app (e.g., Slack, HubSpot, BambooHR)  
-      and initiating an OAuth or API key authentication flow.  
-      SyncToScale automatically encrypts and stores all credentials.
-    </p>
+      <hr />
 
-<pre>
-POST /connections
+      <h2><span class="pill post">POST</span> Create a Connection</h2>
+
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+<pre>POST /connections
 {
   "provider": "slack",
   "auth_type": "oauth",
   "scopes": ["users:read", "chat:write"]
-}
-</pre>
+}</pre>
+      </div>
 
-    <p>
-      After successful authentication, the connection receives a unique ID used in workflows.
-    </p>
+      <p>
+        After successful authentication, the connection receives a unique ID
+        used in workflows.
+      </p>
 
-    <hr>
+      <hr />
 
-    <h2>Connection States</h2>
-    <p>Each connection has a clear state for easy troubleshooting:</p>
+      <h2>Connection States</h2>
+      <ul>
+        <li><strong>Healthy</strong> — Valid token, correct scopes, no issues detected.</li>
+        <li><strong>Warning</strong> — Near rate limits, missing optional scopes, or minor issues.</li>
+        <li><strong>Needs Attention</strong> — Token expired or refresh failed; user action required.</li>
+        <li><strong>Error</strong> — Invalid credentials, revoked access, or severe upstream outage.</li>
+      </ul>
 
-    <ul>
-      <li><strong>Healthy</strong> — Valid token, correct scopes, no issues detected.</li>
-      <li><strong>Warning</strong> — Near rate limits, missing optional scopes, or minor issues.</li>
-      <li><strong>Needs Attention</strong> — Token expired or refresh failed; user action required.</li>
-      <li><strong>Error</strong> — Invalid credentials, revoked access, or severe upstream outage.</li>
-    </ul>
-
-<pre>
-GET /connections/{id}
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+<pre>GET /connections/{id}
 {
   "id": "conn_abc123",
   "provider": "slack",
   "status": "healthy",
   "last_validated": "2025-01-10T15:22:00Z"
-}
-</pre>
+}</pre>
+      </div>
 
-    <hr>
+      <hr />
 
-    <h2>Health Checks</h2>
-    <p>
-      SyncToScale performs ongoing health checks to prevent workflow failures.  
-      These checks include:
-    </p>
+      <h2>Health Checks</h2>
+      <ul>
+        <li>Token validity</li>
+        <li>Provider API availability</li>
+        <li>Permission scope verification</li>
+        <li>Endpoint response structure</li>
+        <li>Rate-limit and throttling detection</li>
+      </ul>
 
-    <ul>
-      <li>Token validity</li>
-      <li>Provider API availability</li>
-      <li>Permission scope verification</li>
-      <li>Endpoint response structure</li>
-      <li>Rate-limit and throttling detection</li>
-    </ul>
-
-<pre>
-GET /connections/{id}/health
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+<pre>GET /connections/{id}/health
 {
   "status": "warning",
   "details": ["Rate limit threshold reached"],
   "last_checked": "2025-01-19T08:32:11Z"
-}
-</pre>
+}</pre>
+      </div>
 
-    <hr>
+      <hr />
 
-    <h2>Token Refresh Logic</h2>
-    <p>
-      Connections authenticated via OAuth refresh automatically when nearing expiration.
-      If a refresh attempt fails due to revoked access or insufficient scopes,
-      SyncToScale sets the connection to <strong>Needs Attention</strong>.
-    </p>
+      <h2><span class="pill post">POST</span> Token Refresh</h2>
 
-<pre>
-POST /connections/{id}/refresh
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+<pre>POST /connections/{id}/refresh
 {
   "refresh_token": "1//0gH3...",
   "provider": "google"
-}
-</pre>
+}</pre>
+      </div>
 
-    <p>
-      A successful refresh updates the access token and timestamp.
-    </p>
+      <hr />
 
-    <hr>
+      <h2><span class="pill post">POST</span> Reconnect</h2>
 
-    <h2>Reconnecting</h2>
-    <p>
-      If a connection enters an error state, users can easily reconnect by re-authenticating.
-      Previous mappings and workflows remain intact.
-    </p>
-
-<pre>
-POST /connections/{id}/reconnect
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+<pre>POST /connections/{id}/reconnect
 {
   "redirect_url": "https://synctoscale.me/oauth/callback"
-}
-</pre>
+}</pre>
+      </div>
 
-    <p>
-      Once reconnected, workflows resume from the next available run.
-    </p>
+      <hr />
 
-    <hr>
+      <h2>Connection-Level Troubleshooting</h2>
+      <ul>
+        <li><strong>Insufficient Scopes</strong> — Workflow action requires scopes not granted.</li>
+        <li><strong>Revoked Access</strong> — User removed app access from provider dashboard.</li>
+        <li><strong>Incorrect API Key</strong> — Key expired or rotated without updating SyncToScale.</li>
+        <li><strong>Provider Outages</strong> — Upstream services return errors.</li>
+        <li><strong>Rate Limit Lockout</strong> — Temporary suspension due to throttling.</li>
+        <li><strong>Region Restrictions</strong> — Provider API unavailable in certain regions.</li>
+      </ul>
 
-    <h2>Connection-Level Troubleshooting</h2>
-    <p>
-      Common issues encountered during implementation and support:
-    </p>
+      <p>
+        SyncToScale surfaces these issues in monitoring logs and alerts,
+        helping teams respond quickly during onboarding or production syncs.
+      </p>
 
-    <ul>
-      <li><strong>Insufficient Scopes</strong>  
-          — Workflow action requires scopes the admin did not grant.</li>
+    </section>
 
-      <li><strong>Revoked Access</strong>  
-          — User removed app access from the provider dashboard.</li>
+  </main>
 
-      <li><strong>Incorrect API Key</strong>  
-          — Key expired or was rotated without updating SyncToScale.</li>
-
-      <li><strong>Provider Outages</strong>  
-          — Slack, HubSpot, etc. return 500/503 errors impacting health checks.</li>
-
-      <li><strong>Rate Limit Lockout</strong>  
-          — Too many requests cause temporary suspension.</li>
-
-      <li><strong>Region Restrictions</strong>  
-          — Provider API only available in certain regions or tenants.</li>
-    </ul>
-
-    <p>
-      SyncToScale surface these issues in monitoring logs and alerts,
-      helping teams respond quickly during onboarding or production syncs.
-    </p>
-
-  </section>
+  <script>
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const code = btn.nextElementSibling.innerText;
+        navigator.clipboard.writeText(code);
+        btn.textContent = 'Copied ✓';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'Copy';
+          btn.classList.remove('copied');
+        }, 1500);
+      });
+    });
+  </script>
 
 </body>
 </html>
