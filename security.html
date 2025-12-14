@@ -137,68 +137,113 @@
 
     <!-- OVERVIEW -->
     <section class="security-section">
-      <h2>Platform Security Overview</h2>
+      <h2>Platform security overview</h2>
       <p>
-        SyncToScale follows industry-standard security practices to protect customer
-        data, integrations, and workflows. Controls are applied at the application,
-        infrastructure, and operational levels.
+        SyncToScale follows established SaaS security patterns to protect customer
+        data, integrations, and workflow execution. Controls are applied across
+        application logic, infrastructure boundaries, and operational practices.
+      </p>
+      <p>
+        Because workflow automation often connects sensitive systems, the platform
+        is designed to minimize data exposure, scope access tightly, and make
+        operational behavior observable.
       </p>
     </section>
 
     <!-- DATA PROTECTION -->
     <section class="security-section">
-      <h2>Data Protection</h2>
+      <h2>Data protection</h2>
       <ul class="security-list">
-        <li>All data is encrypted in transit using TLS 1.2+.</li>
+        <li>All data is encrypted in transit using TLS 1.2 or higher.</li>
         <li>Sensitive credentials are stored using encrypted secrets management.</li>
-        <li>Workflow payloads are processed ephemerally and are not retained longer than necessary.</li>
+        <li>Workflow payloads are processed ephemerally and not retained longer than necessary.</li>
         <li>Customer data is logically isolated by project and environment.</li>
+        <li>Logs are structured to avoid exposing secrets or high-risk fields.</li>
       </ul>
+
+      <div class="callout">
+        When building workflows, it’s recommended to pass stable identifiers
+        (IDs) rather than full records, and fetch sensitive fields only when
+        explicitly required.
+      </div>
     </section>
 
     <!-- AUTH -->
     <section class="security-section">
-      <h2>Authentication & Access Control</h2>
+      <h2>Authentication & access control</h2>
       <ul class="security-list">
         <li>API access is protected using project-scoped tokens.</li>
-        <li>Role-based access controls limit who can view, edit, or execute workflows.</li>
-        <li>Token rotation and revocation are supported.</li>
+        <li>Role-based access controls determine who can view, edit, or execute workflows.</li>
+        <li>Token rotation and revocation are supported to reduce credential risk.</li>
+        <li>Separate credentials per environment (dev, staging, production) are recommended.</li>
       </ul>
+
+      <p>
+        For higher-assurance environments, teams are encouraged to enforce MFA
+        for administrative access and regularly review user permissions.
+      </p>
     </section>
 
     <!-- INTEGRATIONS -->
     <section class="security-section">
-      <h2>Integration Security</h2>
+      <h2>Integration security</h2>
       <ul class="security-list">
         <li>OAuth is used where supported by third-party providers.</li>
         <li>Integration scopes are limited to the minimum required permissions.</li>
+        <li>Dedicated service accounts are recommended for production integrations.</li>
         <li>Connection health and authorization status are continuously monitored.</li>
       </ul>
+
+      <p>
+        Webhook-based integrations should validate signatures or shared secrets
+        and use idempotency controls to safely handle retries.
+      </p>
     </section>
 
     <!-- MONITORING -->
     <section class="security-section">
-      <h2>Monitoring & Auditing</h2>
+      <h2>Monitoring & auditing</h2>
       <ul class="security-list">
         <li>Workflow executions are logged for traceability and debugging.</li>
-        <li>Error events and anomalies are surfaced for review.</li>
-        <li>Administrative actions are auditable.</li>
+        <li>Error events and abnormal execution patterns are surfaced for review.</li>
+        <li>Administrative actions and configuration changes are auditable.</li>
       </ul>
 
       <div class="callout">
-        Logs are designed to support operational visibility while avoiding exposure
-        of sensitive data.
+        Teams should route production alerts to an owned channel and maintain
+        simple runbooks for pausing workflows and revoking access when needed.
       </div>
+    </section>
+
+    <!-- INCIDENT RESPONSE -->
+    <section class="security-section">
+      <h2>Incident response & recovery</h2>
+      <p>
+        Security incidents are treated as operational events with clear ownership,
+        containment steps, and follow-up.
+      </p>
+      <ul class="security-list">
+        <li>Revoke affected tokens or integration connections.</li>
+        <li>Pause workflows producing unsafe side effects.</li>
+        <li>Validate mappings and permissions before re-enabling execution.</li>
+        <li>Document root cause and remediation steps for future prevention.</li>
+      </ul>
     </section>
 
     <!-- COMPLIANCE -->
     <section class="security-section">
-      <h2>Compliance & Best Practices</h2>
+      <h2>Compliance & shared responsibility</h2>
       <p>
-        SyncToScale aligns with commonly accepted SaaS security best practices and
-        is built to support customer compliance efforts, including internal audits
-        and vendor reviews.
+        SyncToScale is built to support common vendor security reviews and internal
+        audits. While specific certifications depend on organizational context,
+        the platform aligns with typical SaaS control areas.
       </p>
+
+      <ul class="security-list">
+        <li><strong>SyncToScale:</strong> platform security controls, logging, token scoping.</li>
+        <li><strong>Customer:</strong> workflow logic, integration permissions, data minimization.</li>
+        <li><strong>Shared:</strong> access reviews, monitoring, and incident procedures.</li>
+      </ul>
     </section>
 
   </main>
