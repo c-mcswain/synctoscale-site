@@ -1,266 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nova AI API | SyncToScale Docs</title>
+  <title>Nova API | SyncToScale Docs</title>
 
   <link rel="stylesheet" href="styles.css" />
 
   <!-- Nova Botpress Webchat -->
   <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
   <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
+
+  <style>
+    .page-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 18px 64px;
+    }
+
+    /* HERO */
+    .docs-hero {
+      position: relative;
+      text-align: center;
+      padding: 40px 20px 28px;
+      border-radius: 16px;
+      background: linear-gradient(
+        180deg,
+        rgba(33,225,159,0.14) 0%,
+        rgba(65,209,255,0.12) 60%,
+        #ffffff 100%
+      );
+      border: 1px solid rgba(148,163,184,0.35);
+      box-shadow: 0 10px 22px rgba(15,23,42,0.06);
+      margin-bottom: 26px;
+    }
+
+    .back-pill {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 500;
+      border-radius: 999px;
+      text-decoration: none;
+      color: #0f172a;
+      background: linear-gradient(135deg, #41d1ff, #21e19f);
+      box-shadow: 0 4px 10px rgba(15,23,42,0.12);
+    }
+
+    .docs-hero h1 {
+      margin: 0 0 8px;
+      font-size: 34px;
+      color: #0f172a;
+    }
+
+    .docs-hero p {
+      margin: 0 auto;
+      max-width: 820px;
+      font-size: 16px;
+      color: #475569;
+      line-height: 1.55;
+    }
+
+    /* METHOD PILLS (HEADER) */
+    .method-legend {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 14px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: #475569;
+      background: rgba(255,255,255,0.85);
+      border: 1px solid rgba(148,163,184,0.35);
+      border-radius: 999px;
+      padding: 6px 12px;
+    }
+
+    .pill {
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      color: #0f172a;
+      white-space: nowrap;
+    }
+
+    .pill.post {
+      background: linear-gradient(
+        135deg,
+        rgba(33,225,159,0.9),
+        rgba(65,209,255,0.9)
+      );
+    }
+
+    /* CONTENT */
+    .section {
+      margin-top: 24px;
+      padding: 20px;
+      border-radius: 16px;
+      background: #ffffff;
+      border: 1px solid rgba(148,163,184,0.35);
+    }
+
+    .section h2 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      color: #0f172a;
+    }
+
+    .section p,
+    .section li {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #475569;
+    }
+
+    .section ul {
+      margin: 10px 0 0 18px;
+    }
+
+    /* CODE BLOCK */
+    .code-block {
+      position: relative;
+      margin-top: 12px;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 12px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      background:
+        linear-gradient(#ffffff, #ffffff) padding-box,
+        linear-gradient(135deg, #41d1ff, #21e19f) border-box;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    pre {
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(148,163,184,0.35);
+      background: rgba(248,250,252,0.95);
+      overflow-x: auto;
+      font-size: 13px;
+      line-height: 1.55;
+      color: #0f172a;
+    }
+
+    code {
+      background: rgba(148,163,184,0.15);
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-size: 13px;
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
+  <!-- 🔒 LOCKED NAV BAR -->
   <header class="site-header">
     <div class="container header-inner">
-
-      <div class="logo">
-        <a href="index.html" class="logo-link">SyncToScale</a>
-      </div>
-
+      <a href="index.html" class="logo">SyncToScale</a>
       <nav class="nav">
         <a href="index.html">Home</a>
         <a href="features.html">Features</a>
         <a href="pricing.html">Pricing</a>
-        <a href="faq.html">FAQ</a>
+        <a href="docs.html">Docs</a>
         <a href="resources.html">Resources</a>
         <a href="about.html">About</a>
       </nav>
-
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="page-hero">
-    <h1>Nova AI API</h1>
-    <p>
-      Nova is SyncToScale’s AI engine for field mapping, anomaly detection,
-      error classification, and workflow recommendations.  
-      Use the Nova API to make your automations smarter and more resilient.
-    </p>
-  </section>
+  <main class="page-wrap">
 
-  <!-- CONTENT -->
-  <section class="doc-container">
+    <!-- HERO -->
+    <section class="docs-hero">
+      <a href="docs.html" class="back-pill">← Back to docs</a>
+      <h1>Nova API</h1>
+      <p>
+        Nova is SyncToScale’s AI layer, designed to assist with field mapping,
+        error classification, and workflow intelligence.
+        Nova endpoints return structured suggestions you can apply or review.
+      </p>
 
-    <h2>Overview</h2>
-    <p>
-      Nova analyzes payloads, schemas, connection states, and historical workflow runs to:
-    </p>
-    <ul>
-      <li>Suggest field mappings between systems</li>
-      <li>Detect anomalies and spikes in failure rates</li>
-      <li>Classify errors into actionable categories</li>
-      <li>Recommend transformations and default values</li>
-      <li>Surface likely root cause for sync issues</li>
-    </ul>
+      <div class="method-legend">
+        <div class="legend-item">
+          <span class="pill post">POST</span>
+          Request AI-generated suggestions
+        </div>
+      </div>
+    </section>
 
-    <hr />
+    <!-- CONTENT -->
+    <section class="section">
+      <h2>Mapping suggestions</h2>
+      <p>
+        Nova can analyze payloads and schemas to suggest field mappings
+        based on naming patterns and historical usage.
+      </p>
 
-    <h2>Authentication</h2>
-    <p>
-      The Nova API uses the same project-level authentication as the core SyncToScale API.
-      You must include a valid API key or OAuth token in each request.
-    </p>
-
-<pre>
-GET /nova/v1/health
-Authorization: Bearer &lt;project_token&gt;
-</pre>
-
-<pre>
-{
-  "status": "ok",
-  "model": "nova-sync-1.0",
-  "uptime_seconds": 87423
-}
-</pre>
-
-    <hr />
-
-    <h2>Field Mapping Suggestions</h2>
-    <p>
-      Nova can propose mappings between a source payload and a target schema.
-      This is especially helpful during implementation or when working with unfamiliar systems.
-    </p>
-
-<pre>
-POST /nova/v1/mapping/suggest
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+<pre>POST /nova/v1/mapping/suggest
 {
   "source_payload": {
     "fname": "Jordan",
-    "lname": "Lee",
-    "mail": "jordan@example.com"
+    "workEmail": "jordan@example.com"
   },
   "target_schema": {
     "first_name": "string",
-    "last_name": "string",
     "email": "string"
   }
-}
-</pre>
+}</pre>
+      </div>
 
-<pre>
-Response:
-{
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+<pre>{
   "suggested_mapping": {
-    "first_name": "fname",
-    "last_name": "lname",
-    "email": "mail"
-  },
-  "confidence": {
-    "first_name": 0.97,
-    "last_name": 0.96,
-    "email": 0.99
+    "fname": "first_name",
+    "workEmail": "email"
   }
-}
-</pre>
+}</pre>
+      </div>
+    </section>
 
-    <p>Implementers can accept, edit, or override these mappings.</p>
+    <section class="section">
+      <h2>Error classification</h2>
+      <p>
+        Nova can classify workflow errors and recommend next steps
+        to speed up troubleshooting and remediation.
+      </p>
 
-    <hr />
-
-    <h2>Anomaly Detection</h2>
-    <p>
-      Nova monitors workflow runs and connection behavior to detect outliers and patterns.
-    </p>
-
-<pre>
-POST /nova/v1/anomalies/detect
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+<pre>POST /nova/v1/errors/classify
 {
-  "window_minutes": 30,
-  "workflow_id": "new-hire-sync"
-}
-</pre>
+  "error_code": "invalid_permission",
+  "message": "User lacks write access to directory"
+}</pre>
+      </div>
 
-<pre>
-Response:
-{
-  "anomalies": [
-    {
-      "type": "error_rate_spike",
-      "severity": "high",
-      "metric": "failure_rate",
-      "previous_baseline": 0.02,
-      "current_value": 0.18
-    }
-  ],
-  "suggested_actions": [
-    "Check recent changes to mappings",
-    "Review HubSpot connection health",
-    "Inspect provider status page"
-  ]
-}
-</pre>
-
-    <hr />
-
-    <h2>Error Classification</h2>
-    <p>
-      Rather than leaving teams to interpret raw error messages,
-      Nova classifies errors into consistent categories with recommended fixes.
-    </p>
-
-<pre>
-POST /nova/v1/errors/classify
-{
-  "provider": "slack",
-  "http_status": 403,
-  "raw_error": "missing_scope: chat:write"
-}
-</pre>
-
-<pre>
-Response:
-{
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+<pre>{
   "category": "insufficient_permissions",
-  "likely_cause": "Missing chat:write scope",
-  "recommended_fix": "Re-authenticate Slack with the required scope",
-  "confidence": 0.94
-}
-</pre>
+  "recommended_fix": "Re-authenticate connection with directory.write scope"
+}</pre>
+      </div>
+    </section>
 
-    <hr />
+    <section class="section">
+      <h2>Human-in-the-loop</h2>
+      <p>
+        Nova responses are designed to support human review.
+        Suggested mappings and classifications should be validated
+        before being applied to production workflows.
+      </p>
+    </section>
 
-    <h2>Transformation Recommendations</h2>
-    <p>
-      Nova can propose transformations when data types or formats don’t match the target system.
-    </p>
+  </main>
 
-<pre>
-POST /nova/v1/mapping/transform-suggest
-{
-  "field_name": "start_date",
-  "incoming_value": "12/01/2025",
-  "expected_format": "YYYY-MM-DD"
-}
-</pre>
-
-<pre>
-Response:
-{
-  "recommended_expression": "formatDate(payload.start_date, 'YYYY-MM-DD')",
-  "notes": "Convert from MM/DD/YYYY to ISO format"
-}
-</pre>
-
-    <hr />
-
-    <h2>Inline Nova Usage in Workflows</h2>
-    <p>
-      Nova can be invoked as part of a workflow step to enrich or validate data dynamically.
-    </p>
-
-<pre>
-{
-  "step": "nova_validate_mapping",
-  "input": {
-    "workflow": "new-hire-sync",
-    "payload": {
-      "first_name": "Jordan",
-      "last_name": "Lee",
-      "start_date": "12/01/2025"
-    }
-  }
-}
-</pre>
-
-<pre>
-Response:
-{
-  "status": "ok_with_warnings",
-  "warnings": [
-    "start_date format does not match expected pattern 'YYYY-MM-DD'"
-  ],
-  "recommendations": [
-    "Apply date normalization before create_user step"
-  ]
-}
-</pre>
-
-    <hr />
-
-    <h2>Best Practices</h2>
-    <p>To get the most from Nova in an implementation or support role:</p>
-    <ul>
-      <li>Use Nova mapping suggestions at the start of new integrations</li>
-      <li>Enable anomaly detection for critical workflows</li>
-      <li>Review Nova error classifications during incident triage</li>
-      <li>Log Nova recommendations alongside workflow runs</li>
-      <li>Iterate mappings based on Nova’s insight during onboarding</li>
-    </ul>
-
-    <p>
-      Nova is designed to augment, not replace, human judgment—helping teams
-      reduce time spent troubleshooting and increase confidence in automation.
-    </p>
-
-  </section>
+  <script>
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const code = btn.nextElementSibling.innerText;
+        navigator.clipboard.writeText(code);
+        btn.textContent = 'Copied ✓';
+        setTimeout(() => btn.textContent = 'Copy', 1500);
+      });
+    });
+  </script>
 
 </body>
 </html>
