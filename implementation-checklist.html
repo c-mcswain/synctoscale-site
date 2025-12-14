@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Implementation Checklist | SyncToScale</title>
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Nova / Botpress -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.4/inject.js" defer></script>
+  <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
+
+  <style>
+    .page-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 28px 18px 70px;
+    }
+
+    .check-hero {
+      padding: 28px 22px;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+      background: linear-gradient(
+        180deg,
+        rgba(65,209,255,0.12),
+        rgba(33,225,159,0.10),
+        #ffffff
+      );
+      box-shadow: 0 6px 18px rgba(15,23,42,0.06);
+      text-align: center;
+    }
+
+    .check-hero h1 {
+      margin: 0;
+      font-size: 28px;
+      color: #0f172a;
+    }
+
+    .check-hero p {
+      margin-top: 10px;
+      font-size: 15px;
+      color: #475569;
+      line-height: 1.6;
+    }
+
+    .check-section {
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: 14px;
+      border: 1px solid #e2e8f0;
+      background: #ffffff;
+    }
+
+    .check-section h2 {
+      margin: 0 0 10px;
+      font-size: 17px;
+      color: #0f172a;
+    }
+
+    .check-section ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .check-section li {
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: #475569;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 🔒 LOCKED NAVBAR -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">SyncToScale</a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="docs.html">Docs</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+
+    <section class="check-hero">
+      <h1>Implementation checklist</h1>
+      <p>
+        Use this checklist as a practical reference while preparing, validating, and
+        launching SyncToScale workflows.
+      </p>
+    </section>
+
+    <section class="check-section">
+      <h2>Before you start</h2>
+      <ul>
+        <li>Confirm systems in scope and sources of truth</li>
+        <li>Identify workflow owners and approvers</li>
+        <li>Document desired outcomes for each workflow</li>
+      </ul>
+    </section>
+
+    <section class="check-section">
+      <h2>Access & credentials</h2>
+      <ul>
+        <li>Create service accounts or scoped OAuth access</li>
+        <li>Confirm permissions align with least-privilege principles</li>
+        <li>Store credential ownership and rotation cadence</li>
+      </ul>
+    </section>
+
+    <section class="check-section">
+      <h2>Data & mappings</h2>
+      <ul>
+        <li>Review required fields and schemas</li>
+        <li>Confirm field mappings between systems</li>
+        <li>Define guardrails and conditional logic</li>
+      </ul>
+    </section>
+
+    <section class="check-section">
+      <h2>Validation & testing</h2>
+      <ul>
+        <li>Test workflows with staging or test data</li>
+        <li>Validate expected outputs and edge cases</li>
+        <li>Review logs for errors or unexpected behavior</li>
+      </ul>
+    </section>
+
+    <section class="check-section">
+      <h2>Launch readiness</h2>
+      <ul>
+        <li>Enable workflows incrementally</li>
+        <li>Confirm monitoring and alerting visibility</li>
+        <li>Communicate rollout expectations internally</li>
+      </ul>
+    </section>
+
+    <section class="check-section">
+      <h2>Post-launch hygiene</h2>
+      <ul>
+        <li>Schedule periodic permission reviews</li>
+        <li>Revisit workflows after upstream system changes</li>
+        <li>Document updates and ownership changes</li>
+      </ul>
+    </section>
+
+  </main>
+
+</body>
+</html>
