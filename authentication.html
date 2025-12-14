@@ -32,7 +32,7 @@
       );
       border: 1px solid rgba(148,163,184,0.35);
       box-shadow: 0 10px 22px rgba(15,23,42,0.06);
-      margin-bottom: 26px;
+      margin-bottom: 18px;
     }
 
     .back-pill {
@@ -63,7 +63,38 @@
       line-height: 1.55;
     }
 
-    /* METHOD PILLS */
+    /* METHOD LEGEND */
+    .method-legend {
+      max-width: 980px;
+      margin: 0 auto 28px;
+      padding: 16px 18px;
+      border-radius: 14px;
+      border: 1px solid rgba(148,163,184,0.35);
+      background: rgba(248,250,252,0.85);
+    }
+
+    .method-legend h3 {
+      margin: 0 0 10px;
+      font-size: 14px;
+      color: #0f172a;
+      font-weight: 600;
+    }
+
+    .method-pills {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .method-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: #475569;
+    }
+
     .pill {
       font-size: 12px;
       font-weight: 700;
@@ -78,25 +109,28 @@
     }
 
     .pill.get {
-      background: linear-gradient(135deg, rgba(65,209,255,0.9), rgba(148,197,255,0.9));
+      background: linear-gradient(135deg, rgba(65,209,255,0.9), rgba(99,102,241,0.9));
+    }
+
+    .method-note {
+      font-size: 13px;
+      color: #64748b;
+      margin: 0;
     }
 
     /* CONTENT */
     .doc-section {
       max-width: 980px;
-      margin-top: 28px;
+      margin: 0 auto;
     }
 
     .doc-section h2 {
       margin: 34px 0 10px;
       font-size: 22px;
       color: #0f172a;
-    }
-
-    .doc-section h3 {
-      margin: 20px 0 8px;
-      font-size: 16px;
-      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
     .doc-section p,
@@ -173,6 +207,7 @@
 
   <main class="page-wrap">
 
+    <!-- HERO -->
     <section class="docs-hero">
       <a href="docs.html" class="back-pill">← Back to docs</a>
       <h1>Authentication</h1>
@@ -182,6 +217,25 @@
       </p>
     </section>
 
+    <!-- METHOD LEGEND -->
+    <section class="method-legend">
+      <h3>HTTP Methods at a Glance</h3>
+      <div class="method-pills">
+        <div class="method-item">
+          <span class="pill post">POST</span>
+          <span>Sends data to create, run, or process something</span>
+        </div>
+        <div class="method-item">
+          <span class="pill get">GET</span>
+          <span>Retrieves information without changing anything</span>
+        </div>
+      </div>
+      <p class="method-note">
+        Most examples below show how SyncToScale receives data or manages authentication programmatically.
+      </p>
+    </section>
+
+    <!-- CONTENT -->
     <section class="doc-section">
 
       <h2>Overview</h2>
@@ -193,7 +247,11 @@
 
       <hr />
 
-      <h2>OAuth 2.0 (Recommended)</h2>
+      <h2><span class="pill post">POST</span> OAuth 2.0 (Recommended)</h2>
+      <p>
+        Most modern applications use OAuth 2.0, allowing users to grant and revoke access
+        without sharing passwords.
+      </p>
 
       <div class="code-block">
         <button class="copy-btn">Copy</button>
@@ -205,6 +263,7 @@
       </div>
 
       <h3>Token Response</h3>
+
       <div class="code-block">
         <button class="copy-btn">Copy</button>
 <pre>{
@@ -216,13 +275,17 @@
       </div>
 
       <p>
-        SyncToScale stores encrypted tokens and refreshes them automatically.
-        If a refresh fails, the connection enters a <strong>Needs Attention</strong> state.
+        Tokens are encrypted at rest and refreshed automatically.
+        If refresh fails, the connection enters a <strong>Needs Attention</strong> state.
       </p>
 
       <hr />
 
-      <h2>API Key Authentication</h2>
+      <h2><span class="pill post">POST</span> API Key Authentication</h2>
+      <p>
+        Some systems use API keys instead of OAuth.
+        SyncToScale validates keys by performing a test request to confirm scope and access.
+      </p>
 
       <div class="code-block">
         <button class="copy-btn">Copy</button>
@@ -233,22 +296,17 @@
 }</pre>
       </div>
 
-      <p>
-        SyncToScale validates the key by performing a lightweight test request to confirm scope and access.
-      </p>
-
       <hr />
 
-      <h2><span class="pill get">GET</span> Connection Health</h2>
+      <h2><span class="pill get">GET</span> Connection Health Checks</h2>
+      <p>
+        Connections are monitored continuously to prevent workflow failures.
+      </p>
 
       <div class="code-block">
         <button class="copy-btn">Copy</button>
-<pre>GET /connections/{id}/health</pre>
-      </div>
-
-      <div class="code-block">
-        <button class="copy-btn">Copy</button>
-<pre>{
+<pre>GET /connections/{id}/health
+{
   "status": "healthy",
   "last_checked": "2025-01-18T12:44:00Z",
   "warnings": []
@@ -259,11 +317,11 @@
 
       <h2>Error States</h2>
       <ul>
-        <li><strong>Expired Token</strong> — Refresh failed, requires reconnect.</li>
-        <li><strong>Insufficient Permissions</strong> — Workflow requires scopes not granted.</li>
-        <li><strong>Invalid Credentials</strong> — API key or token no longer valid.</li>
-        <li><strong>Provider Outage</strong> — Upstream service unreachable.</li>
-        <li><strong>Rate Limit Lockout</strong> — Temporary hold triggered by remote provider.</li>
+        <li><strong>Expired Token</strong> — Refresh failed.</li>
+        <li><strong>Insufficient Permissions</strong> — Required scopes missing.</li>
+        <li><strong>Invalid Credentials</strong> — API key or token revoked.</li>
+        <li><strong>Provider Outage</strong> — Upstream service unavailable.</li>
+        <li><strong>Rate Limit Lockout</strong> — Temporary suspension.</li>
       </ul>
 
       <hr />
@@ -271,7 +329,7 @@
       <h2>Best Practices</h2>
       <ul>
         <li>Use OAuth whenever possible</li>
-        <li>Grant the minimum required scopes</li>
+        <li>Grant minimum required scopes</li>
         <li>Rotate API keys every 90 days</li>
         <li>Monitor connection warnings via logs</li>
       </ul>
