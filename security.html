@@ -1,190 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Security & Compliance | SyncToScale</title>
+  <title>Security | SyncToScale</title>
 
   <link rel="stylesheet" href="styles.css" />
 
   <!-- Nova Botpress Webchat -->
   <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" defer></script>
   <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
+
+  <style>
+    .page-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 18px 72px;
+    }
+
+    /* HERO */
+    .security-hero {
+      position: relative;
+      text-align: center;
+      padding: 36px 22px 34px;
+      border-radius: 16px;
+      background: linear-gradient(
+        180deg,
+        rgba(65,209,255,0.14) 0%,
+        rgba(33,225,159,0.14) 60%,
+        #ffffff 100%
+      );
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 10px 22px rgba(15,23,42,0.06);
+      margin-bottom: 32px;
+    }
+
+    .back-pill {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 500;
+      border-radius: 999px;
+      text-decoration: none;
+      color: #0f172a;
+      background: linear-gradient(135deg, #41d1ff, #21e19f);
+      box-shadow: 0 4px 10px rgba(15,23,42,0.12);
+    }
+
+    .security-hero h1 {
+      margin: 0 0 8px;
+      font-size: 36px;
+      color: #0f172a;
+    }
+
+    .security-hero p {
+      margin: 0 auto;
+      max-width: 760px;
+      font-size: 16px;
+      color: #475569;
+      line-height: 1.6;
+    }
+
+    /* CONTENT */
+    .security-section {
+      max-width: 900px;
+      margin: 0 auto 36px;
+    }
+
+    .security-section h2 {
+      margin: 36px 0 10px;
+      font-size: 22px;
+      color: #0f172a;
+    }
+
+    .security-section p {
+      margin: 0 0 12px;
+      font-size: 15px;
+      color: #475569;
+      line-height: 1.65;
+    }
+
+    .security-list {
+      margin: 12px 0 0;
+      padding-left: 18px;
+      color: #475569;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .security-list li {
+      margin-bottom: 8px;
+    }
+
+    .callout {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: 14px;
+      background: rgba(148,163,184,0.12);
+      color: #334155;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
+  <!-- 🔒 LOCKED NAV BAR -->
   <header class="site-header">
     <div class="container header-inner">
-
-      <div class="logo">
-        <a href="index.html" class="logo-link">SyncToScale</a>
-      </div>
-
+      <a href="index.html" class="logo">SyncToScale</a>
       <nav class="nav">
         <a href="index.html">Home</a>
         <a href="features.html">Features</a>
         <a href="pricing.html">Pricing</a>
-        <a href="faq.html">FAQ</a>
+        <a href="docs.html">Docs</a>
         <a href="resources.html">Resources</a>
         <a href="about.html">About</a>
       </nav>
-
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="page-hero">
-    <h1>Security & Compliance</h1>
-    <p>
-      SyncToScale is built with enterprise-grade security, encryption, and auditing—
-      ensuring workflows, data, and automation events are protected at every layer.
-    </p>
-  </section>
+  <main class="page-wrap">
 
-  <!-- CONTENT -->
-  <section class="container section">
+    <!-- HERO -->
+    <section class="security-hero">
+      <a href="resources.html" class="back-pill">← Back to resources</a>
+      <h1>Security</h1>
+      <p>
+        SyncToScale is designed with security and data protection as foundational
+        principles, supporting safe automation across systems and teams.
+      </p>
+    </section>
 
-    <h2>Core Security Principles</h2>
-    <div class="resources-grid">
+    <!-- OVERVIEW -->
+    <section class="security-section">
+      <h2>Platform Security Overview</h2>
+      <p>
+        SyncToScale follows industry-standard security practices to protect customer
+        data, integrations, and workflows. Controls are applied at the application,
+        infrastructure, and operational levels.
+      </p>
+    </section>
 
-      <div class="resource-card">
-        <div class="icon-placeholder">🔐</div>
-        <h3>Encryption</h3>
-        <p>
-          All data is encrypted in transit (TLS 1.2+) and at rest (AES-256).  
-          Secrets are isolated and rolled automatically.
-        </p>
+    <!-- DATA PROTECTION -->
+    <section class="security-section">
+      <h2>Data Protection</h2>
+      <ul class="security-list">
+        <li>All data is encrypted in transit using TLS 1.2+.</li>
+        <li>Sensitive credentials are stored using encrypted secrets management.</li>
+        <li>Workflow payloads are processed ephemerally and are not retained longer than necessary.</li>
+        <li>Customer data is logically isolated by project and environment.</li>
+      </ul>
+    </section>
+
+    <!-- AUTH -->
+    <section class="security-section">
+      <h2>Authentication & Access Control</h2>
+      <ul class="security-list">
+        <li>API access is protected using project-scoped tokens.</li>
+        <li>Role-based access controls limit who can view, edit, or execute workflows.</li>
+        <li>Token rotation and revocation are supported.</li>
+      </ul>
+    </section>
+
+    <!-- INTEGRATIONS -->
+    <section class="security-section">
+      <h2>Integration Security</h2>
+      <ul class="security-list">
+        <li>OAuth is used where supported by third-party providers.</li>
+        <li>Integration scopes are limited to the minimum required permissions.</li>
+        <li>Connection health and authorization status are continuously monitored.</li>
+      </ul>
+    </section>
+
+    <!-- MONITORING -->
+    <section class="security-section">
+      <h2>Monitoring & Auditing</h2>
+      <ul class="security-list">
+        <li>Workflow executions are logged for traceability and debugging.</li>
+        <li>Error events and anomalies are surfaced for review.</li>
+        <li>Administrative actions are auditable.</li>
+      </ul>
+
+      <div class="callout">
+        Logs are designed to support operational visibility while avoiding exposure
+        of sensitive data.
       </div>
+    </section>
 
-      <div class="resource-card">
-        <div class="icon-placeholder">🛡️</div>
-        <h3>Zero-Trust Model</h3>
-        <p>
-          Each workflow step, connection, and user session is validated with least-privilege access.
-        </p>
-      </div>
+    <!-- COMPLIANCE -->
+    <section class="security-section">
+      <h2>Compliance & Best Practices</h2>
+      <p>
+        SyncToScale aligns with commonly accepted SaaS security best practices and
+        is built to support customer compliance efforts, including internal audits
+        and vendor reviews.
+      </p>
+    </section>
 
-      <div class="resource-card">
-        <div class="icon-placeholder">📋</div>
-        <h3>Audit Logging</h3>
-        <p>
-          Every action, event, API call, and workflow run is logged with timestamp, actor, and context.
-        </p>
-      </div>
-
-      <div class="resource-card">
-        <div class="icon-placeholder">🏢</div>
-        <h3>Enterprise SSO</h3>
-        <p>
-          SSO via Okta, Azure AD, Google Workspace.  
-          SCIM 2.0 provisioning support available.
-        </p>
-      </div>
-
-    </div>
-
-    <hr />
-
-    <h2>Compliance Readiness</h2>
-    <p>
-      SyncToScale’s architecture and operational practices are designed for SOC 2, GDPR,
-      and enterprise governance controls.
-    </p>
-
-    <div class="resources-grid">
-
-      <div class="resource-card">
-        <div class="icon-placeholder">📄</div>
-        <h3>SOC 2 (Design Ready)</h3>
-        <p>
-          Controls implemented for security, availability, confidentiality, and processing integrity.
-        </p>
-      </div>
-
-      <div class="resource-card">
-        <div class="icon-placeholder">🌍</div>
-        <h3>GDPR Alignment</h3>
-        <p>
-          Data residency options, right-to-erasure support, and structured data access controls.
-        </p>
-      </div>
-
-      <div class="resource-card">
-        <div class="icon-placeholder">👥</div>
-        <h3>Role-Based Access</h3>
-        <p>
-          Admin, Developer, Analyst, and Restricted Viewer roles with granular policy rules.
-        </p>
-      </div>
-
-    </div>
-
-    <hr />
-
-    <h2>Infrastructure Security</h2>
-    <p>
-      SyncToScale runs on distributed, auto-healing cloud infrastructure with isolated execution
-      environments for workflow steps and connection handlers.
-    </p>
-
-<pre>
-Execution Engine
-  ├─ Trigger Validator
-  ├─ Workflow Orchestrator
-  ├─ Connection Pool Manager
-  ├─ Step Runtime (sandboxed)
-  └─ Nova AI Insights Layer
-</pre>
-
-    <ul>
-      <li>Dedicated per-tenant API keys and connection secrets</li>
-      <li>Automatic credential rotation for supported OAuth providers</li>
-      <li>Sandboxed execution for transformations and Nova inference</li>
-      <li>Real-time anomaly detection during workflow runs</li>
-    </ul>
-
-    <hr />
-
-    <h2>Data Retention & Privacy</h2>
-    <ul>
-      <li>Workflow logs stored for 30–90 days (configurable)</li>
-      <li>PII fields hashed in logs unless explicitly required</li>
-      <li>Nova AI never stores payload data—stateless inference only</li>
-      <li>Customer data never used to train shared models</li>
-    </ul>
-
-    <hr />
-
-    <h2>Incident Response</h2>
-    <p>
-      SyncToScale includes real-time alerting for system issues and workflow failures.
-    </p>
-
-    <ul>
-      <li>24/7 automated monitoring</li>
-      <li>Failure pattern detection (via Nova)</li>
-      <li>Automated rollback or retry behavior during outages</li>
-      <li>Full audit trail for RCA investigations</li>
-    </ul>
-
-    <hr />
-
-    <h2>SSO & User Provisioning</h2>
-    <p>
-      Enterprise identity providers can manage user lifecycle:
-    </p>
-
-    <ul>
-      <li>Okta, Azure AD, Google Workspace SSO</li>
-      <li>SCIM 2.0 user syncing (create, update, deactivate)</li>
-      <li>Granular permission mapping per role</li>
-      <li>Session timeout + MFA enforcement rules</li>
-    </ul>
-
-  </section>
+  </main>
 
 </body>
 </html>
