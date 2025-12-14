@@ -1,133 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <title>Implementation Guide | SyncToScale</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Implementation Guide | SyncToScale</title>
 
   <link rel="stylesheet" href="styles.css" />
 
   <!-- Nova / Botpress -->
-  <script src="https://cdn.botpress.cloud/webchat/v3.4/inject.js"></script>
+  <script src="https://cdn.botpress.cloud/webchat/v3.4/inject.js" defer></script>
   <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
 
   <style>
     .page-wrap {
-      max-width: 900px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 28px 18px 72px;
+      padding: 28px 18px 70px;
     }
 
-    h1 {
-      margin-bottom: 14px;
-      font-size: 34px;
+    /* HERO (Quickstart style) */
+    .impl-hero {
+      position: relative;
+      padding: 36px 22px 34px;
+      border-radius: 16px;
+      background: linear-gradient(
+        180deg,
+        rgba(65,209,255,0.14) 0%,
+        rgba(33,225,159,0.14) 60%,
+        #ffffff 100%
+      );
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 6px 18px rgba(15,23,42,0.06);
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .impl-hero h1 {
+      font-size: 32px;
+      margin: 0;
       color: #0f172a;
+      letter-spacing: -0.02em;
     }
 
-    p {
-      font-size: 15.5px;
+    .impl-hero p {
+      max-width: 78ch;
+      margin: 12px auto 0;
+      font-size: 16px;
       color: #475569;
-      line-height: 1.7;
-      margin-bottom: 12px;
+      line-height: 1.65;
     }
 
-    .step {
-      margin-top: 32px;
-      padding: 20px;
+    /* SECTION STYLES MATCH INTEGRATIONS */
+    .section {
+      margin-top: 18px;
+      padding: 18px;
       border-radius: 16px;
       border: 1px solid #e2e8f0;
       background: #ffffff;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
     }
 
-    .step h2 {
-      margin-bottom: 6px;
-      font-size: 20px;
+    .section h2 {
+      margin: 0 0 10px;
+      font-size: 18px;
       color: #0f172a;
     }
 
-    ul {
-      padding-left: 18px;
+    .section p {
+      margin: 0 0 10px;
       font-size: 15px;
       color: #475569;
+      line-height: 1.6;
     }
 
-    li {
-      margin-bottom: 8px;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .card {
+      grid-column: span 6;
+      background: rgba(255,255,255,0.95);
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 14px;
+    }
+
+    .card.full {
+      grid-column: span 12;
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      color: #0f172a;
+    }
+
+    .card p, .card li {
+      font-size: 14px;
+      color: #475569;
+      line-height: 1.55;
+    }
+
+    .card ul {
+      margin: 8px 0 0;
+      padding-left: 18px;
+    }
+
+    @media (max-width: 860px) {
+      .card {
+        grid-column: span 12;
+      }
+      .impl-hero h1 {
+        font-size: 28px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<header class="site-header">
-  <div class="container header-inner">
-    <a href="index.html" class="logo">SyncToScale</a>
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="features.html">Features</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="docs.html">Docs</a>
-      <a href="resources.html">Resources</a>
-      <a href="about.html">About</a>
-    </nav>
-  </div>
-</header>
+  <!-- 🔒 LOCKED NAVBAR -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">SyncToScale</a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="docs.html">Docs</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
 
-<main class="page-wrap">
+  <main class="page-wrap">
 
-  <h1>Implementation: From Setup to Rollout</h1>
-  <p>
-    This guide outlines what teams can expect when implementing SyncToScale —
-    from initial discovery through steady-state operation.
-  </p>
+    <!-- HERO -->
+    <section class="impl-hero">
+      <h1>Implementation Guide</h1>
+      <p>
+        What to expect when implementing SyncToScale — from discovery through rollout
+        and ongoing operation. This guide helps teams scope, configure, validate, and
+        stabilize workflows in real environments.
+      </p>
+    </section>
 
-  <div class="step">
-    <h2>1. Discovery & scoping</h2>
-    <ul>
-      <li>Identify systems involved</li>
-      <li>Define trigger events</li>
-      <li>Clarify ownership and boundaries</li>
-    </ul>
-  </div>
+    <!-- DISCOVERY -->
+    <section class="section">
+      <h2>Discovery & scoping</h2>
+      <p>
+        Understand the systems and events that matter most. Implementation begins with
+        identifying systems, sources of truth, and the outcomes workflows should produce.
+      </p>
 
-  <div class="step">
-    <h2>2. Integration setup</h2>
-    <ul>
-      <li>Connect tools using scoped credentials</li>
-      <li>Validate permissions</li>
-      <li>Confirm connection health</li>
-    </ul>
-  </div>
+      <div class="grid">
+        <div class="card">
+          <h3>Identify sources and events</h3>
+          <p>
+            Determine which systems emit events (e.g., CRM status changes, employee records,
+            ticket escalations) that will trigger workflows.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Clarify ownership</h3>
+          <p>
+            Define which teams and roles are accountable for each system and workflow outcome.
+          </p>
+        </div>
+      </div>
+    </section>
 
-  <div class="step">
-    <h2>3. Workflow validation</h2>
-    <ul>
-      <li>Map required fields</li>
-      <li>Add guardrails and review points</li>
-      <li>Test with non-production data</li>
-    </ul>
-  </div>
+    <!-- SETUP -->
+    <section class="section soft">
+      <h2>Integration setup</h2>
+      <p>
+        Attach systems using scoped credentials or OAuth flows. Validate connections early
+        to ensure workflows operate reliably.
+      </p>
 
-  <div class="step">
-    <h2>4. Controlled rollout</h2>
-    <ul>
-      <li>Enable workflows in stages</li>
-      <li>Monitor logs and outcomes</li>
-      <li>Adjust logic as edge cases appear</li>
-    </ul>
-  </div>
+      <div class="grid">
+        <div class="card">
+          <h3>Connect with least privilege</h3>
+          <p>
+            Use service accounts or scoped tokens. Avoid full-admin credentials where possible.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Verify connection health</h3>
+          <p>
+            Confirm successful authorization and health status before building workflows.
+          </p>
+        </div>
+      </div>
+    </section>
 
-  <div class="step">
-    <h2>5. Ongoing ownership</h2>
-    <ul>
-      <li>Review integrations regularly</li>
-      <li>Update workflows as systems evolve</li>
-      <li>Maintain clear operational ownership</li>
-    </ul>
-  </div>
+    <!-- VALIDATION -->
+    <section class="section mint">
+      <h2>Workflow validation</h2>
+      <p>
+        Prior to rollout, confirm mapping rules, triggers, and edge conditions behave
+        as expected using staging or test data.
+      </p>
 
-</main>
+      <div class="grid">
+        <div class="card">
+          <h3>Mapping & guardrails</h3>
+          <p>
+            Map fields explicitly, validate conditions, and place guardrails where needed.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Test with real scenarios</h3>
+          <p>
+            Use representative datasets from staging environments for early validation.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROLLOUT -->
+    <section class="section">
+      <h2>Controlled rollout</h2>
+      <p>
+        Once validated, workflows are enabled gradually with monitoring and logging so
+        teams can observe outcomes and adjust logic if needed.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Stage-based rollout</h3>
+          <p>
+            Enable workflows for a subset of users or accounts, then expand coverage.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Monitor & adjust</h3>
+          <p>
+            Use execution logs and notifications to verify behavior and catch anomalies.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ONGOING OP -->
+    <section class="section soft">
+      <h2>Ongoing operation</h2>
+      <p>
+        Workflow ownership doesn’t end at rollout. Teams should keep mappings up to date,
+        handle schema changes in upstream tools, and revisit permissions periodically.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Review permissions</h3>
+          <p>
+            Check connection scopes and rotate tokens on a regular cadence.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Adjust to change</h3>
+          <p>
+            As systems evolve, refine workflow logic and mappings for continued accuracy.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
 </body>
 </html>
-
