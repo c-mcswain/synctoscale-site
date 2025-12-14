@@ -20,6 +20,7 @@
 
     /* HERO — RESOURCES STYLE */
     .integrations-hero {
+      position: relative;
       text-align: center;
       padding: 36px 22px 34px;
       border-radius: 16px;
@@ -32,6 +33,20 @@
       border: 1px solid #e2e8f0;
       box-shadow: 0 10px 22px rgba(15,23,42,0.06);
       margin-bottom: 32px;
+    }
+
+    .back-pill {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 500;
+      border-radius: 999px;
+      text-decoration: none;
+      color: #0f172a;
+      background: linear-gradient(135deg, #41d1ff, #21e19f);
+      box-shadow: 0 4px 10px rgba(15,23,42,0.12);
     }
 
     .integrations-hero h1 {
@@ -75,14 +90,16 @@
     .integration-logo {
       width: 44px;
       height: 44px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, #41d1ff, #21e19f);
+      margin-bottom: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 700;
-      color: #0f172a;
-      margin-bottom: 12px;
+    }
+
+    .integration-logo img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
     }
 
     .integration-card h3 {
@@ -98,7 +115,6 @@
       color: #475569;
     }
 
-    /* CATEGORY LABEL */
     .category {
       display: inline-block;
       margin-top: 10px;
@@ -132,6 +148,7 @@
 
     <!-- HERO -->
     <section class="integrations-hero">
+      <a href="resources.html" class="back-pill">← Back to resources</a>
       <h1>Integrations</h1>
       <p>
         SyncToScale connects with the tools teams already use — from HRIS and payroll
@@ -143,42 +160,54 @@
     <section class="integrations-grid">
 
       <a href="#" class="integration-card">
-        <div class="integration-logo">S</div>
+        <div class="integration-logo">
+          <img src="https://cdn.simpleicons.org/slack/4A154B" alt="Slack logo">
+        </div>
         <h3>Slack</h3>
         <p>Send messages, alerts, and workflow updates to Slack channels.</p>
         <span class="category">Messaging</span>
       </a>
 
       <a href="#" class="integration-card">
-        <div class="integration-logo">B</div>
+        <div class="integration-logo">
+          <img src="https://cdn.simpleicons.org/bamboohr/4CAF50" alt="BambooHR logo">
+        </div>
         <h3>BambooHR</h3>
         <p>Trigger workflows from employee lifecycle events.</p>
         <span class="category">HRIS</span>
       </a>
 
       <a href="#" class="integration-card">
-        <div class="integration-logo">G</div>
+        <div class="integration-logo">
+          <img src="https://cdn.simpleicons.org/gusto/F45D48" alt="Gusto logo">
+        </div>
         <h3>Gusto</h3>
         <p>Sync payroll and onboarding data automatically.</p>
         <span class="category">Payroll</span>
       </a>
 
       <a href="#" class="integration-card">
-        <div class="integration-logo">J</div>
+        <div class="integration-logo">
+          <img src="https://cdn.simpleicons.org/jira/0052CC" alt="Jira logo">
+        </div>
         <h3>Jira</h3>
         <p>Create and update issues from workflow steps.</p>
         <span class="category">Project Management</span>
       </a>
 
       <a href="#" class="integration-card">
-        <div class="integration-logo">H</div>
+        <div class="integration-logo">
+          <img src="https://cdn.simpleicons.org/hubspot/FF7A59" alt="HubSpot logo">
+        </div>
         <h3>HubSpot</h3>
         <p>Create contacts, update deals, and track lifecycle stages.</p>
         <span class="category">CRM</span>
       </a>
 
       <a href="#" class="integration-card">
-        <div class="integration-logo">W</div>
+        <div class="integration-logo">
+          <img src="https://cdn.simpleicons.org/webhooks/64748B" alt="Webhooks icon">
+        </div>
         <h3>Webhooks</h3>
         <p>Connect any system using custom HTTP endpoints.</p>
         <span class="category">Custom</span>
