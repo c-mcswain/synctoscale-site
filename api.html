@@ -108,7 +108,7 @@
     }
 
     .api-section h2 {
-      margin: 30px 0 8px;
+      margin: 34px 0 8px;
       font-size: 22px;
       color: #0f172a;
       display: flex;
@@ -205,6 +205,7 @@
       <p>
         The SyncToScale API enables workflow execution, connection management,
         event ingestion, and access to Nova AI services.
+        All requests use JSON and require authentication.
       </p>
 
       <div class="method-legend">
@@ -221,11 +222,61 @@
 
     <section class="api-section">
 
+      <!-- AUTH -->
+      <h2>Authentication</h2>
+      <p>All API requests must include a project token.</p>
+
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+<pre>Authorization: Bearer &lt;project_token&gt;
+Content-Type: application/json</pre>
+      </div>
+
+      <hr />
+
+      <!-- RUN WORKFLOW -->
       <h2><span class="pill post">POST</span> Run a Workflow</h2>
+      <p>Execute a workflow manually by posting a payload.</p>
 
       <div class="code-block">
         <button class="copy-btn">Copy</button>
 <pre>POST /workflows/{id}/run</pre>
+      </div>
+
+      <h3>Request Body</h3>
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+<pre>{
+  "payload": {
+    "employee_id": "12345",
+    "email": "test@example.com"
+  }
+}</pre>
+      </div>
+
+      <h3>Response</h3>
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+<pre>{
+  "run_id": "run_789",
+  "status": "queued",
+  "triggered_at": "2025-01-20T14:02:01Z"
+}</pre>
+      </div>
+
+      <hr />
+
+      <!-- CONNECTIONS -->
+      <h2><span class="pill post">POST</span> Create Connection</h2>
+
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+<pre>POST /connections
+{
+  "provider": "slack",
+  "auth_type": "oauth",
+  "scopes": ["chat:write", "users:read"]
+}</pre>
       </div>
 
       <h2><span class="pill get">GET</span> Get Connection Status</h2>
@@ -235,7 +286,185 @@
 <pre>GET /connections/{id}</pre>
       </div>
 
-      <!-- Remaining endpoints continue using the same pattern -->
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+<pre>{
+  "id": "conn_123",
+  "provider": "slack",
+  "status": "healthy",
+  "last_validated": "2025-01-18T12:44:00Z"
+}</pre>
+      </div>
+
+      <hr />
+
+      <!-- TRIGGERS -->
+      <h2><span class="pill post">POST</span> Send Event Trigger</h2>
+
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+<pre>POST /triggers/event
+{
+  "provider": "bamboohr",
+  "event_type": "employee.updated",
+  "payload": {
+    "id": "9981",
+    "email": "updated@example.com"
+  }
+}</pre>
+      </div>
+
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+<pre>{
+  "status": "queued",
+  "workflow": "sync_to_hr",
+  "triggered_at": "2025-01-20T14:12:00Z"
+}</pre>
+      </div>
+
+      <hr />
+
+      <!-- ACTIONS -->
+      <h2><span class="pill post">POST</span> Execute Action</h2>
+
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+<pre>POST /actions/run
+{
+  "provider": "hubspot",
+  "action": "create_contact",
+  "payload": {
+    "email": "new@example.com",
+    "first_name": "Jordan",
+    "last_name": "Lee"
+  }
+}</pre>
+      </div>
+
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+<pre>{
+  "status": "success",
+  "record_id": "contact_88171"
+}</pre>
+      </div>
+
+      <hr />
+
+      <!-- MAPPING -->
+      <h2><span class="pill post">POST</span> Validate Mapping</h2>
+
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+<pre>POST /mapping/validate
+{
+  "payload": {
+    "first_name": "Jordan",
+    "start_date": "12/01/2025"
+  },
+  "expected_schema": {
+    "first_name": "string",
+    "start_date": "date"
+  }
+}</pre>
+      </div>
+
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+<pre>{
+  "valid": false,
+  "issues": [
+    { "field": "start_date", "expected": "YYYY-MM-DD" }
+  ]
+}</pre>
+      </div>
+
+      <hr />
+
+      <!-- ERRORS -->
+      <h2><span class="pill get">GET</span> Error Lookup</h2>
+
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+<pre>GET /errors/{run_id}</pre>
+      </div>
+
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+<pre>{
+  "run_id": "run_456",
+  "step": "create_user",
+  "error_code": "invalid_permission",
+  "message": "User lacks write access to directory"
+}</pre>
+      </div>
+
+      <hr />
+
+      <!-- NOVA -->
+      <h2><span class="pill post">POST</span> Nova AI Endpoints</h2>
+
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+<pre>POST /nova/v1/mapping/suggest</pre>
+      </div>
+
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+<pre>{
+  "suggested_mapping": {
+    "first_name": "fname",
+    "email": "workEmail"
+  }
+}</pre>
+      </div>
+
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+<pre>POST /nova/v1/errors/classify</pre>
+      </div>
+
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+<pre>{
+  "category": "insufficient_permissions",
+  "recommended_fix": "Re-authenticate with directory.write"
+}</pre>
+      </div>
+
+      <hr />
+
+      <!-- PAGINATION -->
+      <h2><span class="pill get">GET</span> Pagination</h2>
+
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+<pre>GET /runs?limit=20&cursor=abc123</pre>
+      </div>
+
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+<pre>{
+  "data": [...],
+  "next_cursor": "def456"
+}</pre>
+      </div>
+
+      <hr />
+
+      <!-- RATE LIMITS -->
+      <h2>Rate Limits</h2>
+      <p>The API enforces per-project and per-token rate limits.</p>
+
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+<pre>{
+  "limit": 5000,
+  "remaining": 4977,
+  "reset": "2025-01-20T15:00:00Z"
+}</pre>
+      </div>
 
     </section>
 
