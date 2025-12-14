@@ -32,7 +32,7 @@
       );
       border: 1px solid rgba(148,163,184,0.35);
       box-shadow: 0 10px 22px rgba(15,23,42,0.06);
-      margin-bottom: 26px;
+      margin-bottom: 18px;
     }
 
     .back-pill {
@@ -63,7 +63,38 @@
       line-height: 1.55;
     }
 
-    /* METHOD PILLS */
+    /* METHOD LEGEND */
+    .method-legend {
+      max-width: 980px;
+      margin: 0 auto 28px;
+      padding: 16px 18px;
+      border-radius: 14px;
+      border: 1px solid rgba(148,163,184,0.35);
+      background: rgba(248,250,252,0.85);
+    }
+
+    .method-legend h3 {
+      margin: 0 0 10px;
+      font-size: 14px;
+      color: #0f172a;
+      font-weight: 600;
+    }
+
+    .method-pills {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .method-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: #475569;
+    }
+
     .pill {
       font-size: 12px;
       font-weight: 700;
@@ -78,13 +109,19 @@
     }
 
     .pill.get {
-      background: linear-gradient(135deg, rgba(65,209,255,0.9), rgba(148,197,255,0.9));
+      background: linear-gradient(135deg, rgba(65,209,255,0.9), rgba(99,102,241,0.9));
+    }
+
+    .method-note {
+      font-size: 13px;
+      color: #64748b;
+      margin: 0;
     }
 
     /* CONTENT */
     .doc-section {
       max-width: 980px;
-      margin-top: 28px;
+      margin: 0 auto;
     }
 
     .doc-section h2 {
@@ -96,11 +133,15 @@
       gap: 10px;
     }
 
-    .doc-section p {
-      margin: 0 0 12px;
+    .doc-section p,
+    .doc-section li {
       color: #475569;
       font-size: 15px;
       line-height: 1.65;
+    }
+
+    ul {
+      padding-left: 20px;
     }
 
     hr {
@@ -172,32 +213,36 @@
       <h1>Quickstart</h1>
       <p>
         Get up and running with SyncToScale in minutes.
-        This guide walks through authenticating, creating a connection,
-        and running your first workflow end-to-end.
+        This guide walks through creating a connection, triggering a workflow,
+        and verifying execution.
+      </p>
+    </section>
+
+    <!-- METHOD LEGEND -->
+    <section class="method-legend">
+      <h3>HTTP Methods at a Glance</h3>
+      <div class="method-pills">
+        <div class="method-item">
+          <span class="pill post">POST</span>
+          <span>Sends data to create, run, or process something</span>
+        </div>
+        <div class="method-item">
+          <span class="pill get">GET</span>
+          <span>Retrieves information without changing anything</span>
+        </div>
+      </div>
+      <p class="method-note">
+        Most examples below show how SyncToScale receives data or triggers workflows programmatically.
       </p>
     </section>
 
     <!-- CONTENT -->
     <section class="doc-section">
 
-      <h2>Step 1 — Authenticate</h2>
+      <h2>Step 1: Create a Connection</h2>
       <p>
-        All SyncToScale API requests require a project token.
-        Include it in the <code>Authorization</code> header.
-      </p>
-
-      <div class="code-block">
-        <button class="copy-btn">Copy</button>
-<pre>Authorization: Bearer &lt;project_token&gt;
-Content-Type: application/json</pre>
-      </div>
-
-      <hr />
-
-      <h2><span class="pill post">POST</span> Create a Connection</h2>
-      <p>
-        Connections link SyncToScale to external systems like HRIS,
-        CRMs, and messaging tools.
+        Start by authenticating an external system (such as an HRIS, CRM, or messaging platform).
+        Connections are securely stored and reused across workflows.
       </p>
 
       <div class="code-block">
@@ -212,10 +257,26 @@ Content-Type: application/json</pre>
 
       <hr />
 
-      <h2><span class="pill post">POST</span> Run a Workflow</h2>
+      <h2>Step 2: Configure a Trigger</h2>
       <p>
-        Trigger a workflow manually by sending a payload
-        to the workflow run endpoint.
+        Triggers determine when a workflow starts.
+        Event-based triggers activate immediately when new data enters the system.
+      </p>
+
+      <div class="code-block">
+        <button class="copy-btn">Copy</button>
+<pre>POST /triggers/event
+{
+  "provider": "bamboohr",
+  "event_type": "employee.created"
+}</pre>
+      </div>
+
+      <hr />
+
+      <h2>Step 3: Run the Workflow</h2>
+      <p>
+        Once configured, workflows can be triggered automatically or executed manually for testing.
       </p>
 
       <div class="code-block">
@@ -224,32 +285,30 @@ Content-Type: application/json</pre>
 {
   "payload": {
     "employee_id": "12345",
-    "email": "test@example.com"
+    "email": "newhire@example.com"
   }
 }</pre>
       </div>
 
       <hr />
 
-      <h2><span class="pill get">GET</span> Check Run Status</h2>
+      <h2>Step 4: Verify Execution</h2>
       <p>
-        Retrieve execution details and confirm whether the workflow
-        completed successfully.
+        Use logs to confirm successful execution and review any warnings or errors.
       </p>
 
       <div class="code-block">
         <button class="copy-btn">Copy</button>
-<pre>GET /runs/{run_id}</pre>
-      </div>
-
-      <div class="code-block">
-        <button class="copy-btn">Copy</button>
-<pre>{
-  "run_id": "run_789",
-  "status": "completed",
-  "completed_at": "2025-01-20T14:05:12Z"
+<pre>GET /runs/{run_id}
+{
+  "status": "success",
+  "completed_at": "2025-01-20T14:42:00Z"
 }</pre>
       </div>
+
+      <p>
+        From here, you can extend workflows with actions, mappings, and Nova-powered intelligence.
+      </p>
 
     </section>
 
