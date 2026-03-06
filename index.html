@@ -5,15 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SyncToScale</title>
 
-  <!-- GLOBAL STYLES (NAVBAR LIVES HERE) -->
+  <!-- GLOBAL STYLES -->
   <link rel="stylesheet" href="styles.css" />
 
   <!-- BOTPRESS / NOVA -->
   <script src="https://cdn.botpress.cloud/webchat/v3.4/inject.js"></script>
   <script src="https://files.bpcontent.cloud/2025/12/01/09/20251201094506-3NVBZ4D2.js" defer></script>
 
-  <!-- INDEX-ONLY STYLES (NO NAVBAR STYLES ALLOWED HERE) -->
+  <!-- INDEX-ONLY STYLES -->
   <style>
+
     /* HERO */
     .hero {
       width: 100%;
@@ -36,6 +37,40 @@
     .section-heading {
       text-align: center;
       margin-bottom: 40px;
+    }
+
+    /* HOMEPAGE RECRUITER CTA */
+    .home-recruiter-strip {
+      padding: 28px 20px 12px;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fffe 100%);
+    }
+
+    .home-recruiter-cta {
+      text-align: center;
+    }
+
+    .home-recruiter-cta a {
+      display: inline-block;
+      background: linear-gradient(135deg, #41d1ff, #21e19f);
+      color: #053c3c;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px 22px;
+      border-radius: 14px;
+      text-decoration: none;
+      box-shadow: 0 8px 22px rgba(33, 225, 159, 0.28);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .home-recruiter-cta a:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 28px rgba(33, 225, 159, 0.38);
+    }
+
+    .home-recruiter-note {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #64748b;
     }
 
     /* INTEGRATIONS */
@@ -113,12 +148,13 @@
       pointer-events: none;
       z-index: 999999;
     }
+
   </style>
 </head>
 
 <body>
 
-<!-- 🔒 NAVBAR (LOCKED — SAME AS TEMPLATES) -->
+<!-- NAVBAR -->
 <header class="site-header">
   <div class="container header-inner">
     <a href="index.html" class="logo">SyncToScale</a>
@@ -133,11 +169,25 @@
   </div>
 </header>
 
-<!-- ✅ HEADER OFFSET (REQUIRED FOR STICKY HEADER) -->
+<!-- HEADER OFFSET -->
 <div style="height: 86px;"></div>
 
 <!-- HERO -->
 <section class="hero"></section>
+
+<!-- RECRUITER CTA -->
+<section class="home-recruiter-strip">
+  <div class="container">
+    <div class="home-recruiter-cta">
+      <a href="about.html">
+        👋 Recruiter or hiring manager? See what this project demonstrates →
+      </a>
+      <div class="home-recruiter-note">
+        You can also ask Nova in the bottom-right corner for a guided walkthrough.
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- INTEGRATIONS -->
 <section class="section">
